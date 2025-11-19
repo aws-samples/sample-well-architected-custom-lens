@@ -17,8 +17,6 @@ AWS Well-Architected Lenses extend the guidance offered by AWS Well-Architected 
 
 2. **Access AWS Well-Architected Tool:**
    - Navigate to the [AWS Well-Architected Tool](https://console.aws.amazon.com/wellarchitected/) in your AWS Console
-   
-   ![AWS Well-Architected Tool Console](images/wa-tool-console.png)
 
 3. **Import custom lens:**
    - Navigate to **Custom lenses** in the left-hand navigation
@@ -27,14 +25,10 @@ AWS Well-Architected Lenses extend the guidance offered by AWS Well-Architected 
    - Upload the JSON lens file
    - Review and confirm the import
 
-   ![Import custom lens](images/import-custom-lens.png)
-
 4. **Preview the lens:**
    - After importing, you can use the **Preview Experience** to explore the lens
    - You can view all questions, pillars, and guidance without creating a formal workload
    - Perfect for understanding the lens structure and content
-
-   ![Preview lens experience](images/preview-lens.png)
 
 For complete workload reviews and publishing the lens for broader use, see [Custom lenses for workloads in AWS WA Tool](https://docs.aws.amazon.com/wellarchitected/latest/userguide/lenses-custom.html).
 
@@ -45,8 +39,6 @@ After importing the lens, use the **Preview Experience** to:
 - Review questions and understand the guidance provided
 - Explore helpful resources and improvement plans for each question
 - Get familiar with the lens structure before formal assessments
-
-![Preview lens interface](images/preview-interface.png)
 
 ## Resources
 
