@@ -1,0 +1,2027 @@
+{
+    "schemaVersion": "2021-11-01",
+    "name": "Responsible AI Lens",
+    "description": "The AWS Well-Architected Framework Responsible AI (RAI) Lens assists builder teams succeed at responsibly building and operating AI solutions that solve specific AI use cases.",
+    "pillars": [
+        {
+            "id": "useCase",
+            "name": "Use case",
+            "questions": [
+                {
+                    "id": "RAIUC01",
+                    "title": "How do you define the specific problem you are trying to solve?",
+                    "description": "The narrower the use case, the more precisely you can assess and mitigate risks and measure performance.",
+                    "choices": [
+                        {
+                            "id": "RAIUC01_BP01",
+                            "title": "Clarify the business problem",
+                            "helpfulResource": {
+                                "displayText": "Describe the specific problem or business challenge. Assess how frequently the challenge occurs, where it occurs, and its concrete impacts. Describe the specific benefit of solving the challenge for the primary user for your use case.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/responsible-ai-lens/raiuc01-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Clarify the business problem",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/responsible-ai-lens/raiuc01-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "RAIUC01_BP02",
+                            "title": "Verify that AI is required to solve the problem",
+                            "helpfulResource": {
+                                "displayText": "Before committing to using AI, evaluate whether traditional software approaches or even manual processes could meet your requirements. Choose AI if it provides clear, substantial benefits over competing solutions, and not simply because it is technically possible to apply AI to the problem.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/responsible-ai-lens/raiuc01-bp02.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Verify that AI is required to solve the problem",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/responsible-ai-lens/raiuc01-bp02.html"
+                            }
+                        },
+                        {
+                            "id": "RAIUC01_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "RAIUC01_BP01 && RAIUC01_BP02",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!RAIUC01_BP01) || (!RAIUC01_BP02)",
+                            "risk": "HIGH_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "MEDIUM_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "RAIUC02",
+                    "title": "How will you identify the stakeholders of your use case?",
+                    "description": "A stakeholder is a person, group or entity involved in, or affected by, the development or operation of the AI system. Identify the specific stakeholders so that you can assess actual benefits and risks for your use case.",
+                    "choices": [
+                        {
+                            "id": "RAIUC02_BP01",
+                            "title": "Identify downstream stakeholders",
+                            "helpfulResource": {
+                                "displayText": "Identify a person, group, or entity involved in or affected by the operation of the proposed AI system. Consider different stakeholder categories, like primary users, secondary users, and indirect stakeholders. Consider whether vulnerable populations could be stakeholders. Seek out individuals with different perspectives from those of the builder team, including potential stakeholder groups and different organizational functions, to identify possible stakeholders.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/responsible-ai-lens/raiuc02-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Identify downstream stakeholders",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/responsible-ai-lens/raiuc02-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "RAIUC02_BP02",
+                            "title": "Identify contributing and other upstream stakeholders",
+                            "helpfulResource": {
+                                "displayText": "Identify the full set of people involved in designing, developing, deploying, operating, funding, supplying, and approving an AI system built by your team. The set may include product managers, engineers, data scientists, AI oversight functions (compliance, assurance, risk), domain experts on topics such as security, privacy, existing AI systems, or the use case itself, as well as other contributors or users.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/responsible-ai-lens/raiuc02-bp02.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Identify contributing and other upstream stakeholders",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/responsible-ai-lens/raiuc02-bp02.html"
+                            }
+                        },
+                        {
+                            "id": "RAIUC02_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "RAIUC02_BP01 && RAIUC02_BP02",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!RAIUC02_BP01) || (!RAIUC02_BP02)",
+                            "risk": "HIGH_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "MEDIUM_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "RAIUC03",
+                    "title": "How will you refine your use case understanding without detailing the technical solution?",
+                    "description": "Prior to designing or prototyping a solution, imagine the AI system solving the use case as just a box containing an unknown mechanism. Anticipate the inputs and outputs to the box, how the inputs and outputs might vary, and the kind of information (or type of AI) the mechanism in the box would need to succeed.",
+                    "choices": [
+                        {
+                            "id": "RAIUC03_BP01",
+                            "title": "Identify the expected input and outputs for the AI system",
+                            "helpfulResource": {
+                                "displayText": "Imagine the AI system solving the use case as a box containing an unknown mechanism. Describe the inputs to the AI system. Stay at a high level, focusing, for example, on whether inputs might contain spoken English text and images, but not on the specific audio or image filetypes. Consider what information is present in the input signal, and whether that information is enough to infer the desired outputs. Consider whether the inputs and outputs differ from how the use case is currently solved.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/responsible-ai-lens/raiuc03-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Identify the expected input and outputs for the AI system",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/responsible-ai-lens/raiuc03-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "RAIUC03_BP02",
+                            "title": "Identify how your expected inputs could vary in their content",
+                            "helpfulResource": {
+                                "displayText": "Identify the ways in which inputs to the AI system might systematically vary under real-world conditions. For example, the inputs to system that transcribes speech in audio recordings might vary by background noise, physical characteristics of the voices, or the sensitivity of the microphone. Or, inputs to chatbot could vary by language, use of slang or jargon, or word spellings (\"analyze\" vs \"analyse\"). Decide whether each type of variation is something the AI system should attend to, or ignore.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/responsible-ai-lens/raiuc03-bp02.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Identify how your expected inputs could vary in their content",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/responsible-ai-lens/raiuc03-bp02.html"
+                            }
+                        },
+                        {
+                            "id": "RAIUC03_BP03",
+                            "title": "Identify the type of AI required by your AI use case",
+                            "helpfulResource": {
+                                "displayText": "Selecting the appropriate type of AI solution is a critical decision that fundamentally shapes your project's success and risk profile. Your choice of traditional ML, generative AI, or agentic AI must align with your specific use case requirements, data availability, and desired outcomes. The decision impacts everything from development complexity and resource requirements to explainability and risk management needs. A misaligned choice can lead to project failure, increased costs, or unmanageable risks, while the right selection creates a foundation for successful AI implementation that meets business objectives while maintaining appropriate controls.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/responsible-ai-lens/raiuc03-bp03.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Identify the type of AI required by your AI use case",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/responsible-ai-lens/raiuc03-bp03.html"
+                            }
+                        },
+                        {
+                            "id": "RAIUC03_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "RAIUC03_BP01 && RAIUC03_BP02 && RAIUC03_BP03",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!RAIUC03_BP01) || (!RAIUC03_BP02) || (!RAIUC03_BP03)",
+                            "risk": "HIGH_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "MEDIUM_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "RAIUC04",
+                    "title": "How will you anticipate the impact of your AI solution on the workflow in which it is deployed?",
+                    "description": "Mapping user journeys can identify unexpected points of friction and misunderstood design requirements and provide guidance on where transparency and human oversight may be most useful.",
+                    "choices": [
+                        {
+                            "id": "RAIUC04_BP01",
+                            "title": "Map the user journey to identify AI interaction requirements",
+                            "helpfulResource": {
+                                "displayText": "Map the user journey to identify interaction requirements and risks. During pre-interaction, assist users in learning about the system's capabilities and limitations. During the initial interaction, consider the different accessibility needs of users, and the different sources for key system inputs. During processing, maintain transparency about AI decision-making and provide appropriate progress indicators. Post-interaction, enable users to understand, challenge, and provide feedback on AI outputs, which keeps the system accountable and improvable. Consider how different user groups might be affected differently at each stage and implement appropriate safeguards and support mechanisms. If the AI system will be embedded in an existing human-powered workflow, consider what purposes the workflow might address that the AI system does not, and consider the variety of ways in which users might modify system inputs and outputs for other purposes.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/responsible-ai-lens/raiuc04-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Map the user journey to identify AI interaction requirements",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/responsible-ai-lens/raiuc04-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "RAIUC04_BP02",
+                            "title": "Identify human oversight opportunities",
+                            "helpfulResource": {
+                                "displayText": "Place human review at points where the quality of system inputs or outputs can be harder to judge. Consider moments where human expertise adds unique value or assists with consequential decisions.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/responsible-ai-lens/raiuc04-bp02.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Identify human oversight opportunities",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/responsible-ai-lens/raiuc04-bp02.html"
+                            }
+                        },
+                        {
+                            "id": "RAIUC04_BP03",
+                            "title": "Identify accessibility requirements for different user groups",
+                            "helpfulResource": {
+                                "displayText": "Identifying accessibility points assists to generate requirements for people with different capabilities and disabilities to use the proposed AI system effectively.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/responsible-ai-lens/raiuc04-bp03.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Identify accessibility requirements for different user groups",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/responsible-ai-lens/raiuc04-bp03.html"
+                            }
+                        },
+                        {
+                            "id": "RAIUC04_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "RAIUC04_BP01 && RAIUC04_BP02 && RAIUC04_BP03",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!RAIUC04_BP01) || (!RAIUC04_BP02) || (!RAIUC04_BP03)",
+                            "risk": "HIGH_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "MEDIUM_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "RAIUC05",
+                    "title": "How will you identify applicable organizational requirements and approvals?",
+                    "description": "AI systems may involve data processing, contributors, and users that span multiple geographic locations and legal jurisdictions. This may result in the AI system needing to meet multiple differing, overlapping, and organizational obligations. Consult organizational experts to identify and clarify requirements.",
+                    "choices": [
+                        {
+                            "id": "RAIUC05_BP01",
+                            "title": "Engage your organization in approving your use case",
+                            "helpfulResource": {
+                                "displayText": "Identify the geographic locations in which the proposed AI system will operate. Consult with your legal team to identify applicable regulatory requirements. Check your organization's policies and processes for the approval of AI use cases. They may establish governance procedures that outline approval requirements and designate responsible oversight bodies to evaluate and authorize AI initiatives.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/responsible-ai-lens/raiuc05-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Engage your organization in approving your use case",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/responsible-ai-lens/raiuc05-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "RAIUC05_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "RAIUC05_BP01",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!RAIUC05_BP01)",
+                            "risk": "HIGH_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "MEDIUM_RISK"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "benefitsAndRisks",
+            "name": "Benefits and risks",
+            "questions": [
+                {
+                    "id": "RAIBR01",
+                    "title": "How will you characterize intended benefits?",
+                    "description": "Identify the benefits to each type of downstream stakeholder. Example benefits could include efficiency improvements, cost reductions, and enhanced experiences. Benefits are the fundamental justification for your system and provide a foundation for making trade-off decisions throughout the development lifecycle. Capture the highest impact benefits, irrespective of how precisely they can be measured. This approach assists you to align development priorities with stakeholder needs rather than being driven by technical capabilities alone.",
+                    "choices": [
+                        {
+                            "id": "RAIBR01_BP01",
+                            "title": "Aggregate beneficial events into intended benefits",
+                            "helpfulResource": {
+                                "displayText": "Identify the specific beneficial events that could assist each type of downstream stakeholder. Translate these events into specific intended benefits for the use case.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/responsible-ai-lens/raibr01-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Aggregate beneficial events into intended benefits",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/responsible-ai-lens/raibr01-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "RAIBR01_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "RAIBR01_BP01",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!RAIBR01_BP01)",
+                            "risk": "HIGH_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "MEDIUM_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "RAIBR02",
+                    "title": "How will you identify and categorize potential harmful events?",
+                    "description": "Use a structured approach to identify harmful events that could potentially occur when solving this use case with the proposed AI system.",
+                    "choices": [
+                        {
+                            "id": "RAIBR02_BP01",
+                            "title": "Identify potential harmful events impacting fairness",
+                            "helpfulResource": {
+                                "displayText": "Examine how the proposed AI system might affect different stakeholder groups and subgroups throughout the entire system lifecycle. A fairness assessment may consider harms to individuals (for example, wrongful denials) and to groups (for example, performance variations across demographic groups).",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/responsible-ai-lens/raibr02-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Identify potential harmful events impacting fairness",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/responsible-ai-lens/raibr02-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "RAIBR02_BP02",
+                            "title": "Identify potential harmful events impacting veracity",
+                            "helpfulResource": {
+                                "displayText": "Veracity harms arise when AI systems produce factual errors, as measured against an established base set of facts. Errors include hallucinations, omissions, and misemphases. These errors can propagate through AI systems, affecting downstream decision-making processes. Hallucinations and other veracity-related issues can compound across other responsible AI dimensions to create complex patterns of harm.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/responsible-ai-lens/raibr02-bp02.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Identify potential harmful events impacting veracity",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/responsible-ai-lens/raibr02-bp02.html"
+                            }
+                        },
+                        {
+                            "id": "RAIBR02_BP03",
+                            "title": "Identify potential harmful events impacting robustness",
+                            "helpfulResource": {
+                                "displayText": "Mishandling foreseeable variations in inputs can create harmful events. Input variations come in two kinds. Intrinsic variations are differences in input data to which an AI system must attend to succeed. Confounding variations are differences in input data that an AI system must ignore to succeed. You should also consider whether slight changes in input data can produce dramatically different outputs and how input instabilities can cascade across system components.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/responsible-ai-lens/raibr02-bp03.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Identify potential harmful events impacting robustness",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/responsible-ai-lens/raibr02-bp03.html"
+                            }
+                        },
+                        {
+                            "id": "RAIBR02_BP04",
+                            "title": "Identify potential harmful events impacting privacy",
+                            "helpfulResource": {
+                                "displayText": "Harmful events can result from using data that is confidential or personal in ways that do not align with the rules for correctly handling such data.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/responsible-ai-lens/raibr02-bp04.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Identify potential harmful events impacting privacy",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/responsible-ai-lens/raibr02-bp04.html"
+                            }
+                        },
+                        {
+                            "id": "RAIBR02_BP05",
+                            "title": "Identify potential harmful events impacting safety",
+                            "helpfulResource": {
+                                "displayText": "System outputs (content or actions) might create unintended impacts on the health or well-being of individuals, groups, society or the environment and can be misused in ways that could cause harm. Unsafe inputs can create harmful system responses. Understanding safety harms requires examining both immediate harms and downstream effects across different stakeholder groups, while considering how safety violations might cascade through system operations and user interactions.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/responsible-ai-lens/raibr02-bp05.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Identify potential harmful events impacting safety",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/responsible-ai-lens/raibr02-bp05.html"
+                            }
+                        },
+                        {
+                            "id": "RAIBR02_BP06",
+                            "title": "Identify potential harmful events impacting system and data security",
+                            "helpfulResource": {
+                                "displayText": "Because AI systems process inputs and generate responses based on patterns learned from data, they have the potential for issues that traditional security measures may not address. Specifically, security harms can occur when AI systems are subjected to adversarial inputs by authorized users. These inputs may manipulate your system to behave in unintended ways, disclose confidential data, or extract information about your model's design and capabilities. Security threats to AI systems include: Vulnerabilities in system interfaces and interaction surfaces, Prompt injections where users try to override your system's instructions, Jailbreaking attempts that bypass safety guardrails, Adversarial inputs designed to exploit gaps in robustness, Model extraction approaches that try to reverse engineer your AI system, Data poisoning where your training or operational data sources can be contaminated, Collusions between adversarial agents, Infrastructure security vulnerabilities in access controls and system configuration.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/responsible-ai-lens/raibr02-bp06.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Identify potential harmful events impacting system and data security",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/responsible-ai-lens/raibr02-bp06.html"
+                            }
+                        },
+                        {
+                            "id": "RAIBR02_BP07",
+                            "title": "Identify potential harmful events impacting explainability",
+                            "helpfulResource": {
+                                "displayText": "Users may want or need to understand why their input produced the system output that it did. Consider, for example, what harm might result from rejecting a loan application if an explanation would have assisted the user to fix an incorrect input. A lack of understanding of system outputs can compound AI harmful events and errors, making troubleshooting difficult.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/responsible-ai-lens/raibr02-bp07.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Identify potential harmful events impacting explainability",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/responsible-ai-lens/raibr02-bp07.html"
+                            }
+                        },
+                        {
+                            "id": "RAIBR02_BP08",
+                            "title": "Identify potential harmful events impacting transparency",
+                            "helpfulResource": {
+                                "displayText": "Transparency is the degree to which stakeholders can make informed choices in their engagement with an AI system. Consider situations in which users do not understand the probabilistic nature of an AI system, are unaware of AI system presence, or may not realize that an output is AI-generated.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/responsible-ai-lens/raibr02-bp08.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Identify potential harmful events impacting transparency",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/responsible-ai-lens/raibr02-bp08.html"
+                            }
+                        },
+                        {
+                            "id": "RAIBR02_BP09",
+                            "title": "Choose multiple strategies to identify potential harmful events",
+                            "helpfulResource": {
+                                "displayText": "In addition to assessing potential harmful events for each responsible AI dimension independently, employ complementary strategies to identify potentially harmful events and negative stakeholder impact within the context of different use environments. Check for these events at different steps of using the AI system and under different failure modes, which includes both technical failures and misuse or abuse of the AI system. Additional strategies include scenario-based analyses, system limitation assessments that surface operational constraints, choosing a risk team with diverse backgrounds, consulting with external stakeholders, and reviewing historical incidents or risk assessment results from similar systems.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/responsible-ai-lens/raibr02-bp09.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Choose multiple strategies to identify potential harmful events",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/responsible-ai-lens/raibr02-bp09.html"
+                            }
+                        },
+                        {
+                            "id": "RAIBR02_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "RAIBR02_BP01 && RAIBR02_BP02 && RAIBR02_BP03 && RAIBR02_BP04 && RAIBR02_BP05 && RAIBR02_BP06 && RAIBR02_BP07 && RAIBR02_BP08 && RAIBR02_BP09",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!RAIBR02_BP01) || (!RAIBR02_BP02) || (!RAIBR02_BP03) || (!RAIBR02_BP04) || (!RAIBR02_BP05) || (!RAIBR02_BP06) || (!RAIBR02_BP07) || (!RAIBR02_BP08) || (!RAIBR02_BP09)",
+                            "risk": "HIGH_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "MEDIUM_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "RAIBR03",
+                    "title": "How will you assess the risks posed by the potential harmful events?",
+                    "description": "Assess the risk level of potential harms based on their likelihood and severity. Risk rankings assist to prioritize investments in mitigations and to incorporate proper controls in the design phase. Establish your methodology for assigning risk before performing the assessment. If your organization has already developed a methodology, use it so that your organization can make equal risk comparisons across use cases. Register risk for tracking and informed decision-making across AI use cases.",
+                    "choices": [
+                        {
+                            "id": "RAIBR03_BP01",
+                            "title": "Identify the likelihood of each potential harm",
+                            "helpfulResource": {
+                                "displayText": "Establish a risk rating methodology that considers the likelihood of the event occurring. The risk likelihood indicates the probability of a harmful event occurring when the system is deployed for the use case.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/responsible-ai-lens/raibr03-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Identify the likelihood of each potential harm",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/responsible-ai-lens/raibr03-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "RAIBR03_BP02",
+                            "title": "Identify the severity of each potential harm",
+                            "helpfulResource": {
+                                "displayText": "Risk severity estimates the magnitude of the negative on affected stakeholder groups if it were to occur. Severity also considers the reversibility of harm, recognizing that some types of harm may be permanent or difficult to remedy.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/responsible-ai-lens/raibr03-bp02.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Identify the severity of each potential harm",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/responsible-ai-lens/raibr03-bp02.html"
+                            }
+                        },
+                        {
+                            "id": "RAIBR03_BP03",
+                            "title": "Assign an overall risk level to each potential harm",
+                            "helpfulResource": {
+                                "displayText": "Risk ratings are typically determined by using a risk matrix that combines the likelihood (probability of occurrence) and severity (degree of consequences) of the potential harmful events.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/responsible-ai-lens/raibr03-bp03.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Assign an overall risk level to each potential harm",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/responsible-ai-lens/raibr03-bp03.html"
+                            }
+                        },
+                        {
+                            "id": "RAIBR03_BP04",
+                            "title": "Use a risk registry to track and calibrate potential harms and risks",
+                            "helpfulResource": {
+                                "displayText": "Establish a risk registry to track and calibrate categories of risks across your ML lifecycle and other use cases your team or organization may be tackling. The registry includes information about each identified risk, including the associated use case, examples of harmful input and output pairs, affected stakeholders, likelihood, severity, risk level, and high-level mitigation approaches. Risk registry maintenance includes processes for keeping risk information current and accurate as use cases and systems evolve, new threats emerge, and responsible AI understanding deepens.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/responsible-ai-lens/raibr03-bp04.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Use a risk registry to track and calibrate potential harms and risks",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/responsible-ai-lens/raibr03-bp04.html"
+                            }
+                        },
+                        {
+                            "id": "RAIBR03_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "RAIBR03_BP01 && RAIBR03_BP02 && RAIBR03_BP03 && RAIBR03_BP04",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!RAIBR03_BP01) || (!RAIBR03_BP02) || (!RAIBR03_BP03) || (!RAIBR03_BP04)",
+                            "risk": "HIGH_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "MEDIUM_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "RAIBR04",
+                    "title": "How will you mitigate the risks you have identified?",
+                    "description": "Narrowing the use case may limit the exposure to risks. You can mitigate some by exploring trade-offs with either benefits or other risks.",
+                    "choices": [
+                        {
+                            "id": "RAIBR04_BP01",
+                            "title": "Narrow the use case",
+                            "helpfulResource": {
+                                "displayText": "Identify the minimum viable use case that still delivers meaningful business value while reducing complexity and associated risks. Narrow the use case to a specific domain, industry vertical, geography, or user segment rather than attempting to solve broad, general problems. Restrict the types of inputs your system accepts and the formats of outputs it generates.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/responsible-ai-lens/raibr04-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Narrow the use case",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/responsible-ai-lens/raibr04-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "RAIBR04_BP02",
+                            "title": "Weigh trade-offs across competing use case objectives",
+                            "helpfulResource": {
+                                "displayText": "Evaluate and balance trade-offs between benefits and risks. If not already available from your organization, develop explicit trade-off criteria (like tenets) that reflect organizational policies and stakeholder needs.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/responsible-ai-lens/raibr04-bp02.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Weigh trade-offs across competing use case objectives",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/responsible-ai-lens/raibr04-bp02.html"
+                            }
+                        },
+                        {
+                            "id": "RAIBR04_BP03",
+                            "title": "Assign your potential harm mitigations to implementation strategies",
+                            "helpfulResource": {
+                                "displayText": "As input to your system design, consider whether potential harms can be addressed through technical features or stakeholder guidance.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/responsible-ai-lens/raibr04-bp03.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Assign your potential harm mitigations to implementation strategies",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/responsible-ai-lens/raibr04-bp03.html"
+                            }
+                        },
+                        {
+                            "id": "RAIBR04_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "RAIBR04_BP01 && RAIBR04_BP02 && RAIBR04_BP03",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!RAIBR04_BP01) || (!RAIBR04_BP02) || (!RAIBR04_BP03)",
+                            "risk": "MEDIUM_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "HIGH_RISK"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "releaseCriteria",
+            "name": "Release criteria",
+            "questions": [
+                {
+                    "id": "RAIRC01",
+                    "title": "How will you define release criteria?",
+                    "description": "Set clear, testable criteria to determine when your AI system is ready for deployment by defining binary pass or fail tests for each expected benefit and potential harm.",
+                    "choices": [
+                        {
+                            "id": "RAIRC01_BP01",
+                            "title": "Turn your expected benefits and potential harms into testable release criteria",
+                            "helpfulResource": {
+                                "displayText": "Turn your identified potential harms and expected benefits into clear yes or no questions that determine if your system is ready for deployment. Each question should address either a specific harm you want to block or a benefit you want your system to deliver. These questions form the basis of your release criteria that should be passed before your system is considered ready for release. Track which stakeholders bear the impact of a failed criterion. You may need multiple criteria for complex harms and benefits. This approach yields a consistent, data-driven approach for determining when your system is ready for release.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/responsible-ai-lens/rairc01-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Turn your expected benefits and potential harms into testable release criteria",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/responsible-ai-lens/rairc01-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "RAIRC01_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "RAIRC01_BP01",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!RAIRC01_BP01)",
+                            "risk": "HIGH_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "MEDIUM_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "RAIRC02",
+                    "title": "How will you measure the properties tested by your release criteria?",
+                    "description": "Select appropriate quantitative metrics that can reliably detect and measure the specific information needed to answer the questions in your release criteria.",
+                    "choices": [
+                        {
+                            "id": "RAIRC02_BP01",
+                            "title": "Select metrics to measure the properties tested by the release criteria",
+                            "helpfulResource": {
+                                "displayText": "For each release criterion you defined, choose specific metrics that can reliably measure the information needed to answer the question. A single criterion may require multiple metrics to properly measure it. Consider both automated metrics (like accuracy scores and toxicity detection) and human evaluation methods (like expert reviews and user feedback) depending on what you're measuring and explore open-source libraries as well as proprietary services that provide pre-built metrics. Document which metrics map to which criteria so you have a clear measurement plan for every release question you need to answer.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/responsible-ai-lens/rairc02-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Select metrics to measure the properties tested by the release criteria",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/responsible-ai-lens/rairc02-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "RAIRC02_BP02",
+                            "title": "Consider strength and limitation trade-offs when choosing metrics",
+                            "helpfulResource": {
+                                "displayText": "Before selecting a metric to measure a release criterion, assess its strengths and weaknesses. Validate model-derived metrics (such as LLM-as-a-judge or -jury) through correlation with human assessors, and document limitations that affect reproducibility (for example, random seed or model version used in LLM-as-a-judge). Evaluate metrics derived from human assessors and annotators for unwanted bias, assessor variance, and consistency. Consider trade-offs between automated metrics, which are generally consistent but may miss context, compared to human evaluation, which may be more nuanced but subjective and harder to scale.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/responsible-ai-lens/rairc02-bp02.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Consider strength and limitation trade-offs when choosing metrics",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/responsible-ai-lens/rairc02-bp02.html"
+                            }
+                        },
+                        {
+                            "id": "RAIRC02_BP03",
+                            "title": "Design a custom metric if no suitable metric exists",
+                            "helpfulResource": {
+                                "displayText": "When creating custom metrics for benefits or potential harmful events, define what you need to measure and its key characteristics. Break complex concepts into quantifiable components that directly relate to stakeholder impacts. Design metrics with definitions and examples of positive and negative results, including edge cases. Validate your custom metric against known examples, choose appropriate measurement scales (like binary, categorical, or continuous), and document the methodology. Plan for refinement based on testing, being cautious of metrics that may not generalize well beyond initial testing.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/responsible-ai-lens/rairc02-bp03.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Design a custom metric if no suitable metric exists",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/responsible-ai-lens/rairc02-bp03.html"
+                            }
+                        },
+                        {
+                            "id": "RAIRC02_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "RAIRC02_BP01 && RAIRC02_BP02 && RAIRC02_BP03",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!RAIRC02_BP01) || (!RAIRC02_BP02) || (!RAIRC02_BP03)",
+                            "risk": "HIGH_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "MEDIUM_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "RAIRC03",
+                    "title": "How will you select metrics for the release criteria across each responsible AI dimension?",
+                    "description": "Consider specialized metrics for release criteria related to your identified potential harms.",
+                    "choices": [
+                        {
+                            "id": "RAIRC03_BP01",
+                            "title": "Measure safety harms and harmful outputs",
+                            "helpfulResource": {
+                                "displayText": "Create objective definitions of safe and unsafe content for your use case by considering both direct potential harms and contextual inappropriateness. Identify harm categories relevant to possible outputs of your system (for example, toxicity or violence). For identified harm categories, select metrics and plan tests with both quantitative (for example, model-based toxicity classifiers) and qualitative evaluation strategies (for example, human red-teaming). Supplement your safety evaluation with popular open-source benchmarks (like ToxiGen and AdvBench) and Resources (like Detoxify), and choose metric types that are appropriate for the risk of your use case.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/responsible-ai-lens/rairc03-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Measure safety harms and harmful outputs",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/responsible-ai-lens/rairc03-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "RAIRC03_BP02",
+                            "title": "Measure fairness as unwanted bias across stakeholder groups",
+                            "helpfulResource": {
+                                "displayText": "Measure variations across relevant stakeholder groups based on your specific use case and context. This evaluation may include identifying appropriate fairness metrics that align with your use case requirements and could examine consistency at both individual and group levels. Technical approaches for measuring variations in system performance may include metrics such as demographic parity, equal outcome rates, equalized odds and equal opportunity to understand the experience of different groups using the system. Balance these different fairness metrics based on your use case context, as optimizing for one type of fairness may sometimes conflict with others.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/responsible-ai-lens/rairc03-bp02.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Measure fairness as unwanted bias across stakeholder groups",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/responsible-ai-lens/rairc03-bp02.html"
+                            }
+                        },
+                        {
+                            "id": "RAIRC03_BP03",
+                            "title": "Measure veracity of outputs",
+                            "helpfulResource": {
+                                "displayText": "Assess your system's tendency to generate factually accurate information while avoiding the specific types of hallucinations, misinformation, or fabricated content your risk assessment identified as problematic for your use case. Implement automated fact-checking and human expert evaluations. Measure the specific aspects of truthfulness your risk assessment prioritized such as factual accuracy, groundedness to source material, or consistency across interactions.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/responsible-ai-lens/rairc03-bp03.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Measure veracity of outputs",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/responsible-ai-lens/rairc03-bp03.html"
+                            }
+                        },
+                        {
+                            "id": "RAIRC03_BP04",
+                            "title": "Measure robustness of outputs to input variation",
+                            "helpfulResource": {
+                                "displayText": "Measure how consistently your system performs when faced with the specific input variations and distribution shifts that are relevant to your use case. Prepare to test performance across the natural variations your risk assessment determined users might provide (such as different writing styles, dialects, image qualities, or audio conditions relevant to your use case).",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/responsible-ai-lens/rairc03-bp04.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Measure robustness of outputs to input variation",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/responsible-ai-lens/rairc03-bp04.html"
+                            }
+                        },
+                        {
+                            "id": "RAIRC03_BP05",
+                            "title": "Measure privacy protection",
+                            "helpfulResource": {
+                                "displayText": "Measure how well your system protects each type of confidential or personal information that your risk assessment identified as at risk. This may include detecting privacy leaks, unauthorized data access patterns, or inappropriate data retention issues your risk assessment determined to be most likely or impactful. Assess private data identification and redaction capabilities for the data types that your risk assessment prioritized and consult with your legal team on the specific privacy regulations relevant to your use case.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/responsible-ai-lens/rairc03-bp05.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Measure privacy protection",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/responsible-ai-lens/rairc03-bp05.html"
+                            }
+                        },
+                        {
+                            "id": "RAIRC03_BP07",
+                            "title": "Measure user controllability of system behavior",
+                            "helpfulResource": {
+                                "displayText": "To verify that users can effectively control your AI system when they need to override, adjust, or roll back its behavior, develop quantitative measures that assess how well user controls correlate with intended system outcomes. Test the range and granularity of control effectiveness by measuring whether adjustments produce the expected changes in system behavior. Create metrics that capture both the responsiveness of controls and their precision. Your metrics should measure when controls fail to work as intended or when they produce unexpected side effects.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/responsible-ai-lens/rairc03-bp07.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Measure user controllability of system behavior",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/responsible-ai-lens/rairc03-bp07.html"
+                            }
+                        },
+                        {
+                            "id": "RAIRC03_BP08",
+                            "title": "Measure explainability of system behavior",
+                            "helpfulResource": {
+                                "displayText": "Consider metrics for explainability based on user studies that quantitatively measure stakeholders' ability to understand system outputs, including their comprehension of confidence scores, reasoning paths, and limitations, while also tracking the effectiveness of provided explanations across different user groups and expertise levels. This can include objective metrics (such as task completion rates when acting on AI explanations) and subjective assessments (like user satisfaction scores and trust ratings). Pay particular attention to whether users can accurately identify when to rely on or question the system's outputs.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/responsible-ai-lens/rairc03-bp08.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Measure explainability of system behavior",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/responsible-ai-lens/rairc03-bp08.html"
+                            }
+                        },
+                        {
+                            "id": "RAIRC03_BP09",
+                            "title": "Measure security risks and threats",
+                            "helpfulResource": {
+                                "displayText": "Consider quantitative measurements of security risks to AI systems, such as measuring adversarial attack success rates. For example, measure the rate of successful prompt injection attempts, prompt injection detection rates, jailbreaking success rate, guardrail bypass rates, and model extraction resistance (measuring how simply model parameters or behavior can be reverse engineered).",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/responsible-ai-lens/rairc03-bp09.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Measure security risks and threats",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/responsible-ai-lens/rairc03-bp09.html"
+                            }
+                        },
+                        {
+                            "id": "RAIRC03_BP10",
+                            "title": "Measure transparency quality",
+                            "helpfulResource": {
+                                "displayText": "Consider situations where system documentation is insufficient, users do not understand the probabilistic nature of a system output, or where users are unaware of AI system presence. Transparency deficits might conceal or amplify potential harms while evaluating impacts on different stakeholder groups. The goal is finding the right transparency level for your situation by balancing enough openness to build trust and meet requirements without creating new vulnerabilities or unintended consequences.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/responsible-ai-lens/rairc03-bp10.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Measure transparency quality",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/responsible-ai-lens/rairc03-bp10.html"
+                            }
+                        },
+                        {
+                            "id": "RAIRC03_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "RAIRC03_BP01 && RAIRC03_BP02 && RAIRC03_BP03 && RAIRC03_BP04 && RAIRC03_BP05 && RAIRC03_BP07 && RAIRC03_BP08 && RAIRC03_BP09 && RAIRC03_BP10",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!RAIRC03_BP01) || (!RAIRC03_BP02) || (!RAIRC03_BP03) || (!RAIRC03_BP04) || (!RAIRC03_BP05) || (!RAIRC03_BP07) || (!RAIRC03_BP08) || (!RAIRC03_BP09) || (!RAIRC03_BP10)",
+                            "risk": "HIGH_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "MEDIUM_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "RAIRC04",
+                    "title": "How will you set your release criteria thresholds?",
+                    "description": "After identifying key metrics, establish target thresholds and statistical methodologies. Set baseline performance targets based on industry standards and risk tolerance, while considering trade-offs between different types of harms and between harm prevention and benefit delivery.",
+                    "choices": [
+                        {
+                            "id": "RAIRC04_BP01",
+                            "title": "Identify baseline performance targets",
+                            "helpfulResource": {
+                                "displayText": "Set specific performance goals for your AI system before you build it. These goals become the pass or fail criteria that determine whether your system is ready to release. Good targets are based on real data, not guesswork, and assist you to make clear decisions about when your system is working well enough to release.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/responsible-ai-lens/rairc04-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Identify baseline performance targets",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/responsible-ai-lens/rairc04-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "RAIRC04_BP02",
+                            "title": "Consider trade-offs between release criteria",
+                            "helpfulResource": {
+                                "displayText": "Consider trade-offs where meeting your criteria thresholds for one potential harm may reduce your ability to meet the criteria for another harm (for example, privacy as opposed to transparency). Consider harm and benefit trade-offs where meeting the criteria for your potential harms may also reduce your ability to meet the criteria for your benefits. Reconsider your threshold choices to appropriately balance the trade-offs given your use case priorities and document trade-off decisions.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/responsible-ai-lens/rairc04-bp02.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Consider trade-offs between release criteria",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/responsible-ai-lens/rairc04-bp02.html"
+                            }
+                        },
+                        {
+                            "id": "RAIRC04_BP03",
+                            "title": "Set confidence requirements for your quantitative release criteria",
+                            "helpfulResource": {
+                                "displayText": "Decide how certain you need to be that your system meets each performance threshold before each release criterion question can be answered. For example, if you were to divide use cases into higher, moderate, and lower risk, you might set corresponding confidence requirements to 99%, 95%, and 90% respectively. Consider what level of confidence your stakeholders might expect.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/responsible-ai-lens/rairc04-bp03.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Set confidence requirements for your quantitative release criteria",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/responsible-ai-lens/rairc04-bp03.html"
+                            }
+                        },
+                        {
+                            "id": "RAIRC04_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "RAIRC04_BP01 && RAIRC04_BP02 && RAIRC04_BP03",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!RAIRC04_BP01) || (!RAIRC04_BP02) || (!RAIRC04_BP03)",
+                            "risk": "HIGH_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "MEDIUM_RISK"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "datasetPlanning",
+            "name": "Dataset planning",
+            "questions": [
+                {
+                    "id": "RAIDP01",
+                    "title": "How will you identify which datasets are needed to evaluate, train, and operate your AI system?",
+                    "description": "Datasets assist you to develop an AI system that solves your use case and evaluate whether your system has met your release criteria.",
+                    "choices": [
+                        {
+                            "id": "RAIDP01_BP01",
+                            "title": "Identify evaluation datasets needed to measure system performance against release criteria",
+                            "helpfulResource": {
+                                "displayText": "Work backwards from your release criteria to identify the specific evaluation datasets needed to test each one. Validate that each dataset has the right characteristics for its purpose (for example, demographic labels for fairness testing, harmful content examples for safety testing, and sufficient sample sizes for statistical confidence). Track mappings between datasets and criteria so you can verify complete coverage and maintain traceability between your release criteria and testing approach.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/responsible-ai-lens/raidp01-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Identify evaluation datasets needed to measure system performance against release criteria",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/responsible-ai-lens/raidp01-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "RAIDP01_BP02",
+                            "title": "Identify the datasets needed for training and customizing your system",
+                            "helpfulResource": {
+                                "displayText": "Identify and plan datasets needed to train your AI system to meet your release criteria. Determine which dataset types (training, fine-tuning, validation, calibration, and alignment) you need based on your training approach, assess existing data to identify gaps, then acquire or build the missing datasets through external sources, your own collection, crowdsourcing, or synthetic generation. Finally, plan how to combine and allocate your datasets while keeping them separate from evaluation data and maintaining proper representation across user groups.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/responsible-ai-lens/raidp01-bp02.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Identify the datasets needed for training and customizing your system",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/responsible-ai-lens/raidp01-bp02.html"
+                            }
+                        },
+                        {
+                            "id": "RAIDP01_BP03",
+                            "title": "Identify auxiliary datasets needed to operate your system",
+                            "helpfulResource": {
+                                "displayText": "Auxiliary data covers additional data that affects your system behavior beyond the training, validation, and evaluation datasets, such as knowledge bases used at inference time by RAG systems. Identify auxiliary data sources that affect system behavior during operation. Determine whether auxiliary datasets should be identical between evaluation and deployment environments or if differences are acceptable based on your use case requirements.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/responsible-ai-lens/raidp01-bp03.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Identify auxiliary datasets needed to operate your system",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/responsible-ai-lens/raidp01-bp03.html"
+                            }
+                        },
+                        {
+                            "id": "RAIDP01_BP04",
+                            "title": "Identify potential overlaps between datasets",
+                            "helpfulResource": {
+                                "displayText": "Check for unintended data overlap between your training, evaluation, and auxiliary datasets. Ideally, evaluation datasets will contain entirely new examples that your system has never encountered during training, as testing on previously seen data can result in overconfidence in your system capabilities due to overfitting or memorization. Verify that you do not include public benchmarks used for evaluation in training data, particularly when using foundation models where training data provenance may be unclear. Document unavoidable overlaps and assess their potential impact on evaluation validity.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/responsible-ai-lens/raidp01-bp04.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Identify potential overlaps between datasets",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/responsible-ai-lens/raidp01-bp04.html"
+                            }
+                        },
+                        {
+                            "id": "RAIDP01_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "RAIDP01_BP01 && RAIDP01_BP02 && RAIDP01_BP03 && RAIDP01_BP04",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!RAIDP01_BP01) || (!RAIDP01_BP02) || (!RAIDP01_BP03) || (!RAIDP01_BP04)",
+                            "risk": "HIGH_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "MEDIUM_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "RAIDP02",
+                    "title": "How will you assess dataset quality?",
+                    "description": "Measure the quality, representativeness, and coverage of your datasets. Does the dataset cover the range of inputs that your system needs to handle? Are there enough examples in the dataset to measure every release criterion with high confidence?",
+                    "choices": [
+                        {
+                            "id": "RAIDP02_BP01",
+                            "title": "Validate the representativeness of datasets for the use case",
+                            "helpfulResource": {
+                                "displayText": "Consider whether your datasets accurately reflect the real-world conditions where your system will be used. Gather examples that represent your users while filtering out data from contexts that don't match your use case. This is especially relevant for fine-tuning, alignment, and calibration sets, and for evaluation sets since testing on unrepresentative data can make it seem that your system works better (or worse) than it really does. Ask yourself: \"Does this dataset reflect how my system will be used and exclude scenarios that are not part of my use case?\" Document what you've included and excluded so you know where your results might not be sufficient.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/responsible-ai-lens/raidp02-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Validate the representativeness of datasets for the use case",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/responsible-ai-lens/raidp02-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "RAIDP02_BP02",
+                            "title": "Set dataset quality requirements based on your release criteria",
+                            "helpfulResource": {
+                                "displayText": "Work backwards from your release criteria to define the quality standards for each dataset, then select metrics and thresholds to measure when your data meets those standards. Think of this as creating data readiness criteria just like your system release criteria. Data quality means different things depending on how you'll use the data and what your release criteria need. For example, it could mean label accuracy, representation across user groups, diversity of examples, or completeness of coverage. For each dataset, pick specific quality metrics that align with your release criteria and set minimum thresholds that should be met before using that data. Different datasets need different quality bars. For example, evaluation sets require higher quality standards than training sets.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/responsible-ai-lens/raidp02-bp02.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Set dataset quality requirements based on your release criteria",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/responsible-ai-lens/raidp02-bp02.html"
+                            }
+                        },
+                        {
+                            "id": "RAIDP02_BP03",
+                            "title": "Validate the quality of human and generated labels and features in your dataset",
+                            "helpfulResource": {
+                                "displayText": "Implement quality control mechanisms for human annotators including training processes, unwanted bias identification, and inter-rater agreement measurements. Assess potential sources of unwanted human bias and establish procedures to minimize their impact on label quality. When using synthetic or model-generated labels, validate their accuracy against human judgment and document known limitations that affect reliability. Track annotator performance over time and implement feedback mechanisms to maintain consistent labeling standards across your datasets.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/responsible-ai-lens/raidp02-bp03.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Validate the quality of human and generated labels and features in your dataset",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/responsible-ai-lens/raidp02-bp03.html"
+                            }
+                        },
+                        {
+                            "id": "RAIDP02_BP04",
+                            "title": "Validate the quality and reliability of augmented or synthetic datasets",
+                            "helpfulResource": {
+                                "displayText": "Assess the quality of model-generated labels and synthetic examples against human evaluation standards. Identify potential sources of unwanted bias in synthetic data generation. Validate that synthetic data maintains the statistical properties needed for your specific datasets and doesn't exclude important edge cases. Document the limitations of synthetic approaches and verify that synthetic examples can effectively substitute for real data in representing the phenomena you care about.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/responsible-ai-lens/raidp02-bp04.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Validate the quality and reliability of augmented or synthetic datasets",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/responsible-ai-lens/raidp02-bp04.html"
+                            }
+                        },
+                        {
+                            "id": "RAIDP02_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "RAIDP02_BP01 && RAIDP02_BP02 && RAIDP02_BP03 && RAIDP02_BP04",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!RAIDP02_BP01) || (!RAIDP02_BP02) || (!RAIDP02_BP03) || (!RAIDP02_BP04)",
+                            "risk": "HIGH_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "MEDIUM_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "RAIDP03",
+                    "title": "How will you identify and mitigate potential responsible AI issues in the datasets?",
+                    "description": "Consider responsible AI dimensions when designing and assessing datasets. Best practices for dataset creation differ based on the type of release criteria and responsible AI dimension.",
+                    "choices": [
+                        {
+                            "id": "RAIDP03_BP01",
+                            "title": "Address data that may be unsafe or inappropriate for your use case",
+                            "helpfulResource": {
+                                "displayText": "To perpetuate dataset safety throughout the AI system lifecycle, establish definitions of safe and unsafe content for your use case. Create specific criteria for content exclusion across training, evaluation, and auxiliary datasets, considering both direct harms and contextual inappropriateness. Implement automated and human review filtering processes, with protective measures for reviewers. Document safety definitions and filtering decisions and regularly audit datasets to verify effective removal of unsafe content while maintaining necessary testing scenarios.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/responsible-ai-lens/raidp03-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Address data that may be unsafe or inappropriate for your use case",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/responsible-ai-lens/raidp03-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "RAIDP03_BP02",
+                            "title": "Minimize unwanted bias in your datasets",
+                            "helpfulResource": {
+                                "displayText": "When assessing the quality of a dataset, determine whether it appropriately represents the demographics of the expected range of system users. Consider datasets that include self-reported demographic labels. Calculate if datasets contain sufficient representation across demographic groups to enable statistically valid fairness assessments or fairness outcomes.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/responsible-ai-lens/raidp03-bp02.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Minimize unwanted bias in your datasets",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/responsible-ai-lens/raidp03-bp02.html"
+                            }
+                        },
+                        {
+                            "id": "RAIDP03_BP03",
+                            "title": "Protect the privacy of individuals represented in your datasets",
+                            "helpfulResource": {
+                                "displayText": "Translate the guidance of your legal counsel on what constitutes personal information into technical definitions appropriate to your use case. Implement processes to identify and limit personal information in training, evaluation, and auxiliary datasets, using both automated filtering, data obfuscation, and manual review approaches. Validate the effectiveness of your privacy protection mechanisms against your taxonomy of personal information types. Maintain detailed documentation of privacy protection measures and regularly audit datasets so that personal information removal doesn't compromise your ability to measure important system behaviors.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/responsible-ai-lens/raidp03-bp03.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Protect the privacy of individuals represented in your datasets",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/responsible-ai-lens/raidp03-bp03.html"
+                            }
+                        },
+                        {
+                            "id": "RAIDP03_BP04",
+                            "title": "Include both intrinsic and confounding variations in your datasets",
+                            "helpfulResource": {
+                                "displayText": "Revisit your release criteria and use case description to confirm that your definitions of intrinsic and confounding input variations (respectively, variations the system should attend to, and variations it should ignore). Include coverage of relevant variations for your use case in your datasets. If you have robustness release criteria, label what type of variation is present in each example in your evaluation set so you can measure how well your system handles different kinds of variations.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/responsible-ai-lens/raidp03-bp04.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Include both intrinsic and confounding variations in your datasets",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/responsible-ai-lens/raidp03-bp04.html"
+                            }
+                        },
+                        {
+                            "id": "RAIDP03_BP05",
+                            "title": "Review the correctness of the content of your datasets",
+                            "helpfulResource": {
+                                "displayText": "Create regular review processes for ground-truth labels and factual content across your datasets. Implement fact-checking procedures using human reviewers or comparison against authoritative sources to identify and correct inaccuracies. Datasets used for veracity evaluation may require high accuracy standards to provide reliable measurements. Document the review process and track accuracy metrics over time, updating datasets when new information becomes available or when errors are discovered.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/responsible-ai-lens/raidp03-bp05.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Review the correctness of the content of your datasets",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/responsible-ai-lens/raidp03-bp05.html"
+                            }
+                        },
+                        {
+                            "id": "RAIDP03_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "RAIDP03_BP01 && RAIDP03_BP02 && RAIDP03_BP03 && RAIDP03_BP04 && RAIDP03_BP05",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!RAIDP03_BP01) || (!RAIDP03_BP02) || (!RAIDP03_BP03) || (!RAIDP03_BP04) || (!RAIDP03_BP05)",
+                            "risk": "HIGH_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "MEDIUM_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "RAIDP04",
+                    "title": "How will you manage dataset access and versioning?",
+                    "description": "Reduce the risk of data manipulation by checking for data integrity and by providing the minimal access necessary. Implement a taxonomy (for example, classified, confidential, proprietary, and public) to classify data that interacts with your AI system. Align access rights to the classification of each data source.",
+                    "choices": [
+                        {
+                            "id": "RAIDP04_BP01",
+                            "title": "Create a dataset registry",
+                            "helpfulResource": {
+                                "displayText": "Create a registry to track dataset versions, metadata, and usage across training, evaluation, and operational contexts. Store datasets with version control, including local copies of public benchmarks to assist builders with reproducibility as external datasets evolve. Document the provenance, characteristics, and intended use of each dataset version to enable others to understand appropriate usage and limitations. Link dataset versions to specific system training events and evaluation results to maintain traceability between data changes and performance outcomes.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/responsible-ai-lens/raidp04-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Create a dataset registry",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/responsible-ai-lens/raidp04-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "RAIDP04_BP02",
+                            "title": "Periodically evaluate and update datasets in the registry",
+                            "helpfulResource": {
+                                "displayText": "Schedule regular review cycles that assess whether existing datasets still meet your evolving requirements and quality standards. Increment version numbers and update associated documentation whenever datasets change, maintaining records of what changed and why. Assess whether dataset updates require corresponding system retraining or evaluation re-runs to maintain validity of previous results. Remove or archive outdated dataset versions while preserving the ability to reproduce historical results when needed for auditing or comparison purposes.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/responsible-ai-lens/raidp04-bp02.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Periodically evaluate and update datasets in the registry",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/responsible-ai-lens/raidp04-bp02.html"
+                            }
+                        },
+                        {
+                            "id": "RAIDP04_BP03",
+                            "title": "Protect data from being manipulated or accessed for unintended purposes",
+                            "helpfulResource": {
+                                "displayText": "Implement the principle of least privilege, only providing access to relevant data to those who really need it for both automated systems and human users accessing your datasets. Consider scanning datasets for unwanted content, including adversarial prompts, disinformation, malware, or other data poisoning attempts that could affect downstream system behavior. Establish access controls and audit trails that track who accesses datasets and what modifications are made. Use cryptographic verification methods where appropriate to detect unauthorized changes to critical datasets, particularly those used for evaluation or system operation.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/responsible-ai-lens/raidp04-bp03.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Protect data from being manipulated or accessed for unintended purposes",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/responsible-ai-lens/raidp04-bp03.html"
+                            }
+                        },
+                        {
+                            "id": "RAIDP04_BP04",
+                            "title": "Establish governance procedures for managing your datasets",
+                            "helpfulResource": {
+                                "displayText": "Maintain procedures for managing dataset access, retention, and deletion throughout the AI system lifecycle. Implement mechanisms to handle individual data requests, including the ability to remove individual data points when contributors withdraw consent. Document data lineage and retention policies that specify how long different types of data can be stored and used. Create procedures for handling governance-related dataset updates.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/responsible-ai-lens/raidp04-bp04.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Establish governance procedures for managing your datasets",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/responsible-ai-lens/raidp04-bp04.html"
+                            }
+                        },
+                        {
+                            "id": "RAIDP04_BP05",
+                            "title": "Document the characteristics of each dataset using a datasheet",
+                            "helpfulResource": {
+                                "displayText": "Create datasheets that document the intended uses, composition, and collection process for each dataset. Include information about data sources, collection methodologies, potential unwanted biases, and recommended and prohibited use cases to assist others to understand appropriate applications. Document the characteristics of data contributors and annotators, including demographic information and potential sources of unwanted bias that could affect system behavior. Maintain datasheets as living documents that are updated when datasets change or when new insights about their characteristics or limitations are discovered.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/responsible-ai-lens/raidp04-bp05.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Document the characteristics of each dataset using a datasheet",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/responsible-ai-lens/raidp04-bp05.html"
+                            }
+                        },
+                        {
+                            "id": "RAIDP04_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "RAIDP04_BP01 && RAIDP04_BP02 && RAIDP04_BP03 && RAIDP04_BP04 && RAIDP04_BP05",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!RAIDP04_BP01) || (!RAIDP04_BP02) || (!RAIDP04_BP03) || (!RAIDP04_BP04) || (!RAIDP04_BP05)",
+                            "risk": "HIGH_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "MEDIUM_RISK"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "systemPlanning",
+            "name": "System planning",
+            "questions": [
+                {
+                    "id": "RAISP01",
+                    "title": "How will you design the core AI system architecture to meet your release criteria?",
+                    "description": "Determine the appropriate system type, the required components and their interactions, third-party dependencies, safeguards, and trade-off decisions.",
+                    "choices": [
+                        {
+                            "id": "RAISP01_BP01",
+                            "title": "Detail your core AI system design in a system registry",
+                            "helpfulResource": {
+                                "displayText": "Detail how your AI system works, including the components and the data flows between them. When issues come up, you need to know exactly where problems might creep in, which components could fail, and how problems in one part affect the whole system. Include details about component versions and dependencies so you can track which specific versions might be causing issues and understand how updates could affect your system behavior.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/responsible-ai-lens/raisp01-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Detail your core AI system design in a system registry",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/responsible-ai-lens/raisp01-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "RAISP01_BP02",
+                            "title": "Consider design trade-offs across competing objectives",
+                            "helpfulResource": {
+                                "displayText": "Analyze how meeting one release requirement could impact others and establish clear protocols for managing these situations. Your release criteria will sometimes pull your system design in different directions. For example, making your system more transparent might affect its accuracy, or adding stronger privacy protections could make it harder to explain how decisions are made. Focus on meeting the minimum requirements for each criteria rather than excelling at some while falling short on others.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/responsible-ai-lens/raisp01-bp02.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Consider design trade-offs across competing objectives",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/responsible-ai-lens/raisp01-bp02.html"
+                            }
+                        },
+                        {
+                            "id": "RAISP01_BP03",
+                            "title": "Check if design choices have introduced new risks",
+                            "helpfulResource": {
+                                "displayText": "Review how design decisions affect the risk profile, determining whether additional assessment criteria must be incorporated into the testing framework. For example, choosing to use a third-party component instead of building your own solution might introduce new risk considerations. When you identify new risks or changes in risk likelihood, decide if you need to update your release criteria to properly test for these issues before release.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/responsible-ai-lens/raisp01-bp03.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Check if design choices have introduced new risks",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/responsible-ai-lens/raisp01-bp03.html"
+                            }
+                        },
+                        {
+                            "id": "RAISP01_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "RAISP01_BP01 && RAISP01_BP02 && RAISP01_BP03",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!RAISP01_BP01) || (!RAISP01_BP02) || (!RAISP01_BP03)",
+                            "risk": "HIGH_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "MEDIUM_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "RAISP02",
+                    "title": "How will you design the core AI system to meet the release criteria (baking)?",
+                    "description": "Baking implements features directly in the core AI system, for example through choices of component model types, objective functions, training datasets, and training strategies.",
+                    "choices": [
+                        {
+                            "id": "RAISP02_BP01",
+                            "title": "Design the core AI system to directly address your release criteria",
+                            "helpfulResource": {
+                                "displayText": "Build your system with your release criteria in mind from the beginning, choosing components and designing processes that directly support the performance targets you need to hit. Think of your release criteria as the blueprint for your system design where every design decision should move you closer to meeting those specific goals. Set up regular check-ins during development to see how you are tracking against your targets and be ready to adjust your approach if you spot gaps early. Make sure your candidate testing and validation closely mirror the way you will measure success at release time, so there are no surprises when it is time to release. This approach assists you to build exactly what you need to pass your release criteria, rather than creating a system that performs well on general metrics but falls short on the specific measures that matter for your use case.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/responsible-ai-lens/raisp02-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Design the core AI system to directly address your release criteria",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/responsible-ai-lens/raisp02-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "RAISP02_BP02",
+                            "title": "Privacy: Build privacy-preserving mechanisms into the core AI system",
+                            "helpfulResource": {
+                                "displayText": "Design your system from the start to protect confidential and personal data. This may include incorporating techniques like data encryption, access controls, data minimization, data obfuscation, and privacy-preserving training methods directly into how your system works, based on your release criteria. For example, if your release criteria include keeping certain types of user information confidential, you might build in automatic data masking, use techniques that scramble sensitive information while keeping it useful for training, or set up your system to process information without storing sensitive details. The specific privacy mechanisms you choose should align with your release criteria.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/responsible-ai-lens/raisp02-bp02.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Privacy: Build privacy-preserving mechanisms into the core AI system",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/responsible-ai-lens/raisp02-bp02.html"
+                            }
+                        },
+                        {
+                            "id": "RAISP02_BP03",
+                            "title": "Mitigate unwanted bias directly in the core AI system design",
+                            "helpfulResource": {
+                                "displayText": "Consider incorporating fairness mitigations such as sampling and optimization methods during training, alignment and calibration techniques that actively mitigate biased system responses, and post-processing strategies that review and adjust outputs before they reach users. The specific fairness strategies you use should directly support the fairness goals in your release criteria.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/responsible-ai-lens/raisp02-bp03.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Mitigate unwanted bias directly in the core AI system design",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/responsible-ai-lens/raisp02-bp03.html"
+                            }
+                        },
+                        {
+                            "id": "RAISP02_BP04",
+                            "title": "Build security protections directly into the core AI system design",
+                            "helpfulResource": {
+                                "displayText": "Follow \"secure by design\" and \"defense in depth\" principles and build security protections into your system from the beginning to protect your system and maintain its intended operation. This means incorporating safeguards like access controls, input validation and sanitization to defend against prompt injections, and robust techniques to mitigate attempts at jailbreaking or bypassing your system's safety guardrails. The specific security measures you choose should directly address the security requirements in your release criteria.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/responsible-ai-lens/raisp02-bp04.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Build security protections directly into the core AI system design",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/responsible-ai-lens/raisp02-bp04.html"
+                            }
+                        },
+                        {
+                            "id": "RAISP02_BP05",
+                            "title": "Embed provenance indicators into core AI system outputs",
+                            "helpfulResource": {
+                                "displayText": "Address release criteria for transparency by building provenance indicators directly into your AI system. Providing machine readable labels for audio and imagery outputs is one of the approaches.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/responsible-ai-lens/raisp02-bp05.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Embed provenance indicators into core AI system outputs",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/responsible-ai-lens/raisp02-bp05.html"
+                            }
+                        },
+                        {
+                            "id": "RAISP02_BP06",
+                            "title": "Enable users to customize core AI system behaviors",
+                            "helpfulResource": {
+                                "displayText": "Design your system so users can adjust how it works to better fit their particular requirements and preferences, while keeping those adjustments within appropriate boundaries for your use case. This means incorporating features like adjustable output styles, user preference settings, or options that let users guide how the system interprets and responds to their requests.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/responsible-ai-lens/raisp02-bp06.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Enable users to customize core AI system behaviors",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/responsible-ai-lens/raisp02-bp06.html"
+                            }
+                        },
+                        {
+                            "id": "RAISP02_BP07",
+                            "title": "Incorporate explainability mechanisms into the core AI system",
+                            "helpfulResource": {
+                                "displayText": "Adding explainability to your AI system assists to address explainability release criteria by verifying stakeholders can understand and trust how decisions are made for your specific use case. Include confidence scores with predictions to show how certain the model is about its outputs, and for generative AI systems, use techniques such as content attribution, and token probabilities to explain what influenced the generated content. When explanations are critical, use interpretable models like decision trees that are simple to understand and when more complex models are required add explanation tools (like LIME or SHAP) afterward to interpret their decisions.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/responsible-ai-lens/raisp02-bp07.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Incorporate explainability mechanisms into the core AI system",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/responsible-ai-lens/raisp02-bp07.html"
+                            }
+                        },
+                        {
+                            "id": "RAISP02_BP08",
+                            "title": "Consider core AI system designs that improve factual accuracy",
+                            "helpfulResource": {
+                                "displayText": "Design your system to produce more accurate information by incorporating techniques that distinguish facts from speculation, reduce hallucinations, and acknowledge uncertainty. This means connecting to authoritative knowledge sources through retrieval methods with source attribution (for example, RAG), employing alignment approaches like constitutional training and reinforcement learning from human feedback (RLHF) to block hallucinations, and incorporating automated reasoning capabilities like chain of thought reasoning for self-reflection along with uncertainty and confidence measurements that assist the system to recognize when it is not confident about information.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/responsible-ai-lens/raisp02-bp08.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Consider core AI system designs that improve factual accuracy",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/responsible-ai-lens/raisp02-bp08.html"
+                            }
+                        },
+                        {
+                            "id": "RAISP02_BP09",
+                            "title": "Design your core AI system to handle input variations",
+                            "helpfulResource": {
+                                "displayText": "Design your system to be more resilient by building in the ability to handle input variations and edge cases that could cause it to fail or behave unpredictably. This means incorporating techniques like data augmentation that creates variations of your training examples, adversarial training that tests your system against challenging inputs, and exposure to diverse input formats, styles, and edge cases during the development process. The robustness techniques you choose should directly support your release criteria, assisting your system to perform consistently even when users interact with it in unexpected ways.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/responsible-ai-lens/raisp02-bp09.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Design your core AI system to handle input variations",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/responsible-ai-lens/raisp02-bp09.html"
+                            }
+                        },
+                        {
+                            "id": "RAISP02_BP10",
+                            "title": "Build safety protections into the core AI system",
+                            "helpfulResource": {
+                                "displayText": "Follow the safety-by-design principle and design your system from the start to block harmful outputs and unsafe behaviors through multiple layers of protection. Start by creating clear, objective definitions of what constitutes safe versus unsafe behavior for your specific use case, then incorporate safety training approaches like model alignment techniques, constitutional training, and reinforcement learning from human feedback (RLHF) that teach your system to recognize and avoid harmful content while aligning with human values and safety preferences, input sanitization techniques that clean or modify problematic user requests before processing, output alteration methods that modify or block unsafe responses before they reach users, and guardrails that enforce safe interaction boundaries throughout the system. For example, if your release criteria include safety standards for blocking harmful content, you might implement alignment methods to align your model behavior with your safety criteria, use training approaches that incorporate human feedback to reduce toxic output generation, build input filtering that neutralizes harmful requests, use output modification techniques that sanitize responses, or create interaction limits that block unsafe usage patterns. The safety techniques you choose should directly support your release criteria, creating multiple protective layers that work together to meet safety requirements in your release criteria.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/responsible-ai-lens/raisp02-bp10.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Build safety protections into the core AI system",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/responsible-ai-lens/raisp02-bp10.html"
+                            }
+                        },
+                        {
+                            "id": "RAISP02_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "RAISP02_BP01 && RAISP02_BP02 && RAISP02_BP03 && RAISP02_BP04 && RAISP02_BP05 && RAISP02_BP06 && RAISP02_BP07 && RAISP02_BP08 && RAISP02_BP09 && RAISP02_BP10",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!RAISP02_BP01) || (!RAISP02_BP02) || (!RAISP02_BP03) || (!RAISP02_BP04) || (!RAISP02_BP05) || (!RAISP02_BP06) || (!RAISP02_BP07) || (!RAISP02_BP08) || (!RAISP02_BP09) || (!RAISP02_BP10)",
+                            "risk": "HIGH_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "MEDIUM_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "RAISP03",
+                    "title": "How will you meet release criteria not fully addressed by the core AI system design (filtering)?",
+                    "description": "Filtering strategies add protective layers around your AI system through input and output filtering when core system design alone isn't sufficient. Best practices cover implementing privacy-preserving filters to remove sensitive data, security safeguards to block unwanted or adversarial inputs, and safety filters to catch harmful content before it reaches users, among others. This filtering approach is especially valuable for foundation model services where you have limited control over core training but need to meet specific safety and compliance-aligned requirements.",
+                    "choices": [
+                        {
+                            "id": "RAISP03_BP01",
+                            "title": "Add privacy-preserving filters",
+                            "helpfulResource": {
+                                "displayText": "Implement filtering mechanisms that automatically detect and remove unwanted confidential and personal data from both inputs and outputs. Design input sanitization processes that cleanse user queries and system data of unwanted information before processing, using both rule-based and machine learning approaches to identify personal data. Implement output filtering that blocks the generation or disclosure of confidential or personal information, including techniques like anonymization that replace identifying details with generic placeholders or synthetic alternatives.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/responsible-ai-lens/raisp03-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Add privacy-preserving filters",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/responsible-ai-lens/raisp03-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "RAISP03_BP02",
+                            "title": "Add security filters",
+                            "helpfulResource": {
+                                "displayText": "Implement security safeguards that detect and block threats such as prompt injections, roleplay jailbreaks, and other adversarial inputs. Design input validation mechanisms that identify unwanted prompts and suspicious query patterns before they can manipulate system behavior or extract sensitive information. Implement guardrails with content filtering capabilities designed to block the generation of harmful outputs even when inputs successfully bypass input protections.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/responsible-ai-lens/raisp03-bp02.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Add security filters",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/responsible-ai-lens/raisp03-bp02.html"
+                            }
+                        },
+                        {
+                            "id": "RAISP03_BP03",
+                            "title": "Implement output filtering to catch unsafe content before it reaches users",
+                            "helpfulResource": {
+                                "displayText": "Build screening mechanisms that automatically review and filter your system's outputs to catch potentially harmful content before users see it, acting as a final safety check regardless of what your system generates. This means implementing safety classifiers that can identify toxic, harmful, or inappropriate content in real-time, content filtering systems that block or modify unsafe outputs based on your safety definitions, and automated screening processes that evaluate each response against your safety criteria before delivery. For example, if your release criteria include safety standards for blocking harmful outputs, you might implement toxicity detection models that score each response, build content filters that automatically block responses containing harmful information, or create screening systems that flag suspicious outputs for human review before they reach users.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/responsible-ai-lens/raisp03-bp03.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Implement output filtering to catch unsafe content before it reaches users",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/responsible-ai-lens/raisp03-bp03.html"
+                            }
+                        },
+                        {
+                            "id": "RAISP03_BP04",
+                            "title": "Implement output filtering to detect and block hallucinations",
+                            "helpfulResource": {
+                                "displayText": "Build filtering mechanisms that automatically detect and block factually incorrect outputs, hallucinations, and misleading information before they reach users. These filters act as a final check to catch inaccuracies that your core AI system might generate. Use both automated reasoning checks and fact verification systems to validate outputs against known facts and logical consistency before delivery.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/responsible-ai-lens/raisp03-bp04.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Implement output filtering to detect and block hallucinations",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/responsible-ai-lens/raisp03-bp04.html"
+                            }
+                        },
+                        {
+                            "id": "RAISP03_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "RAISP03_BP01 && RAISP03_BP02 && RAISP03_BP03 && RAISP03_BP04",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!RAISP03_BP01) || (!RAISP03_BP02) || (!RAISP03_BP03) || (!RAISP03_BP04)",
+                            "risk": "HIGH_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "MEDIUM_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "RAISP04",
+                    "title": "How will you choose between different system configurations?",
+                    "description": "Teams test different candidate configurations of their system, including different versions of components or models during development using validation sets to determine which performs best. Different versions can come from different component choices, hyperparameters, training settings, or model architectures. Teams set up controlled comparisons between versions on the same validation data, then use paired statistical tests to determine if one version is statistically better than the other based on release criteria. Evaluation sets stay separate from component selection to avoid biasing final performance measurements and release decisions.",
+                    "choices": [
+                        {
+                            "id": "RAISP04_BP01",
+                            "title": "Use paired tests to choose from candidate designs",
+                            "helpfulResource": {
+                                "displayText": "Test different candidate configurations of your system, including different versions of your components or models during development using validation sets to determine which performs best. Different versions can come from different component choices, hyperparameters, training settings, or model architectures. Set up controlled comparisons between versions on the same validation data, then use paired statistical tests to determine if one version is statistically better than the other based on your release criteria. Keep your evaluation sets separate from component selection because using them would bias your final performance measurements and make your release decisions unreliable.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/responsible-ai-lens/raisp04-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Use paired tests to choose from candidate designs",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/responsible-ai-lens/raisp04-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "RAISP04_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "RAISP04_BP01",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!RAISP04_BP01)",
+                            "risk": "MEDIUM_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "HIGH_RISK"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "evaluateAndRelease",
+            "name": "Evaluate and release",
+            "questions": [
+                {
+                    "id": "RAIER01",
+                    "title": "How will you evaluate the AI system against your release criteria?",
+                    "description": "Test system performance against the release criteria to determine if benefits and risks are addressed. Consider double checking your evaluations with evaluations by experts outside your team. Identify steps to address each criterion that is not met, modifying transparency solutions as appropriate. To reach a release decision, establish a methodology for combining the results for each release criterion.",
+                    "choices": [
+                        {
+                            "id": "RAIER01_BP01",
+                            "title": "Validate that release criteria still align with current industry standards",
+                            "helpfulResource": {
+                                "displayText": "At the start of a release evaluation, check that the release criteria and associated evaluation tests are still aligned with the current version of the AI system. Research and confirm that there are no new and relevant benchmarks or expectations that need to be included in the evaluation.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/responsible-ai-lens/raier01-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Validate that release criteria still align with current industry standards",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/responsible-ai-lens/raier01-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "RAIER01_BP02",
+                            "title": "Independently corroborate more critical and subjective evaluations",
+                            "helpfulResource": {
+                                "displayText": "Consider getting second opinions on release criteria that are highly critical or more subjective. Such opinions can come from internal or external parties. To maximize independence, consider asking the independent party to build or acquire their own evaluation datasets, using the same information about the intended use case(s) of the AI solution that you intend to communicate to downstream users.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/responsible-ai-lens/raier01-bp02.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Independently corroborate more critical and subjective evaluations",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/responsible-ai-lens/raier01-bp02.html"
+                            }
+                        },
+                        {
+                            "id": "RAIER01_BP03",
+                            "title": "For each system update, re-run the evaluation and update the system registry",
+                            "helpfulResource": {
+                                "displayText": "Record evaluation activities in logs that capture test conditions, system configurations, data inputs, raw results, and methodological notes with sufficient detail to make the entire process reproducible. Establish version control for evaluation artifacts to assist builders to trace unique system builds and their corresponding evaluation results.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/responsible-ai-lens/raier01-bp03.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "For each system update, re-run the evaluation and update the system registry",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/responsible-ai-lens/raier01-bp03.html"
+                            }
+                        },
+                        {
+                            "id": "RAIER01_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "RAIER01_BP01 && RAIER01_BP02 && RAIER01_BP03",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!RAIER01_BP01) || (!RAIER01_BP02) || (!RAIER01_BP03)",
+                            "risk": "MEDIUM_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "HIGH_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "RAIER02",
+                    "title": "How will you aggregate the release criteria results into a responsible release decision?",
+                    "description": "Making a high-quality release decision requires integrating quantitative evaluation results into a cohesive assessment, consolidating information from each system aspect into a single source of truth, implementing a structured release decision process with stakeholder roles, and documenting learnings to either standardize effective practices or address failure points with accountability assignments.",
+                    "choices": [
+                        {
+                            "id": "RAIER02_BP01",
+                            "title": "Add statistical confidence to your release decision",
+                            "helpfulResource": {
+                                "displayText": "Move beyond simple averages and point estimates to understand how confident you can be that your system will meet its release criteria when deployed. Instead of just asking did we hit our target threshold, ask how confident are we that we'll consistently hit this threshold given the uncertainty in our test results? Use appropriate statistical methods to account for the limited data you have and the variation you expect to see in real-world performance. When you have multiple release criteria, adjust your analysis to account for the fact that meeting the criteria simultaneously is harder than meeting each one individually. This approach may provide a clear, data-driven answer to whether you're ready to release, rather than making that decision based on potentially misleading averages that don't account for uncertainty.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/responsible-ai-lens/raier02-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Add statistical confidence to your release decision",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/responsible-ai-lens/raier02-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "RAIER02_BP02",
+                            "title": "Summarize critical information and review with appropriate internal stakeholders",
+                            "helpfulResource": {
+                                "displayText": "Organize evidence from your use case, risk assessments, release criteria testing, datasets, and system design evidence into a single document/source of truth that contains the information needed to make a release decision. Include verification that appropriate mitigations are in place for risks across relevant responsible AI dimensions. Update the system registry with the go/no-go decision.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/responsible-ai-lens/raier02-bp02.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Summarize critical information and review with appropriate internal stakeholders",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/responsible-ai-lens/raier02-bp02.html"
+                            }
+                        },
+                        {
+                            "id": "RAIER02_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "RAIER02_BP01 && RAIER02_BP02",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!RAIER02_BP01) || (!RAIER02_BP02)",
+                            "risk": "HIGH_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "MEDIUM_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "RAIER03",
+                    "title": "How will you address release criteria that are not met?",
+                    "description": "Addressing benefits and residual harms requires assigning unmet release criteria to appropriate implementation strategies, documenting limitations and uncertainties that cannot be fully addressed, and conducting stakeholder reviews to reassess whether business objectives still support the release given identified residual risks.",
+                    "choices": [
+                        {
+                            "id": "RAIER03_BP01",
+                            "title": "For each failed release criterion, re-assess the implementation strategy",
+                            "helpfulResource": {
+                                "displayText": "Re-evaluate the original implementation strategy assigned to each release criteria. Either improve the execution of the implementation strategy or design a new approach based of baking techniques (for example, additional fine-tuning, new training approaches or component choices), blocking techniques (for example, adding additional guardrails or filtering strategies) or a user steering strategy (for example, publishing user guidance).",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/responsible-ai-lens/raier03-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "For each failed release criterion, re-assess the implementation strategy",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/responsible-ai-lens/raier03-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "RAIER03_BP02",
+                            "title": "Identify release criteria that cannot be met and narrow your use case",
+                            "helpfulResource": {
+                                "displayText": "Assess which of your release criteria you cannot meet with your current system design and implementation strategies, no matter how you refine them. When you find gaps that can't be closed through technical solutions alone, consider whether you are trying to solve too broad of a problem with your current approach. Rather than compromising on safety or performance standards, narrow your use case to focus on scenarios where you can meet your release criteria. Go back to your original risk and benefit assessment with this more focused scope, identifying new opportunities and constraints that come with the narrower application. Update your release criteria to reflect this refined use case, verifying they capture the specific harms you need to block and benefits you want to deliver within your new boundaries. This iterative process assists you to build a system that performs appropriately in its intended domain rather than struggling to meet unrealistic expectations or risk releasing with unmet criteria.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/responsible-ai-lens/raier03-bp02.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Identify release criteria that cannot be met and narrow your use case",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/responsible-ai-lens/raier03-bp02.html"
+                            }
+                        },
+                        {
+                            "id": "RAIER03_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "RAIER03_BP01 && RAIER03_BP02",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!RAIER03_BP01) || (!RAIER03_BP02)",
+                            "risk": "HIGH_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "MEDIUM_RISK"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "userGuidance",
+            "name": "User guidance",
+            "questions": [
+                {
+                    "id": "RAIGT01",
+                    "title": "How will downstream stakeholders learn how to responsibly use the AI system (guiding)?",
+                    "description": "Provide downstream stakeholders with tailored documentation that outlines potential benefits and risks of an AI system by discussing its intended uses, limitations, and failure modes, distributed via appropriate channels for each stakeholder group.",
+                    "choices": [
+                        {
+                            "id": "RAIGT01_BP01",
+                            "title": "Develop a transparency strategy",
+                            "helpfulResource": {
+                                "displayText": "For each identified stakeholder group, choose a transparency strategy (for example, blog post, user guide, FAQs, system documentation, service card) and identify appropriate distribution channels to provide downstream stakeholders information to make informed decisions about the AI system.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/responsible-ai-lens/raigt01-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Develop a transparency strategy",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/responsible-ai-lens/raigt01-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "RAIGT01_BP02",
+                            "title": "Create a system card that communicates intended usage and limitations",
+                            "helpfulResource": {
+                                "displayText": "AI system cards are a form of responsible AI documentation that provide stakeholders with a single place to find information on the intended use cases and limitations, responsible AI design choices, and deployment and performance optimization best practices. System cards do not provide guidance on expected performance of the AI system on the specific inputs the deployer may provide; that testing is the responsibility of the deployer.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/responsible-ai-lens/raigt01-bp02.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Create a system card that communicates intended usage and limitations",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/responsible-ai-lens/raigt01-bp02.html"
+                            }
+                        },
+                        {
+                            "id": "RAIGT01_BP03",
+                            "title": "Create a plan for publishing and updating documentation",
+                            "helpfulResource": {
+                                "displayText": "Identify which documents require updates based on stakeholder feedback, new use-cases, new system releases, and industry best practice developments. Dedicate an owner to facilitate the change management process which supports plans for review cycles, document and system versioning and approval chains.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/responsible-ai-lens/raigt01-bp03.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Create a plan for publishing and updating documentation",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/responsible-ai-lens/raigt01-bp03.html"
+                            }
+                        },
+                        {
+                            "id": "RAIGT01_BP04",
+                            "title": "Guide users on how to understand system outputs",
+                            "helpfulResource": {
+                                "displayText": "Provide accessible guidance on how a user should interpret system outputs. Provide guidance on features the user can use to better understand why a particular input might have produced a specific output. This includes features such as confidence scores, feature importance indicators, decision paths, or chains of thought. Tailor the complexity and format of the guidance to match user expertise levels, providing both high-level summaries and detailed technical information as appropriate. Assist users to identify when to trust system outputs, when to seek additional verification, and when to override or ignore system recommendations based on their domain knowledge.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/responsible-ai-lens/raigt01-bp04.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Guide users on how to understand system outputs",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/responsible-ai-lens/raigt01-bp04.html"
+                            }
+                        },
+                        {
+                            "id": "RAIGT01_BP06",
+                            "title": "Guide users on how to responsibly change system behavior",
+                            "helpfulResource": {
+                                "displayText": "Provide guidance that informs users how to effectively alter system behaviors and interpret results. Include user interface elements that guide users toward productive interactions while steering them away from approaches likely to produce poor or harmful results. Explain response mechanisms that provide real-time feedback on input quality and suggest improvements when user inputs are unclear, inappropriate, or likely to produce unsatisfactory results. Direct users to available education resources that assists users to understand system capabilities and limitations, enabling them to leverage the system effectively while maintaining realistic expectations about its performance.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/responsible-ai-lens/raigt01-bp06.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Guide users on how to responsibly change system behavior",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/responsible-ai-lens/raigt01-bp06.html"
+                            }
+                        },
+                        {
+                            "id": "RAIGT01_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "RAIGT01_BP01 && RAIGT01_BP02 && RAIGT01_BP03 && RAIGT01_BP04 && RAIGT01_BP06",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!RAIGT01_BP01) || (!RAIGT01_BP02) || (!RAIGT01_BP03) || (!RAIGT01_BP04) || (!RAIGT01_BP06)",
+                            "risk": "HIGH_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "MEDIUM_RISK"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "monitoring",
+            "name": "Monitoring",
+            "questions": [
+                {
+                    "id": "RAIMON01",
+                    "title": "How will you monitor for unexpected deviations from release criteria in operation?",
+                    "description": "Establish a strategy for monitoring release criteria after release, including baselines for drift monitoring.",
+                    "choices": [
+                        {
+                            "id": "RAIMON01_BP01",
+                            "title": "Obtain consent for monitoring production data",
+                            "helpfulResource": {
+                                "displayText": "As appropriate, implement consent mechanisms that inform users about what data will be collected for monitoring purposes and obtain appropriate permissions before beginning data collection activities. This includes considering opt-in and opt-out data collection strategies while adhering to guidance from your legal counsel. When appropriate, design transparent consent processes that explain monitoring objectives, data usage, retention periods, and user rights regarding their monitored data for opting in or opt out. Establish procedures for managing consent changes over time, including mechanisms for users to withdraw consent and processes for handling data from users who have opted out.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/responsible-ai-lens/raimon01-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Obtain consent for monitoring production data",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/responsible-ai-lens/raimon01-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "RAIMON01_BP02",
+                            "title": "Set operational performance baselines and apply methods for drift detection",
+                            "helpfulResource": {
+                                "displayText": "Set performance trend baselines by collecting initial production data over a representative time period to capture your system's actual operating performance, which may vary from your release criteria thresholds. Use statistical methods to characterize normal performance variation patterns, seasonal trends, and expected behavioral ranges for each monitored metric based on observed system behavior. Implement drift detection techniques such as statistical process control charts, change point detection algorithms, and trend analysis that can identify when current performance deviates significantly from established baseline trends, indicating the system is not performing as expected.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/responsible-ai-lens/raimon01-bp02.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Set operational performance baselines and apply methods for drift detection",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/responsible-ai-lens/raimon01-bp02.html"
+                            }
+                        },
+                        {
+                            "id": "RAIMON01_BP03",
+                            "title": "Preserve data privacy and set access controls on monitored data",
+                            "helpfulResource": {
+                                "displayText": "Apply data governance processes that specify what monitoring data can be collected, processed, stored, and accessed throughout the monitoring lifecycle. Consider implementing privacy-preserving techniques including anonymization, differential privacy, and secure computation methods that enable system oversight without exposing individual user information. Using the principle of least privilege, create role-based access controls that limit monitoring data access to authorized personnel based on job function, with detailed audit trails tracking data access activities. Establish data retention policies that specify how long different types of monitoring data should be stored, with automated deletion processes and procedures for handling individual data requests.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/responsible-ai-lens/raimon01-bp03.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Preserve data privacy and set access controls on monitored data",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/responsible-ai-lens/raimon01-bp03.html"
+                            }
+                        },
+                        {
+                            "id": "RAIMON01_BP04",
+                            "title": "Create monitoring dashboards for operational visibility",
+                            "helpfulResource": {
+                                "displayText": "Design role-based monitoring dashboards that present relevant system health, performance, and risk indicators tailored to each stakeholder group's responsibilities and expertise levels. Create technical dashboards for engineering teams that show detailed performance metrics, error rates, and component-level health indicators with capabilities for deep-dive analysis. Develop executive dashboards that present summary-level information about benefit realization, risk mitigation effectiveness, and overall system performance against business objectives. Implement governance dashboards for teams that track adherence to release criteria and incident response metrics with historical trending capabilities.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/responsible-ai-lens/raimon01-bp04.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Create monitoring dashboards for operational visibility",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/responsible-ai-lens/raimon01-bp04.html"
+                            }
+                        },
+                        {
+                            "id": "RAIMON01_BP05",
+                            "title": "Design protocols that trigger human oversight of automated monitoring alerts",
+                            "helpfulResource": {
+                                "displayText": "Set protocols for when human reviewers should be involved in system oversight decisions. Create sampling-based human review processes that validate the accuracy and effectiveness of automated monitoring systems, including procedures for evaluating edge cases and challenging scenarios. Implement feedback mechanisms that enable human reviewers to improve automated monitoring through labeling ambiguous cases, refining alert criteria, and identifying new monitoring requirements. Design human oversight workflows that provide escalation paths, decision-making authority, and documentation requirements for monitoring decisions that affect system operation.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/responsible-ai-lens/raimon01-bp05.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Design protocols that trigger human oversight of automated monitoring alerts",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/responsible-ai-lens/raimon01-bp05.html"
+                            }
+                        },
+                        {
+                            "id": "RAIMON01_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "RAIMON01_BP01 && RAIMON01_BP02 && RAIMON01_BP03 && RAIMON01_BP04 && RAIMON01_BP05",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!RAIMON01_BP01) || (!RAIMON01_BP02) || (!RAIMON01_BP03) || (!RAIMON01_BP04) || (!RAIMON01_BP05)",
+                            "risk": "HIGH_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "MEDIUM_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "RAIMON02",
+                    "title": "How will you respond to feedback from monitoring?",
+                    "description": "Improve your AI system by applying feedback from monitoring and reported incidents.",
+                    "choices": [
+                        {
+                            "id": "RAIMON02_BP01",
+                            "title": "Create feedback loops to apply monitoring results to system improvement",
+                            "helpfulResource": {
+                                "displayText": "Translate monitoring results, incident patterns, and performance trends into actionable system improvements and risk mitigation enhancements. Implement regular review cycles that analyze monitoring data across multiple time horizons, identifying both immediate optimization opportunities and longer-term improvement strategies based on usage patterns and performance drift. Update system components based on monitoring insights, including refining guardrails, adjusting model parameters, updating training data, and modifying deployment strategies. Track the effectiveness of monitoring-driven improvements by validating that changes address identified issues without introducing new problems or degrading system performance in other areas.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/responsible-ai-lens/raimon02-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Create feedback loops to apply monitoring results to system improvement",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/responsible-ai-lens/raimon02-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "RAIMON02_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "RAIMON02_BP01",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!RAIMON02_BP01)",
+                            "risk": "MEDIUM_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "HIGH_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "RAIMON03",
+                    "title": "How will you decommission your AI system?",
+                    "description": "Prior to decommissioning an AI system, consider the impact on upstream and downstream stakeholders.",
+                    "choices": [
+                        {
+                            "id": "RAIMON03_BP01",
+                            "title": "Establish mechanisms for honoring stakeholder obligations",
+                            "helpfulResource": {
+                                "displayText": "Consider how to honor obligations you many have to upstream stakeholders (such as people who contributed content to an evaluation or training dataset) and downstream stakeholders (such as workflows that have taken dependencies on your AI system).",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/responsible-ai-lens/raimon03-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Establish mechanisms for honoring stakeholder obligations",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/responsible-ai-lens/raimon03-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "RAIMON03_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "RAIMON03_BP01",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!RAIMON03_BP01)",
+                            "risk": "HIGH_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "MEDIUM_RISK"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,2283 @@
+{
+    "schemaVersion": "2021-11-01",
+    "name": "Machine Learning Lens",
+    "description": "AWS Well-Architected Machine Learning Lens",
+    "pillars": [
+        {
+            "id": "operationalExcellence",
+            "name": "Operational Excellence",
+            "questions": [
+                {
+                    "id": "MLOPS01",
+                    "title": "How does your organizational structure and culture support your business outcomes?",
+                    "description": "Organizational structure and organizational culture have a direct impact on business outcomes. Your teams must understand their part in achieving business outcomes. Teams need to understand their roles in the success of other teams, the role of other teams in their success, and have shared goals. Understanding responsibility, ownership, how decisions are made, and who has authority to make decisions will help focus efforts and maximize the benefits from your teams.",
+                    "choices": [
+                        {
+                            "id": "MLOPS01_1",
+                            "title": "Develop the right skills with accountability and empowerment",
+                            "helpfulResource": {
+                                "displayText": "Artificial intelligence (AI) has many different and growing branches, such as machine learning, deep learning, and computer vision. Given the complexity and fast-growing nature of ML technologies, plan to hire specialists with the understanding that additional training will be needed as ML evolves. Keep teams learning new skills, engaged, and motivated while encouraging accountability and empowerment. Building ML models is a complex and iterative process that can infuse bias or unfair predictions against a certain entity. It's important to promote and enforce the ethical use of AI across enterprises. AWS provides clear guidance to customers for responsible AI practices.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/mlops01-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Develop the right skills with accountability and empowerment",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/mlops01-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "MLOPS01_2",
+                            "title": "Discuss and agree on the level of model explainability",
+                            "helpfulResource": {
+                                "displayText": "Establish clear expectations with business stakeholders about the level of model explainability needed for your machine learning use case. Explainability provides an understanding of how and why a model makes predictions, which builds trust, enables auditing, and supports adherence to regulatory requirements.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/mlops01-bp02.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Discuss and agree on the level of model explainability",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/mlops01-bp02.html"
+                            }
+                        },
+                        {
+                            "id": "MLOPS01_3",
+                            "title": "Monitor model adherence to business requirements",
+                            "helpfulResource": {
+                                "displayText": "Machine learning models degrade over time due to changes in the real world, such as data drift and concept drift. If not monitored, these changes could lead to models becoming inaccurate or even obsolete over time. It's important to have a periodic monitoring process in place to make sure that your ML models continue to comply to your business requirements and that deviations are captured and acted upon promptly.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/mlops01-bp03.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Monitor model adherence to business requirements",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/mlops01-bp03.html"
+                            }
+                        },
+                        {
+                            "id": "MLOPS01_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "MLOPS01_1 && MLOPS01_2 && MLOPS01_3",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!MLOPS01_1) || (!MLOPS01_2) || (!MLOPS01_3)",
+                            "risk": "HIGH_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "MEDIUM_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "MLOPS02",
+                    "title": "How do you establish operational processes that validate and maintain the technical feasibility of your ML problem formulation?",
+                    "description": "Define operational practices that help validate whether your ML problem formulation can be reliably implemented and maintained in production.",
+                    "choices": [
+                        {
+                            "id": "MLOPS02_1",
+                            "title": "Establish ML roles and responsibilities",
+                            "helpfulResource": {
+                                "displayText": "Clearly defining roles, responsibilities, and team interactions in machine learning projects creates an efficient operational framework that maximizes overall effectiveness. By understanding who does what and how teams collaborate, organizations can streamline their ML initiatives and deliver better business outcomes.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/mlops02-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Establish ML roles and responsibilities",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/mlops02-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "MLOPS02_2",
+                            "title": "Prepare an ML profile template",
+                            "helpfulResource": {
+                                "displayText": "Creating an ML profile template allows you to systematically capture machine learning workload characteristics across different lifecycle phases. Use this template to evaluate your ML workload's current maturity status and strategically plan for improvements that align with your business requirements.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/mlops02-bp02.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Prepare an ML profile template",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/mlops02-bp02.html"
+                            }
+                        },
+                        {
+                            "id": "MLOPS02_3",
+                            "title": "Establish model improvement strategies",
+                            "helpfulResource": {
+                                "displayText": "Planning improvement drivers for optimizing machine learning model performance is essential before development begins. By establishing a clear strategy for model enhancement, you can systematically improve your ML models through techniques like data collection, cross-validation, feature engineering, hyperparameter tuning, and ensemble methods.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/mlops02-bp03.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Establish model improvement strategies",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/mlops02-bp03.html"
+                            }
+                        },
+                        {
+                            "id": "MLOPS02_4",
+                            "title": "Establish a lineage tracker system",
+                            "helpfulResource": {
+                                "displayText": "Maintain a system that tracks changes for each release to enable reproducibility, speed up problem diagnosis, and improve regulatory adherence. Tracking lineage for model development includes changes in documentation, environment, model, data, code, and infrastructure.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/mlops02-bp04.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Establish a lineage tracker system",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/mlops02-bp04.html"
+                            }
+                        },
+                        {
+                            "id": "MLOPS02_5",
+                            "title": "Establish feedback loops across ML lifecycle phases",
+                            "helpfulResource": {
+                                "displayText": "Establishing feedback loops across machine learning (ML) lifecycle phases is essential for continuous improvement of ML workloads. By implementing robust mechanisms to share successful experiments, analyze failures, and document operational activities, you can enhance model performance and adapt to changing data patterns over time. Feedback loops can identify model drifts and enable practitioners to refine monitoring and retraining strategies, allowing for experimentation with data augmentation and different algorithms until optimal outcomes are achieved.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/mlops02-bp05.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Establish feedback loops across ML lifecycle phases",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/mlops02-bp05.html"
+                            }
+                        },
+                        {
+                            "id": "MLOPS02_6",
+                            "title": "Review fairness and explainability",
+                            "helpfulResource": {
+                                "displayText": "Evaluating model fairness and explainability verifies that your machine learning solutions are ethical, transparent, and equitable across user groups. By systematically addressing these concerns throughout the ML lifecycle, you build trust with stakeholders and reduce the risk of harmful bias in your models.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/mlops02-bp06.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Review fairness and explainability",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/mlops02-bp06.html"
+                            }
+                        },
+                        {
+                            "id": "MLOPS02_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "MLOPS02_1 && MLOPS02_4",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!MLOPS02_1) || (!MLOPS02_4)",
+                            "risk": "HIGH_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "MEDIUM_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "MLOPS03",
+                    "title": "How do you plan for continuous development and improvement?",
+                    "description": "Use tools and processes that enable continuous improvement to improve the effectiveness and efficiency of your operations.",
+                    "choices": [
+                        {
+                            "id": "MLOPS03_1",
+                            "title": "Profile data to improve quality",
+                            "helpfulResource": {
+                                "displayText": "Data profiling is essential for understanding data characteristics such as distribution, descriptive statistics, data types, and patterns. By systematically reviewing source data for content and quality, you can filter out or correct problematic data, leading to significant quality improvements in your machine learning workflows.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/mlops03-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Profile data to improve quality",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/mlops03-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "MLOPS03_2",
+                            "title": "Create tracking and version control mechanisms",
+                            "helpfulResource": {
+                                "displayText": "Machine learning model development requires robust tracking and version control mechanisms due to its iterative and exploratory nature. By implementing proper tracking systems, you can maintain visibility of your experiments, data processing techniques, and model versions while enabling reproducibility and collaboration.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/mlops03-bp02.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Create tracking and version control mechanisms",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/mlops03-bp02.html"
+                            }
+                        },
+                        {
+                            "id": "MLOPS03_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "MLOPS03_1 && MLOPS03_2",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!MLOPS03_1) || (!MLOPS03_2)",
+                            "risk": "HIGH_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "MEDIUM_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "MLOPS04",
+                    "title": "How do you implement operational practices that ensure reproducible and maintainable model development?",
+                    "description": "Establish operational controls and processes that enable consistent, traceable, and maintainable model development practices.",
+                    "choices": [
+                        {
+                            "id": "MLOPS04_1",
+                            "title": "Automate operations through MLOps and CI/CD",
+                            "helpfulResource": {
+                                "displayText": "Automate ML workload operations using infrastructure as code (IaC) and configuration as code (CaC). Select appropriate MLOps mechanisms to orchestrate your ML workflows and integrate with CI/CD pipelines for automated deployments. This approach creates consistency across your staging and production deployment environments. Enable model observability and version control across your hosting infrastructure.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/mlops04-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Automate operations through MLOps and CI/CD",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/mlops04-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "MLOPS04_2",
+                            "title": "Establish reliable packaging patterns to access approved public libraries",
+                            "helpfulResource": {
+                                "displayText": "Establishing reliable packaging patterns enables data scientists to access approved public libraries efficiently and consistently. By implementing structured access to public libraries and creating separate kernels for common ML frameworks, organizations can have both flexibility and security in their machine learning development environments.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/mlops04-bp02.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Establish reliable packaging patterns to access approved public libraries",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/mlops04-bp02.html"
+                            }
+                        },
+                        {
+                            "id": "MLOPS04_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "MLOPS04_1",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!MLOPS04_1)",
+                            "risk": "HIGH_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "MEDIUM_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "MLOPS05",
+                    "title": "How do you manage scalable development and deployment?",
+                    "description": "Adopt approaches that improve the flow of changes into production, that enable refactoring, fast feedback on quality, and bug fixing. These accelerate beneficial changes entering production, limit issues deployed, and enable rapid identification and remediation of issues introduced through deployment activities.",
+                    "choices": [
+                        {
+                            "id": "MLOPS05_1",
+                            "title": "Establish deployment environment metrics",
+                            "helpfulResource": {
+                                "displayText": "Establish comprehensive monitoring of machine learning operations to gain visibility into your deployed ML environments. By measuring metrics such as memory, CPU/GPU usage, disk utilization, endpoint invocations, and latency, you can provide optimal performance and improve the reliability of your ML systems.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/mlops05-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Establish deployment environment metrics",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/mlops05-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "MLOPS05_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "MLOPS05_1",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!MLOPS05_1)",
+                            "risk": "HIGH_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "MEDIUM_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "MLOPS06",
+                    "title": "How do you understand the operational health of your ML workload?",
+                    "description": "Define, capture, and analyze operations metrics to gain visibility to workload and operations events so that you can take appropriate action.",
+                    "choices": [
+                        {
+                            "id": "MLOPS06_1",
+                            "title": "Synchronize architecture and configuration, and check for skew across environments",
+                            "helpfulResource": {
+                                "displayText": "Synchronize your systems and configurations across development and deployment phases for consistent machine learning model inference results. By maintaining identical environments, you can avoid discrepancies that arise from architectural differences, leading to more reliable and predictable model performance.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/mlops06-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Synchronize architecture and configuration, and check for skew across environments",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/mlops06-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "MLOPS06_2",
+                            "title": "Enable model observability and tracking",
+                            "helpfulResource": {
+                                "displayText": "Establish model monitoring mechanisms to identify and proactively avoid inference issues. ML models can degrade in performance over time due to drifts. Monitor metrics that are attributed to your model's performance. For real time inference endpoints, measure the operational health of the underlying compute resources hosting the endpoint and the health of endpoint responses. Establish lineage to trace hosted models back to versioned inputs and model artifacts for analysis.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/mlops06-bp02.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Enable model observability and tracking",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/mlops06-bp02.html"
+                            }
+                        },
+                        {
+                            "id": "MLOPS06_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "MLOPS06_1 && MLOPS06_2",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!MLOPS06_1) || (!MLOPS06_2)",
+                            "risk": "HIGH_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "MEDIUM_RISK"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "security",
+            "name": "Security",
+            "questions": [
+                {
+                    "id": "MLSEC01",
+                    "title": "How do you incorporate security and compliance requirements into your ML business objectives from inception?",
+                    "description": "Define and integrate security and compliance considerations as fundamental components of your ML business goals.",
+                    "choices": [
+                        {
+                            "id": "MLSEC01_1",
+                            "title": "Validate ML data permissions, privacy, software, and license terms",
+                            "helpfulResource": {
+                                "displayText": "Machine learning implementations require careful consideration of data permissions, privacy, and software licensing to adhere to organizational and legal requirements. Validating these elements throughout the ML lifecycle builds trusted ML systems that respect data rights while delivering business value.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/mlsec01-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Validate ML data permissions, privacy, software, and license terms",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/mlsec01-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "MLSEC01_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "MLSEC01_1",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!MLSEC01_1)",
+                            "risk": "HIGH_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "MEDIUM_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "MLSEC02",
+                    "title": "How do you incorporate security requirements and constraints into your ML problem formulation?",
+                    "description": "Define security controls and requirements as integral components of your ML problem formulation. This includes evaluating how security considerations might impact model features, data accessibility, and inference requirements.",
+                    "choices": [
+                        {
+                            "id": "MLSEC02_1",
+                            "title": "Design data encryption and obfuscation",
+                            "helpfulResource": {
+                                "displayText": "Consider how to protect personal data. Use field level encryption or obfuscation to protect personally identifiable data.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/mlsec02-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Design data encryption and obfuscation",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/mlsec02-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "MLSEC02_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "MLSEC02_1",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!MLSEC02_1)",
+                            "risk": "HIGH_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "MEDIUM_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "MLSEC03",
+                    "title": "How do you protect data?",
+                    "description": "Before architecting any system, foundational practices that influence security should be in place. For example, data classification provides a way to categorize organizational data based on levels of sensitivity, and encryption protects data by way of rendering it unintelligible to unauthorized access. These tools and techniques are important because they support objectives such as preventing financial loss or complying with regulatory obligations.",
+                    "choices": [
+                        {
+                            "id": "MLSEC03_1",
+                            "title": "Provide least privilege access",
+                            "helpfulResource": {
+                                "displayText": "Protect resources across various phases of the ML lifecycle using the principle of least privilege. These resources include: data, algorithms, code, hyperparameters, trained model artifacts, and infrastructure. Provide dedicated network environments with dedicated resources and services to operate individual projects.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/mlsec03-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Provide least privilege access",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/mlsec03-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "MLSEC03_2",
+                            "title": "Secure data and modeling environment",
+                            "helpfulResource": {
+                                "displayText": "Secure your machine learning data and development environments to protect valuable information assets throughout the ML lifecycle. By implementing proper security measures for storage, compute, and network resources, you can maintain data integrity and confidentiality while enabling data scientists to work effectively.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/mlsec03-bp02.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Secure data and modeling environment",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/mlsec03-bp02.html"
+                            }
+                        },
+                        {
+                            "id": "MLSEC03_3",
+                            "title": "Protect sensitive data privacy",
+                            "helpfulResource": {
+                                "displayText": "Protect sensitive data used in training against unintended disclosure by implementing appropriate identification, classification, and handling strategies. This practice improves data privacy while maintaining model utility through techniques such as data removal, masking, tokenization, and principal component analysis (PCA).",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/mlsec03-bp03.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Protect sensitive data privacy",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/mlsec03-bp03.html"
+                            }
+                        },
+                        {
+                            "id": "MLSEC03_4",
+                            "title": "Enforce data lineage",
+                            "helpfulResource": {
+                                "displayText": "Data lineage tracking allows you to monitor and track data origins and transformations over time, enabling better visibility into your machine learning workflows. By enforcing data lineage, you can trace the root cause of data processing errors and and protect the integrity of your ML models.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/mlsec03-bp04.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Enforce data lineage",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/mlsec03-bp04.html"
+                            }
+                        },
+                        {
+                            "id": "MLSEC03_5",
+                            "title": "Keep only relevant data",
+                            "helpfulResource": {
+                                "displayText": "Reduce data exposure risks by preserving only use-case relevant data across computing environments. Implementing data lifecycle management and privacy-preserving techniques maintains data security while enabling effective machine learning workflows.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/mlsec03-bp05.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Keep only relevant data",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/mlsec03-bp05.html"
+                            }
+                        },
+                        {
+                            "id": "MLSEC03_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "MLSEC03_1 && MLSEC03_2 && MLSEC03_3",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!MLSEC03_1) || (!MLSEC03_2) || (!MLSEC03_3)",
+                            "risk": "HIGH_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "MEDIUM_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "MLSEC04",
+                    "title": "How do you implement security controls and practices throughout the model development process?",
+                    "description": "Establish comprehensive security controls and practices during model development to protect against vulnerabilities and verify requirements are met.",
+                    "choices": [
+                        {
+                            "id": "MLSEC04_1",
+                            "title": "Secure governed ML environment",
+                            "helpfulResource": {
+                                "displayText": "Creating a secure and governed ML environment allows you to protect valuable data and models while enabling teams to innovate efficiently. By implementing proper guardrails, monitoring, and security practices, you maintain control while providing the flexibility ML practitioners need to deliver business value.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/mlsec04-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Secure governed ML environment",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/mlsec04-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "MLSEC04_2",
+                            "title": "Secure inter-node cluster communications",
+                            "helpfulResource": {
+                                "displayText": "Machine learning frameworks require secure communications between computational nodes to maintain data integrity and protect sensitive information during model training. By implementing encryption for inter-node communications, you safeguard coefficient exchanges and protect synchronized information across distributed environments.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/mlsec04-bp02.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Secure inter-node cluster communications",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/mlsec04-bp02.html"
+                            }
+                        },
+                        {
+                            "id": "MLSEC04_3",
+                            "title": "Protect against data poisoning threats",
+                            "helpfulResource": {
+                                "displayText": "Protect your machine learning models and data by implementing security measures against data poisoning attacks, which can compromise model performance and accuracy. Data poisoning occurs through data injection (adding corrupt training data) or data manipulation (changing existing data like labels), resulting in inaccurate and weakened predictive capabilities. By identifying and addressing corrupt data using security methods and anomaly detection algorithms, you can maintain data integrity and protect against threats including ransomware and malicious code in third-party packages.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/mlsec04-bp03.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Protect against data poisoning threats",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/mlsec04-bp03.html"
+                            }
+                        },
+                        {
+                            "id": "MLSEC04_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "MLSEC04_1 && MLSEC04_2",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!MLSEC04_1) || (!MLSEC04_2)",
+                            "risk": "HIGH_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "MEDIUM_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "MLSEC05",
+                    "title": "How do you control access to your ML workload?",
+                    "description": "Identity and access management are key parts of an information security program, ensuring that only authorized and authenticated users and components are able to access your resources, and only in a manner that you intend. Infrastructure protection encompasses control methodologies, such as defense in depth, necessary to meet best practices and organizational or regulatory obligations.",
+                    "choices": [
+                        {
+                            "id": "MLSEC05_1",
+                            "title": "Protect against adversarial and malicious activities",
+                            "helpfulResource": {
+                                "displayText": "Machine learning systems must be robust against adversarial inputs designed to manipulate their behavior. Implementing protection mechanisms both inside and outside of your deployed models can detect malicious inputs that could lead to incorrect predictions, allowing you to automatically identify unauthorized changes, repair compromised inputs, and validate data before it's used for further training.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/mlsec05-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Protect against adversarial and malicious activities",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/mlsec05-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "MLSEC05_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "MLSEC05_1",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!MLSEC05_1)",
+                            "risk": "HIGH_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "MEDIUM_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "MLSEC06",
+                    "title": "How do you monitor, detect and protect your workload from risks and threats?",
+                    "description": "You can use detective controls to identify a potential security threat or incident. They are an essential part of governance frameworks and can be used to support a quality process, a legal or compliance obligation, and for threat identification and response efforts. There are different types of detective controls.",
+                    "choices": [
+                        {
+                            "id": "MLSEC06_1",
+                            "title": "Restrict access to intended legitimate consumers",
+                            "helpfulResource": {
+                                "displayText": "Use least privilege permissions to invoke the deployed model endpoint. For consumers who are external to the workload environment, provide access using a secure API.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/mlsec06-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Restrict access to intended legitimate consumers",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/mlsec06-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "MLSEC06_2",
+                            "title": "Monitor human interactions with data for anomalous activity",
+                            "helpfulResource": {
+                                "displayText": "Implement comprehensive monitoring of data access events to detect unauthorized or suspicious activities. By auditing user interactions with data, you can identify potential security threats such as unusual access patterns, abnormal locations, or activity that exceeds normal baselines. Use specialized AWS services for anomaly detection alongside data classification to assess risks and protect your machine learning assets.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/mlsec06-bp02.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Monitor human interactions with data for anomalous activity",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/mlsec06-bp02.html"
+                            }
+                        },
+                        {
+                            "id": "MLSEC06_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "MLSEC06_1 && MLSEC06_2",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!MLSEC06_1) || (!MLSEC06_2)",
+                            "risk": "HIGH_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "MEDIUM_RISK"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "reliability",
+            "name": "Reliability",
+            "questions": [
+                {
+                    "id": "MLREL01",
+                    "title": "How do you ensure your ML problem formulation accounts for reliability requirements and potential failure modes?",
+                    "description": "Define reliability considerations as core components of your ML problem formulation. This includes identifying potential failure modes, establishing acceptable performance degradation thresholds, and determining recovery requirements specific to your use case.",
+                    "choices": [
+                        {
+                            "id": "MLREL01_1",
+                            "title": "Use APIs to abstract change from model consuming applications",
+                            "helpfulResource": {
+                                "displayText": "APIs abstract changes from model-consuming applications, keeping machine learning solutions flexible and resilient. Establishing an abstraction layer between ML models and consuming applications enables model updates, replacements, or enhancements without disrupting existing workloads.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/mlrel01-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Use APIs to abstract change from model consuming applications",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/mlrel01-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "MLREL01_2",
+                            "title": "Adopt a machine learning microservice strategy",
+                            "helpfulResource": {
+                                "displayText": "Machine learning systems can be effectively implemented through a microservice architecture that breaks down complex business problems into smaller, loosely coupled components. This approach enables distributed development, improves scalability, and facilitates change management while reducing the impact of single failures on the overall workload.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/mlrel01-bp02.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Adopt a machine learning microservice strategy",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/mlrel01-bp02.html"
+                            }
+                        },
+                        {
+                            "id": "MLREL01_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "MLREL01_1",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!MLREL01_1)",
+                            "risk": "HIGH_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "MEDIUM_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "MLREL02",
+                    "title": "How do you ensure reliable and resilient data processing pipelines for your ML workflows?",
+                    "description": "Implement robust and fault-tolerant data processing pipelines that maintain data quality and availability for ML workflows.",
+                    "choices": [
+                        {
+                            "id": "MLREL02_1",
+                            "title": "Use a data catalog",
+                            "helpfulResource": {
+                                "displayText": "Process data across multiple data stores using data catalog technology. An advanced data catalog service can enable ETL process integration. This approach improves reliability and efficiency.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/mlrel02-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Use a data catalog",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/mlrel02-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "MLREL02_2",
+                            "title": "Use a data pipeline",
+                            "helpfulResource": {
+                                "displayText": "Automate the processing, movement, and transformation of data between different compute and storage services. This automation enables data processing that is fault tolerant, repeatable, and highly available.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/mlrel02-bp02.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Use a data pipeline",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/mlrel02-bp02.html"
+                            }
+                        },
+                        {
+                            "id": "MLREL02_3",
+                            "title": "Automate managing data changes",
+                            "helpfulResource": {
+                                "displayText": "Effective management of machine learning training data changes is crucial for maintaining model reproducibility and providing consistent performance over time. By implementing automated version control for training data, you can precisely recreate a model version when needed and maintain a clear audit trail of data transformations.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/mlrel02-bp03.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Automate managing data changes",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/mlrel02-bp03.html"
+                            }
+                        },
+                        {
+                            "id": "MLREL02_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "MLREL02_2 && MLREL02_3",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!MLREL02_2) || (!MLREL02_3)",
+                            "risk": "HIGH_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "MEDIUM_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "MLREL03",
+                    "title": "How do you verify your model development practices result in reliable and robust ML models?",
+                    "description": "Implement development practices that produce reliable and robust models capable of consistent performance in production.",
+                    "choices": [
+                        {
+                            "id": "MLREL03_1",
+                            "title": "Enable CI/CD/CT automation with traceability",
+                            "helpfulResource": {
+                                "displayText": "Enable source code, data, and artifact version control of ML workloads to enable roll back to a specific version. Incorporate continuous integration (CI), continuous delivery (CD), and continuous training (CT) practices to ML workload operations, providing automation with added traceability.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/mlrel03-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Enable CI/CD/CT automation with traceability",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/mlrel03-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "MLREL03_2",
+                            "title": "Verify feature consistency across training and inference",
+                            "helpfulResource": {
+                                "displayText": "Provide consistent, scalable, and highly available features between training and inference using a feature storage. This results in reducing the training-serving skew by keeping feature consistency between training and inference.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/mlrel03-bp02.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Verify feature consistency across training and inference",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/mlrel03-bp02.html"
+                            }
+                        },
+                        {
+                            "id": "MLREL03_3",
+                            "title": "Validate models with relevant data",
+                            "helpfulResource": {
+                                "displayText": "Testing and validating machine learning models with appropriate data is essential for reliable performance in production. Use real and representative data that covers many possible patterns and scenarios to avoid model failures when deployed in real-world environments.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/mlrel03-bp03.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Validate models with relevant data",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/mlrel03-bp03.html"
+                            }
+                        },
+                        {
+                            "id": "MLREL03_4",
+                            "title": "Establish data bias detection and mitigation",
+                            "helpfulResource": {
+                                "displayText": "Detect and mitigate bias to avoid inaccurate model results. Establish bias detection methodologies at data preparation stage before training starts. Monitor, detect, and mitigate bias after the model is in production. Establish feedback loops to track the drift over time and initiate a re-training.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/mlrel03-bp04.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Establish data bias detection and mitigation",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/mlrel03-bp04.html"
+                            }
+                        },
+                        {
+                            "id": "MLREL03_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "MLREL03_1 && MLREL03_2 && MLREL03_3",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!MLREL03_1) || (!MLREL03_2) || (!MLREL03_3)",
+                            "risk": "HIGH_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "MEDIUM_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "MLREL04",
+                    "title": "How do you prepare your ML workload to manage and withstand failures?",
+                    "description": "In any system of reasonable complexity, it is expected that failures will occur. Reliability requires that your workload be aware of failures as they occur and take action to avoid impact on availability. Workloads must be able to both withstand failures and automatically repair issues.",
+                    "choices": [
+                        {
+                            "id": "MLREL04_1",
+                            "title": "Automate endpoint changes through a pipeline",
+                            "helpfulResource": {
+                                "displayText": "Manual change management can be error prone and potentially incur a high effort cost. Use automated pipelines (that integrate with a change management tracking system) to deploy changes to your model endpoints. Versioned pipeline inputs and artifacts allow you to track the changes and automatically rollback after a failed change.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/mlrel04-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Automate endpoint changes through a pipeline",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/mlrel04-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "MLREL04_2",
+                            "title": "Use an appropriate deployment and testing strategy",
+                            "helpfulResource": {
+                                "displayText": "Select the right deployment and testing strategy for your machine learning models to create smoother transitions to production, minimize disruption, and allow for careful evaluation of model performance before full implementation.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/mlrel04-bp02.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Use an appropriate deployment and testing strategy",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/mlrel04-bp02.html"
+                            }
+                        },
+                        {
+                            "id": "MLREL04_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "MLREL04_1 && MLREL04_2",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!MLREL04_1) || (!MLREL04_2)",
+                            "risk": "HIGH_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "MEDIUM_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "MLREL05",
+                    "title": "How do you design your ML workload architecture to prevent failures?",
+                    "description": "A reliable workload starts with upfront design decisions for both software and infrastructure. Your architecture choices will impact your workload behavior across all five Well-Architected pillars. For reliability, there are specific patterns you must follow.",
+                    "choices": [
+                        {
+                            "id": "MLREL05_1",
+                            "title": "Allow automatic scaling of the model endpoint",
+                            "helpfulResource": {
+                                "displayText": "Implement capabilities that allow the automatic scaling of model endpoints. This improves the reliable processing of predictions to meet changing workload demands. Include monitoring on endpoints to identify a threshold that initiates the addition or removal of resources to support current demand.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/mlrel05-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Allow automatic scaling of the model endpoint",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/mlrel05-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "MLREL05_2",
+                            "title": "Create a recoverable endpoint with a managed version control strategy",
+                            "helpfulResource": {
+                                "displayText": "Establish a fully recoverable system for model prediction endpoints by implementing proper version control and lineage tracking for components that generate these endpoints.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/mlrel05-bp02.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Create a recoverable endpoint with a managed version control strategy",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/mlrel05-bp02.html"
+                            }
+                        },
+                        {
+                            "id": "MLREL05_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "MLREL05_1 && MLREL05_2",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!MLREL05_1) || (!MLREL05_2)",
+                            "risk": "HIGH_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "MEDIUM_RISK"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "performance",
+            "name": "Performance Efficiency",
+            "questions": [
+                {
+                    "id": "MLPERF01",
+                    "title": "How do you define and align performance requirements with business objectives for your ML initiatives?",
+                    "description": "Establish clear performance efficiency targets that directly support your ML business goals.",
+                    "choices": [
+                        {
+                            "id": "MLPERF01_1",
+                            "title": "Determine key performance indicators",
+                            "helpfulResource": {
+                                "displayText": "Use guidance from business stakeholders to capture key performance indicators (KPIs) relevant to the business use case. The KPIs should be directly linked to business value to guide acceptable model performance. Consider that machine learning inferences are probabilistic and will not provide exact results. Identify a minimum acceptable accuracy and maximum acceptable error in the KPIs. This enables you to achieve the required business value and manage the risk of variable results.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/mlperf01-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Determine key performance indicators",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/mlperf01-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "MLPERF01_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "MLPERF01_1",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!MLPERF01_1)",
+                            "risk": "HIGH_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "MEDIUM_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "MLPERF02",
+                    "title": "How do you incorporate performance requirements and constraints into your ML problem formulation?",
+                    "description": "Define performance efficiency considerations as key components of your ML problem formulation.",
+                    "choices": [
+                        {
+                            "id": "MLPERF02_1",
+                            "title": "Define relevant evaluation metrics",
+                            "helpfulResource": {
+                                "displayText": "Establishing clear, meaningful evaluation metrics is essential for validating machine learning model performance against business objectives. By selecting metrics that directly relate to your key performance indicators (KPIs), you can verify that your ML solutions deliver measurable business value.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/mlperf02-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Define relevant evaluation metrics",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/mlperf02-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "MLPERF02_2",
+                            "title": "Use purpose-built AI and ML services and resources",
+                            "helpfulResource": {
+                                "displayText": "Consider how the workload could be handled by pre-built AI services or ML resources. Better performance can often be delivered more efficiently by using pre-optimized components included in AI and ML managed services. Select an optimal mix of bespoke and pre-built components to meet the workload requirements.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/mlperf02-bp02.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Use purpose-built AI and ML services and resources",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/mlperf02-bp02.html"
+                            }
+                        },
+                        {
+                            "id": "MLPERF02_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "MLPERF02_1",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!MLPERF02_1)",
+                            "risk": "HIGH_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "MEDIUM_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "MLPERF03",
+                    "title": "How do you evaluate ML performance efficiency and plan for improvement?",
+                    "description": "Cloud technologies are rapidly evolving and you must ensure that workload components are using the latest technologies and approaches to continually improve performance. You must continually evaluate and consider changes to your workload components to ensure you are meeting its performance and cost objectives. When you architect solutions, think about trade-offs to ensure an optimal approach. Depending on your situation, you could trade consistency, durability, and space for time or latency, to deliver higher performance.",
+                    "choices": [
+                        {
+                            "id": "MLPERF03_1",
+                            "title": "Use a modern data architecture",
+                            "helpfulResource": {
+                                "displayText": "Get the best insights from exponentially growing data using a modern data architecture. This architecture enables movement of data between a data lake and purpose-built stores including a data warehouse, relational databases, non-relational databases, ML and big data processing, and log analytics. A data lake provides a single place to run analytics across mixed data structures collected from disparate sources. Purpose-built analytics services provide the speed required for specific use cases like real-time dashboards and log analytics.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/mlperf03-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Use a modern data architecture",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/mlperf03-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "MLPERF03_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "MLPERF03_1",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!MLPERF03_1)",
+                            "risk": "MEDIUM_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "HIGH_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "MLPERF04",
+                    "title": "How do you evolve your architecture and infrastructure?",
+                    "description": "The optimal solution for a particular workload varies, and solutions often combine multiple approaches. Well-architected workloads use multiple solutions and enable different features to improve performance. When you architect solutions, think about trade-offs to ensure an optimal approach. Depending on your situation, you could trade consistency, durability, and space for time or latency, to deliver higher performance.",
+                    "choices": [
+                        {
+                            "id": "MLPERF04_1",
+                            "title": "Optimize training and inference instance types",
+                            "helpfulResource": {
+                                "displayText": "Selecting appropriate instance types for training and inference workloads provides optimal performance, reduced costs, and faster time-to-market for your machine learning models. By understanding your model's specific requirements and data characteristics, you can choose the right computational resources to maximize efficiency.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/mlperf04-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Optimize training and inference instance types",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/mlperf04-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "MLPERF04_2",
+                            "title": "Explore alternatives for performance improvement",
+                            "helpfulResource": {
+                                "displayText": "Benchmarking your machine learning models allows you to systematically improve performance by evaluating and comparing different algorithms, features, and architectural resources. Use this practice to identify the optimal combination and achieve your desired performance metrics.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/mlperf04-bp02.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Explore alternatives for performance improvement",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/mlperf04-bp02.html"
+                            }
+                        },
+                        {
+                            "id": "MLPERF04_3",
+                            "title": "Establish a model performance evaluation pipeline",
+                            "helpfulResource": {
+                                "displayText": "Establish an end-to-end model performance evaluation pipeline that captures key metrics to evaluate your model's success, align with business KPIs, and automatically test performance when models or data are updated.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/mlperf04-bp03.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Establish a model performance evaluation pipeline",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/mlperf04-bp03.html"
+                            }
+                        },
+                        {
+                            "id": "MLPERF04_4",
+                            "title": "Establish feature statistics",
+                            "helpfulResource": {
+                                "displayText": "Establishing key statistics to measure changes in data that affect model outcomes is crucial for maintaining ML model performance. By analyzing feature importance and sensitivity, you can select the most critical features to monitor and detect when data drifts outside acceptable ranges so you can determine when model retraining is necessary.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/mlperf04-bp04.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Establish feature statistics",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/mlperf04-bp04.html"
+                            }
+                        },
+                        {
+                            "id": "MLPERF04_5",
+                            "title": "Perform a performance trade-off analysis",
+                            "helpfulResource": {
+                                "displayText": "Perform a trade-off analysis to identify optimal ML model configurations that balance competing requirements for your business needs. This practice enables you to maximize both model accuracy and overall business value.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/mlperf04-bp05.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Perform a performance trade-off analysis",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/mlperf04-bp05.html"
+                            }
+                        },
+                        {
+                            "id": "MLPERF04_6",
+                            "title": "Detect performance issues when using transfer learning",
+                            "helpfulResource": {
+                                "displayText": "Transfer learning can accelerate machine learning development by using pre-trained models for new tasks. Monitoring the performance of these transferred models verifies that they yield accurate results in new contexts and stops inherited weaknesses from affecting your solutions.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/mlperf04-bp06.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Detect performance issues when using transfer learning",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/mlperf04-bp06.html"
+                            }
+                        },
+                        {
+                            "id": "MLPERF04_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "MLPERF04_3 && MLPERF04_4",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!MLPERF04_3) || (!MLPERF04_4)",
+                            "risk": "HIGH_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "MEDIUM_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "MLPERF05",
+                    "title": "How do you optimize deployment architectures and processes to achieve efficient model serving?",
+                    "description": "Implement deployment strategies that maximize performance efficiency while meeting serving requirements.",
+                    "choices": [
+                        {
+                            "id": "MLPERF05_1",
+                            "title": "Evaluate cloud versus edge options for machine learning deployment",
+                            "helpfulResource": {
+                                "displayText": "Evaluate machine learning deployment options to determine if your application requires near-instantaneous inference results or needs to operate without network connectivity. When the lowest possible latency is essential, deploying inference directly on edge devices avoids costly roundtrips to cloud API endpoints. Edge deployments are particularly valuable for use cases like predictive maintenance in factories, where immediate local responses are critical.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/mlperf05-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Evaluate cloud versus edge options for machine learning deployment",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/mlperf05-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "MLPERF05_2",
+                            "title": "Choose an optimal deployment option in the cloud",
+                            "helpfulResource": {
+                                "displayText": "When deploying machine learning models in the cloud, selecting the right deployment option is crucial for performance efficiency. By matching your deployment method to your use case requirements for request frequency, latency, and runtime, you can optimize both performance and cost.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/mlperf05-bp02.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Choose an optimal deployment option in the cloud",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/mlperf05-bp02.html"
+                            }
+                        },
+                        {
+                            "id": "MLPERF05_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "MLPERF05_1 || MLPERF05_2",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!MLPERF05_1) || (!MLPERF05_2)",
+                            "risk": "MEDIUM_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "HIGH_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "MLPERF06",
+                    "title": "How do you monitor, review and improve ML Performance?",
+                    "description": "After you implement your workload, you must monitor its performance so that you can remediate any issues before they impact your customers. Monitoring metrics should be used to raise alarms when thresholds are breached.",
+                    "choices": [
+                        {
+                            "id": "MLPERF06_1",
+                            "title": "Include human-in-the-loop monitoring",
+                            "helpfulResource": {
+                                "displayText": "Including human-in-the-loop monitoring is an effective method for efficiently tracking and maintaining model performance. By incorporating human review into automated decision processes, organizations can establish a reliable quality assurance mechanism that validates model inferences and detects performance degradation over time.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/mlperf06-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Include human-in-the-loop monitoring",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/mlperf06-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "MLPERF06_2",
+                            "title": "Evaluate model explainability",
+                            "helpfulResource": {
+                                "displayText": "Model explainability allows you to understand and interpret how your machine learning models arrive at their decisions. By evaluating model explainability, you gain insights into the factors that influence predictions to build trustworthy AI systems that meet business requirements and regulatory standards.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/mlperf06-bp02.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Evaluate model explainability",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/mlperf06-bp02.html"
+                            }
+                        },
+                        {
+                            "id": "MLPERF06_3",
+                            "title": "Evaluate data drift",
+                            "helpfulResource": {
+                                "displayText": "Data drift can impact the performance of your machine learning models, leading to inaccurate predictions and diminished business value. By implementing effective monitoring and detection strategies, you can identify when your models are no longer performing optimally due to changes in the underlying data patterns.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/mlperf06-bp03.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Evaluate data drift",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/mlperf06-bp03.html"
+                            }
+                        },
+                        {
+                            "id": "MLPERF06_4",
+                            "title": "Monitor, detect, and handle model performance degradation",
+                            "helpfulResource": {
+                                "displayText": "Model performance could degrade over time for reasons such as data quality, model quality, model bias, and model explainability. Continuously monitor the quality of the ML model in real time. Identify the right time and frequency to retrain and update the model. Configure alerts to notify and initiate actions if a drift in model performance is observed.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/mlperf06-bp04.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Monitor, detect, and handle model performance degradation",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/mlperf06-bp04.html"
+                            }
+                        },
+                        {
+                            "id": "MLPERF06_5",
+                            "title": "Establish an automated re-training framework",
+                            "helpfulResource": {
+                                "displayText": "Monitor data and model predictions to identify errors due to data and concept drift. By implementing automated model re-training at scheduled intervals or when performance metrics reach defined thresholds, you can maintain model accuracy and effectiveness over time. This approach keeps your machine learning models relevant as data patterns evolve.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/mlperf06-bp05.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Establish an automated re-training framework",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/mlperf06-bp05.html"
+                            }
+                        },
+                        {
+                            "id": "MLPERF06_6",
+                            "title": "Review for updated data and features for retraining",
+                            "helpfulResource": {
+                                "displayText": "Establishing a framework to regularly review and update your machine learning model's data and features is essential for maintaining model accuracy. As business environments evolve, new data patterns emerge that can impact your model's performance. By systematically reviewing your data and features at appropriate intervals, you can keep your models accurate and reliable.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/mlperf06-bp06.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Review for updated data and features for retraining",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/mlperf06-bp06.html"
+                            }
+                        },
+                        {
+                            "id": "MLPERF06_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "MLPERF06_1 && MLPERF06_4 && MLPERF06_5",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!MLPERF06_1) || (!MLPERF06_4) || (!MLPERF06_5)",
+                            "risk": "HIGH_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "MEDIUM_RISK"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "costOptimization",
+            "name": "Cost Optimization",
+            "questions": [
+                {
+                    "id": "MLCOST01",
+                    "title": "How do you align expenditure to your business objectives and create usage awareness?",
+                    "description": "The cloud makes it easier to accurately identify the usage and cost of systems, which then allows transparent attribution of IT costs to individual workload owners. This helps measure return on investment (ROI) and gives workload owners an opportunity to optimize their resources and reduce costs. The capability to attribute resource costs to the individual organization or product owners drives efficient usage behavior and helps reduce waste. Accurate cost attribution allows you to know which products are truly profitable, and allows you to make more informed decisions about where to allocate budget.",
+                    "choices": [
+                        {
+                            "id": "MLCOST01_1",
+                            "title": "Define overall return on investment (ROI) and opportunity cost",
+                            "helpfulResource": {
+                                "displayText": "Machine learning projects require careful evaluation of their business value and resource requirements. By analyzing the ROI and opportunity costs of ML implementations, you can make informed decisions that optimize resource allocation while delivering maximum business impact.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/mlcost01-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Define overall return on investment (ROI) and opportunity cost",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/mlcost01-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "MLCOST01_2",
+                            "title": "Use managed services to reduce total cost of ownership (TCO)",
+                            "helpfulResource": {
+                                "displayText": "Using managed machine learning services enables organizations to operate more efficiently with reduced resources and costs compared to self-managed options. This approach reduces undifferentiated heavy lifting, reduces operational burden, and allows teams to focus on delivering business value.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/mlcost01-bp02.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Use managed services to reduce total cost of ownership (TCO)",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/mlcost01-bp02.html"
+                            }
+                        },
+                        {
+                            "id": "MLCOST01_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "MLCOST01_1 && MLCOST01_2",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!MLCOST01_1) || (!MLCOST01_2)",
+                            "risk": "HIGH_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "MEDIUM_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "MLCOST02",
+                    "title": "How do you verify cost considerations are factored into your ML problem formulation to enable efficient resource utilization?",
+                    "description": "Define cost parameters and constraints as essential elements of your ML problem formulation.",
+                    "choices": [
+                        {
+                            "id": "MLCOST02_1",
+                            "title": "Identify if machine learning is the right solution",
+                            "helpfulResource": {
+                                "displayText": "Evaluating whether machine learning is the appropriate solution for your business problem is crucial for cost optimization. Not every problem requires ML solutions, and sometimes simpler approaches may be more effective and less costly. By thoroughly evaluating alternatives against ML approaches, you can make informed decisions that optimize both your technical resources and business outcomes.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/mlcost02-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Identify if machine learning is the right solution",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/mlcost02-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "MLCOST02_2",
+                            "title": "Perform a tradeoff analysis between custom and pre-trained models",
+                            "helpfulResource": {
+                                "displayText": "Optimize machine learning costs by carefully analyzing the tradeoffs between developing custom models and using pre-trained models. This analysis should maintain security and performance efficiency within acceptable thresholds while minimizing unnecessary expenses.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/mlcost02-bp02.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Perform a tradeoff analysis between custom and pre-trained models",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/mlcost02-bp02.html"
+                            }
+                        },
+                        {
+                            "id": "MLCOST02_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "MLCOST02_1",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!MLCOST02_1)",
+                            "risk": "HIGH_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "MEDIUM_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "MLCOST03",
+                    "title": "How do you optimize cost during model training?",
+                    "description": "Using the appropriate instances, resources, tools and services for your workload is key to cost savings. Appropriate service selection can also reduce usage and costs.",
+                    "choices": [
+                        {
+                            "id": "MLCOST03_1",
+                            "title": "Use managed data labeling",
+                            "helpfulResource": {
+                                "displayText": "Use managed labeling tools that provide automation and access to cost-effective teams of human data labelers. These tools should offer flexibility to choose a variable number of labelers for each input, include a user-friendly interface, and incorporate learning capabilities to improve labeling efficiency over time.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/mlcost03-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Use managed data labeling",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/mlcost03-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "MLCOST03_2",
+                            "title": "Use no-code or low-code and code generation tools for interactive analysis",
+                            "helpfulResource": {
+                                "displayText": "Prepare data through data wrangler tools for interactive data analysis and model building. The no-code/low-code, automation, and visual capabilities improve productivity and reduce the cost for interactive analysis. Integrate with generative AI code generation tools.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/mlcost03-bp02.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Use no-code or low-code and code generation tools for interactive analysis",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/mlcost03-bp02.html"
+                            }
+                        },
+                        {
+                            "id": "MLCOST03_3",
+                            "title": "Use managed data processing capabilities",
+                            "helpfulResource": {
+                                "displayText": "With managed data processing, you can use a simplified, managed experience to run your data processing workloads, such as feature engineering, data validation, model evaluation, and model interpretation.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/mlcost03-bp03.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Use managed data processing capabilities",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/mlcost03-bp03.html"
+                            }
+                        },
+                        {
+                            "id": "MLCOST03_4",
+                            "title": "Enable feature reusability",
+                            "helpfulResource": {
+                                "displayText": "Reduce duplication and the rerunning of feature engineering code across teams and projects by using feature storage. The store should have online and oﬄine storage, and data encryption capabilities. An online store with low-latency retrieval capabilities is ideal for real-time inference. An oﬄine store maintains a history of feature values and is suited for training and batch scoring.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/mlcost03-bp04.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Enable feature reusability",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/mlcost03-bp04.html"
+                            }
+                        },
+                        {
+                            "id": "MLCOST03_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "MLCOST03_1 || MLCOST03_2 || MLCOST03_3",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!MLCOST03_1) || (!MLCOST03_2) || (!MLCOST03_3)",
+                            "risk": "MEDIUM_RISK"
+                        },                        
+                        {
+                            "condition": "default",
+                            "risk": "HIGH_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "MLCOST04",
+                    "title": "How do you ensure cost-effective resource selection and usage?",
+                    "description": "Using the appropriate instances, resources, tools and services for your workload is key to cost savings. Appropriate service selection can also reduce usage and costs.",
+                    "choices": [
+                        {
+                            "id": "MLCOST04_1",
+                            "title": "Select optimal computing instance size",
+                            "helpfulResource": {
+                                "displayText": "Right size your machine learning training instances according to the algorithm and workload requirements to maximize efficiency and reduce costs. By selecting the most appropriate computing resources, you can improve performance while minimizing unnecessary expenses.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/mlcost04-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Select optimal computing instance size",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/mlcost04-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "MLCOST04_2",
+                            "title": "Use managed build environments",
+                            "helpfulResource": {
+                                "displayText": "Using managed build environments for machine learning development instead of local setups provides significant cost, time, and resource advantages. Managed notebooks come pre-configured with security, networking, storage, and compute capabilities that would otherwise require extensive development and maintenance effort. These environments also offer flexible machine selection, including access to powerful GPUs and high-memory instances that may be impractical in local setups.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/mlcost04-bp02.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Use managed build environments",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/mlcost04-bp02.html"
+                            }
+                        },
+                        {
+                            "id": "MLCOST04_3",
+                            "title": "Select local training for small scale experiments",
+                            "helpfulResource": {
+                                "displayText": "When developing machine learning models, choosing the right training environment is crucial for both cost efficiency and rapid experimentation. By evaluating whether to train your ML model locally or in the cloud, you can optimize your development workflow and appropriately match resources to the scale of your experiment.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/mlcost04-bp03.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Select local training for small scale experiments",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/mlcost04-bp03.html"
+                            }
+                        },
+                        {
+                            "id": "MLCOST04_4",
+                            "title": "Select an optimal ML framework",
+                            "helpfulResource": {
+                                "displayText": "Selecting the most cost-effective machine learning (ML) framework for your requirements can significantly impact your operational efficiency and return on investment. By systematically comparing frameworks like TensorFlow, PyTorch, and Scikit-learn, you can determine which delivers the best performance for your specific use cases at the optimal cost.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/mlcost04-bp04.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Select an optimal ML framework",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/mlcost04-bp04.html"
+                            }
+                        },
+                        {
+                            "id": "MLCOST04_5",
+                            "title": "Use automated machine learning",
+                            "helpfulResource": {
+                                "displayText": "Automate your model development process by using systems that experiment with and select the best algorithms from high-performing options. These automated systems test various solutions and parameter settings to achieve optimal models, significantly speeding up development while reducing the need for manual experimentation and comparisons.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/mlcost04-bp05.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Use automated machine learning",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/mlcost04-bp05.html"
+                            }
+                        },
+                        {
+                            "id": "MLCOST04_6",
+                            "title": "Use managed training capabilities",
+                            "helpfulResource": {
+                                "displayText": "Machine learning model training can be an iterative, compute-intensive, and time-consuming process. Instead of using the notebook itself, which might be running on a small instance, oﬄoading the training to a managed cluster of compute resources including both CPUs and GPUs enables more efficient and cost-effective model training.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/mlcost04-bp06.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Use managed training capabilities",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/mlcost04-bp06.html"
+                            }
+                        },
+                        {
+                            "id": "MLCOST04_7",
+                            "title": "Use distributed training",
+                            "helpfulResource": {
+                                "displayText": "Accelerate your machine learning model training process by utilizing distributed computing resources, which can significantly reduce training time and optimize costs. Amazon SageMaker AI distributed training capabilities enable efficient processing of large models and datasets across multiple compute instances.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/mlcost04-bp07.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Use distributed training",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/mlcost04-bp07.html"
+                            }
+                        },
+                        {
+                            "id": "MLCOST04_8",
+                            "title": "Stop resources when not in use",
+                            "helpfulResource": {
+                                "displayText": "Stop resources that are not in use to reduce cost. For example, hosted Jupyter environments used to explore small samples of data can be stopped when not actively in use. Where practical, commit the work, stop them, and restart when needed. The same approach can be used to stop the computing and the data storage services.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/mlcost04-bp08.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Stop resources when not in use",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/mlcost04-bp08.html"
+                            }
+                        },
+                        {
+                            "id": "MLCOST04_9",
+                            "title": "Start training with small datasets",
+                            "helpfulResource": {
+                                "displayText": "Start experimentation with smaller datasets on a small compute instance or local system. This approach allows you to iterate quickly at low cost. After the experimentation period, scale up to train with the full dataset available on a separate compute cluster. Choose the appropriate storage layer for training data based on the performance requirements.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/mlcost04-bp09.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Start training with small datasets",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/mlcost04-bp09.html"
+                            }
+                        },
+                        {
+                            "id": "MLCOST04_10",
+                            "title": "Use warm start and checkpointing hyperparameter tuning",
+                            "helpfulResource": {
+                                "displayText": "When training machine learning models, you can significantly reduce time and costs by using previous training efforts. This practice shows how to use warm start and checkpointing techniques in hyperparameter tuning to accelerate your model development process and optimize resource utilization.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/mlcost04-bp10.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Use warm start and checkpointing hyperparameter tuning",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/mlcost04-bp10.html"
+                            }
+                        },
+                        {
+                            "id": "MLCOST04_11",
+                            "title": "Use hyperparameter optimization technologies",
+                            "helpfulResource": {
+                                "displayText": "Optimize your machine learning models through automatic hyperparameter tuning to find the optimal model configuration with minimal manual effort, reducing the time and resources needed to achieve peak model performance.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/mlcost04-bp11.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Use hyperparameter optimization technologies",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/mlcost04-bp11.html"
+                            }
+                        },
+                        {
+                            "id": "MLCOST04_12",
+                            "title": "Set up a budget and use resource tagging to track costs",
+                            "helpfulResource": {
+                                "displayText": "Setting up budgets and implementing resource tagging for machine learning workloads provides clear visibility into your ML-related expenses and optimizes costs across your organization. By tracking costs effectively, you can make data-driven decisions about resource allocation and identify opportunities for cost optimization.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/mlcost04-bp12.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Set up a budget and use resource tagging to track costs",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/mlcost04-bp12.html"
+                            }
+                        },
+                        {
+                            "id": "MLCOST04_13",
+                            "title": "Enable data and compute proximity",
+                            "helpfulResource": {
+                                "displayText": "Positioning data and compute resources in the same AWS Region reduces data transfer costs and improves processing speeds for machine learning workloads. By minimizing the physical distance between data storage and compute resources, you can significantly decrease latency and avoid cross-region data transfer fees.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/mlcost04-bp13.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Enable data and compute proximity",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/mlcost04-bp13.html"
+                            }
+                        },
+                        {
+                            "id": "MLCOST04_14",
+                            "title": "Select optimal algorithms",
+                            "helpfulResource": {
+                                "displayText": "Selecting optimal algorithms for machine learning (ML) workloads is crucial for balancing cost efficiency and performance. By identifying appropriate ML paradigms and carefully evaluating algorithmic choices, you can optimize both technical performance and business outcomes while managing costs.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/mlcost04-bp14.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Select optimal algorithms",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/mlcost04-bp14.html"
+                            }
+                        },
+                        {
+                            "id": "MLCOST04_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "MLCOST04_6 && MLCOST04_13 && MLCOST04_14",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!MLCOST04_6) || (!MLCOST04_13) || (!MLCOST04_14)",
+                            "risk": "HIGH_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "MEDIUM_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "MLCOST05",
+                    "title": "How do you manage demand and supply resources?",
+                    "description": "For a workload that has balanced spend and performance, ensure that everything you pay for is used and avoid significantly underutilizing instances. A skewed utilization metric in either direction has an adverse impact on your organization, in either operational costs (degraded performance due to overutilization), or wasted AWS expenditures (due to over-provisioning).",
+                    "choices": [
+                        {
+                            "id": "MLCOST05_1",
+                            "title": "Use an appropriate deployment option",
+                            "helpfulResource": {
+                                "displayText": "Use the right deployment option for your machine learning models to optimize cost and performance based on your specific use case requirements. Select real-time inference for low latency applications, batch transform for large datasets, or edge deployment for applications that require local processing.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/mlcost05-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Use an appropriate deployment option",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/mlcost05-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "MLCOST05_2",
+                            "title": "Explore cost effective hardware options",
+                            "helpfulResource": {
+                                "displayText": "Machine learning models that power AI applications are becoming increasingly complex resulting in rising underlying compute infrastructure costs. Up to 90% of the infrastructure spend for developing and running ML applications is often on inference. Look for cost-effective infrastructure solutions for deploying their ML applications in production.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/mlcost05-bp02.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Explore cost effective hardware options",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/mlcost05-bp02.html"
+                            }
+                        },
+                        {
+                            "id": "MLCOST05_3",
+                            "title": "Right-size the model hosting instance fleet",
+                            "helpfulResource": {
+                                "displayText": "Use efficient compute resources to run models in production. In many cases, up to 90% of the infrastructure spend for developing and running an ML application is on inference, making it critical to use high-performance, cost-effective ML inference infrastructure. Selecting the right way to host and the right type of instance can have a large impact on the total cost of ML projects. Use automatic scaling for your hosted models. Auto scaling dynamically adjusts the number of instances provisioned for a model in response to changes in your workload.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/mlcost05-bp03.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Right-size the model hosting instance fleet",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/mlcost05-bp03.html"
+                            }
+                        },
+                        {
+                            "id": "MLCOST05_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "MLCOST05_2 && MLCOST05_3",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!MLCOST05_2) || (!MLCOST05_3)",
+                            "risk": "HIGH_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "MEDIUM_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "MLCOST06",
+                    "title": "How do you implement cost-effective monitoring strategies while maintaining comprehensive ML system observability?",
+                    "description": "Design and implement monitoring solutions that provide necessary visibility into ML systems while optimizing monitoring-related costs.",
+                    "choices": [
+                        {
+                            "id": "MLCOST06_1",
+                            "title": "Monitor usage and cost by ML activity",
+                            "helpfulResource": {
+                                "displayText": "Use cloud resource tagging to manage, identify, organize, search for, and filter resources. Tags categorize resources by purpose, owner, environment, or other criteria. Associate costs with resources using ML activity categories, such as re-training and hosting, by using tagging to manage and optimize cost in deployment phases. Tagging can be useful for generating billing reports with breakdown of cost by associated resources.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/mlcost06-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Monitor usage and cost by ML activity",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/mlcost06-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "MLCOST06_2",
+                            "title": "Monitor return on investment for ML models",
+                            "helpfulResource": {
+                                "displayText": "Once a model is deployed into production, establish a reporting capability to track the value which is being delivered. For example:\n• If a model is used to support customer acquisition: How many new customers are acquired and what is their spend when the model's advice is used compared with a baseline?\n• If a model is used to predict when maintenance is needed: What savings are being made by optimizing the maintenance cycle?\nEffective reporting compares the value delivered by an ML model against the ongoing runtime cost and to take appropriate action. If the ROI is substantially positive, are there ways in which this might be scaled to similar challenges, for example. If the ROI is negative, could this be addressed by remedial action, such as reducing the model latency by using serverless inference, or reducing the run time cost by changing the compromise between model accuracy and model complexity, or layering in an additional simpler model to triage or filter the cases that are submitted to the full model.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/mlcost06-bp02.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Monitor return on investment for ML models",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/mlcost06-bp02.html"
+                            }
+                        },
+                        {
+                            "id": "MLCOST06_3",
+                            "title": "Monitor endpoint usage and right-size the instance fleet",
+                            "helpfulResource": {
+                                "displayText": "USe efficient compute resources to run models in production. Monitor your endpoint usage and right-size the instance fleet. Use automatic scaling (auto scaling) for your hosted models. Auto scaling dynamically adjusts the number of instances provisioned for a model in response to changes in your workload.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/mlcost06-bp03.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Monitor endpoint usage and right-size the instance fleet",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/mlcost06-bp03.html"
+                            }
+                        },
+                        {
+                            "id": "MLCOST06_4",
+                            "title": "Enable debugging and logging",
+                            "helpfulResource": {
+                                "displayText": "Implementing comprehensive logging and debugging capabilities for your machine learning workflows assists you to understand resource consumption patterns and identify optimization opportunities. By collecting and analyzing runtime metrics, you can reduce costs and enhance the efficiency of your ML training operations.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/mlcost06-bp04.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Enable debugging and logging",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/mlcost06-bp04.html"
+                            }
+                        },
+                        {
+                            "id": "MLCOST06_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "MLCOST06_2 && MLCOST06_3",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!MLCOST06_2) || (!MLCOST06_3)",
+                            "risk": "HIGH_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "MEDIUM_RISK"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "sustainability",
+            "name": "Sustainability",
+            "questions": [
+                {
+                    "id": "MLSUS01",
+                    "title": "How do you align sustainability goals with business objectives and create awareness?",
+                    "description": "Sustainability focuses on environmental impacts, especially energy consumption and efficiency, since they are important levers for architects to guide direct action on how to reduce resource usage. Define service level agreements (SLAs) that support your sustainability goals while meeting your business requirements. Define SLAs to meet business requirements, not exceed them. Make trade-offs that significantly reduce environmental impacts in exchange for acceptable decreases in service levels.",
+                    "choices": [
+                        {
+                            "id": "MLSUS01_1",
+                            "title": "Define the overall environmental impact or benefit",
+                            "helpfulResource": {
+                                "displayText": "Measure your workload's impact and its contribution to the overall sustainability goals of the organization. Understand the environmental footprint of machine learning systems to make informed decisions about resource allocation and optimization.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/mlsus01-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Define the overall environmental impact or benefit",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/mlsus01-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "MLSUS01_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "MLSUS01_1",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!MLSUS01_1)",
+                            "risk": "HIGH_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "MEDIUM_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "MLSUS02",
+                    "title": "How do you incorporate sustainability considerations into your ML problem formulation to minimize environmental impact?",
+                    "description": "Define sustainability requirements as key factors in your ML problem formulation. This includes evaluating how different approaches to solving the ML problem might impact energy consumption, carbon footprint, and resource efficiency.",
+                    "choices": [
+                        {
+                            "id": "MLSUS02_1",
+                            "title": "Consider AI services and pre-trained models",
+                            "helpfulResource": {
+                                "displayText": "Using AI services and pre-trained models can significantly reduce the resources needed for machine learning workloads, enabling you to quickly implement AI capabilities without developing custom models from scratch.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/mlsus02-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Consider AI services and pre-trained models",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/mlsus02-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "MLSUS02_2",
+                            "title": "Select sustainable Regions",
+                            "helpfulResource": {
+                                "displayText": "Choose the Regions where you implement your workloads based on both your business requirements and sustainability goals.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/mlsus02-bp02.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Select sustainable Regions",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/mlsus02-bp02.html"
+                            }
+                        },
+                        {
+                            "id": "MLSUS02_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "MLSUS02_1 || MLSUS02_2",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!MLSUS02_1) || (!MLSUS02_2)",
+                            "risk": "HIGH_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "MEDIUM_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "MLSUS03",
+                    "title": "How do you implement sustainable data processing practices that minimize environmental impact while maintaining data quality?",
+                    "description": "Design data processing pipelines that optimize resource efficiency and reduce environmental impact.",
+                    "choices": [
+                        {
+                            "id": "MLSUS03_1",
+                            "title": "Minimize idle resources",
+                            "helpfulResource": {
+                                "displayText": "Minimize your environmental impact by efficiently managing compute resources in your ML data pipeline. Use serverless architectures that provision resources only when needed, reducing energy consumption and carbon footprint.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/mlsus03-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Minimize idle resources",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/mlsus03-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "MLSUS03_2",
+                            "title": "Implement data lifecycle policies aligned with your sustainability goals",
+                            "helpfulResource": {
+                                "displayText": "Classify your data to identify its business relevance and implement efficient storage strategies that support your sustainability goals. By understanding your data's importance, you can appropriately tier storage, implement retention policies, and manage the entire lifecycle to reduce your environmental footprint while meeting business requirements.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/mlsus03-bp02.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Implement data lifecycle policies aligned with your sustainability goals",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/mlsus03-bp02.html"
+                            }
+                        },
+                        {
+                            "id": "MLSUS03_3",
+                            "title": "Adopt sustainable storage options",
+                            "helpfulResource": {
+                                "displayText": "Reduce the volume of data to be stored and adopt sustainable storage options to limit the carbon impact of your workload. For artifacts like models and log files that must be kept for long-term regulatory and audit requirements, use efficient compression algorithms and use energy eﬃcient cold storage.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/mlsus03-bp03.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Adopt sustainable storage options",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/mlsus03-bp03.html"
+                            }
+                        },
+                        {
+                            "id": "MLSUS03_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "MLSUS03_1 || MLSUS03_2 || MLSUS03_3",
+                            "risk": "NO_RISK"
+                        },                        
+                        {
+                            "condition": "(!MLSUS03_1) || (!MLSUS03_2) || (!MLSUS03_3)",
+                            "risk": "HIGH_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "MEDIUM_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "MLSUS04",
+                    "title": "How do you ensure sustainable resource selection and usage?",
+                    "description": "Choose algorithms that produce desired results with minimal resource usage. Continuously evaluate optmization opportunities in choosing the most efficient algorithm version, model deployment instance type, inference instances and modes of deployment along with the use of serverless pipelines where possible. Selecting the right region, resource type, storage type and inference endpoint type help in building more sustainable workloads.",
+                    "choices": [
+                        {
+                            "id": "MLSUS04_1",
+                            "title": "Define sustainable performance criteria",
+                            "helpfulResource": {
+                                "displayText": "Creating machine learning models that balance accuracy with environmental impact is essential for sustainable AI development. When we focus exclusively on model accuracy, we overlook the economic, environmental, and social costs of achieving marginal performance improvements. Since the relationship between model accuracy and complexity is logarithmic at best, continuing to train a model longer or searching extensively for better hyperparameters often yields only minimal gains while significantly increasing resource consumption.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/mlsus04-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Define sustainable performance criteria",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/mlsus04-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "MLSUS04_2",
+                            "title": "Select energy-efficient algorithms",
+                            "helpfulResource": {
+                                "displayText": "Choosing energy-efficient algorithms minimizes resource usage while maintaining performance, reducing your machine learning workloads' environmental impact and operational costs.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/mlsus04-bp02.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Select energy-efficient algorithms",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/mlsus04-bp02.html"
+                            }
+                        },
+                        {
+                            "id": "MLSUS04_3",
+                            "title": "Archive or delete unnecessary training artifacts",
+                            "helpfulResource": {
+                                "displayText": "Remove training artifacts that are unused and no longer required to limit wasted resources. Determine when you can archive training artifacts to more energy-efficient storage or safely delete them.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/mlsus04-bp03.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Archive or delete unnecessary training artifacts",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/mlsus04-bp03.html"
+                            }
+                        },
+                        {
+                            "id": "MLSUS04_4",
+                            "title": "Use efficient model tuning methods",
+                            "helpfulResource": {
+                                "displayText": "Optimize your machine learning model's hyperparameters with resource-efficient strategies that minimize computational needs while improving performance. Efficient tuning methods can significantly reduce costs, energy consumption, and time-to-market compared to resource-intensive brute force approaches.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/mlsus04-bp04.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Use efficient model tuning methods",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/mlsus04-bp04.html"
+                            }
+                        },
+                        {
+                            "id": "MLSUS04_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "MLSUS04_1 || MLSUS04_2",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!MLSUS04_1) || (!MLSUS04_2)",
+                            "risk": "HIGH_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "MEDIUM_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "MLSUS05",
+                    "title": "How do you implement deployment practices that minimize environmental impact while maintaining model serving requirements?",
+                    "description": "Design deployment architectures that optimize energy efficiency and reduce environmental impact during model serving.",
+                    "choices": [
+                        {
+                            "id": "MLSUS05_1",
+                            "title": "Align SLAs with sustainability goals",
+                            "helpfulResource": {
+                                "displayText": "Define service level agreements (SLAs) that support your sustainability goals while meeting your business requirements. Define SLAs to meet your business requirements, not exceed them. Make trade-offs that significantly reduce environmental impacts in exchange for acceptable decreases in service levels.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/mlsus05-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Align SLAs with sustainability goals",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/mlsus05-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "MLSUS05_2",
+                            "title": "Use efficient silicon",
+                            "helpfulResource": {
+                                "displayText": "Choosing the right compute architecture for your machine learning workloads can significantly reduce energy consumption and carbon footprint while maintaining high performance.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/mlsus05-bp02.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Use efficient silicon",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/mlsus05-bp02.html"
+                            }
+                        },
+                        {
+                            "id": "MLSUS05_3",
+                            "title": "Optimize models for inference",
+                            "helpfulResource": {
+                                "displayText": "Optimize machine learning models for inference to achieve higher performance with lower computational resources, reducing both costs and environmental impact.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/mlsus05-bp03.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Optimize models for inference",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/mlsus05-bp03.html"
+                            }
+                        },
+                        {
+                            "id": "MLSUS05_4",
+                            "title": "Deploy multiple models behind a single endpoint",
+                            "helpfulResource": {
+                                "displayText": "Host multiple models behind a single endpoint to improve endpoint utilization. Sharing endpoint resources is more sustainable and less expensive than deploying a single model behind one endpoint.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/mlsus05-bp04.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Deploy multiple models behind a single endpoint",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/mlsus05-bp04.html"
+                            }
+                        },
+                        {
+                            "id": "MLSUS05_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "MLSUS05_1 || MLSUS05_2 || MLSUS05_3",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!MLSUS05_1) || (!MLSUS05_2) || (!MLSUS05_3)",
+                            "risk": "HIGH_RISK"
+                        },                        
+                        {
+                            "condition": "default",
+                            "risk": "MEDIUM_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "MLSUS06",
+                    "title": "How do you implement monitoring practices that minimize environmental impact while maintaining effective observability?",
+                    "description": "Design monitoring solutions that optimize resource efficiency while providing necessary visibility into ML systems' environmental impact and performance.",
+                    "choices": [
+                        {
+                            "id": "MLSUS06_1",
+                            "title": "Measure material efficiency",
+                            "helpfulResource": {
+                                "displayText": "Measure efficiency of your workload in provisioned resources per unit of work to determine not only the business success of the workload, but also its material efficiency. Use this measure as a baseline for your sustainability improvement process.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/mlsus06-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Measure material efficiency",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/mlsus06-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "MLSUS06_2",
+                            "title": "Retrain only when necessary",
+                            "helpfulResource": {
+                                "displayText": "Because of model drift, robustness requirements, or new ground truth data being available, models usually need to be retrained. Instead of retraining arbitrarily, monitor your ML model in production, automate your model drift detection and only retrain when your model's predictive performance has fallen below defined KPIs.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/mlsus06-bp02.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Retrain only when necessary",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/mlsus06-bp02.html"
+                            }
+                        },
+                        {
+                            "id": "MLSUS06_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "MLSUS06_1 || MLSUS06_2",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!MLSUS06_1) || (!MLSUS06_2)",
+                            "risk": "HIGH_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "MEDIUM_RISK"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,1467 @@
+{
+    "schemaVersion": "2021-11-01",
+    "name": "Generative AI Lens",
+    "description": "The Generative AI Lens provides guidance for building, deploying, and operating generative AI workloads on AWS using the Well-Architected Framework.",
+    "pillars": [
+        {
+            "id": "operationalExcellence",
+            "name": "Operational Excellence",
+            "questions": [
+                {
+                    "id": "GENOPS01",
+                    "title": "How do you achieve and verify consistent model output quality?",
+                    "description": "Achieving consistent model output quality involves periodic evaluations using user feedback, ground truth data, and sampling techniques.",
+                    "choices": [
+                        {
+                            "id": "GENOPS01_BP01",
+                            "title": "Periodically evaluate functional performance",
+                            "helpfulResource": {
+                                "displayText": "Implement periodic evaluations using stratified sampling and custom metrics to maintain the performance and reliability of large language models. This practice verifies that models remain accurate and relevant over time by regularly assessing their performance against ground truth data and specific evaluation criteria. By employing stratified sampling, organizations can obtain a representative subset of data that reflects the diversity of real-world inputs, leading to more reliable performance metrics. Custom metrics allow for tailored assessments that align with specific business goals and user expectations. This practice helps customers achieve consistent model performance, detect and address model drift promptly, and integrate evaluation results into continuous improvement processes.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/generative-ai-lens/genops01-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Periodically evaluate functional performance",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/generative-ai-lens/genops01-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "GENOPS01_BP02",
+                            "title": "Collect and monitor user feedback",
+                            "helpfulResource": {
+                                "displayText": "Supplement model performance evaluation with direct feedback from users. Implement continuous feedback loops to optimize application performance and enhance user satisfaction. Systematically collect, analyze, and act on user feedback to drive continuous improvement. By integrating this approach, you can achieve higher operational excellence and reliability, which keeps applications performant and aligned with user expectations. This proactive strategy helps to improve user satisfaction and foster a culture of ongoing enhancement and innovation.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/generative-ai-lens/genops01-bp02.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Collect and monitor user feedback",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/generative-ai-lens/genops01-bp02.html"
+                            }
+                        },
+                        {
+                            "id": "GENOPS01_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "GENOPS01_BP01 && GENOPS01_BP02",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!GENOPS01_BP01) || (!GENOPS01_BP02)",
+                            "risk": "HIGH_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "MEDIUM_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "GENOPS02",
+                    "title": "How do you monitor and manage the operational health of your applications?",
+                    "description": "This question focuses on the strategies and tools you use to track key metrics, set up alerts, and respond to issues. To maintain the operational health and performance of your generative AI applications, it's crucial to implement comprehensive monitoring and management strategies across all layers the application. While traditional best practices apply, foundation models interact with software and data differently than traditional systems.",
+                    "choices": [
+                        {
+                            "id": "GENOPS02_BP01",
+                            "title": "Monitor all application layers",
+                            "helpfulResource": {
+                                "displayText": "Implement comprehensive monitoring and logging across all layers of your generative AI application to maintain operational health, provide reliability, and optimize performance. This best practice aims to provide clear visibility into the application's behavior, from user interactions to core model performance. By tracking key metrics, organizations can quickly identify and address issues, enhance user experiences, and make data-driven decisions to improve their AI systems.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/generative-ai-lens/genops02-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Monitor all application layers",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/generative-ai-lens/genops02-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "GENOPS02_BP02",
+                            "title": "Monitor foundation model metrics",
+                            "helpfulResource": {
+                                "displayText": "It's critical to set up continuous monitoring and alerting for foundation models for performance, security, and cost-efficiency. This best practice offers a structured approach to monitor models that fosters rapid identification and resolution of issues like data drift, model degradation, and security threats. Adopting this practice enhances reliability, efficiency, and trust in your applications, driving better business outcomes and user satisfaction. It can also help you with regulatory compliance and optimizes resource utilization.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/generative-ai-lens/genops02-bp02.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Monitor foundation model metrics",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/generative-ai-lens/genops02-bp02.html"
+                            }
+                        },
+                        {
+                            "id": "GENOPS02_BP03",
+                            "title": "Implement solutions to mitigate the risk of system overload",
+                            "helpfulResource": {
+                                "displayText": "There are two primary ways to mitigate the risk of system overload for generative AI workloads. The first is to scale the inference serving architecture using advanced auto-scaling technologies. This is possible using Amazon SageMaker AI Inference Components, which you can use to host and scale model independent of the underlying infrastructure. For self-hosted language models, this is the ideal approach. The second approach is to rate limit and throttle managed inference to maintain application stability and performance. This approach is more applicable to managed inference on Amazon Bedrock. This practice controls request processing rates to avoid system overload, which provides consistent application health and a better user experience. You can increase system throughput by opting for cross-Region inference or in some cases by purchasing provisioned model throughput.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/generative-ai-lens/genops02-bp03.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Implement solutions to mitigate the risk of system overload",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/generative-ai-lens/genops02-bp03.html"
+                            }
+                        },
+                        {
+                            "id": "GENOPS02_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "GENOPS02_BP01 && GENOPS02_BP02 && GENOPS02_BP03",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!GENOPS02_BP01) || (!GENOPS02_BP02) || (!GENOPS02_BP03)",
+                            "risk": "HIGH_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "MEDIUM_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "GENOPS03",
+                    "title": "How do you maintain traceability for your models, prompts, and assets?",
+                    "description": "How do you manage and version your prompts, models, and associated assets to establish traceability, reproducibility, and continuous improvement in your generative AI workflows? This includes the practices and tools used for maintaining a structured approach to prompt engineering, model versioning, and performance evaluation, including methods for testing variants, capturing baselines, and optimizing based on defined metrics and ground truth data.",
+                    "choices": [
+                        {
+                            "id": "GENOPS03_BP01",
+                            "title": "Implement prompt template management",
+                            "helpfulResource": {
+                                "displayText": "Implement and maintain a versioned prompt template management system to achieve consistent and optimized performance of language models. This best practice aims to provide a structured approach to managing prompt templates, which helps teams systematically version, test, and optimize prompts. By adhering to this practice, you can achieve greater predictability in model behavior, enhance traceability of changes, and improve overall operational efficiency. This leads to more reliable language model deployments, reduced risks associated with prompt modifications, and the ability to quickly roll back to previous versions if needed. Ultimately, this best practice helps you deliver higher-quality outputs and maintain compliance with security and governance standards.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/generative-ai-lens/genops03-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Implement prompt template management",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/generative-ai-lens/genops03-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "GENOPS03_BP02",
+                            "title": "Enable tracing for agents and RAG workflows",
+                            "helpfulResource": {
+                                "displayText": "Implement comprehensive tracing for generative AI agents and RAG workflows to enhance operational excellence and performance efficiency. This practice offers clear visibility into model decision-making, which helps you identify inefficiencies, optimize performance, and debug efficiently. By adopting tracing, customers achieve more reliable and efficient workflows, which improves model accuracy, speeds up decision-making, and enhances overall system performance. This approach supports continuous improvement while keeping data secure throughout the tracing process.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/generative-ai-lens/genops03-bp02.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Enable tracing for agents and RAG workflows",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/generative-ai-lens/genops03-bp02.html"
+                            }
+                        },
+                        {
+                            "id": "GENOPS03_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "GENOPS03_BP01 && GENOPS03_BP02",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!GENOPS03_BP01) || (!GENOPS03_BP02)",
+                            "risk": "HIGH_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "MEDIUM_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "GENOPS04",
+                    "title": "How do you automate the lifecycle management of your generative AI workloads?",
+                    "description": "Explore the strategies for automating the lifecycle management of generative AI workloads using infrastructure as code (IaC) principles. Include aspects such as tool selection, CI/CD implementation, environment management, version control, and governance practices. The focus is on creating reproducible, scalable, and maintainable infrastructure for AI applications across different stages of development and deployment, while maintaining consistency and security and helping you address regulatory compliance.",
+                    "choices": [
+                        {
+                            "id": "GENOPS04_BP01",
+                            "title": "Automate generative AI application lifecycle with infrastructure as code (IaC)",
+                            "helpfulResource": {
+                                "displayText": "Implementing and managing IaC is crucial for consistent, version-controlled, and automated infrastructure deployment across environments. This practice streamlines deployment, reduces errors, and enhances team collaboration. IaC helps customers achieve efficiency, reliability, and scalability in infrastructure management, which allows for rapid iteration, straightforward rollback, and improved governance and results in secure deployments.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/generative-ai-lens/genops04-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Automate generative AI application lifecycle with infrastructure as code (IaC)",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/generative-ai-lens/genops04-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "GENOPS04_BP02",
+                            "title": "Implement GenAIOps to optimize the application lifecycle",
+                            "helpfulResource": {
+                                "displayText": "To optimize generative AI workloads, organizations should implement GenAIOps, a best practice that automates the development, deployment, and management of models. This approach establishes CI/CD pipelines for training, tuning, and deploying foundation models. GenAIOps enhances operational efficiency, reduces time-to-market, and enables consistent, high-quality model performance. It creates a robust, automated framework that supports the entire generative AI project lifecycle from development to production deployment. Through GenAIOps, customers can achieve greater agility, improved model reliability, and quick adaptation to changing business requirements, driving innovation and competitive advantage.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/generative-ai-lens/genops04-bp02.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Implement GenAIOps to optimize the application lifecycle",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/generative-ai-lens/genops04-bp02.html"
+                            }
+                        },
+                        {
+                            "id": "GENOPS04_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "GENOPS04_BP01 && GENOPS04_BP02",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!GENOPS04_BP01) || (!GENOPS04_BP02)",
+                            "risk": "HIGH_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "MEDIUM_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "GENOPS05",
+                    "title": "How do you determine when to execute Gen AI model customization?",
+                    "description": "Explore the strategic approach to generative AI model customization, and consider factors like task specificity, data availability, and resource constraints. Align model advanced customization with operational needs. Begin with prompt engineering and progress to more advanced methods like RAG, fine-tuning, or building custom models. Use cloud-based tools for model evaluation and customization, which helps maintaining security and regular updates. Balance model performance with resource requirements and maintenance costs throughout the customization process.",
+                    "choices": [
+                        {
+                            "id": "GENOPS05_BP01",
+                            "title": "Learn when to customize models",
+                            "helpfulResource": {
+                                "displayText": "Prioritize prompt engineering and RAG before model customization to optimize resources and enhance performance in developing generative AI solutions. This best practice aims to guide you in making informed decisions about when and how to customize AI models, which helps you verify that they achieve the best balance between efficiency and effectiveness. By starting with prompt engineering and RAG, you can leverage existing model capabilities to meet their needs, reducing the time, cost, and complexity associated with model customization. This approach allows organizations to quickly iterate on solutions, minimize resource consumption, and focus on achieving desired outcomes with minimal upfront investment.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/generative-ai-lens/genops05-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Learn when to customize models",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/generative-ai-lens/genops05-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "GENOPS05_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "GENOPS05_BP01",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!GENOPS05_BP01)",
+                            "risk": "HIGH_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "MEDIUM_RISK"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "security",
+            "name": "Security",
+            "questions": [
+                {
+                    "id": "GENSEC01",
+                    "title": "How do you manage access to generative AI endpoints?",
+                    "description": "Foundation models are available for use through managed, serverless, or self-hosted endpoints. Each paradigm comes with its own security considerations and requirements. This question seeks to understand the security considerations specific to endpoints associated with generative AI workloads.",
+                    "choices": [
+                        {
+                            "id": "GENSEC01_BP01",
+                            "title": "Grant least privilege access to foundation model endpoints",
+                            "helpfulResource": {
+                                "displayText": "Granting least privilege access to foundation model endpoints helps limit unintended access and encourages a zero-trust security framework. This best practice describes how to secure foundation model endpoints associated with generative AI workloads.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/generative-ai-lens/gensec01-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Grant least privilege access to foundation model endpoints",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/generative-ai-lens/gensec01-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "GENSEC01_BP02",
+                            "title": "Implement private network communication between foundation models and applications",
+                            "helpfulResource": {
+                                "displayText": "Implementing a scoped down data perimeter on foundation model endpoints helps reduce the surface-area of potential threat vectors and encourages a zero-trust security architecture. This best practice describes how to implement private network communications for your generative AI workloads.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/generative-ai-lens/gensec01-bp02.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Implement private network communication between foundation models and applications",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/generative-ai-lens/gensec01-bp02.html"
+                            }
+                        },
+                        {
+                            "id": "GENSEC01_BP03",
+                            "title": "Implement least privilege access permissions for foundation models accessing data stores",
+                            "helpfulResource": {
+                                "displayText": "Foundation models can aggregate and generate rich insights from data they have been trained on or interact with from the APIs providing inputs and outputs. It is important to treat generative AI systems and their foundation models just as you would treat privileged users when providing access to data. This best practice describes how to provide generative AI APIs and services with appropriate access to data.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/generative-ai-lens/gensec01-bp03.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Implement least privilege access permissions for foundation models accessing data stores",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/generative-ai-lens/gensec01-bp03.html"
+                            }
+                        },
+                        {
+                            "id": "GENSEC01_BP04",
+                            "title": "Implement access monitoring to generative AI services and foundation models",
+                            "helpfulResource": {
+                                "displayText": "Generative AI services and foundation models can be resource intensive to use and can be misused. Implementing access monitoring on these services and models helps to identify, triage and resolve unintended access quickly.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/generative-ai-lens/gensec01-bp04.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Implement access monitoring to generative AI services and foundation models",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/generative-ai-lens/gensec01-bp04.html"
+                            }
+                        },
+                        {
+                            "id": "GENSEC01_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "GENSEC01_BP01 && GENSEC01_BP02 && GENSEC01_BP03 && GENSEC01_BP04",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!GENSEC01_BP01) || (!GENSEC01_BP02) || (!GENSEC01_BP03) || (!GENSEC01_BP04)",
+                            "risk": "HIGH_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "MEDIUM_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "GENSEC02",
+                    "title": "How do you stop generative AI applications from generating harmful, biased, or factually incorrect responses?",
+                    "description": "It is possible for foundation models to generate harmful, biased, or factually incorrect responses, particularly when guardrails are not implemented appropriately or at all. This risk creates additional considerations for generative AI applications before they are put into a production environment. This question addresses the best practices associated with mitigating risk of harmful, biased or factually incorrect responses.",
+                    "choices": [
+                        {
+                            "id": "GENSEC02_BP01",
+                            "title": "Implement guardrails to mitigate harmful or incorrect model responses",
+                            "helpfulResource": {
+                                "displayText": "Guardrails are powerful, expansive techniques associated with reducing the risk of harmful, biased or incorrect model responses. This best practice discusses why and how to implement guardrails in generative AI workloads, as well as other complementary techniques.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/generative-ai-lens/gensec02-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Implement guardrails to mitigate harmful or incorrect model responses",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/generative-ai-lens/gensec02-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "GENSEC02_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "GENSEC02_BP01",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!GENSEC02_BP01)",
+                            "risk": "HIGH_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "MEDIUM_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "GENSEC03",
+                    "title": "How do you monitor and audit events associated with your generative AI workloads?",
+                    "description": "To enhance the security and performance of generative AI systems, it's beneficial to implement comprehensive monitoring and auditing of events. This approach enables prompt identification.",
+                    "choices": [
+                        {
+                            "id": "GENSEC03_BP01",
+                            "title": "Implement control plane and data access monitoring to generative AI services and foundation models",
+                            "helpfulResource": {
+                                "displayText": "Implement comprehensive monitoring across both control and data planes to enhance the protection of generative AI workloads against service-level misconfigurations. This monitoring and auditing approach enables tracking of key aspects such as application performance, workload quality, and security.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/generative-ai-lens/gensec03-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Implement control plane and data access monitoring to generative AI services and foundation models",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/generative-ai-lens/gensec03-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "GENSEC03_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "GENSEC03_BP01",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!GENSEC03_BP01)",
+                            "risk": "HIGH_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "MEDIUM_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "GENSEC04",
+                    "title": "How do you secure system and user prompts?",
+                    "description": "Prompts are crucial elements to a generative AI workload. They define how a user or application interacts with a foundation model. Engineering and testing prompts is an important process and requires time and effort to optimize. System and user prompt security is an important element of security for generative AI workloads.",
+                    "choices": [
+                        {
+                            "id": "GENSEC04_BP01",
+                            "title": "Implement a secure prompt catalog",
+                            "helpfulResource": {
+                                "displayText": "Prompt catalogs facilitate the engineering, testing, versioning and storage of prompts. Implementing a prompt catalog improves the security of system and user prompts.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/generative-ai-lens/gensec04-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Implement a secure prompt catalog",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/generative-ai-lens/gensec04-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "GENSEC04_BP02",
+                            "title": "Sanitize and validate user inputs to foundation models",
+                            "helpfulResource": {
+                                "displayText": "Generative AI applications commonly request user input. This user input is often open, unstructured, and loosely formatted, creating a risk of prompt injection and improper content.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/generative-ai-lens/gensec04-bp02.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Sanitize and validate user inputs to foundation models",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/generative-ai-lens/gensec04-bp02.html"
+                            }
+                        },
+                        {
+                            "id": "GENSEC04_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "GENSEC04_BP01 && GENSEC04_BP02",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!GENSEC04_BP01) || (!GENSEC04_BP02)",
+                            "risk": "HIGH_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "MEDIUM_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "GENSEC05",
+                    "title": "How do you avoid excessive agency for models?",
+                    "description": "Excessive agency is an Open Worldwide Application Security Project (OWASP) Top 10 security threat for LLMs and is typically introduced to systems through agentic architectures. Agents are designed to take action on behalf of a user. The risk of excessive agency is that an agent could take actions beyond their intended purpose.",
+                    "choices": [
+                        {
+                            "id": "GENSEC05_BP01",
+                            "title": "Implement least privilege access and permissions boundaries for agentic workflows",
+                            "helpfulResource": {
+                                "displayText": "Implementing least privilege and permissions bounded agents limits the scope of agentic workflows and helps stop them from taking actions beyond their intended purpose on behalf of the user. This best practice describes how to reduce the risk of excessive agency.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/generative-ai-lens/gensec05-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Implement least privilege access and permissions boundaries for agentic workflows",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/generative-ai-lens/gensec05-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "GENSEC05_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "GENSEC05_BP01",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!GENSEC05_BP01)",
+                            "risk": "HIGH_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "MEDIUM_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "GENSEC06",
+                    "title": "How do you detect and remediate data poisoning risks?",
+                    "description": "Data poisoning is a type of exploit that can occur during model training or customization. This happens when data not meant for model training or customization is used for training or customization, resulting in potentially undesirable effects for the finished model. Data poisoning can be difficult to detect and can be challenging to remediate.",
+                    "choices": [
+                        {
+                            "id": "GENSEC06_BP01",
+                            "title": "Implement data purification filters for model training workflows",
+                            "helpfulResource": {
+                                "displayText": "Data poisoning is best handled at the data layer before training or customization has taken place. Data purification filters can be introduced to data pipelines when curating a dataset for training or customization.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/generative-ai-lens/gensec06-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Implement data purification filters for model training workflows",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/generative-ai-lens/gensec06-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "GENSEC06_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "GENSEC06_BP01",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!GENSEC06_BP01)",
+                            "risk": "HIGH_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "MEDIUM_RISK"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "reliability",
+            "name": "Reliability",
+            "questions": [
+                {
+                    "id": "GENREL01",
+                    "title": "How do you determine throughput quotas (or needs) for foundation models?",
+                    "description": "Foundation models perform complex tasks over detailed input, and they have limited throughput on the amount of inference requests they can service at a time. This is particularly true for managed and serverless model hosting paradigms. Understanding and managing these quotas is crucial for maintaining reliable service levels and optimal performance.",
+                    "choices": [
+                        {
+                            "id": "GENREL01_BP01",
+                            "title": "Scale and balance foundation model throughput as a function of utilization",
+                            "helpfulResource": {
+                                "displayText": "Collect information on the generative AI workload's utilization, and implement dynamic scaling strategies to match capacity with demand. Use this information to determine the required throughput for your foundation model and establish appropriate quotas and scaling policies.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/generative-ai-lens/genrel01-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Scale and balance foundation model throughput as a function of utilization",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/generative-ai-lens/genrel01-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "GENREL01_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "GENREL01_BP01",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!GENREL01_BP01)",
+                            "risk": "MEDIUM_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "HIGH_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "GENREL02",
+                    "title": "How do you maintain reliable communication among different components of your generative AI architecture?",
+                    "description": "Generative AI workloads often comprise several independent systems, including foundation models, databases, data processing pipelines, prompt catalogs, and APIs for agents. These systems communicate over a network and require reliable, secure, and performant connectivity.",
+                    "choices": [
+                        {
+                            "id": "GENREL02_BP01",
+                            "title": "Implement redundant network connections among model endpoints and supporting infrastructure",
+                            "helpfulResource": {
+                                "displayText": "Implement network connection redundancy among components in your generative AI application.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/generative-ai-lens/genrel02-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Implement redundant network connections among model endpoints and supporting infrastructure",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/generative-ai-lens/genrel02-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "GENREL02_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "GENREL02_BP01",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!GENREL02_BP01)",
+                            "risk": "MEDIUM_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "HIGH_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "GENREL03",
+                    "title": "How do you implement remediation actions for generative AI workload loops, retries, and failures?",
+                    "description": "Generative AI workloads can be susceptible to logical loops, retries, and potentially even failures. Addressing these through the appropriate best practice helps to keeping your application reliable and improves user experience.",
+                    "choices": [
+                        {
+                            "id": "GENREL03_BP01",
+                            "title": "Use logic to manage prompt flows and gracefully recover from failure",
+                            "helpfulResource": {
+                                "displayText": "Leverage conditions, loops, and other logical structures at the prompt management or application layer to reduce the risk of an unreliable experience.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/generative-ai-lens/genrel03-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Use logic to manage prompt flows and gracefully recover from failure",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/generative-ai-lens/genrel03-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "GENREL03_BP02",
+                            "title": "Implement timeout mechanisms on agentic workflows",
+                            "helpfulResource": {
+                                "displayText": "Implement controls to detect and terminate long-running unexpected workflows.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/generative-ai-lens/genrel03-bp02.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Implement timeout mechanisms on agentic workflows",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/generative-ai-lens/genrel03-bp02.html"
+                            }
+                        },
+                        {
+                            "id": "GENREL03_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "GENREL03_BP01 && GENREL03_BP02",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!GENREL03_BP01) || (!GENREL03_BP02)",
+                            "risk": "MEDIUM_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "HIGH_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "GENREL04",
+                    "title": "How do you maintain versions for prompts, model parameters, and foundation models?",
+                    "description": "Prompts differentiate model performance from one workload to another. Curating prompts can be a time-consuming process, and it is important to have a reliable store for prompts. Foundation model performance differs from version to version, as does the impact of inference hyperparameters on model performance. Standardize and version these variations to create a more reliable experience.",
+                    "choices": [
+                        {
+                            "id": "GENREL04_BP01",
+                            "title": "Implement a prompt catalog",
+                            "helpfulResource": {
+                                "displayText": "Prompt catalogs store and manage prompts and prompt versions. They act as a reliable store for prompts for generative AI workloads.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/generative-ai-lens/genrel04-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Implement a prompt catalog",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/generative-ai-lens/genrel04-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "GENREL04_BP02",
+                            "title": "Implement a model catalog",
+                            "helpfulResource": {
+                                "displayText": "Model catalogs store and manage model versions. They act as a reliable store for models which may need to be deployed or rolled back at any time. They also facilitate decoupled deployment automation.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/generative-ai-lens/genrel04-bp02.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Implement a model catalog",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/generative-ai-lens/genrel04-bp02.html"
+                            }
+                        },
+                        {
+                            "id": "GENREL04_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "GENREL04_BP01 && GENREL04_BP02",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!GENREL04_BP01) || (!GENREL04_BP02)",
+                            "risk": "MEDIUM_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "HIGH_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "GENREL05",
+                    "title": "How do you distribute inference workloads over multiple regions of availability?",
+                    "description": "Generative AI applications can be as simple as prompt-response workflows against a single foundation model or as advanced as multi-agent orchestration. The various components associated with a generative AI workload are required to service a region of availability. Availability could be over a well-defined zone or it could be expansive covering large geographic areas. Architecting for this variability is a complex problem.",
+                    "choices": [
+                        {
+                            "id": "GENREL05_BP01",
+                            "title": "Load-balance inference requests across all regions of availability",
+                            "helpfulResource": {
+                                "displayText": "Inference to a foundation model may be available over a local or large area of availability. Verify that you have resources available across that area to service inference requests reliably regardless of where they are coming from.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/generative-ai-lens/genrel05-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Load-balance inference requests across all regions of availability",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/generative-ai-lens/genrel05-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "GENREL05_BP02",
+                            "title": "Replicate embedding data across all regions of availability",
+                            "helpfulResource": {
+                                "displayText": "Inference to a foundation model may be available over a local availability region, or could be a large region of availability. Make sure your data is available across all regions of availability to adequately service inference requests.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/generative-ai-lens/genrel05-bp02.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Replicate embedding data across all regions of availability",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/generative-ai-lens/genrel05-bp02.html"
+                            }
+                        },
+                        {
+                            "id": "GENREL05_BP03",
+                            "title": "Verify that agent capabilities are available across all regions of availability",
+                            "helpfulResource": {
+                                "displayText": "Agents require supporting infrastructure to service requests from foundation models. Using agents across a region of availability requires the supporting infrastructure to be available in that region.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/generative-ai-lens/genrel05-bp03.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Verify that agent capabilities are available across all regions of availability",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/generative-ai-lens/genrel05-bp03.html"
+                            }
+                        },
+                        {
+                            "id": "GENREL05_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "GENREL05_BP01 && GENREL05_BP02 && GENREL05_BP03",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!GENREL05_BP01) || (!GENREL05_BP02) || (!GENREL05_BP03)",
+                            "risk": "MEDIUM_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "HIGH_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "GENREL06",
+                    "title": "How do you design high-performance distributed computation tasks to maximize successful completion?",
+                    "description": "Model customization and other high-performance distributed computation tasks for generative AI can be long-running, expensive, and brittle. It is important to deliberately architect these distributed, high-performance computation tasks for reliability so the resulting foundation model is performant and trained in a timely manner.",
+                    "choices": [
+                        {
+                            "id": "GENREL06_BP01",
+                            "title": "Design for fault-tolerance for high-performance distributed computation tasks",
+                            "helpfulResource": {
+                                "displayText": "Fault-tolerant infrastructure identifies issues in long-running, high-performance distributed computation tasks and remediates them before they can disrupt the task. Because these tasks are expensive and time-consuming, use fault-tolerant infrastructure to reliably perform model customization jobs.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/generative-ai-lens/genrel06-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Design for fault-tolerance for high-performance distributed computation tasks",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/generative-ai-lens/genrel06-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "GENREL06_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "GENREL06_BP01",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!GENREL06_BP01)",
+                            "risk": "HIGH_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "MEDIUM_RISK"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "performance",
+            "name": "Performance Efficiency",
+            "questions": [
+                {
+                    "id": "GENPERF01",
+                    "title": "How do you capture and improve the performance of your generative AI models in production?",
+                    "description": "Foundation models are built to perform sufficiently well on a wide variety of tasks. Their task-specific performance is tracked using leaderboards and other public metric tracking solutions. Strong performance in one task (for example, summarization) does not indicate strong performance in another task (such as question answering). Task performance is evaluated using benchmarks built from ground truth data, and model performance against these test suites help when selecting a model for a workload. These new performance metrics expand classic performance considerations such as latency and throughput. Efficient model selection and customization requires careful consideration of the various performance requirements of a generative AI workload, which is informed by the business case.",
+                    "choices": [
+                        {
+                            "id": "GENPERF01_BP01",
+                            "title": "Define a ground truth data set of prompts and responses",
+                            "helpfulResource": {
+                                "displayText": "Ground truth data facilitates model testing for use case specific scenarios and should be developed and curated for generative AI workloads. Ground truth data is a curated set of prompts and responses that describe the ideal workflow with a model.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/generative-ai-lens/genperf01-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Define a ground truth data set of prompts and responses",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/generative-ai-lens/genperf01-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "GENPERF01_BP02",
+                            "title": "Collect performance metrics from generative AI workloads",
+                            "helpfulResource": {
+                                "displayText": "Foundation model performance on specific tasks is measured and quantified in different ways depending on the desired outcome. It is important to discern the performance of a model over time when selecting foundation models for generative AI workloads by identifying performance metrics and evaluating model performance. This is true not just for model inference, but model training and customization workloads as well.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/generative-ai-lens/genperf01-bp02.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Collect performance metrics from generative AI workloads",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/generative-ai-lens/genperf01-bp02.html"
+                            }
+                        },
+                        {
+                            "id": "GENPERF01_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "GENPERF01_BP01 && GENPERF01_BP02",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!GENPERF01_BP01) || (!GENPERF01_BP02)",
+                            "risk": "MEDIUM_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "HIGH_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "GENPERF02",
+                    "title": "How do you verify your generative AI workload maintains acceptable performance levels?",
+                    "description": "Foundation models are inherently non-deterministic. They introduce an element of randomness into systems. This randomness can be difficult to account for, especially when traditional performance evaluation techniques rely on a determinism. Furthermore, while they are flexible, broadly applicable, and capable performing multiple tasks, foundation models are compute-intensive resources that may require tuning and customization to meet your organization AI requirements. Developing a methodology for maintaining consistent model performance in a rapidly evolving environment of available models requires well-understood minimum performance thresholds, clear requirements for each model task, and a suite of remediation actions in the case of performance degradation or new model availability.",
+                    "choices": [
+                        {
+                            "id": "GENPERF02_BP01",
+                            "title": "Load test model endpoints",
+                            "helpfulResource": {
+                                "displayText": "Hosting architecture is a significant factor in determining the performance efficiency of a foundation model. Load test model endpoints to determine a baseline level of performance. Load tests should evaluate foundation model performance under average workload throughput, as well as extremes. Capturing a comprehensive understanding of model endpoint performance under a variety of workload demands helps improve architectural decision-making in regard to performance efficiency and endpoint selection.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/generative-ai-lens/genperf02-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Load test model endpoints",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/generative-ai-lens/genperf02-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "GENPERF02_BP02",
+                            "title": "Optimize inference parameters to improve response quality",
+                            "helpfulResource": {
+                                "displayText": "Foundation model response quality can be affected by inference hyperparameters. Optimize inference hyperparameters for your use case to help maintain consistent response quality and to help control the non-deterministic nature of foundation models.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/generative-ai-lens/genperf02-bp02.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Optimize inference parameters to improve response quality",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/generative-ai-lens/genperf02-bp02.html"
+                            }
+                        },
+                        {
+                            "id": "GENPERF02_BP03",
+                            "title": "Select and customize the appropriate model for your use case",
+                            "helpfulResource": {
+                                "displayText": "There are several industry-leading model providers, and each offers different model families and sizes. When you select a model, choose the appropriate model family and size for your use case to provide consistent performance for your workload.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/generative-ai-lens/genperf02-bp03.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Select and customize the appropriate model for your use case",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/generative-ai-lens/genperf02-bp03.html"
+                            }
+                        },
+                        {
+                            "id": "GENPERF02_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "GENPERF02_BP01 && GENPERF02_BP02 && GENPERF02_BP03",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!GENPERF02_BP01) || (!GENPERF02_BP02) || (!GENPERF02_BP03)",
+                            "risk": "MEDIUM_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "HIGH_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "GENPERF03",
+                    "title": "How do you optimize computational resources required for high-performance distributed computation tasks?",
+                    "description": "Foundation models require high processing power to customize and deliver inference at scale. This is true whether you are training a foundation model, customizing it, or using one for inference. Optimize consumption of high-performance compute used for foundation models in order to meet performance requirements.",
+                    "choices": [
+                        {
+                            "id": "GENPERF03_BP01",
+                            "title": "Use managed solutions for model hosting, customization, and data access where appropriate",
+                            "helpfulResource": {
+                                "displayText": "There are several industry-leading model providers, with new model families, sizes, and capabilities being introduced regularly. As foundation model capabilities expand, additional operational requirements are required for hosting the models, serving inference, and providing models access to data and external systems. Alleviate operational burden on your generative AI workload by using managed solutions where appropriate.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/generative-ai-lens/genperf03-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Use managed solutions for model hosting, customization, and data access where appropriate",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/generative-ai-lens/genperf03-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "GENPERF03_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "GENPERF03_BP01",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!GENPERF03_BP01)",
+                            "risk": "MEDIUM_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "HIGH_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "GENPERF04",
+                    "title": "How do you improve the performance of data retrieval systems?",
+                    "description": "Data retrieval systems like vector databases support some of the most popular design patterns for generative AI systems. A performance bottleneck in a data retrieval system can have cascading downstream effects, which are difficult to identify. A thorough understanding of data embedding and retrieval systems can help mitigate downstream performance issues. Ultimately, a thorough understanding of the kind of data being tokenized and queried, as well as data access patterns, can help reduce performance issues in the long-run.",
+                    "choices": [
+                        {
+                            "id": "GENPERF04_BP01",
+                            "title": "Test vector embeddings for latency and relevant performance",
+                            "helpfulResource": {
+                                "displayText": "Optimizing a data retrieval system for generative AI may have more to do with data architecture and meta-data than the foundation model selected. This best practice encourages high data quality and data architecture to accelerate data-driven generative AI workloads.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/generative-ai-lens/genperf04-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Test vector embeddings for latency and relevant performance",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/generative-ai-lens/genperf04-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "GENPERF04_BP02",
+                            "title": "Optimize vector sizes for your use case",
+                            "helpfulResource": {
+                                "displayText": "Embedding models may offer support for different sizes of vectors when embedding data. Optimizing the vector size for an embedding may introduce long-term performance gains.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/generative-ai-lens/genperf04-bp02.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Optimize vector sizes for your use case",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/generative-ai-lens/genperf04-bp02.html"
+                            }
+                        },
+                        {
+                            "id": "GENPERF04_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "GENPERF04_BP01 && GENPERF04_BP02",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!GENPERF04_BP01) || (!GENPERF04_BP02)",
+                            "risk": "MEDIUM_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "HIGH_RISK"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "costOptimization",
+            "name": "Cost Optimization",
+            "questions": [
+                {
+                    "id": "GENCOST01",
+                    "title": "How do you select the appropriate model to optimize costs?",
+                    "description": "Foundation model costs vary greatly across the various foundation model providers, model families and sizes, and model hosting paradigms. It may be advantageous to evaluate cost as a factor when selecting models. This question describes best practices to achieving cost-aware model selection.",
+                    "choices": [
+                        {
+                            "id": "GENCOST01_BP01",
+                            "title": "Right-size model selection to optimize inference costs",
+                            "helpfulResource": {
+                                "displayText": "Foundation model costs vary greatly across the various foundation model providers, model families and sizes, and model hosting paradigms. It can be advantageous to use cost as a factor when selecting models. Understand the models available to you, as well as the requirements of your workload, to make an informed, cost-aware decision.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/generative-ai-lens/gencost01-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Right-size model selection to optimize inference costs",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/generative-ai-lens/gencost01-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "GENCOST01_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "GENCOST01_BP01",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!GENCOST01_BP01)",
+                            "risk": "MEDIUM_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "HIGH_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "GENCOST02",
+                    "title": "How do you select a cost-effective pricing model (for example, provisioned, on-demand, hosted, or batch)?",
+                    "description": "Foundation model hosting and inference can be conducted in a variety of ways. Some workloads demand immediate responses, while some can be done in batch. Some are hosted on unmanaged infrastructure, and some are hosted using serverless technologies. The inference and hosting paradigm selected influences total cost and should be done with cost in mind.",
+                    "choices": [
+                        {
+                            "id": "GENCOST02_BP01",
+                            "title": "Balance cost and performance when selecting inference paradigms",
+                            "helpfulResource": {
+                                "displayText": "Hosting a foundation model for inference requires many choices, and many of these decisions can affect the cost of your workload. One of these choices includes the selection of a managed, serverless deployment of a foundation model against a self-hosted option.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/generative-ai-lens/gencost02-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Balance cost and performance when selecting inference paradigms",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/generative-ai-lens/gencost02-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "GENCOST02_BP02",
+                            "title": "Optimize resource consumption to minimize hosting costs",
+                            "helpfulResource": {
+                                "displayText": "Hosting a foundation model for inference requires myriad choices, all of which affect cost. These cost dimensions can be optimized to reduce cost while meeting performance goals.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/generative-ai-lens/gencost02-bp02.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Optimize resource consumption to minimize hosting costs",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/generative-ai-lens/gencost02-bp02.html"
+                            }
+                        },
+                        {
+                            "id": "GENCOST02_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "GENCOST02_BP01 && GENCOST02_BP02",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!GENCOST02_BP01) || (!GENCOST02_BP02)",
+                            "risk": "MEDIUM_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "HIGH_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "GENCOST03",
+                    "title": "How do you engineer prompts to optimize cost?",
+                    "description": "Prompts are engineered to optimize workloads cost as well as workload performance.",
+                    "choices": [
+                        {
+                            "id": "GENCOST03_BP01",
+                            "title": "Optimize prompt token length",
+                            "helpfulResource": {
+                                "displayText": "Long prompts tend to be filled with lots of context, additional information, and requests for a foundation model when it is conducting inference. Reducing prompt length lowers the amount of compute needed to serve inference.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/generative-ai-lens/gencost03-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Optimize prompt token length",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/generative-ai-lens/gencost03-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "GENCOST03_BP02",
+                            "title": "Control model response length",
+                            "helpfulResource": {
+                                "displayText": "The costs of a foundation model are often measured in the lengths of the model's responses. This best practice describes how to control model responses to reduce costs.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/generative-ai-lens/gencost03-bp02.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Control model response length",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/generative-ai-lens/gencost03-bp02.html"
+                            }
+                        },
+                        {
+                            "id": "GENCOST03_BP03",
+                            "title": "Implement prompt caching to reduce token costs",
+                            "helpfulResource": {
+                                "displayText": "Implement prompt caching for supported foundation models to reduce inference response latency and input token costs. This best practice helps organizations optimize costs by caching frequently used portions of prompts to avoid recomputation, while maintaining performance and reliability.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/generative-ai-lens/gencost03-bp03.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Implement prompt caching to reduce token costs",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/generative-ai-lens/gencost03-bp03.html"
+                            }
+                        },
+                        {
+                            "id": "GENCOST03_BP04",
+                            "title": "Annotate user input to enable cost-aware content filtering",
+                            "helpfulResource": {
+                                "displayText": "Annotate specific sections of input prompts to selectively apply content filtering and reduce token usage costs. By using input tags to mark only the user-provided content for filtering, you can avoid unnecessary processing of system prompts, search results, and conversation history while maintaining essential safeguards.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/generative-ai-lens/gencost03-bp04.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Annotate user input to enable cost-aware content filtering",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/generative-ai-lens/gencost03-bp04.html"
+                            }
+                        },
+                        {
+                            "id": "GENCOST03_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "GENCOST03_BP01 && GENCOST03_BP02 && GENCOST03_BP03 && GENCOST03_BP04",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!GENCOST03_BP01) || (!GENCOST03_BP02) || (!GENCOST03_BP03) || (!GENCOST03_BP04)",
+                            "risk": "MEDIUM_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "HIGH_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "GENCOST04",
+                    "title": "How do you optimize vector stores for cost?",
+                    "description": "Generative AI architectures like Retrieval Augmented Generation (RAG) require a robust data backend to remain effective. Vector stores can add to the overall cost of running your application and should be optimized.",
+                    "choices": [
+                        {
+                            "id": "GENCOST04_BP01",
+                            "title": "Reduce vector length on embedded tokens",
+                            "helpfulResource": {
+                                "displayText": "Using a smaller vector size for data embeddings results in a reduced response length for data-driven generative AI workflows. By keeping vector lengths small, we can save on model output as well as vector database computation requirements.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/generative-ai-lens/gencost04-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Reduce vector length on embedded tokens",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/generative-ai-lens/gencost04-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "GENCOST04_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "GENCOST04_BP01",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!GENCOST04_BP01)",
+                            "risk": "MEDIUM_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "HIGH_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "GENCOST05",
+                    "title": "How do you optimize agent workflows for cost?",
+                    "description": "Agentic architectures promise significant automation potential across domains. However, they can incur necessary additional cost if misconfigured.",
+                    "choices": [
+                        {
+                            "id": "GENCOST05_BP01",
+                            "title": "Create stopping conditions to control long-running workflows",
+                            "helpfulResource": {
+                                "displayText": "Agentic workflows can be long-running, which can incur additional cost to your application. Develop controls to limit agents from running for extended periods of time without stopping.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/generative-ai-lens/gencost05-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Create stopping conditions to control long-running workflows",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/generative-ai-lens/gencost05-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "GENCOST05_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "GENCOST05_BP01",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!GENCOST05_BP01)",
+                            "risk": "HIGH_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "MEDIUM_RISK"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "sustainability",
+            "name": "Sustainability",
+            "questions": [
+                {
+                    "id": "GENSUS01",
+                    "title": "How do you minimize the computational resources needed for training, customizing, and hosting generative AI workloads?",
+                    "description": "To optimize the computational resources for training, customizing, and hosting generative AI workloads, consider adopting serverless architectures and auto scaling capabilities. Use managed services that offer efficient resource utilization and infrastructure management. Implement strategies such as instance optimization, container caching, and fast model loading to enhance performance and reduce environmental impact. Explore specialized instances designed for generative AI to achieve higher throughput and lower costs.",
+                    "choices": [
+                        {
+                            "id": "GENSUS01_BP01",
+                            "title": "Implement auto scaling and serverless architectures to optimize resource utilization",
+                            "helpfulResource": {
+                                "displayText": "Adopt efficient and sustainable AI/ML practices to minimize resource usage, reduce costs, and lower environmental impact. Use serverless architectures, auto scaling, and specialized hardware to optimize resource utilization. This approach enhances performance efficiency, aligns with cost optimization, and supports sustainability goals. Implementing these practices enables responsible and economical deployment of generative AI workloads and promotes effective scaling without unnecessary resource waste.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/generative-ai-lens/gensus01-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Implement auto scaling and serverless architectures to optimize resource utilization",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/generative-ai-lens/gensus01-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "GENSUS01_BP02",
+                            "title": "Use efficient model customization services",
+                            "helpfulResource": {
+                                "displayText": "To maximize efficiency and sustainability in large-scale generative AI model deployments, adopt best practices for distributed training and parameter-efficient fine-tuning. These techniques optimize resource utilization and reduce energy consumption, leading to cost savings and enhanced performance. This helps maintain a balance between computational demands and environmental considerations, promoting responsible cloud resource use.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/generative-ai-lens/gensus01-bp02.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Use efficient model customization services",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/generative-ai-lens/gensus01-bp02.html"
+                            }
+                        },
+                        {
+                            "id": "GENSUS01_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "GENSUS01_BP01 && GENSUS01_BP02",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!GENSUS01_BP01) || (!GENSUS01_BP02)",
+                            "risk": "MEDIUM_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "HIGH_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "GENSUS02",
+                    "title": "How can you optimize data processing and storage to minimize energy consumption and maximize efficiency?",
+                    "description": "To optimize computational resources for data processing pipelines, storage systems, and infrastructure in generative AI workloads, consider adopting serverless architectures and auto scaling mechanisms. Employ columnar formats and compression to minimize transfer and processing requirements. Implement serverless query and ETL services to reduce the need for persistent infrastructure, which promotes efficient resource utilization and sustainability.",
+                    "choices": [
+                        {
+                            "id": "GENSUS02_BP01",
+                            "title": "Optimize data processing and storage to minimize energy consumption",
+                            "helpfulResource": {
+                                "displayText": "Organizations should optimize data processing and storage, which aims to enhance the sustainability and cost-effectiveness of their data processing and storage systems, particularly for generative AI workloads. Optimizing the use of computational resources helps you minimize energy consumption and operational costs while maintaining high performance and scalability.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/generative-ai-lens/gensus02-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Optimize data processing and storage to minimize energy consumption",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/generative-ai-lens/gensus02-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "GENSUS02_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "GENSUS02_BP01",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!GENSUS02_BP01)",
+                            "risk": "MEDIUM_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "HIGH_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "GENSUS03",
+                    "title": "How do you maintain model efficiency and resource optimization when working with large language models?",
+                    "description": "Explore strategies for enhancing model efficiency and resource optimization in large language models, focusing on techniques like quantization, pruning, and fine-tuning smaller models for specific tasks. Consider the benefits of model distillation to create efficient, task-specific models. Aim to balance performance with computational requirements, helping achieve optimal resource utilization in generative AI applications.",
+                    "choices": [
+                        {
+                            "id": "GENSUS03_BP01",
+                            "title": "Leverage smaller models and optimized inference techniques to reduce carbon footprint",
+                            "helpfulResource": {
+                                "displayText": "To manage computational demands and costs of deploying large language models, implement model optimization techniques. This best practice aims to increase AI operational efficiency by reducing resource consumption while meeting performance goals. Strategies like quantization, pruning, and model distillation help lower operational expenses, improve response times, and promote environmental sustainability. This approach enables you to deploy efficient, cost-effective, and eco-friendly AI solutions, allowing for application scaling without excessive costs or environmental impact.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/generative-ai-lens/gensus03-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Leverage smaller models and optimized inference techniques to reduce carbon footprint",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/generative-ai-lens/gensus03-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "GENSUS03_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "GENSUS03_BP01",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!GENSUS03_BP01)",
+                            "risk": "MEDIUM_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "HIGH_RISK"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
