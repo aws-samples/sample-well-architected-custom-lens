@@ -13,7 +13,7 @@
                     "description": "Organizational structure and organizational culture have a direct impact on business outcomes. Your teams must understand their part in achieving business outcomes. Teams need to understand their roles in the success of other teams, the role of other teams in their success, and have shared goals. Understanding responsibility, ownership, how decisions are made, and who has authority to make decisions will help focus efforts and maximize the benefits from your teams.",
                     "choices": [
                         {
-                            "id": "MLOPS01_1",
+                            "id": "MLOPS01_BP01",
                             "title": "Develop the right skills with accountability and empowerment",
                             "helpfulResource": {
                                 "displayText": "Artificial intelligence (AI) has many different and growing branches, such as machine learning, deep learning, and computer vision. Given the complexity and fast-growing nature of ML technologies, plan to hire specialists with the understanding that additional training will be needed as ML evolves. Keep teams learning new skills, engaged, and motivated while encouraging accountability and empowerment. Building ML models is a complex and iterative process that can infuse bias or unfair predictions against a certain entity. It's important to promote and enforce the ethical use of AI across enterprises. AWS provides clear guidance to customers for responsible AI practices.",
@@ -25,7 +25,7 @@
                             }
                         },
                         {
-                            "id": "MLOPS01_2",
+                            "id": "MLOPS01_BP02",
                             "title": "Discuss and agree on the level of model explainability",
                             "helpfulResource": {
                                 "displayText": "Establish clear expectations with business stakeholders about the level of model explainability needed for your machine learning use case. Explainability provides an understanding of how and why a model makes predictions, which builds trust, enables auditing, and supports adherence to regulatory requirements.",
@@ -37,7 +37,7 @@
                             }
                         },
                         {
-                            "id": "MLOPS01_3",
+                            "id": "MLOPS01_BP03",
                             "title": "Monitor model adherence to business requirements",
                             "helpfulResource": {
                                 "displayText": "Machine learning models degrade over time due to changes in the real world, such as data drift and concept drift. If not monitored, these changes could lead to models becoming inaccurate or even obsolete over time. It's important to have a periodic monitoring process in place to make sure that your ML models continue to comply to your business requirements and that deviations are captured and acted upon promptly.",
@@ -58,11 +58,11 @@
                     ],
                     "riskRules": [
                         {
-                            "condition": "MLOPS01_1 && MLOPS01_2 && MLOPS01_3",
+                            "condition": "MLOPS01_BP01 && MLOPS01_BP02 && MLOPS01_BP03",
                             "risk": "NO_RISK"
                         },
                         {
-                            "condition": "(!MLOPS01_1) || (!MLOPS01_2) || (!MLOPS01_3)",
+                            "condition": "(!MLOPS01_BP01) || (!MLOPS01_BP02) || (!MLOPS01_BP03)",
                             "risk": "HIGH_RISK"
                         },
                         {
@@ -77,7 +77,7 @@
                     "description": "Define operational practices that help validate whether your ML problem formulation can be reliably implemented and maintained in production.",
                     "choices": [
                         {
-                            "id": "MLOPS02_1",
+                            "id": "MLOPS02_BP01",
                             "title": "Establish ML roles and responsibilities",
                             "helpfulResource": {
                                 "displayText": "Clearly defining roles, responsibilities, and team interactions in machine learning projects creates an efficient operational framework that maximizes overall effectiveness. By understanding who does what and how teams collaborate, organizations can streamline their ML initiatives and deliver better business outcomes.",
@@ -89,7 +89,7 @@
                             }
                         },
                         {
-                            "id": "MLOPS02_2",
+                            "id": "MLOPS02_BP02",
                             "title": "Prepare an ML profile template",
                             "helpfulResource": {
                                 "displayText": "Creating an ML profile template allows you to systematically capture machine learning workload characteristics across different lifecycle phases. Use this template to evaluate your ML workload's current maturity status and strategically plan for improvements that align with your business requirements.",
@@ -101,7 +101,7 @@
                             }
                         },
                         {
-                            "id": "MLOPS02_3",
+                            "id": "MLOPS02_BP03",
                             "title": "Establish model improvement strategies",
                             "helpfulResource": {
                                 "displayText": "Planning improvement drivers for optimizing machine learning model performance is essential before development begins. By establishing a clear strategy for model enhancement, you can systematically improve your ML models through techniques like data collection, cross-validation, feature engineering, hyperparameter tuning, and ensemble methods.",
@@ -113,7 +113,7 @@
                             }
                         },
                         {
-                            "id": "MLOPS02_4",
+                            "id": "MLOPS02_BP04",
                             "title": "Establish a lineage tracker system",
                             "helpfulResource": {
                                 "displayText": "Maintain a system that tracks changes for each release to enable reproducibility, speed up problem diagnosis, and improve regulatory adherence. Tracking lineage for model development includes changes in documentation, environment, model, data, code, and infrastructure.",
@@ -125,7 +125,7 @@
                             }
                         },
                         {
-                            "id": "MLOPS02_5",
+                            "id": "MLOPS02_BP05",
                             "title": "Establish feedback loops across ML lifecycle phases",
                             "helpfulResource": {
                                 "displayText": "Establishing feedback loops across machine learning (ML) lifecycle phases is essential for continuous improvement of ML workloads. By implementing robust mechanisms to share successful experiments, analyze failures, and document operational activities, you can enhance model performance and adapt to changing data patterns over time. Feedback loops can identify model drifts and enable practitioners to refine monitoring and retraining strategies, allowing for experimentation with data augmentation and different algorithms until optimal outcomes are achieved.",
@@ -137,7 +137,7 @@
                             }
                         },
                         {
-                            "id": "MLOPS02_6",
+                            "id": "MLOPS02_BP06",
                             "title": "Review fairness and explainability",
                             "helpfulResource": {
                                 "displayText": "Evaluating model fairness and explainability verifies that your machine learning solutions are ethical, transparent, and equitable across user groups. By systematically addressing these concerns throughout the ML lifecycle, you build trust with stakeholders and reduce the risk of harmful bias in your models.",
@@ -158,11 +158,11 @@
                     ],
                     "riskRules": [
                         {
-                            "condition": "MLOPS02_1 && MLOPS02_4",
+                            "condition": "MLOPS02_BP01 && MLOPS02_BP04",
                             "risk": "NO_RISK"
                         },
                         {
-                            "condition": "(!MLOPS02_1) || (!MLOPS02_4)",
+                            "condition": "(!MLOPS02_BP01) || (!MLOPS02_BP04)",
                             "risk": "HIGH_RISK"
                         },
                         {
@@ -177,7 +177,7 @@
                     "description": "Use tools and processes that enable continuous improvement to improve the effectiveness and efficiency of your operations.",
                     "choices": [
                         {
-                            "id": "MLOPS03_1",
+                            "id": "MLOPS03_BP01",
                             "title": "Profile data to improve quality",
                             "helpfulResource": {
                                 "displayText": "Data profiling is essential for understanding data characteristics such as distribution, descriptive statistics, data types, and patterns. By systematically reviewing source data for content and quality, you can filter out or correct problematic data, leading to significant quality improvements in your machine learning workflows.",
@@ -189,7 +189,7 @@
                             }
                         },
                         {
-                            "id": "MLOPS03_2",
+                            "id": "MLOPS03_BP02",
                             "title": "Create tracking and version control mechanisms",
                             "helpfulResource": {
                                 "displayText": "Machine learning model development requires robust tracking and version control mechanisms due to its iterative and exploratory nature. By implementing proper tracking systems, you can maintain visibility of your experiments, data processing techniques, and model versions while enabling reproducibility and collaboration.",
@@ -210,11 +210,11 @@
                     ],
                     "riskRules": [
                         {
-                            "condition": "MLOPS03_1 && MLOPS03_2",
+                            "condition": "MLOPS03_BP01 && MLOPS03_BP02",
                             "risk": "NO_RISK"
                         },
                         {
-                            "condition": "(!MLOPS03_1) || (!MLOPS03_2)",
+                            "condition": "(!MLOPS03_BP01) || (!MLOPS03_BP02)",
                             "risk": "HIGH_RISK"
                         },
                         {
@@ -229,7 +229,7 @@
                     "description": "Establish operational controls and processes that enable consistent, traceable, and maintainable model development practices.",
                     "choices": [
                         {
-                            "id": "MLOPS04_1",
+                            "id": "MLOPS04_BP01",
                             "title": "Automate operations through MLOps and CI/CD",
                             "helpfulResource": {
                                 "displayText": "Automate ML workload operations using infrastructure as code (IaC) and configuration as code (CaC). Select appropriate MLOps mechanisms to orchestrate your ML workflows and integrate with CI/CD pipelines for automated deployments. This approach creates consistency across your staging and production deployment environments. Enable model observability and version control across your hosting infrastructure.",
@@ -241,7 +241,7 @@
                             }
                         },
                         {
-                            "id": "MLOPS04_2",
+                            "id": "MLOPS04_BP02",
                             "title": "Establish reliable packaging patterns to access approved public libraries",
                             "helpfulResource": {
                                 "displayText": "Establishing reliable packaging patterns enables data scientists to access approved public libraries efficiently and consistently. By implementing structured access to public libraries and creating separate kernels for common ML frameworks, organizations can have both flexibility and security in their machine learning development environments.",
@@ -262,11 +262,11 @@
                     ],
                     "riskRules": [
                         {
-                            "condition": "MLOPS04_1",
+                            "condition": "MLOPS04_BP01",
                             "risk": "NO_RISK"
                         },
                         {
-                            "condition": "(!MLOPS04_1)",
+                            "condition": "(!MLOPS04_BP01)",
                             "risk": "HIGH_RISK"
                         },
                         {
@@ -281,7 +281,7 @@
                     "description": "Adopt approaches that improve the flow of changes into production, that enable refactoring, fast feedback on quality, and bug fixing. These accelerate beneficial changes entering production, limit issues deployed, and enable rapid identification and remediation of issues introduced through deployment activities.",
                     "choices": [
                         {
-                            "id": "MLOPS05_1",
+                            "id": "MLOPS05_BP01",
                             "title": "Establish deployment environment metrics",
                             "helpfulResource": {
                                 "displayText": "Establish comprehensive monitoring of machine learning operations to gain visibility into your deployed ML environments. By measuring metrics such as memory, CPU/GPU usage, disk utilization, endpoint invocations, and latency, you can provide optimal performance and improve the reliability of your ML systems.",
@@ -302,11 +302,11 @@
                     ],
                     "riskRules": [
                         {
-                            "condition": "MLOPS05_1",
+                            "condition": "MLOPS05_BP01",
                             "risk": "NO_RISK"
                         },
                         {
-                            "condition": "(!MLOPS05_1)",
+                            "condition": "(!MLOPS05_BP01)",
                             "risk": "HIGH_RISK"
                         },
                         {
@@ -321,7 +321,7 @@
                     "description": "Define, capture, and analyze operations metrics to gain visibility to workload and operations events so that you can take appropriate action.",
                     "choices": [
                         {
-                            "id": "MLOPS06_1",
+                            "id": "MLOPS06_BP01",
                             "title": "Synchronize architecture and configuration, and check for skew across environments",
                             "helpfulResource": {
                                 "displayText": "Synchronize your systems and configurations across development and deployment phases for consistent machine learning model inference results. By maintaining identical environments, you can avoid discrepancies that arise from architectural differences, leading to more reliable and predictable model performance.",
@@ -333,7 +333,7 @@
                             }
                         },
                         {
-                            "id": "MLOPS06_2",
+                            "id": "MLOPS06_BP02",
                             "title": "Enable model observability and tracking",
                             "helpfulResource": {
                                 "displayText": "Establish model monitoring mechanisms to identify and proactively avoid inference issues. ML models can degrade in performance over time due to drifts. Monitor metrics that are attributed to your model's performance. For real time inference endpoints, measure the operational health of the underlying compute resources hosting the endpoint and the health of endpoint responses. Establish lineage to trace hosted models back to versioned inputs and model artifacts for analysis.",
@@ -354,11 +354,11 @@
                     ],
                     "riskRules": [
                         {
-                            "condition": "MLOPS06_1 && MLOPS06_2",
+                            "condition": "MLOPS06_BP01 && MLOPS06_BP02",
                             "risk": "NO_RISK"
                         },
                         {
-                            "condition": "(!MLOPS06_1) || (!MLOPS06_2)",
+                            "condition": "(!MLOPS06_BP01) || (!MLOPS06_BP02)",
                             "risk": "HIGH_RISK"
                         },
                         {
@@ -379,7 +379,7 @@
                     "description": "Define and integrate security and compliance considerations as fundamental components of your ML business goals.",
                     "choices": [
                         {
-                            "id": "MLSEC01_1",
+                            "id": "MLSEC01_BP01",
                             "title": "Validate ML data permissions, privacy, software, and license terms",
                             "helpfulResource": {
                                 "displayText": "Machine learning implementations require careful consideration of data permissions, privacy, and software licensing to adhere to organizational and legal requirements. Validating these elements throughout the ML lifecycle builds trusted ML systems that respect data rights while delivering business value.",
@@ -400,11 +400,11 @@
                     ],
                     "riskRules": [
                         {
-                            "condition": "MLSEC01_1",
+                            "condition": "MLSEC01_BP01",
                             "risk": "NO_RISK"
                         },
                         {
-                            "condition": "(!MLSEC01_1)",
+                            "condition": "(!MLSEC01_BP01)",
                             "risk": "HIGH_RISK"
                         },
                         {
@@ -419,7 +419,7 @@
                     "description": "Define security controls and requirements as integral components of your ML problem formulation. This includes evaluating how security considerations might impact model features, data accessibility, and inference requirements.",
                     "choices": [
                         {
-                            "id": "MLSEC02_1",
+                            "id": "MLSEC02_BP01",
                             "title": "Design data encryption and obfuscation",
                             "helpfulResource": {
                                 "displayText": "Consider how to protect personal data. Use field level encryption or obfuscation to protect personally identifiable data.",
@@ -440,11 +440,11 @@
                     ],
                     "riskRules": [
                         {
-                            "condition": "MLSEC02_1",
+                            "condition": "MLSEC02_BP01",
                             "risk": "NO_RISK"
                         },
                         {
-                            "condition": "(!MLSEC02_1)",
+                            "condition": "(!MLSEC02_BP01)",
                             "risk": "HIGH_RISK"
                         },
                         {
@@ -459,7 +459,7 @@
                     "description": "Before architecting any system, foundational practices that influence security should be in place. For example, data classification provides a way to categorize organizational data based on levels of sensitivity, and encryption protects data by way of rendering it unintelligible to unauthorized access. These tools and techniques are important because they support objectives such as preventing financial loss or complying with regulatory obligations.",
                     "choices": [
                         {
-                            "id": "MLSEC03_1",
+                            "id": "MLSEC03_BP01",
                             "title": "Provide least privilege access",
                             "helpfulResource": {
                                 "displayText": "Protect resources across various phases of the ML lifecycle using the principle of least privilege. These resources include: data, algorithms, code, hyperparameters, trained model artifacts, and infrastructure. Provide dedicated network environments with dedicated resources and services to operate individual projects.",
@@ -471,7 +471,7 @@
                             }
                         },
                         {
-                            "id": "MLSEC03_2",
+                            "id": "MLSEC03_BP02",
                             "title": "Secure data and modeling environment",
                             "helpfulResource": {
                                 "displayText": "Secure your machine learning data and development environments to protect valuable information assets throughout the ML lifecycle. By implementing proper security measures for storage, compute, and network resources, you can maintain data integrity and confidentiality while enabling data scientists to work effectively.",
@@ -483,7 +483,7 @@
                             }
                         },
                         {
-                            "id": "MLSEC03_3",
+                            "id": "MLSEC03_BP03",
                             "title": "Protect sensitive data privacy",
                             "helpfulResource": {
                                 "displayText": "Protect sensitive data used in training against unintended disclosure by implementing appropriate identification, classification, and handling strategies. This practice improves data privacy while maintaining model utility through techniques such as data removal, masking, tokenization, and principal component analysis (PCA).",
@@ -495,7 +495,7 @@
                             }
                         },
                         {
-                            "id": "MLSEC03_4",
+                            "id": "MLSEC03_BP04",
                             "title": "Enforce data lineage",
                             "helpfulResource": {
                                 "displayText": "Data lineage tracking allows you to monitor and track data origins and transformations over time, enabling better visibility into your machine learning workflows. By enforcing data lineage, you can trace the root cause of data processing errors and and protect the integrity of your ML models.",
@@ -507,7 +507,7 @@
                             }
                         },
                         {
-                            "id": "MLSEC03_5",
+                            "id": "MLSEC03_BP05",
                             "title": "Keep only relevant data",
                             "helpfulResource": {
                                 "displayText": "Reduce data exposure risks by preserving only use-case relevant data across computing environments. Implementing data lifecycle management and privacy-preserving techniques maintains data security while enabling effective machine learning workflows.",
@@ -528,11 +528,11 @@
                     ],
                     "riskRules": [
                         {
-                            "condition": "MLSEC03_1 && MLSEC03_2 && MLSEC03_3",
+                            "condition": "MLSEC03_BP01 && MLSEC03_BP02 && MLSEC03_BP03",
                             "risk": "NO_RISK"
                         },
                         {
-                            "condition": "(!MLSEC03_1) || (!MLSEC03_2) || (!MLSEC03_3)",
+                            "condition": "(!MLSEC03_BP01) || (!MLSEC03_BP02) || (!MLSEC03_BP03)",
                             "risk": "HIGH_RISK"
                         },
                         {
@@ -547,7 +547,7 @@
                     "description": "Establish comprehensive security controls and practices during model development to protect against vulnerabilities and verify requirements are met.",
                     "choices": [
                         {
-                            "id": "MLSEC04_1",
+                            "id": "MLSEC04_BP01",
                             "title": "Secure governed ML environment",
                             "helpfulResource": {
                                 "displayText": "Creating a secure and governed ML environment allows you to protect valuable data and models while enabling teams to innovate efficiently. By implementing proper guardrails, monitoring, and security practices, you maintain control while providing the flexibility ML practitioners need to deliver business value.",
@@ -559,7 +559,7 @@
                             }
                         },
                         {
-                            "id": "MLSEC04_2",
+                            "id": "MLSEC04_BP02",
                             "title": "Secure inter-node cluster communications",
                             "helpfulResource": {
                                 "displayText": "Machine learning frameworks require secure communications between computational nodes to maintain data integrity and protect sensitive information during model training. By implementing encryption for inter-node communications, you safeguard coefficient exchanges and protect synchronized information across distributed environments.",
@@ -571,7 +571,7 @@
                             }
                         },
                         {
-                            "id": "MLSEC04_3",
+                            "id": "MLSEC04_BP03",
                             "title": "Protect against data poisoning threats",
                             "helpfulResource": {
                                 "displayText": "Protect your machine learning models and data by implementing security measures against data poisoning attacks, which can compromise model performance and accuracy. Data poisoning occurs through data injection (adding corrupt training data) or data manipulation (changing existing data like labels), resulting in inaccurate and weakened predictive capabilities. By identifying and addressing corrupt data using security methods and anomaly detection algorithms, you can maintain data integrity and protect against threats including ransomware and malicious code in third-party packages.",
@@ -592,11 +592,11 @@
                     ],
                     "riskRules": [
                         {
-                            "condition": "MLSEC04_1 && MLSEC04_2",
+                            "condition": "MLSEC04_BP01 && MLSEC04_BP02",
                             "risk": "NO_RISK"
                         },
                         {
-                            "condition": "(!MLSEC04_1) || (!MLSEC04_2)",
+                            "condition": "(!MLSEC04_BP01) || (!MLSEC04_BP02)",
                             "risk": "HIGH_RISK"
                         },
                         {
@@ -611,7 +611,7 @@
                     "description": "Identity and access management are key parts of an information security program, ensuring that only authorized and authenticated users and components are able to access your resources, and only in a manner that you intend. Infrastructure protection encompasses control methodologies, such as defense in depth, necessary to meet best practices and organizational or regulatory obligations.",
                     "choices": [
                         {
-                            "id": "MLSEC05_1",
+                            "id": "MLSEC05_BP01",
                             "title": "Protect against adversarial and malicious activities",
                             "helpfulResource": {
                                 "displayText": "Machine learning systems must be robust against adversarial inputs designed to manipulate their behavior. Implementing protection mechanisms both inside and outside of your deployed models can detect malicious inputs that could lead to incorrect predictions, allowing you to automatically identify unauthorized changes, repair compromised inputs, and validate data before it's used for further training.",
@@ -632,11 +632,11 @@
                     ],
                     "riskRules": [
                         {
-                            "condition": "MLSEC05_1",
+                            "condition": "MLSEC05_BP01",
                             "risk": "NO_RISK"
                         },
                         {
-                            "condition": "(!MLSEC05_1)",
+                            "condition": "(!MLSEC05_BP01)",
                             "risk": "HIGH_RISK"
                         },
                         {
@@ -651,7 +651,7 @@
                     "description": "You can use detective controls to identify a potential security threat or incident. They are an essential part of governance frameworks and can be used to support a quality process, a legal or compliance obligation, and for threat identification and response efforts. There are different types of detective controls.",
                     "choices": [
                         {
-                            "id": "MLSEC06_1",
+                            "id": "MLSEC06_BP01",
                             "title": "Restrict access to intended legitimate consumers",
                             "helpfulResource": {
                                 "displayText": "Use least privilege permissions to invoke the deployed model endpoint. For consumers who are external to the workload environment, provide access using a secure API.",
@@ -663,7 +663,7 @@
                             }
                         },
                         {
-                            "id": "MLSEC06_2",
+                            "id": "MLSEC06_BP02",
                             "title": "Monitor human interactions with data for anomalous activity",
                             "helpfulResource": {
                                 "displayText": "Implement comprehensive monitoring of data access events to detect unauthorized or suspicious activities. By auditing user interactions with data, you can identify potential security threats such as unusual access patterns, abnormal locations, or activity that exceeds normal baselines. Use specialized AWS services for anomaly detection alongside data classification to assess risks and protect your machine learning assets.",
@@ -684,11 +684,11 @@
                     ],
                     "riskRules": [
                         {
-                            "condition": "MLSEC06_1 && MLSEC06_2",
+                            "condition": "MLSEC06_BP01 && MLSEC06_BP02",
                             "risk": "NO_RISK"
                         },
                         {
-                            "condition": "(!MLSEC06_1) || (!MLSEC06_2)",
+                            "condition": "(!MLSEC06_BP01) || (!MLSEC06_BP02)",
                             "risk": "HIGH_RISK"
                         },
                         {
@@ -709,7 +709,7 @@
                     "description": "Define reliability considerations as core components of your ML problem formulation. This includes identifying potential failure modes, establishing acceptable performance degradation thresholds, and determining recovery requirements specific to your use case.",
                     "choices": [
                         {
-                            "id": "MLREL01_1",
+                            "id": "MLREL01_BP01",
                             "title": "Use APIs to abstract change from model consuming applications",
                             "helpfulResource": {
                                 "displayText": "APIs abstract changes from model-consuming applications, keeping machine learning solutions flexible and resilient. Establishing an abstraction layer between ML models and consuming applications enables model updates, replacements, or enhancements without disrupting existing workloads.",
@@ -721,7 +721,7 @@
                             }
                         },
                         {
-                            "id": "MLREL01_2",
+                            "id": "MLREL01_BP02",
                             "title": "Adopt a machine learning microservice strategy",
                             "helpfulResource": {
                                 "displayText": "Machine learning systems can be effectively implemented through a microservice architecture that breaks down complex business problems into smaller, loosely coupled components. This approach enables distributed development, improves scalability, and facilitates change management while reducing the impact of single failures on the overall workload.",
@@ -742,11 +742,11 @@
                     ],
                     "riskRules": [
                         {
-                            "condition": "MLREL01_1",
+                            "condition": "MLREL01_BP01",
                             "risk": "NO_RISK"
                         },
                         {
-                            "condition": "(!MLREL01_1)",
+                            "condition": "(!MLREL01_BP01)",
                             "risk": "HIGH_RISK"
                         },
                         {
@@ -761,7 +761,7 @@
                     "description": "Implement robust and fault-tolerant data processing pipelines that maintain data quality and availability for ML workflows.",
                     "choices": [
                         {
-                            "id": "MLREL02_1",
+                            "id": "MLREL02_BP01",
                             "title": "Use a data catalog",
                             "helpfulResource": {
                                 "displayText": "Process data across multiple data stores using data catalog technology. An advanced data catalog service can enable ETL process integration. This approach improves reliability and efficiency.",
@@ -773,7 +773,7 @@
                             }
                         },
                         {
-                            "id": "MLREL02_2",
+                            "id": "MLREL02_BP02",
                             "title": "Use a data pipeline",
                             "helpfulResource": {
                                 "displayText": "Automate the processing, movement, and transformation of data between different compute and storage services. This automation enables data processing that is fault tolerant, repeatable, and highly available.",
@@ -785,7 +785,7 @@
                             }
                         },
                         {
-                            "id": "MLREL02_3",
+                            "id": "MLREL02_BP03",
                             "title": "Automate managing data changes",
                             "helpfulResource": {
                                 "displayText": "Effective management of machine learning training data changes is crucial for maintaining model reproducibility and providing consistent performance over time. By implementing automated version control for training data, you can precisely recreate a model version when needed and maintain a clear audit trail of data transformations.",
@@ -806,11 +806,11 @@
                     ],
                     "riskRules": [
                         {
-                            "condition": "MLREL02_2 && MLREL02_3",
+                            "condition": "MLREL02_BP02 && MLREL02_BP03",
                             "risk": "NO_RISK"
                         },
                         {
-                            "condition": "(!MLREL02_2) || (!MLREL02_3)",
+                            "condition": "(!MLREL02_BP02) || (!MLREL02_BP03)",
                             "risk": "HIGH_RISK"
                         },
                         {
@@ -825,7 +825,7 @@
                     "description": "Implement development practices that produce reliable and robust models capable of consistent performance in production.",
                     "choices": [
                         {
-                            "id": "MLREL03_1",
+                            "id": "MLREL03_BP01",
                             "title": "Enable CI/CD/CT automation with traceability",
                             "helpfulResource": {
                                 "displayText": "Enable source code, data, and artifact version control of ML workloads to enable roll back to a specific version. Incorporate continuous integration (CI), continuous delivery (CD), and continuous training (CT) practices to ML workload operations, providing automation with added traceability.",
@@ -837,7 +837,7 @@
                             }
                         },
                         {
-                            "id": "MLREL03_2",
+                            "id": "MLREL03_BP02",
                             "title": "Verify feature consistency across training and inference",
                             "helpfulResource": {
                                 "displayText": "Provide consistent, scalable, and highly available features between training and inference using a feature storage. This results in reducing the training-serving skew by keeping feature consistency between training and inference.",
@@ -849,7 +849,7 @@
                             }
                         },
                         {
-                            "id": "MLREL03_3",
+                            "id": "MLREL03_BP03",
                             "title": "Validate models with relevant data",
                             "helpfulResource": {
                                 "displayText": "Testing and validating machine learning models with appropriate data is essential for reliable performance in production. Use real and representative data that covers many possible patterns and scenarios to avoid model failures when deployed in real-world environments.",
@@ -861,7 +861,7 @@
                             }
                         },
                         {
-                            "id": "MLREL03_4",
+                            "id": "MLREL03_BP04",
                             "title": "Establish data bias detection and mitigation",
                             "helpfulResource": {
                                 "displayText": "Detect and mitigate bias to avoid inaccurate model results. Establish bias detection methodologies at data preparation stage before training starts. Monitor, detect, and mitigate bias after the model is in production. Establish feedback loops to track the drift over time and initiate a re-training.",
@@ -882,11 +882,11 @@
                     ],
                     "riskRules": [
                         {
-                            "condition": "MLREL03_1 && MLREL03_2 && MLREL03_3",
+                            "condition": "MLREL03_BP01 && MLREL03_BP02 && MLREL03_BP03",
                             "risk": "NO_RISK"
                         },
                         {
-                            "condition": "(!MLREL03_1) || (!MLREL03_2) || (!MLREL03_3)",
+                            "condition": "(!MLREL03_BP01) || (!MLREL03_BP02) || (!MLREL03_BP03)",
                             "risk": "HIGH_RISK"
                         },
                         {
@@ -901,7 +901,7 @@
                     "description": "In any system of reasonable complexity, it is expected that failures will occur. Reliability requires that your workload be aware of failures as they occur and take action to avoid impact on availability. Workloads must be able to both withstand failures and automatically repair issues.",
                     "choices": [
                         {
-                            "id": "MLREL04_1",
+                            "id": "MLREL04_BP01",
                             "title": "Automate endpoint changes through a pipeline",
                             "helpfulResource": {
                                 "displayText": "Manual change management can be error prone and potentially incur a high effort cost. Use automated pipelines (that integrate with a change management tracking system) to deploy changes to your model endpoints. Versioned pipeline inputs and artifacts allow you to track the changes and automatically rollback after a failed change.",
@@ -913,7 +913,7 @@
                             }
                         },
                         {
-                            "id": "MLREL04_2",
+                            "id": "MLREL04_BP02",
                             "title": "Use an appropriate deployment and testing strategy",
                             "helpfulResource": {
                                 "displayText": "Select the right deployment and testing strategy for your machine learning models to create smoother transitions to production, minimize disruption, and allow for careful evaluation of model performance before full implementation.",
@@ -934,11 +934,11 @@
                     ],
                     "riskRules": [
                         {
-                            "condition": "MLREL04_1 && MLREL04_2",
+                            "condition": "MLREL04_BP01 && MLREL04_BP02",
                             "risk": "NO_RISK"
                         },
                         {
-                            "condition": "(!MLREL04_1) || (!MLREL04_2)",
+                            "condition": "(!MLREL04_BP01) || (!MLREL04_BP02)",
                             "risk": "HIGH_RISK"
                         },
                         {
@@ -953,7 +953,7 @@
                     "description": "A reliable workload starts with upfront design decisions for both software and infrastructure. Your architecture choices will impact your workload behavior across all five Well-Architected pillars. For reliability, there are specific patterns you must follow.",
                     "choices": [
                         {
-                            "id": "MLREL05_1",
+                            "id": "MLREL05_BP01",
                             "title": "Allow automatic scaling of the model endpoint",
                             "helpfulResource": {
                                 "displayText": "Implement capabilities that allow the automatic scaling of model endpoints. This improves the reliable processing of predictions to meet changing workload demands. Include monitoring on endpoints to identify a threshold that initiates the addition or removal of resources to support current demand.",
@@ -965,7 +965,7 @@
                             }
                         },
                         {
-                            "id": "MLREL05_2",
+                            "id": "MLREL05_BP02",
                             "title": "Create a recoverable endpoint with a managed version control strategy",
                             "helpfulResource": {
                                 "displayText": "Establish a fully recoverable system for model prediction endpoints by implementing proper version control and lineage tracking for components that generate these endpoints.",
@@ -986,11 +986,11 @@
                     ],
                     "riskRules": [
                         {
-                            "condition": "MLREL05_1 && MLREL05_2",
+                            "condition": "MLREL05_BP01 && MLREL05_BP02",
                             "risk": "NO_RISK"
                         },
                         {
-                            "condition": "(!MLREL05_1) || (!MLREL05_2)",
+                            "condition": "(!MLREL05_BP01) || (!MLREL05_BP02)",
                             "risk": "HIGH_RISK"
                         },
                         {
@@ -1011,7 +1011,7 @@
                     "description": "Establish clear performance efficiency targets that directly support your ML business goals.",
                     "choices": [
                         {
-                            "id": "MLPERF01_1",
+                            "id": "MLPERF01_BP01",
                             "title": "Determine key performance indicators",
                             "helpfulResource": {
                                 "displayText": "Use guidance from business stakeholders to capture key performance indicators (KPIs) relevant to the business use case. The KPIs should be directly linked to business value to guide acceptable model performance. Consider that machine learning inferences are probabilistic and will not provide exact results. Identify a minimum acceptable accuracy and maximum acceptable error in the KPIs. This enables you to achieve the required business value and manage the risk of variable results.",
@@ -1032,11 +1032,11 @@
                     ],
                     "riskRules": [
                         {
-                            "condition": "MLPERF01_1",
+                            "condition": "MLPERF01_BP01",
                             "risk": "NO_RISK"
                         },
                         {
-                            "condition": "(!MLPERF01_1)",
+                            "condition": "(!MLPERF01_BP01)",
                             "risk": "HIGH_RISK"
                         },
                         {
@@ -1051,7 +1051,7 @@
                     "description": "Define performance efficiency considerations as key components of your ML problem formulation.",
                     "choices": [
                         {
-                            "id": "MLPERF02_1",
+                            "id": "MLPERF02_BP01",
                             "title": "Define relevant evaluation metrics",
                             "helpfulResource": {
                                 "displayText": "Establishing clear, meaningful evaluation metrics is essential for validating machine learning model performance against business objectives. By selecting metrics that directly relate to your key performance indicators (KPIs), you can verify that your ML solutions deliver measurable business value.",
@@ -1063,7 +1063,7 @@
                             }
                         },
                         {
-                            "id": "MLPERF02_2",
+                            "id": "MLPERF02_BP02",
                             "title": "Use purpose-built AI and ML services and resources",
                             "helpfulResource": {
                                 "displayText": "Consider how the workload could be handled by pre-built AI services or ML resources. Better performance can often be delivered more efficiently by using pre-optimized components included in AI and ML managed services. Select an optimal mix of bespoke and pre-built components to meet the workload requirements.",
@@ -1084,11 +1084,11 @@
                     ],
                     "riskRules": [
                         {
-                            "condition": "MLPERF02_1",
+                            "condition": "MLPERF02_BP01",
                             "risk": "NO_RISK"
                         },
                         {
-                            "condition": "(!MLPERF02_1)",
+                            "condition": "(!MLPERF02_BP01)",
                             "risk": "HIGH_RISK"
                         },
                         {
@@ -1103,7 +1103,7 @@
                     "description": "Cloud technologies are rapidly evolving and you must ensure that workload components are using the latest technologies and approaches to continually improve performance. You must continually evaluate and consider changes to your workload components to ensure you are meeting its performance and cost objectives. When you architect solutions, think about trade-offs to ensure an optimal approach. Depending on your situation, you could trade consistency, durability, and space for time or latency, to deliver higher performance.",
                     "choices": [
                         {
-                            "id": "MLPERF03_1",
+                            "id": "MLPERF03_BP01",
                             "title": "Use a modern data architecture",
                             "helpfulResource": {
                                 "displayText": "Get the best insights from exponentially growing data using a modern data architecture. This architecture enables movement of data between a data lake and purpose-built stores including a data warehouse, relational databases, non-relational databases, ML and big data processing, and log analytics. A data lake provides a single place to run analytics across mixed data structures collected from disparate sources. Purpose-built analytics services provide the speed required for specific use cases like real-time dashboards and log analytics.",
@@ -1124,11 +1124,11 @@
                     ],
                     "riskRules": [
                         {
-                            "condition": "MLPERF03_1",
+                            "condition": "MLPERF03_BP01",
                             "risk": "NO_RISK"
                         },
                         {
-                            "condition": "(!MLPERF03_1)",
+                            "condition": "(!MLPERF03_BP01)",
                             "risk": "MEDIUM_RISK"
                         },
                         {
@@ -1143,7 +1143,7 @@
                     "description": "The optimal solution for a particular workload varies, and solutions often combine multiple approaches. Well-architected workloads use multiple solutions and enable different features to improve performance. When you architect solutions, think about trade-offs to ensure an optimal approach. Depending on your situation, you could trade consistency, durability, and space for time or latency, to deliver higher performance.",
                     "choices": [
                         {
-                            "id": "MLPERF04_1",
+                            "id": "MLPERF04_BP01",
                             "title": "Optimize training and inference instance types",
                             "helpfulResource": {
                                 "displayText": "Selecting appropriate instance types for training and inference workloads provides optimal performance, reduced costs, and faster time-to-market for your machine learning models. By understanding your model's specific requirements and data characteristics, you can choose the right computational resources to maximize efficiency.",
@@ -1155,7 +1155,7 @@
                             }
                         },
                         {
-                            "id": "MLPERF04_2",
+                            "id": "MLPERF04_BP02",
                             "title": "Explore alternatives for performance improvement",
                             "helpfulResource": {
                                 "displayText": "Benchmarking your machine learning models allows you to systematically improve performance by evaluating and comparing different algorithms, features, and architectural resources. Use this practice to identify the optimal combination and achieve your desired performance metrics.",
@@ -1167,7 +1167,7 @@
                             }
                         },
                         {
-                            "id": "MLPERF04_3",
+                            "id": "MLPERF04_BP03",
                             "title": "Establish a model performance evaluation pipeline",
                             "helpfulResource": {
                                 "displayText": "Establish an end-to-end model performance evaluation pipeline that captures key metrics to evaluate your model's success, align with business KPIs, and automatically test performance when models or data are updated.",
@@ -1179,7 +1179,7 @@
                             }
                         },
                         {
-                            "id": "MLPERF04_4",
+                            "id": "MLPERF04_BP04",
                             "title": "Establish feature statistics",
                             "helpfulResource": {
                                 "displayText": "Establishing key statistics to measure changes in data that affect model outcomes is crucial for maintaining ML model performance. By analyzing feature importance and sensitivity, you can select the most critical features to monitor and detect when data drifts outside acceptable ranges so you can determine when model retraining is necessary.",
@@ -1191,7 +1191,7 @@
                             }
                         },
                         {
-                            "id": "MLPERF04_5",
+                            "id": "MLPERF04_BP05",
                             "title": "Perform a performance trade-off analysis",
                             "helpfulResource": {
                                 "displayText": "Perform a trade-off analysis to identify optimal ML model configurations that balance competing requirements for your business needs. This practice enables you to maximize both model accuracy and overall business value.",
@@ -1203,7 +1203,7 @@
                             }
                         },
                         {
-                            "id": "MLPERF04_6",
+                            "id": "MLPERF04_BP06",
                             "title": "Detect performance issues when using transfer learning",
                             "helpfulResource": {
                                 "displayText": "Transfer learning can accelerate machine learning development by using pre-trained models for new tasks. Monitoring the performance of these transferred models verifies that they yield accurate results in new contexts and stops inherited weaknesses from affecting your solutions.",
@@ -1224,11 +1224,11 @@
                     ],
                     "riskRules": [
                         {
-                            "condition": "MLPERF04_3 && MLPERF04_4",
+                            "condition": "MLPERF04_BP03 && MLPERF04_BP04",
                             "risk": "NO_RISK"
                         },
                         {
-                            "condition": "(!MLPERF04_3) || (!MLPERF04_4)",
+                            "condition": "(!MLPERF04_BP03) || (!MLPERF04_BP04)",
                             "risk": "HIGH_RISK"
                         },
                         {
@@ -1243,7 +1243,7 @@
                     "description": "Implement deployment strategies that maximize performance efficiency while meeting serving requirements.",
                     "choices": [
                         {
-                            "id": "MLPERF05_1",
+                            "id": "MLPERF05_BP01",
                             "title": "Evaluate cloud versus edge options for machine learning deployment",
                             "helpfulResource": {
                                 "displayText": "Evaluate machine learning deployment options to determine if your application requires near-instantaneous inference results or needs to operate without network connectivity. When the lowest possible latency is essential, deploying inference directly on edge devices avoids costly roundtrips to cloud API endpoints. Edge deployments are particularly valuable for use cases like predictive maintenance in factories, where immediate local responses are critical.",
@@ -1255,7 +1255,7 @@
                             }
                         },
                         {
-                            "id": "MLPERF05_2",
+                            "id": "MLPERF05_BP02",
                             "title": "Choose an optimal deployment option in the cloud",
                             "helpfulResource": {
                                 "displayText": "When deploying machine learning models in the cloud, selecting the right deployment option is crucial for performance efficiency. By matching your deployment method to your use case requirements for request frequency, latency, and runtime, you can optimize both performance and cost.",
@@ -1276,11 +1276,11 @@
                     ],
                     "riskRules": [
                         {
-                            "condition": "MLPERF05_1 || MLPERF05_2",
+                            "condition": "MLPERF05_BP01 || MLPERF05_BP02",
                             "risk": "NO_RISK"
                         },
                         {
-                            "condition": "(!MLPERF05_1) || (!MLPERF05_2)",
+                            "condition": "(!MLPERF05_BP01) || (!MLPERF05_BP02)",
                             "risk": "MEDIUM_RISK"
                         },
                         {
@@ -1295,7 +1295,7 @@
                     "description": "After you implement your workload, you must monitor its performance so that you can remediate any issues before they impact your customers. Monitoring metrics should be used to raise alarms when thresholds are breached.",
                     "choices": [
                         {
-                            "id": "MLPERF06_1",
+                            "id": "MLPERF06_BP01",
                             "title": "Include human-in-the-loop monitoring",
                             "helpfulResource": {
                                 "displayText": "Including human-in-the-loop monitoring is an effective method for efficiently tracking and maintaining model performance. By incorporating human review into automated decision processes, organizations can establish a reliable quality assurance mechanism that validates model inferences and detects performance degradation over time.",
@@ -1307,7 +1307,7 @@
                             }
                         },
                         {
-                            "id": "MLPERF06_2",
+                            "id": "MLPERF06_BP02",
                             "title": "Evaluate model explainability",
                             "helpfulResource": {
                                 "displayText": "Model explainability allows you to understand and interpret how your machine learning models arrive at their decisions. By evaluating model explainability, you gain insights into the factors that influence predictions to build trustworthy AI systems that meet business requirements and regulatory standards.",
@@ -1319,7 +1319,7 @@
                             }
                         },
                         {
-                            "id": "MLPERF06_3",
+                            "id": "MLPERF06_BP03",
                             "title": "Evaluate data drift",
                             "helpfulResource": {
                                 "displayText": "Data drift can impact the performance of your machine learning models, leading to inaccurate predictions and diminished business value. By implementing effective monitoring and detection strategies, you can identify when your models are no longer performing optimally due to changes in the underlying data patterns.",
@@ -1331,7 +1331,7 @@
                             }
                         },
                         {
-                            "id": "MLPERF06_4",
+                            "id": "MLPERF06_BP04",
                             "title": "Monitor, detect, and handle model performance degradation",
                             "helpfulResource": {
                                 "displayText": "Model performance could degrade over time for reasons such as data quality, model quality, model bias, and model explainability. Continuously monitor the quality of the ML model in real time. Identify the right time and frequency to retrain and update the model. Configure alerts to notify and initiate actions if a drift in model performance is observed.",
@@ -1343,7 +1343,7 @@
                             }
                         },
                         {
-                            "id": "MLPERF06_5",
+                            "id": "MLPERF06_BP05",
                             "title": "Establish an automated re-training framework",
                             "helpfulResource": {
                                 "displayText": "Monitor data and model predictions to identify errors due to data and concept drift. By implementing automated model re-training at scheduled intervals or when performance metrics reach defined thresholds, you can maintain model accuracy and effectiveness over time. This approach keeps your machine learning models relevant as data patterns evolve.",
@@ -1355,7 +1355,7 @@
                             }
                         },
                         {
-                            "id": "MLPERF06_6",
+                            "id": "MLPERF06_BP06",
                             "title": "Review for updated data and features for retraining",
                             "helpfulResource": {
                                 "displayText": "Establishing a framework to regularly review and update your machine learning model's data and features is essential for maintaining model accuracy. As business environments evolve, new data patterns emerge that can impact your model's performance. By systematically reviewing your data and features at appropriate intervals, you can keep your models accurate and reliable.",
@@ -1376,11 +1376,11 @@
                     ],
                     "riskRules": [
                         {
-                            "condition": "MLPERF06_1 && MLPERF06_4 && MLPERF06_5",
+                            "condition": "MLPERF06_BP01 && MLPERF06_BP04 && MLPERF06_BP05",
                             "risk": "NO_RISK"
                         },
                         {
-                            "condition": "(!MLPERF06_1) || (!MLPERF06_4) || (!MLPERF06_5)",
+                            "condition": "(!MLPERF06_BP01) || (!MLPERF06_BP04) || (!MLPERF06_BP05)",
                             "risk": "HIGH_RISK"
                         },
                         {
@@ -1401,7 +1401,7 @@
                     "description": "The cloud makes it easier to accurately identify the usage and cost of systems, which then allows transparent attribution of IT costs to individual workload owners. This helps measure return on investment (ROI) and gives workload owners an opportunity to optimize their resources and reduce costs. The capability to attribute resource costs to the individual organization or product owners drives efficient usage behavior and helps reduce waste. Accurate cost attribution allows you to know which products are truly profitable, and allows you to make more informed decisions about where to allocate budget.",
                     "choices": [
                         {
-                            "id": "MLCOST01_1",
+                            "id": "MLCOST01_BP01",
                             "title": "Define overall return on investment (ROI) and opportunity cost",
                             "helpfulResource": {
                                 "displayText": "Machine learning projects require careful evaluation of their business value and resource requirements. By analyzing the ROI and opportunity costs of ML implementations, you can make informed decisions that optimize resource allocation while delivering maximum business impact.",
@@ -1413,7 +1413,7 @@
                             }
                         },
                         {
-                            "id": "MLCOST01_2",
+                            "id": "MLCOST01_BP02",
                             "title": "Use managed services to reduce total cost of ownership (TCO)",
                             "helpfulResource": {
                                 "displayText": "Using managed machine learning services enables organizations to operate more efficiently with reduced resources and costs compared to self-managed options. This approach reduces undifferentiated heavy lifting, reduces operational burden, and allows teams to focus on delivering business value.",
@@ -1434,11 +1434,11 @@
                     ],
                     "riskRules": [
                         {
-                            "condition": "MLCOST01_1 && MLCOST01_2",
+                            "condition": "MLCOST01_BP01 && MLCOST01_BP02",
                             "risk": "NO_RISK"
                         },
                         {
-                            "condition": "(!MLCOST01_1) || (!MLCOST01_2)",
+                            "condition": "(!MLCOST01_BP01) || (!MLCOST01_BP02)",
                             "risk": "HIGH_RISK"
                         },
                         {
@@ -1453,7 +1453,7 @@
                     "description": "Define cost parameters and constraints as essential elements of your ML problem formulation.",
                     "choices": [
                         {
-                            "id": "MLCOST02_1",
+                            "id": "MLCOST02_BP01",
                             "title": "Identify if machine learning is the right solution",
                             "helpfulResource": {
                                 "displayText": "Evaluating whether machine learning is the appropriate solution for your business problem is crucial for cost optimization. Not every problem requires ML solutions, and sometimes simpler approaches may be more effective and less costly. By thoroughly evaluating alternatives against ML approaches, you can make informed decisions that optimize both your technical resources and business outcomes.",
@@ -1465,7 +1465,7 @@
                             }
                         },
                         {
-                            "id": "MLCOST02_2",
+                            "id": "MLCOST02_BP02",
                             "title": "Perform a tradeoff analysis between custom and pre-trained models",
                             "helpfulResource": {
                                 "displayText": "Optimize machine learning costs by carefully analyzing the tradeoffs between developing custom models and using pre-trained models. This analysis should maintain security and performance efficiency within acceptable thresholds while minimizing unnecessary expenses.",
@@ -1486,11 +1486,11 @@
                     ],
                     "riskRules": [
                         {
-                            "condition": "MLCOST02_1",
+                            "condition": "MLCOST02_BP01",
                             "risk": "NO_RISK"
                         },
                         {
-                            "condition": "(!MLCOST02_1)",
+                            "condition": "(!MLCOST02_BP01)",
                             "risk": "HIGH_RISK"
                         },
                         {
@@ -1505,7 +1505,7 @@
                     "description": "Using the appropriate instances, resources, tools and services for your workload is key to cost savings. Appropriate service selection can also reduce usage and costs.",
                     "choices": [
                         {
-                            "id": "MLCOST03_1",
+                            "id": "MLCOST03_BP01",
                             "title": "Use managed data labeling",
                             "helpfulResource": {
                                 "displayText": "Use managed labeling tools that provide automation and access to cost-effective teams of human data labelers. These tools should offer flexibility to choose a variable number of labelers for each input, include a user-friendly interface, and incorporate learning capabilities to improve labeling efficiency over time.",
@@ -1517,7 +1517,7 @@
                             }
                         },
                         {
-                            "id": "MLCOST03_2",
+                            "id": "MLCOST03_BP02",
                             "title": "Use no-code or low-code and code generation tools for interactive analysis",
                             "helpfulResource": {
                                 "displayText": "Prepare data through data wrangler tools for interactive data analysis and model building. The no-code/low-code, automation, and visual capabilities improve productivity and reduce the cost for interactive analysis. Integrate with generative AI code generation tools.",
@@ -1529,7 +1529,7 @@
                             }
                         },
                         {
-                            "id": "MLCOST03_3",
+                            "id": "MLCOST03_BP03",
                             "title": "Use managed data processing capabilities",
                             "helpfulResource": {
                                 "displayText": "With managed data processing, you can use a simplified, managed experience to run your data processing workloads, such as feature engineering, data validation, model evaluation, and model interpretation.",
@@ -1541,7 +1541,7 @@
                             }
                         },
                         {
-                            "id": "MLCOST03_4",
+                            "id": "MLCOST03_BP04",
                             "title": "Enable feature reusability",
                             "helpfulResource": {
                                 "displayText": "Reduce duplication and the rerunning of feature engineering code across teams and projects by using feature storage. The store should have online and oﬄine storage, and data encryption capabilities. An online store with low-latency retrieval capabilities is ideal for real-time inference. An oﬄine store maintains a history of feature values and is suited for training and batch scoring.",
@@ -1562,11 +1562,11 @@
                     ],
                     "riskRules": [
                         {
-                            "condition": "MLCOST03_1 || MLCOST03_2 || MLCOST03_3",
+                            "condition": "MLCOST03_BP01 || MLCOST03_BP02 || MLCOST03_BP03",
                             "risk": "NO_RISK"
                         },
                         {
-                            "condition": "(!MLCOST03_1) || (!MLCOST03_2) || (!MLCOST03_3)",
+                            "condition": "(!MLCOST03_BP01) || (!MLCOST03_BP02) || (!MLCOST03_BP03)",
                             "risk": "MEDIUM_RISK"
                         },                        
                         {
@@ -1581,7 +1581,7 @@
                     "description": "Using the appropriate instances, resources, tools and services for your workload is key to cost savings. Appropriate service selection can also reduce usage and costs.",
                     "choices": [
                         {
-                            "id": "MLCOST04_1",
+                            "id": "MLCOST04_BP01",
                             "title": "Select optimal computing instance size",
                             "helpfulResource": {
                                 "displayText": "Right size your machine learning training instances according to the algorithm and workload requirements to maximize efficiency and reduce costs. By selecting the most appropriate computing resources, you can improve performance while minimizing unnecessary expenses.",
@@ -1593,7 +1593,7 @@
                             }
                         },
                         {
-                            "id": "MLCOST04_2",
+                            "id": "MLCOST04_BP02",
                             "title": "Use managed build environments",
                             "helpfulResource": {
                                 "displayText": "Using managed build environments for machine learning development instead of local setups provides significant cost, time, and resource advantages. Managed notebooks come pre-configured with security, networking, storage, and compute capabilities that would otherwise require extensive development and maintenance effort. These environments also offer flexible machine selection, including access to powerful GPUs and high-memory instances that may be impractical in local setups.",
@@ -1605,7 +1605,7 @@
                             }
                         },
                         {
-                            "id": "MLCOST04_3",
+                            "id": "MLCOST04_BP03",
                             "title": "Select local training for small scale experiments",
                             "helpfulResource": {
                                 "displayText": "When developing machine learning models, choosing the right training environment is crucial for both cost efficiency and rapid experimentation. By evaluating whether to train your ML model locally or in the cloud, you can optimize your development workflow and appropriately match resources to the scale of your experiment.",
@@ -1617,7 +1617,7 @@
                             }
                         },
                         {
-                            "id": "MLCOST04_4",
+                            "id": "MLCOST04_BP04",
                             "title": "Select an optimal ML framework",
                             "helpfulResource": {
                                 "displayText": "Selecting the most cost-effective machine learning (ML) framework for your requirements can significantly impact your operational efficiency and return on investment. By systematically comparing frameworks like TensorFlow, PyTorch, and Scikit-learn, you can determine which delivers the best performance for your specific use cases at the optimal cost.",
@@ -1629,7 +1629,7 @@
                             }
                         },
                         {
-                            "id": "MLCOST04_5",
+                            "id": "MLCOST04_BP05",
                             "title": "Use automated machine learning",
                             "helpfulResource": {
                                 "displayText": "Automate your model development process by using systems that experiment with and select the best algorithms from high-performing options. These automated systems test various solutions and parameter settings to achieve optimal models, significantly speeding up development while reducing the need for manual experimentation and comparisons.",
@@ -1641,7 +1641,7 @@
                             }
                         },
                         {
-                            "id": "MLCOST04_6",
+                            "id": "MLCOST04_BP06",
                             "title": "Use managed training capabilities",
                             "helpfulResource": {
                                 "displayText": "Machine learning model training can be an iterative, compute-intensive, and time-consuming process. Instead of using the notebook itself, which might be running on a small instance, oﬄoading the training to a managed cluster of compute resources including both CPUs and GPUs enables more efficient and cost-effective model training.",
@@ -1653,7 +1653,7 @@
                             }
                         },
                         {
-                            "id": "MLCOST04_7",
+                            "id": "MLCOST04_BP07",
                             "title": "Use distributed training",
                             "helpfulResource": {
                                 "displayText": "Accelerate your machine learning model training process by utilizing distributed computing resources, which can significantly reduce training time and optimize costs. Amazon SageMaker AI distributed training capabilities enable efficient processing of large models and datasets across multiple compute instances.",
@@ -1665,7 +1665,7 @@
                             }
                         },
                         {
-                            "id": "MLCOST04_8",
+                            "id": "MLCOST04_BP08",
                             "title": "Stop resources when not in use",
                             "helpfulResource": {
                                 "displayText": "Stop resources that are not in use to reduce cost. For example, hosted Jupyter environments used to explore small samples of data can be stopped when not actively in use. Where practical, commit the work, stop them, and restart when needed. The same approach can be used to stop the computing and the data storage services.",
@@ -1677,7 +1677,7 @@
                             }
                         },
                         {
-                            "id": "MLCOST04_9",
+                            "id": "MLCOST04_BP09",
                             "title": "Start training with small datasets",
                             "helpfulResource": {
                                 "displayText": "Start experimentation with smaller datasets on a small compute instance or local system. This approach allows you to iterate quickly at low cost. After the experimentation period, scale up to train with the full dataset available on a separate compute cluster. Choose the appropriate storage layer for training data based on the performance requirements.",
@@ -1689,7 +1689,7 @@
                             }
                         },
                         {
-                            "id": "MLCOST04_10",
+                            "id": "MLCOST04_BP10",
                             "title": "Use warm start and checkpointing hyperparameter tuning",
                             "helpfulResource": {
                                 "displayText": "When training machine learning models, you can significantly reduce time and costs by using previous training efforts. This practice shows how to use warm start and checkpointing techniques in hyperparameter tuning to accelerate your model development process and optimize resource utilization.",
@@ -1701,7 +1701,7 @@
                             }
                         },
                         {
-                            "id": "MLCOST04_11",
+                            "id": "MLCOST04_BP11",
                             "title": "Use hyperparameter optimization technologies",
                             "helpfulResource": {
                                 "displayText": "Optimize your machine learning models through automatic hyperparameter tuning to find the optimal model configuration with minimal manual effort, reducing the time and resources needed to achieve peak model performance.",
@@ -1713,7 +1713,7 @@
                             }
                         },
                         {
-                            "id": "MLCOST04_12",
+                            "id": "MLCOST04_BP12",
                             "title": "Set up a budget and use resource tagging to track costs",
                             "helpfulResource": {
                                 "displayText": "Setting up budgets and implementing resource tagging for machine learning workloads provides clear visibility into your ML-related expenses and optimizes costs across your organization. By tracking costs effectively, you can make data-driven decisions about resource allocation and identify opportunities for cost optimization.",
@@ -1725,7 +1725,7 @@
                             }
                         },
                         {
-                            "id": "MLCOST04_13",
+                            "id": "MLCOST04_BP13",
                             "title": "Enable data and compute proximity",
                             "helpfulResource": {
                                 "displayText": "Positioning data and compute resources in the same AWS Region reduces data transfer costs and improves processing speeds for machine learning workloads. By minimizing the physical distance between data storage and compute resources, you can significantly decrease latency and avoid cross-region data transfer fees.",
@@ -1737,7 +1737,7 @@
                             }
                         },
                         {
-                            "id": "MLCOST04_14",
+                            "id": "MLCOST04_BP14",
                             "title": "Select optimal algorithms",
                             "helpfulResource": {
                                 "displayText": "Selecting optimal algorithms for machine learning (ML) workloads is crucial for balancing cost efficiency and performance. By identifying appropriate ML paradigms and carefully evaluating algorithmic choices, you can optimize both technical performance and business outcomes while managing costs.",
@@ -1758,11 +1758,11 @@
                     ],
                     "riskRules": [
                         {
-                            "condition": "MLCOST04_6 && MLCOST04_13 && MLCOST04_14",
+                            "condition": "MLCOST04_BP06 && MLCOST04_BP013 && MLCOST04_BP014",
                             "risk": "NO_RISK"
                         },
                         {
-                            "condition": "(!MLCOST04_6) || (!MLCOST04_13) || (!MLCOST04_14)",
+                            "condition": "(!MLCOST04_BP06) || (!MLCOST04_BP13) || (!MLCOST04_BP14)",
                             "risk": "HIGH_RISK"
                         },
                         {
@@ -1777,7 +1777,7 @@
                     "description": "For a workload that has balanced spend and performance, ensure that everything you pay for is used and avoid significantly underutilizing instances. A skewed utilization metric in either direction has an adverse impact on your organization, in either operational costs (degraded performance due to overutilization), or wasted AWS expenditures (due to over-provisioning).",
                     "choices": [
                         {
-                            "id": "MLCOST05_1",
+                            "id": "MLCOST05_BP01",
                             "title": "Use an appropriate deployment option",
                             "helpfulResource": {
                                 "displayText": "Use the right deployment option for your machine learning models to optimize cost and performance based on your specific use case requirements. Select real-time inference for low latency applications, batch transform for large datasets, or edge deployment for applications that require local processing.",
@@ -1789,7 +1789,7 @@
                             }
                         },
                         {
-                            "id": "MLCOST05_2",
+                            "id": "MLCOST05_BP02",
                             "title": "Explore cost effective hardware options",
                             "helpfulResource": {
                                 "displayText": "Machine learning models that power AI applications are becoming increasingly complex resulting in rising underlying compute infrastructure costs. Up to 90% of the infrastructure spend for developing and running ML applications is often on inference. Look for cost-effective infrastructure solutions for deploying their ML applications in production.",
@@ -1801,7 +1801,7 @@
                             }
                         },
                         {
-                            "id": "MLCOST05_3",
+                            "id": "MLCOST05_BP03",
                             "title": "Right-size the model hosting instance fleet",
                             "helpfulResource": {
                                 "displayText": "Use efficient compute resources to run models in production. In many cases, up to 90% of the infrastructure spend for developing and running an ML application is on inference, making it critical to use high-performance, cost-effective ML inference infrastructure. Selecting the right way to host and the right type of instance can have a large impact on the total cost of ML projects. Use automatic scaling for your hosted models. Auto scaling dynamically adjusts the number of instances provisioned for a model in response to changes in your workload.",
@@ -1822,11 +1822,11 @@
                     ],
                     "riskRules": [
                         {
-                            "condition": "MLCOST05_2 && MLCOST05_3",
+                            "condition": "MLCOST05_BP02 && MLCOST05_BP03",
                             "risk": "NO_RISK"
                         },
                         {
-                            "condition": "(!MLCOST05_2) || (!MLCOST05_3)",
+                            "condition": "(!MLCOST05_BP02) || (!MLCOST05_BP03)",
                             "risk": "HIGH_RISK"
                         },
                         {
@@ -1841,7 +1841,7 @@
                     "description": "Design and implement monitoring solutions that provide necessary visibility into ML systems while optimizing monitoring-related costs.",
                     "choices": [
                         {
-                            "id": "MLCOST06_1",
+                            "id": "MLCOST06_BP01",
                             "title": "Monitor usage and cost by ML activity",
                             "helpfulResource": {
                                 "displayText": "Use cloud resource tagging to manage, identify, organize, search for, and filter resources. Tags categorize resources by purpose, owner, environment, or other criteria. Associate costs with resources using ML activity categories, such as re-training and hosting, by using tagging to manage and optimize cost in deployment phases. Tagging can be useful for generating billing reports with breakdown of cost by associated resources.",
@@ -1853,7 +1853,7 @@
                             }
                         },
                         {
-                            "id": "MLCOST06_2",
+                            "id": "MLCOST06_BP02",
                             "title": "Monitor return on investment for ML models",
                             "helpfulResource": {
                                 "displayText": "Once a model is deployed into production, establish a reporting capability to track the value which is being delivered. For example:\n• If a model is used to support customer acquisition: How many new customers are acquired and what is their spend when the model's advice is used compared with a baseline?\n• If a model is used to predict when maintenance is needed: What savings are being made by optimizing the maintenance cycle?\nEffective reporting compares the value delivered by an ML model against the ongoing runtime cost and to take appropriate action. If the ROI is substantially positive, are there ways in which this might be scaled to similar challenges, for example. If the ROI is negative, could this be addressed by remedial action, such as reducing the model latency by using serverless inference, or reducing the run time cost by changing the compromise between model accuracy and model complexity, or layering in an additional simpler model to triage or filter the cases that are submitted to the full model.",
@@ -1865,10 +1865,10 @@
                             }
                         },
                         {
-                            "id": "MLCOST06_3",
+                            "id": "MLCOST06_BP03",
                             "title": "Monitor endpoint usage and right-size the instance fleet",
                             "helpfulResource": {
-                                "displayText": "USe efficient compute resources to run models in production. Monitor your endpoint usage and right-size the instance fleet. Use automatic scaling (auto scaling) for your hosted models. Auto scaling dynamically adjusts the number of instances provisioned for a model in response to changes in your workload.",
+                                "displayText": "Use efficient compute resources to run models in production. Monitor your endpoint usage and right-size the instance fleet. Use automatic scaling (auto scaling) for your hosted models. Auto scaling dynamically adjusts the number of instances provisioned for a model in response to changes in your workload.",
                                 "url": "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/mlcost06-bp03.html"
                             },
                             "improvementPlan": {
@@ -1877,7 +1877,7 @@
                             }
                         },
                         {
-                            "id": "MLCOST06_4",
+                            "id": "MLCOST06_BP04",
                             "title": "Enable debugging and logging",
                             "helpfulResource": {
                                 "displayText": "Implementing comprehensive logging and debugging capabilities for your machine learning workflows assists you to understand resource consumption patterns and identify optimization opportunities. By collecting and analyzing runtime metrics, you can reduce costs and enhance the efficiency of your ML training operations.",
@@ -1898,11 +1898,11 @@
                     ],
                     "riskRules": [
                         {
-                            "condition": "MLCOST06_2 && MLCOST06_3",
+                            "condition": "MLCOST06_BP02 && MLCOST06_BP03",
                             "risk": "NO_RISK"
                         },
                         {
-                            "condition": "(!MLCOST06_2) || (!MLCOST06_3)",
+                            "condition": "(!MLCOST06_BP02) || (!MLCOST06_BP03)",
                             "risk": "HIGH_RISK"
                         },
                         {
@@ -1923,7 +1923,7 @@
                     "description": "Sustainability focuses on environmental impacts, especially energy consumption and efficiency, since they are important levers for architects to guide direct action on how to reduce resource usage. Define service level agreements (SLAs) that support your sustainability goals while meeting your business requirements. Define SLAs to meet business requirements, not exceed them. Make trade-offs that significantly reduce environmental impacts in exchange for acceptable decreases in service levels.",
                     "choices": [
                         {
-                            "id": "MLSUS01_1",
+                            "id": "MLSUS01_BP01",
                             "title": "Define the overall environmental impact or benefit",
                             "helpfulResource": {
                                 "displayText": "Measure your workload's impact and its contribution to the overall sustainability goals of the organization. Understand the environmental footprint of machine learning systems to make informed decisions about resource allocation and optimization.",
@@ -1944,11 +1944,11 @@
                     ],
                     "riskRules": [
                         {
-                            "condition": "MLSUS01_1",
+                            "condition": "MLSUS01_BP01",
                             "risk": "NO_RISK"
                         },
                         {
-                            "condition": "(!MLSUS01_1)",
+                            "condition": "(!MLSUS01_BP01)",
                             "risk": "HIGH_RISK"
                         },
                         {
@@ -1963,7 +1963,7 @@
                     "description": "Define sustainability requirements as key factors in your ML problem formulation. This includes evaluating how different approaches to solving the ML problem might impact energy consumption, carbon footprint, and resource efficiency.",
                     "choices": [
                         {
-                            "id": "MLSUS02_1",
+                            "id": "MLSUS02_BP01",
                             "title": "Consider AI services and pre-trained models",
                             "helpfulResource": {
                                 "displayText": "Using AI services and pre-trained models can significantly reduce the resources needed for machine learning workloads, enabling you to quickly implement AI capabilities without developing custom models from scratch.",
@@ -1975,7 +1975,7 @@
                             }
                         },
                         {
-                            "id": "MLSUS02_2",
+                            "id": "MLSUS02_BP02",
                             "title": "Select sustainable Regions",
                             "helpfulResource": {
                                 "displayText": "Choose the Regions where you implement your workloads based on both your business requirements and sustainability goals.",
@@ -1996,11 +1996,11 @@
                     ],
                     "riskRules": [
                         {
-                            "condition": "MLSUS02_1 || MLSUS02_2",
+                            "condition": "MLSUS02_BP01 || MLSUS02_BP02",
                             "risk": "NO_RISK"
                         },
                         {
-                            "condition": "(!MLSUS02_1) || (!MLSUS02_2)",
+                            "condition": "(!MLSUS02_BP01) || (!MLSUS02_BP02)",
                             "risk": "HIGH_RISK"
                         },
                         {
@@ -2015,7 +2015,7 @@
                     "description": "Design data processing pipelines that optimize resource efficiency and reduce environmental impact.",
                     "choices": [
                         {
-                            "id": "MLSUS03_1",
+                            "id": "MLSUS03_BP01",
                             "title": "Minimize idle resources",
                             "helpfulResource": {
                                 "displayText": "Minimize your environmental impact by efficiently managing compute resources in your ML data pipeline. Use serverless architectures that provision resources only when needed, reducing energy consumption and carbon footprint.",
@@ -2027,7 +2027,7 @@
                             }
                         },
                         {
-                            "id": "MLSUS03_2",
+                            "id": "MLSUS03_BP02",
                             "title": "Implement data lifecycle policies aligned with your sustainability goals",
                             "helpfulResource": {
                                 "displayText": "Classify your data to identify its business relevance and implement efficient storage strategies that support your sustainability goals. By understanding your data's importance, you can appropriately tier storage, implement retention policies, and manage the entire lifecycle to reduce your environmental footprint while meeting business requirements.",
@@ -2039,7 +2039,7 @@
                             }
                         },
                         {
-                            "id": "MLSUS03_3",
+                            "id": "MLSUS03_BP03",
                             "title": "Adopt sustainable storage options",
                             "helpfulResource": {
                                 "displayText": "Reduce the volume of data to be stored and adopt sustainable storage options to limit the carbon impact of your workload. For artifacts like models and log files that must be kept for long-term regulatory and audit requirements, use efficient compression algorithms and use energy eﬃcient cold storage.",
@@ -2060,11 +2060,11 @@
                     ],
                     "riskRules": [
                         {
-                            "condition": "MLSUS03_1 || MLSUS03_2 || MLSUS03_3",
+                            "condition": "MLSUS03_BP01 || MLSUS03_BP02 || MLSUS03_BP03",
                             "risk": "NO_RISK"
                         },                        
                         {
-                            "condition": "(!MLSUS03_1) || (!MLSUS03_2) || (!MLSUS03_3)",
+                            "condition": "(!MLSUS03_BP01) || (!MLSUS03_BP02) || (!MLSUS03_BP03)",
                             "risk": "HIGH_RISK"
                         },
                         {
@@ -2079,7 +2079,7 @@
                     "description": "Choose algorithms that produce desired results with minimal resource usage. Continuously evaluate optmization opportunities in choosing the most efficient algorithm version, model deployment instance type, inference instances and modes of deployment along with the use of serverless pipelines where possible. Selecting the right region, resource type, storage type and inference endpoint type help in building more sustainable workloads.",
                     "choices": [
                         {
-                            "id": "MLSUS04_1",
+                            "id": "MLSUS04_BP01",
                             "title": "Define sustainable performance criteria",
                             "helpfulResource": {
                                 "displayText": "Creating machine learning models that balance accuracy with environmental impact is essential for sustainable AI development. When we focus exclusively on model accuracy, we overlook the economic, environmental, and social costs of achieving marginal performance improvements. Since the relationship between model accuracy and complexity is logarithmic at best, continuing to train a model longer or searching extensively for better hyperparameters often yields only minimal gains while significantly increasing resource consumption.",
@@ -2091,7 +2091,7 @@
                             }
                         },
                         {
-                            "id": "MLSUS04_2",
+                            "id": "MLSUS04_BP02",
                             "title": "Select energy-efficient algorithms",
                             "helpfulResource": {
                                 "displayText": "Choosing energy-efficient algorithms minimizes resource usage while maintaining performance, reducing your machine learning workloads' environmental impact and operational costs.",
@@ -2103,7 +2103,7 @@
                             }
                         },
                         {
-                            "id": "MLSUS04_3",
+                            "id": "MLSUS04_BP03",
                             "title": "Archive or delete unnecessary training artifacts",
                             "helpfulResource": {
                                 "displayText": "Remove training artifacts that are unused and no longer required to limit wasted resources. Determine when you can archive training artifacts to more energy-efficient storage or safely delete them.",
@@ -2115,7 +2115,7 @@
                             }
                         },
                         {
-                            "id": "MLSUS04_4",
+                            "id": "MLSUS04_BP04",
                             "title": "Use efficient model tuning methods",
                             "helpfulResource": {
                                 "displayText": "Optimize your machine learning model's hyperparameters with resource-efficient strategies that minimize computational needs while improving performance. Efficient tuning methods can significantly reduce costs, energy consumption, and time-to-market compared to resource-intensive brute force approaches.",
@@ -2136,11 +2136,11 @@
                     ],
                     "riskRules": [
                         {
-                            "condition": "MLSUS04_1 || MLSUS04_2",
+                            "condition": "MLSUS04_BP01 || MLSUS04_BP02",
                             "risk": "NO_RISK"
                         },
                         {
-                            "condition": "(!MLSUS04_1) || (!MLSUS04_2)",
+                            "condition": "(!MLSUS04_BP01) || (!MLSUS04_BP02)",
                             "risk": "HIGH_RISK"
                         },
                         {
@@ -2155,7 +2155,7 @@
                     "description": "Design deployment architectures that optimize energy efficiency and reduce environmental impact during model serving.",
                     "choices": [
                         {
-                            "id": "MLSUS05_1",
+                            "id": "MLSUS05_BP01",
                             "title": "Align SLAs with sustainability goals",
                             "helpfulResource": {
                                 "displayText": "Define service level agreements (SLAs) that support your sustainability goals while meeting your business requirements. Define SLAs to meet your business requirements, not exceed them. Make trade-offs that significantly reduce environmental impacts in exchange for acceptable decreases in service levels.",
@@ -2167,7 +2167,7 @@
                             }
                         },
                         {
-                            "id": "MLSUS05_2",
+                            "id": "MLSUS05_BP02",
                             "title": "Use efficient silicon",
                             "helpfulResource": {
                                 "displayText": "Choosing the right compute architecture for your machine learning workloads can significantly reduce energy consumption and carbon footprint while maintaining high performance.",
@@ -2179,7 +2179,7 @@
                             }
                         },
                         {
-                            "id": "MLSUS05_3",
+                            "id": "MLSUS05_BP03",
                             "title": "Optimize models for inference",
                             "helpfulResource": {
                                 "displayText": "Optimize machine learning models for inference to achieve higher performance with lower computational resources, reducing both costs and environmental impact.",
@@ -2191,7 +2191,7 @@
                             }
                         },
                         {
-                            "id": "MLSUS05_4",
+                            "id": "MLSUS05_BP04",
                             "title": "Deploy multiple models behind a single endpoint",
                             "helpfulResource": {
                                 "displayText": "Host multiple models behind a single endpoint to improve endpoint utilization. Sharing endpoint resources is more sustainable and less expensive than deploying a single model behind one endpoint.",
@@ -2212,11 +2212,11 @@
                     ],
                     "riskRules": [
                         {
-                            "condition": "MLSUS05_1 || MLSUS05_2 || MLSUS05_3",
+                            "condition": "MLSUS05_BP01 || MLSUS05_BP02 || MLSUS05_BP03",
                             "risk": "NO_RISK"
                         },
                         {
-                            "condition": "(!MLSUS05_1) || (!MLSUS05_2) || (!MLSUS05_3)",
+                            "condition": "(!MLSUS05_BP01) || (!MLSUS05_BP02) || (!MLSUS05_BP03)",
                             "risk": "HIGH_RISK"
                         },                        
                         {
@@ -2231,7 +2231,7 @@
                     "description": "Design monitoring solutions that optimize resource efficiency while providing necessary visibility into ML systems' environmental impact and performance.",
                     "choices": [
                         {
-                            "id": "MLSUS06_1",
+                            "id": "MLSUS06_BP01",
                             "title": "Measure material efficiency",
                             "helpfulResource": {
                                 "displayText": "Measure efficiency of your workload in provisioned resources per unit of work to determine not only the business success of the workload, but also its material efficiency. Use this measure as a baseline for your sustainability improvement process.",
@@ -2243,7 +2243,7 @@
                             }
                         },
                         {
-                            "id": "MLSUS06_2",
+                            "id": "MLSUS06_BP02",
                             "title": "Retrain only when necessary",
                             "helpfulResource": {
                                 "displayText": "Because of model drift, robustness requirements, or new ground truth data being available, models usually need to be retrained. Instead of retraining arbitrarily, monitor your ML model in production, automate your model drift detection and only retrain when your model's predictive performance has fallen below defined KPIs.",
@@ -2264,11 +2264,11 @@
                     ],
                     "riskRules": [
                         {
-                            "condition": "MLSUS06_1 || MLSUS06_2",
+                            "condition": "MLSUS06_BP01 || MLSUS06_BP02",
                             "risk": "NO_RISK"
                         },
                         {
-                            "condition": "(!MLSUS06_1) || (!MLSUS06_2)",
+                            "condition": "(!MLSUS06_BP01) || (!MLSUS06_BP02)",
                             "risk": "HIGH_RISK"
                         },
                         {
