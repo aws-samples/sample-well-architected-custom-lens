@@ -1758,7 +1758,7 @@
                     ],
                     "riskRules": [
                         {
-                            "condition": "MLCOST04_BP06 && MLCOST04_BP013 && MLCOST04_BP014",
+                            "condition": "MLCOST04_BP06 && MLCOST04_BP13 && MLCOST04_BP14",
                             "risk": "NO_RISK"
                         },
                         {
