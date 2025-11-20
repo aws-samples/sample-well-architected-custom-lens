@@ -8,7 +8,7 @@ AWS Well-Architected Lenses extend the guidance offered by AWS Well-Architected 
 
 - Access to AWS Well-Architected Tool
 - AWS account with appropriate permissions
-- Understanding of your Microsoft workload architecture
+- Understanding of your workload architecture
 
 ### How to import the custom lens
 
