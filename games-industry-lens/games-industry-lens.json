@@ -1,0 +1,1887 @@
+{
+    "schemaVersion": "2021-11-01",
+    "name": "Games Industry Lens",
+    "description": "The Games Industry Lens focuses on how to design, deploy, and architect your games workloads in the AWS Cloud. It defines components, explores common workload scenarios, and outlines design principles that assist you to apply the Well-Architected Framework.",
+    "pillars": [
+        {
+            "id": "operationalExcellence",
+            "name": "Operational Excellence",
+            "questions": [
+                {
+                    "id": "GAMEOPS01",
+                    "title": "How do you define your game's live operations (Live Ops) strategy?",
+                    "description": "Develop a live operations (Live Ops) strategy for your game based on defined objectives and performance metrics, in consultation with business stakeholders.",
+                    "choices": [
+                        {
+                            "id": "GAMEOPS01_BP01",
+                            "title": "Use game objectives and business performance metrics to develop your live operations strategy",
+                            "helpfulResource": {
+                                "displayText": "Consult business stakeholders, such as game producers and publishing partners, to determine objectives and performance metrics for a game. This can assist you develop plans for how you will manage the game, including defining your maintenance windows, software and infrastructure update schedules, and system reliability and recoverability goals.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/games-industry-lens/gameops01-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Use game objectives and business performance metrics to develop your live operations strategy",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/games-industry-lens/gameops01-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "GAMEOPS01_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "GAMEOPS01_BP01",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!GAMEOPS01_BP01)",
+                            "risk": "HIGH_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "MEDIUM_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "GAMEOPS02",
+                    "title": "How do you structure your AWS accounts for hosting your game environments?",
+                    "description": "Implement a multi-account strategy to isolate different game environments and enhance security, operational efficiency, and scalability. Use AWS Organizations to manage account hierarchies, apply guardrails to accounts, and enforce tag policies and tagging on deployed resources.",
+                    "choices": [
+                        {
+                            "id": "GAMEOPS02_BP01",
+                            "title": "Adopt a multi-account strategy to isolate different games and applications into their own accounts",
+                            "helpfulResource": {
+                                "displayText": "Design an account structure that would guide the infrastructure deployment to comply to each environment's security, isolation, and operational needs. Environment isolation by restricting access to it and permitting only requisite AWS services to be used in them is essential, with production environments being locked down, while development and testing environments are lenient to permit experimentation. Further isolation of major sub-systems in each environment, and common services that are used by multiple environments to be hosted and managed out of their own AWS accounts is highly recommended.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/games-industry-lens/gameops02-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Adopt a multi-account strategy to isolate different games and applications into their own accounts",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/games-industry-lens/gameops02-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "GAMEOPS02_BP02",
+                            "title": "Organize infrastructure resources using resource tagging",
+                            "helpfulResource": {
+                                "displayText": "To effectively manage and track your infrastructure resources in AWS, use proper resource tagging and grouping to identify each resource's owner, project, application, cost center, and other data. Tagged resources can be grouped together using resource groups, which assists with operational support.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/games-industry-lens/gameops02-bp02.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Organize infrastructure resources using resource tagging",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/games-industry-lens/gameops02-bp02.html"
+                            }
+                        },
+                        {
+                            "id": "GAMEOPS02_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "GAMEOPS02_BP01 && GAMEOPS02_BP02",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!GAMEOPS02_BP01) || (!GAMEOPS02_BP02)",
+                            "risk": "HIGH_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "MEDIUM_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "GAMEOPS03",
+                    "title": "How do you manage game deployments?",
+                    "description": "Manage game deployments by thoroughly validating reused components, conducting regular performance engineering, and implementing regular load testing throughout the development lifecycle.",
+                    "choices": [
+                        {
+                            "id": "GAMEOPS03_BP01",
+                            "title": "Validate and test your existing core game systems and infrastructure before reusing it in your game",
+                            "helpfulResource": {
+                                "displayText": "Organizations tend to reuse existing components and source code from previous games to save on development time and cost. These legacy components and code may not be subjected to a thorough review or have detailed integration testing and instead rely on their past performance. While reuse assists improving productivity, it can also introduce the risk of reintroducing past performance and stability issues into a new project. Therefore, when reusing existing components and source code from previous games, robust testing should be implemented.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/games-industry-lens/gameops03-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Validate and test your existing core game systems and infrastructure before reusing it in your game",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/games-industry-lens/gameops03-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "GAMEOPS03_BP02",
+                            "title": "Conduct performance engineering before every release (or at least for major releases)",
+                            "helpfulResource": {
+                                "displayText": "Performance engineering is the process of monitoring multiple key operational metrics of an app to discover optimization opportunities that can further improve the application's performance. This is an iterative process that starts with testing, followed by optimizing code, its dependencies, associated processes, its host operating system, and the underlying infrastructure.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/games-industry-lens/gameops03-bp02.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Conduct performance engineering before every release (or at least for major releases)",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/games-industry-lens/gameops03-bp02.html"
+                            }
+                        },
+                        {
+                            "id": "GAMEOPS03_BP03",
+                            "title": "Load test early and often",
+                            "helpfulResource": {
+                                "displayText": "Load testing is the process of simulating real-world traffic on a system to assess its reliability and performance. Load testing is a key factor in developing a performance baseline for your resources and understanding your system's capacity, which can guide financial forecasting, architecture design, resource allocation, automated scaling configurations, and post-launch pre-scaling activities.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/games-industry-lens/gameops03-bp03.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Load test early and often",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/games-industry-lens/gameops03-bp03.html"
+                            }
+                        },
+                        {
+                            "id": "GAMEOPS03_BP04",
+                            "title": "Adopt a deployment strategy that minimizes impact to players",
+                            "helpfulResource": {
+                                "displayText": "Incorporate a deployment strategy for your game software and infrastructure that minimizes the amount of downtime that keeps players out of your game. While certain types of updates might require installing new updates to the game client, design the game to minimize or avoid the need for downtime during deployments.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/games-industry-lens/gameops03-bp04.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Adopt a deployment strategy that minimizes impact to players",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/games-industry-lens/gameops03-bp04.html"
+                            }
+                        },
+                        {
+                            "id": "GAMEOPS03_BP05",
+                            "title": "Pre-scale infrastructure required to support peak requirements",
+                            "helpfulResource": {
+                                "displayText": "Scale infrastructure ahead of large-scale game events to make sure that you can handle the sudden increase in player demand.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/games-industry-lens/gameops03-bp05.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Pre-scale infrastructure required to support peak requirements",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/games-industry-lens/gameops03-bp05.html"
+                            }
+                        },
+                        {
+                            "id": "GAMEOPS03_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "GAMEOPS03_BP01 && GAMEOPS03_BP02 && GAMEOPS03_BP03 && GAMEOPS03_BP04 && GAMEOPS03_BP05",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!GAMEOPS03_BP01) || (!GAMEOPS03_BP02) || (!GAMEOPS03_BP03)",
+                            "risk": "HIGH_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "MEDIUM_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "GAMEOPS04",
+                    "title": "How do you monitor the health of the game?",
+                    "description": "Monitor game health by implementing comprehensive instrumentation to detect and track player-impacting issues, including client-side activity logging, backend service monitoring, and error reporting. Use a combination of AWS tools like Amazon CloudWatch and AWS X-Ray, as well as third-party solutions, to help quickly identify and resolve problems.",
+                    "choices": [
+                        {
+                            "id": "GAMEOPS04_BP01",
+                            "title": "Instrument the game to detect and monitor player-impacting issues",
+                            "helpfulResource": {
+                                "displayText": "In addition to responding to social media and player reports of issues, instrument your game with monitoring solutions to detect and investigate player-impacting issues.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/games-industry-lens/gamesops04-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Instrument the game to detect and monitor player-impacting issues",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/games-industry-lens/gamesops04-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "GAMEOPS04_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "GAMEOPS04_BP01",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!GAMEOPS04_BP01)",
+                            "risk": "HIGH_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "MEDIUM_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "GAMEOPS05",
+                    "title": "What should you consider when load testing a game?",
+                    "description": "When load testing a game, consider the appropriate testing stage, load-generating architecture, and testing framework to effectively evaluate system performance and scalability. Choose the right combination of timing (early development, sprints, pre-production, or post-deployment), infrastructure (EC2, EKS, Fargate, or Lambda), and testing tool (JMeter, Locust, Grafana K6, or Gatling) to align with your game's unique characteristics and development goals.",
+                    "choices": [
+                        {
+                            "id": "GAMEOPS05_BP01",
+                            "title": "Choose the right stage, architecture, and load testing framework to meet your goals",
+                            "helpfulResource": {
+                                "displayText": "The approach to load testing a game can vary significantly depending on many factors, including the stage of the development process it is performed in, the architecture of the load-generating system itself, and the choice of load testing framework. The timing of when it is conducted, whether in the early phases, during iterative sprints, prior to production deployment, or post-deployment, will shape the goals and focus of the testing efforts.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/games-industry-lens/gameops05-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Choose the right stage, architecture, and load testing framework to meet your goals",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/games-industry-lens/gameops05-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "GAMEOPS05_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "GAMEOPS05_BP01",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!GAMEOPS05_BP01)",
+                            "risk": "HIGH_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "MEDIUM_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "GAMEOPS06",
+                    "title": "How do you optimize your game over time?",
+                    "description": "Optimize your game over time by monitoring key metrics and telemetry data to identify player trends, system performance, and areas for improvement. Continuously update your game design, infrastructure, and load testing approach based on these insights, while adapting to new technologies and frameworks to provide optimal performance and player experience as your game evolves.",
+                    "choices": [
+                        {
+                            "id": "GAMEOPS06_BP01",
+                            "title": "Monitor key game metrics to identify player trends and patterns, and use the information to improve the game",
+                            "helpfulResource": {
+                                "displayText": "In addition to game client system usage, app usage, exceptions, and crash data, capture game telemetry data that is sent to a game backend system. This data should represent player activity so that you can understand how players interact with various features in the game.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/games-industry-lens/gameops06-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Monitor key game metrics to identify player trends and patterns, and use the information to improve the game",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/games-industry-lens/gameops06-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "GAMEOPS06_BP02",
+                            "title": "Update and adapt the load testing approach as the game changes",
+                            "helpfulResource": {
+                                "displayText": "Optimizing the load testing approach is a continuous process that should evolve alongside the game development cycle. As the game grows in complexity, user base, and feature set, the load testing strategy must adapt to verify that it accurately simulates real-world conditions and provides actionable insights.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/games-industry-lens/gameops06-bp02.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Update and adapt the load testing approach as the game changes",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/games-industry-lens/gameops06-bp02.html"
+                            }
+                        },
+                        {
+                            "id": "GAMEOPS06_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "GAMEOPS06_BP01 && GAMEOPS06_BP02",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!GAMEOPS06_BP01) || (!GAMEOPS06_BP02)",
+                            "risk": "HIGH_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "MEDIUM_RISK"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "security",
+            "name": "Security",
+            "questions": [
+                {
+                    "id": "GAMESEC01",
+                    "title": "How do you implement security fundamentals for game development?",
+                    "description": "Game studios require a unique security approach that protects both development environments and live player services. A robust AWS security strategy for game studios requires three interconnected components: a multi-account structure, strong authentication, and a clear authorization strategy using IAM policies.",
+                    "choices": [
+                        {
+                            "id": "GAMESEC01_BP01",
+                            "title": "Use roles and federated access, rather than the account root user, to perform actions on your AWS environment",
+                            "helpfulResource": {
+                                "displayText": "When you first create an AWS account, you begin with an identity known as the root user, which is accessed using the email address and password associated with the account. The root user has complete access to AWS services and resources within that account. In most cases, you should avoid using the root user for day-to-day tasks. When root-level access is required, confirm that it's absolutely necessary and verify that additional logging and guardrails are in place to track its use.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/games-industry-lens/gamesec01-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Use roles and federated access, rather than the account root user, to perform actions on your AWS environment",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/games-industry-lens/gamesec01-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "GAMESEC01_BP02",
+                            "title": "Use AWS Control Tower to quickly set up a multi-account environment on AWS",
+                            "helpfulResource": {
+                                "displayText": "If you start using AWS with just a single account, you might find your game studio growing out of it as your game development process advances. By implementing a multi-account strategy in AWS, you can benefit from distributing service limits across multiple accounts and gain insights into your AWS costs.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/games-industry-lens/gamesec01-bp02.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Use AWS Control Tower to quickly set up a multi-account environment on AWS",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/games-industry-lens/gamesec01-bp02.html"
+                            }
+                        },
+                        {
+                            "id": "GAMESEC01_BP03",
+                            "title": "Use least privilege role policies that are tailored to specific job functions",
+                            "helpfulResource": {
+                                "displayText": "Configuring IAM policies is an essential part of establishing a strong security foundation. When you set permissions with IAM policies, grant only the permissions required to perform a task. You do this by defining the actions that can be taken on specific resources under specific conditions, also known as least-privilege permissions.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/games-industry-lens/gamesec01-bp03.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Use least privilege role policies that are tailored to specific job functions",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/games-industry-lens/gamesec01-bp03.html"
+                            }
+                        },
+                        {
+                            "id": "GAMESEC01_BP04",
+                            "title": "Use roles and federated access policies together with account level access policies to grant access to your AWS resources",
+                            "helpfulResource": {
+                                "displayText": "New AWS users often use IAM policies only when granting access to others. However, if you are using AWS Organizations, consider how to use service control policies together with IAM policies to grant your studio team members and contractors the necessary levels of access.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/games-industry-lens/gamesec01-bp04.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Use roles and federated access policies together with account level access policies to grant access to your AWS resources",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/games-industry-lens/gamesec01-bp04.html"
+                            }
+                        },
+                        {
+                            "id": "GAMESEC01_BP05",
+                            "title": "Use a central identity provider",
+                            "helpfulResource": {
+                                "displayText": "A central identity provider acts as a single source for storing and managing user credentials, identities, permissions, and authentication. Use a central identity provider to streamline your user authentication process, enforce consistent security polices, and simplify your user management across your AWS accounts and applications.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/games-industry-lens/gamesec01-bp05.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Use a central identity provider",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/games-industry-lens/gamesec01-bp05.html"
+                            }
+                        },
+                        {
+                            "id": "GAMESEC01_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "GAMESEC01_BP01 && GAMESEC01_BP02 && GAMESEC01_BP03 && GAMESEC01_BP04 && GAMESEC01_BP05",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!GAMESEC01_BP01) || (!GAMESEC01_BP02) || (!GAMESEC01_BP03)",
+                            "risk": "HIGH_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "MEDIUM_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "GAMESEC02",
+                    "title": "How do you achieve, maintain, and monitor ongoing security best practices?",
+                    "description": "Adhering to best security practices is paramount for businesses across industries, but especially in the gaming industry. The games industry relies on cultivating and sustaining player trust and creating a strong reputation, and even minor security issues can quickly undermine that confidence.",
+                    "choices": [
+                        {
+                            "id": "GAMESEC02_BP01",
+                            "title": "Use ready to deploy templates for standard security practices",
+                            "helpfulResource": {
+                                "displayText": "Ready-to-deploy templates provide a proactive and agile way to assess your security posture in the cloud. Pre-configured templates evaluate your cloud security and implement necessary changes promptly. The templates encompass a wide range of best practices across various technologies and widely accepted security frameworks.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/games-industry-lens/gamesec02-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Use ready to deploy templates for standard security practices",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/games-industry-lens/gamesec02-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "GAMESEC02_BP02",
+                            "title": "Use automated remediation techniques when a security event does arise",
+                            "helpfulResource": {
+                                "displayText": "Using automated remediation techniques, game developers can proactively protect and maintain their gaming infrastructure and minimize the potential impact a security incident might have. If a security issue is detected, use a runbook to guide your response to the situation. Automate these responses where possible to remediate issues more quickly and reduce their impact.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/games-industry-lens/gamesec02-bp02.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Use automated remediation techniques when a security event does arise",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/games-industry-lens/gamesec02-bp02.html"
+                            }
+                        },
+                        {
+                            "id": "GAMESEC02_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "GAMESEC02_BP01 && GAMESEC02_BP02",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!GAMESEC02_BP01) || (!GAMESEC02_BP02)",
+                            "risk": "HIGH_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "MEDIUM_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "GAMESEC03",
+                    "title": "How do you manage player identity and access management?",
+                    "description": "When developing a game, you must determine how you will provide players with access to your game and related services. The following section explores design considerations, including player authentication, authorization, and multi-factor authentication.",
+                    "choices": [
+                        {
+                            "id": "GAMESEC03_BP01",
+                            "title": "Determine your approach to identify and control player access to your game's environment and resources",
+                            "helpfulResource": {
+                                "displayText": "This decision is influenced by your player acquisition and monetization strategy, player experience, and other factors such as the existing capabilities that might be provided by your game publishing partners.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/games-industry-lens/gamesec03-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Determine your approach to identify and control player access to your game's environment and resources",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/games-industry-lens/gamesec03-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "GAMESEC03_BP02",
+                            "title": "Authenticate requests that are sent to your game backend service",
+                            "helpfulResource": {
+                                "displayText": "Authenticating requests that are sent to your game backend service can block unwanted requests from succeeding. You should provide an authentication service for players to log in, which should return secure short-lived tokens, such as a JSON Web Token (JWT), to the game client when a player successfully authenticates.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/games-industry-lens/gamesec03-bp02.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Authenticate requests that are sent to your game backend service",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/games-industry-lens/gamesec03-bp02.html"
+                            }
+                        },
+                        {
+                            "id": "GAMESEC03_BP03",
+                            "title": "Use your game backend service to validate player requests to join a multiplayer game",
+                            "helpfulResource": {
+                                "displayText": "Typically, in multiplayer games, a player will join a game session by selecting an option directly from a list of available sessions, or they will submit a request to find a match. The latter approach places the responsibility on the game developer to locate an eligible game session and provide the connection information back to the player's game client.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/games-industry-lens/gamesec03-bp03.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Use your game backend service to validate player requests to join a multiplayer game",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/games-industry-lens/gamesec03-bp03.html"
+                            }
+                        },
+                        {
+                            "id": "GAMESEC03_BP04",
+                            "title": "Enforce a strict security policy for player user accounts by requiring a strong password",
+                            "helpfulResource": {
+                                "displayText": "If a game provides players with the ability to create a user account with a password, you should require players' passwords to adhere to strong policies. Establishing a strong password policy can protect your players' accounts from being overtaken through social engineering and brute force attacks.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/games-industry-lens/gamesec03-bp04.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Enforce a strict security policy for player user accounts by requiring a strong password",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/games-industry-lens/gamesec03-bp04.html"
+                            }
+                        },
+                        {
+                            "id": "GAMESEC03_BP05",
+                            "title": "Provide an option for players to set up multi-factor authentication (MFA) on their accounts",
+                            "helpfulResource": {
+                                "displayText": "Player accounts can be an asset to bad actors, particularly in games that support in-game currency and purchases. Due to the pervasiveness of player account hacking and social engineering attacks, provide players with the option to enhance the security of their accounts by configuring multi-factor authentication (MFA).",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/games-industry-lens/gamesec03-bp05.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Provide an option for players to set up multi-factor authentication (MFA) on their accounts",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/games-industry-lens/gamesec03-bp05.html"
+                            }
+                        },
+                        {
+                            "id": "GAMESEC03_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "GAMESEC03_BP01 && GAMESEC03_BP02 && GAMESEC03_BP03 && GAMESEC03_BP04 && GAMESEC03_BP05",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!GAMESEC03_BP01) || (!GAMESEC03_BP02) || (!GAMESEC03_BP04)",
+                            "risk": "HIGH_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "MEDIUM_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "GAMESEC04",
+                    "title": "How do you block unauthorized access to game content?",
+                    "description": "Modern games include a significant amount of content, such as downloadable content (DLC), which is an important aspect of player engagement and game monetization. Players expect an ongoing stream of new characters, levels, and challenges, requiring game developers to keep up with a constant demand for fresh content to retain players. Regardless of a game's system, protect the game's content from unauthorized access.",
+                    "choices": [
+                        {
+                            "id": "GAMESEC04_BP01",
+                            "title": "Restrict access of downloadable content to authorized clients and users",
+                            "helpfulResource": {
+                                "displayText": "Restrict access to game content by authorized applications and clients. Consider using Amazon S3 as a cost-effective and scalable origin for storing downloadable game content and Amazon CloudFront to provide globally performant content delivery to players. Both services provide built-in mechanisms for restricting access to data that is stored, such as restricting access to authenticated users.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/games-industry-lens/gamesec04-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Restrict access of downloadable content to authorized clients and users",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/games-industry-lens/gamesec04-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "GAMESEC04_BP02",
+                            "title": "Limit origin access to authorized content delivery networks (CDNs)",
+                            "helpfulResource": {
+                                "displayText": "Block users from circumventing your content delivery networks to directly access content from your origin, such as your Amazon S3 buckets. It is important to restrict access to your origin to only your authorized CDNs, which reduces data transfer costs from unnecessarily serving content out of the origin.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/games-industry-lens/gamesec04-bp02.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Limit origin access to authorized content delivery networks (CDNs)",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/games-industry-lens/gamesec04-bp02.html"
+                            }
+                        },
+                        {
+                            "id": "GAMESEC04_BP03",
+                            "title": "Implement geographic restrictions to limit unauthorized access",
+                            "helpfulResource": {
+                                "displayText": "When a player requests your content, Amazon CloudFront serves the requested content from the nearest edge location, regardless of where the player is located. However, there may be scenarios in which you need to restrict how your content is accessible by users in specific parts of the world.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/games-industry-lens/gamesec04-bp03.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Implement geographic restrictions to limit unauthorized access",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/games-industry-lens/gamesec04-bp03.html"
+                            }
+                        },
+                        {
+                            "id": "GAMESEC04_BP04",
+                            "title": "Restrict access to content with digital rights management (DRM) solutions",
+                            "helpfulResource": {
+                                "displayText": "Consider restricting access to your game content by using strong encryption tools such as a digital rights management (DRM) solution. This type of solution can be used to encrypt your private content and distribute the decryption keys to authorized players.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/games-industry-lens/gamesec04-bp04.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Restrict access to content with digital rights management (DRM) solutions",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/games-industry-lens/gamesec04-bp04.html"
+                            }
+                        },
+                        {
+                            "id": "GAMESEC04_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "GAMESEC04_BP01 && GAMESEC04_BP02 && GAMESEC04_BP03 && GAMESEC04_BP04",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!GAMESEC04_BP01) || (!GAMESEC04_BP02)",
+                            "risk": "HIGH_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "MEDIUM_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "GAMESEC05",
+                    "title": "How do you monitor and analyze player usage behavior within your game?",
+                    "description": "Monitoring and analyzing player usage behavior is essential for game studios because it enables you to detect security threats, cheating, and other forms of abusive behavior that could compromise game integrity and player safety. By tracking patterns such as unusual progression rates, abnormal in-game transactions, or suspicious communication behaviors, you can identify potential cheaters, fraudulent accounts, or coordinated threats before they significantly impact the player experience.",
+                    "choices": [
+                        {
+                            "id": "GAMESEC05_BP01",
+                            "title": "Implement a comprehensive data collection strategy to monitor player behavior",
+                            "helpfulResource": {
+                                "displayText": "To maintain a positive player experience, implement a comprehensive data collection and analysis strategy. Capturing, storing, and analyzing relevant data provides insights into how players interact with your game's features and with each other. This data-driven approach can guide decision-making, enhance player engagement and retention, optimize monetization strategies, and ultimately improve the overall player experience.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/games-industry-lens/gamesec05-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Implement a comprehensive data collection strategy to monitor player behavior",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/games-industry-lens/gamesec05-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "GAMESEC05_BP02",
+                            "title": "Collect, store, and analyze player usage logs to detect inappropriate behavior",
+                            "helpfulResource": {
+                                "displayText": "Instrument your game to collect logs to understand how players use the features of your game and how they interact with other players. You can then block unauthorized activities that can degrade the player experience.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/games-industry-lens/gamesec05-bp02.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Collect, store, and analyze player usage logs to detect inappropriate behavior",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/games-industry-lens/gamesec05-bp02.html"
+                            }
+                        },
+                        {
+                            "id": "GAMESEC05_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "GAMESEC05_BP01 && GAMESEC05_BP02",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!GAMESEC05_BP01) || (!GAMESEC05_BP02)",
+                            "risk": "MEDIUM_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "HIGH_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "GAMESEC06",
+                    "title": "How do you monitor and respond to infrastructure threats?",
+                    "description": "Monitoring and responding to infrastructure threats is critical for game studios because their infrastructure represents the backbone that supports millions of concurrent players, processes real-money transactions, and stores valuable player data and proprietary game content. It is essential for game studios to implement monitoring systems and incident response processes that can preserve the integrity of both player experiences and business operations.",
+                    "choices": [
+                        {
+                            "id": "GAMESEC06_BP01",
+                            "title": "Use tools for detecting and responding to threats to your infrastructure",
+                            "helpfulResource": {
+                                "displayText": "To continuously monitor for malicious activities and unauthorized behaviors within your AWS environment, consider using Amazon GuardDuty. GuardDuty identifies threats by monitoring account behavior, network activity, and data access patterns within your environment.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/games-industry-lens/gamesec06-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Use tools for detecting and responding to threats to your infrastructure",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/games-industry-lens/gamesec06-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "GAMESEC06_BP02",
+                            "title": "Use artificial intelligence and machine learning tools to automate aspects of your infrastructure protection strategy",
+                            "helpfulResource": {
+                                "displayText": "Amazon Lookout for Metrics uses machine learning to automatically detect and diagnose anomalies in your business and operational data and monitors the metrics that are most important to your businesses with greater speed and accuracy.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/games-industry-lens/gamesec06-bp02.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Use artificial intelligence and machine learning tools to automate aspects of your infrastructure protection strategy",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/games-industry-lens/gamesec06-bp02.html"
+                            }
+                        },
+                        {
+                            "id": "GAMESEC06_BP03",
+                            "title": "Use insights from system-level logs to continuously improve your infrastructure protection strategy",
+                            "helpfulResource": {
+                                "displayText": "Capture and store system-level logs from relevant services, such as S3 server access logs, CloudFront access logs, and ALB access logs. These logs can be stored in an S3 bucket in your account and are useful for associating your player usage information from within the game with system-level information.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/games-industry-lens/gamesec06-bp03.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Use insights from system-level logs to continuously improve your infrastructure protection strategy",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/games-industry-lens/gamesec06-bp03.html"
+                            }
+                        },
+                        {
+                            "id": "GAMESEC06_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "GAMESEC06_BP01 && GAMESEC06_BP02 && GAMESEC06_BP03",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!GAMESEC06_BP01)",
+                            "risk": "HIGH_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "MEDIUM_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "GAMESEC07",
+                    "title": "How are you defining and enforcing policies to respond to player misconduct and abusive behavior?",
+                    "description": "Player misconduct and abusive behaviors can significantly impact the experience of your players. Bad player behavior can drive away legitimate players, leading to decreased player retention, reduced revenue from in-game purchases, and negative reviews that can damage a game's reputation and future sales. Define policies that promote positive actions among your players and determine how you will enforce these policies.",
+                    "choices": [
+                        {
+                            "id": "GAMESEC07_BP01",
+                            "title": "Implement an incident response plan to handle bad actors and abusive behavior",
+                            "helpfulResource": {
+                                "displayText": "Create a plan of action for responding to bad actors and abusive behavior in your game. Consider factors such as when to temporarily suspend or permanently ban players and how long to disable credentials for temporarily suspended players.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/games-industry-lens/gamesec07-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Implement an incident response plan to handle bad actors and abusive behavior",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/games-industry-lens/gamesec07-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "GAMESEC07_BP02",
+                            "title": "Ban accounts that are associated with bad actors",
+                            "helpfulResource": {
+                                "displayText": "If left unmitigated, abusive behaviors in a game can continue to have a negative impact on the gaming experience for others and should be mitigated as soon as possible. Implement a process to impose bans or other forms of restrictions on bad actors who are confirmed to be in violation of your terms of service.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/games-industry-lens/gamesec07-bp02.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Ban accounts that are associated with bad actors",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/games-industry-lens/gamesec07-bp02.html"
+                            }
+                        },
+                        {
+                            "id": "GAMESEC07_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "GAMESEC07_BP01 && GAMESEC07_BP02",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!GAMESEC07_BP01) || (!GAMESEC07_BP02)",
+                            "risk": "HIGH_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "MEDIUM_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "GAMESEC08",
+                    "title": "How do you secure your CI/CD pipeline?",
+                    "description": "A game development CI/CD pipeline is typically comprised of highly available source control servers and storage, compute resources to run your builds, and software to perform automated testing, along with the proper network connectivity from your development machines. Securing your CI/CD pipeline is important for protecting sensitive information, preserving code integrity, and maintaining trusted releases.",
+                    "choices": [
+                        {
+                            "id": "GAMESEC08_BP01",
+                            "title": "Apply security at every stage of the CI/CD pipeline",
+                            "helpfulResource": {
+                                "displayText": "Guardrails such as access controls, separation of duties, and audit trails provide protection against unauthorized access or malicious activities. Your people, processes, and technology should secure the pipeline as well.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/games-industry-lens/gamesec08-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Apply security at every stage of the CI/CD pipeline",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/games-industry-lens/gamesec08-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "GAMESEC08_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "GAMESEC08_BP01",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!GAMESEC08_BP01)",
+                            "risk": "MEDIUM_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "HIGH_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "GAMESEC09",
+                    "title": "How do you automate security within your CI/CD pipeline?",
+                    "description": "Integrate security measures within your CI/CD pipeline to maintain a robust security posture throughout the development life cycle. This process offers many of the same benefits as having security of your pipeline. Having a secure CI/CD pipeline reduces the likelihood of security events that could potentially delay the game development timeline.",
+                    "choices": [
+                        {
+                            "id": "GAMESEC09_BP01",
+                            "title": "Integrate tooling and automation to reduce the mean time of security reviews",
+                            "helpfulResource": {
+                                "displayText": "To identify security vulnerabilities, organizations can use a variety of different tools and services like Static Application Security Testing (SAST) and Dynamic Application Security Testing (DAST). SAST is a way to review the source code and determine security vulnerability. DAST is a black box way of testing your code which tests your applications without looking at the source code.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/games-industry-lens/gamesec09-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Integrate tooling and automation to reduce the mean time of security reviews",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/games-industry-lens/gamesec09-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "GAMESEC09_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "GAMESEC09_BP01",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!GAMESEC09_BP01)",
+                            "risk": "MEDIUM_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "HIGH_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "GAMESEC10",
+                    "title": "How do you integrate threat modeling into your organization's application development lifecycle?",
+                    "description": "Threat modeling is the process of identifying and prioritizing potential threats to your application and determining solutions that can be used to mitigate them. This practice has become increasingly important as games have evolved into complex, connected systems that handle sensitive user data and real-money transactions. Integrate threat modeling as an ongoing exercise for supporting the security of the game, not only in the initial design phase but as the game continues to grow and evolve.",
+                    "choices": [
+                        {
+                            "id": "GAMESEC10_BP01",
+                            "title": "Determine when and how to complete threat modeling exercises throughout your application development lifecycle",
+                            "helpfulResource": {
+                                "displayText": "There is no one single best way to approach threat modeling. Details for when and how to do this will vary based on the unique needs of your game studio. For example, depending on the size of your studio, you may have team members who are involved in one or multiple aspects of the threat modeling process.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/games-industry-lens/gamesec10-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Determine when and how to complete threat modeling exercises throughout your application development lifecycle",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/games-industry-lens/gamesec10-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "GAMESEC10_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "GAMESEC10_BP01",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!GAMESEC10_BP01)",
+                            "risk": "MEDIUM_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "HIGH_RISK"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "reliability",
+            "name": "Reliability",
+            "questions": [
+                {
+                    "id": "GAMEREL01",
+                    "title": "Is your game architecture taking advantage of the cloud's resiliency?",
+                    "description": "AWS infrastructure is built around Regions and Availability Zones. AWS Regions provide multiple physically separated and isolated Availability Zones, which are connected using low-latency, high-throughput, and highly redundant networking. These constructs can be used to architect workloads with reliability goals in focus.",
+                    "choices": [
+                        {
+                            "id": "GAMEREL01_BP01",
+                            "title": "Distribute game infrastructure across multiple Availability Zones and Regions to improve resiliency",
+                            "helpfulResource": {
+                                "displayText": "To minimize the impact of localized infrastructure impairments on your players, you should distribute your infrastructure deployment uniformly across enough independent locations to be able to withstand unexpected impairments while still having enough capacity to meet the needs of your player demand.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/games-industry-lens/gamerel01-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Distribute game infrastructure across multiple Availability Zones and Regions to improve resiliency",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/games-industry-lens/gamerel01-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "GAMEREL01_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "GAMEREL01_BP01",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!GAMEREL01_BP01)",
+                            "risk": "HIGH_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "MEDIUM_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "GAMEREL02",
+                    "title": "How do you scale your stateful games to accommodate changes in demand?",
+                    "description": "As your player demand fluctuates over time, your game infrastructure should be able to adaptively scale to handle these changing requirements. While it is difficult to predict the popularity of a game ahead of time, design an architecture approach that allows for addition and removal of infrastructure capacity to accommodate fluctuations in player population.",
+                    "choices": [
+                        {
+                            "id": "GAMEREL02_BP01",
+                            "title": "Implement a scaling strategy that incorporates the state of active player game sessions",
+                            "helpfulResource": {
+                                "displayText": "Implement a solution for automatically scaling your game infrastructure in a manner that incorporates the stateful nature of your actively connected player sessions and gracefully handles scaling activities without disrupting gameplay.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/games-industry-lens/gamerel02-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Implement a scaling strategy that incorporates the state of active player game sessions",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/games-industry-lens/gamerel02-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "GAMEREL02_BP02",
+                            "title": "Support the use of multiple EC2 instance types for your game",
+                            "helpfulResource": {
+                                "displayText": "When hosting your game using EC2 instances, or if you use containers hosted on EC2 instances in your AWS account, use multiple instance types in your hosting strategy. By using multiple instance types, you can increase the number of compute options that can be used when your game is scaling to add more servers to support player growth, which improves reliability in case your preferred instance type is unavailable.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/games-industry-lens/gamerel02-bp02.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Support the use of multiple EC2 instance types for your game",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/games-industry-lens/gamerel02-bp02.html"
+                            }
+                        },
+                        {
+                            "id": "GAMEREL02_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "GAMEREL02_BP01 && GAMEREL02_BP02",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!GAMEREL02_BP01) || (!GAMEREL02_BP02)",
+                            "risk": "HIGH_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "MEDIUM_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "GAMEREL03",
+                    "title": "How do you persist game state during infrastructure disruptions?",
+                    "description": "As your game infrastructure experiences various operational events over time, your game's architecture should be designed to maintain continuity for player experiences and preserve game state during infrastructure events. To handle these events, implement monitoring, graceful shutdowns, and state persistence mechanisms to verify smooth gameplay experiences for your players.",
+                    "choices": [
+                        {
+                            "id": "GAMEREL03_BP01",
+                            "title": "Monitor game server disruptions, and use the data to improve hosting architecture to achieve reliability goals",
+                            "helpfulResource": {
+                                "displayText": "Monitor game server metrics and the impact of failures or degradations in performance, such as increased latency under load, on player behavior over time so that you can adjust your game server hosting strategy to meet your game's reliability requirements. Game server infrastructure to be degraded should be removed from service immediately if it is impacting players or proactively replaced when there are no active player sessions hosted on the server.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/games-industry-lens/gamerel03-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Monitor game server disruptions, and use the data to improve hosting architecture to achieve reliability goals",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/games-industry-lens/gamerel03-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "GAMEREL03_BP02",
+                            "title": "Implement loose coupling of game features to handle failures with minimal impact to player experience",
+                            "helpfulResource": {
+                                "displayText": "Decoupling components refers to the concept of designing server components so that they can operate as independently as possible. Some aspects of gaming are difficult to decouple since data needs to be as up to date as possible to provide a good in-game experience for players. However, many components and gaming tasks can be decoupled.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/games-industry-lens/gamerel03-bp02.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Implement loose coupling of game features to handle failures with minimal impact to player experience",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/games-industry-lens/gamerel03-bp02.html"
+                            }
+                        },
+                        {
+                            "id": "GAMEREL03_BP03",
+                            "title": "Monitor infrastructure events over time to measure impact on player behavior",
+                            "helpfulResource": {
+                                "displayText": "Monitor your game server process, game server instance metrics, and game experience metrics to determine the root cause of issues. In addition to monitoring CPU and memory, you can also set up monitoring for network metrics related to network limitations of EC2 instances to alert you of issues such as exceeding bandwidth, packets-per-second, or other network-level issues that may indicate your server resources are under provisioned.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/games-industry-lens/gamerel03-bp03.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Monitor infrastructure events over time to measure impact on player behavior",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/games-industry-lens/gamerel03-bp03.html"
+                            }
+                        },
+                        {
+                            "id": "GAMEREL03_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "GAMEREL03_BP01 && GAMEREL03_BP02 && GAMEREL03_BP03",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!GAMEREL03_BP01) || (!GAMEREL03_BP02) || (!GAMEREL03_BP03)",
+                            "risk": "HIGH_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "MEDIUM_RISK"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "performance",
+            "name": "Performance Efficiency",
+            "questions": [
+                {
+                    "id": "GAMEPERF01",
+                    "title": "How do you select the appropriate hosting option for your game servers?",
+                    "description": "Selection of the appropriate hosting option for your game servers is foundational to game server performance. Deciding to use EC2 instances, a container solution, or a fully managed service is one of the first decisions to make when architecting for production. Each hosting option will have varying capabilities and considerations for performance tuning, scaling, operations and integration.",
+                    "choices": [
+                        {
+                            "id": "GAMEPERF01_BP01",
+                            "title": "Evaluate game server resource requirements and scalability needs",
+                            "helpfulResource": {
+                                "displayText": "Evaluate server requirements against your scalability needs to verify that you are selecting a hosting option that both meets your requirements and provides optimal performance.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/games-industry-lens/gameperf01-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Evaluate game server resource requirements and scalability needs",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/games-industry-lens/gameperf01-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "GAMEPERF01_BP02",
+                            "title": "Consider operational overhead for scaling game servers",
+                            "helpfulResource": {
+                                "displayText": "Consider the management and operational overhead associated with each hosting option. Self-hosted solutions on EC2 or containers can provide more control but also will require more management.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/games-industry-lens/gameperf01-bp02.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Consider operational overhead for scaling game servers",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/games-industry-lens/gameperf01-bp02.html"
+                            }
+                        },
+                        {
+                            "id": "GAMEPERF01_BP03",
+                            "title": "Evaluate integration with other AWS services, development environments, target CPU architectures, and features",
+                            "helpfulResource": {
+                                "displayText": "Evaluate how well each hosting option integrates with other AWS services your game relies on, such as databases, analytics, or content delivery services. Seamless integration between services provides operational benefits like improved performance monitoring and efficient secure data delivery between game components.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/games-industry-lens/gameperf01-bp03.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Evaluate integration with other AWS services, development environments, target CPU architectures, and features",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/games-industry-lens/gameperf01-bp03.html"
+                            }
+                        },
+                        {
+                            "id": "GAMEPERF01_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "GAMEPERF01_BP01 && GAMEPERF01_BP02 && GAMEPERF01_BP03",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!GAMEPERF01_BP01) || (!GAMEPERF01_BP02)",
+                            "risk": "HIGH_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "MEDIUM_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "GAMEPERF02",
+                    "title": "How do you determine which geographic Regions to host your game infrastructure?",
+                    "description": "Choosing the ideal location for your game infrastructure can improve networking performance to players and backend. Considering where your player base is connecting from and how your communities or servers are built is important for long term growth and sustainability in a geographic Region. Deploying decoupled game server infrastructure and backend services can benefit your overall operational efficiency and improve resiliency by using multiple Regions, local zones, and outposts to host your game.",
+                    "choices": [
+                        {
+                            "id": "GAMEPERF02_BP01",
+                            "title": "Select a home Region that is near your players",
+                            "helpfulResource": {
+                                "displayText": "For an initial game launch, you should determine where to deploy infrastructure based on discussions with your business stakeholders, such as publishing teams who determine where the game is expected to be made available to players, and where they are focusing their pre-launch marketing and advertising efforts.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/games-industry-lens/gameperf02-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Select a home Region that is near your players",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/games-industry-lens/gameperf02-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "GAMEPERF02_BP02",
+                            "title": "Design an approach that supports placing latency-sensitive game infrastructure close to players to improve performance",
+                            "helpfulResource": {
+                                "displayText": "Separate placement for latency sensitive infrastructure like game servers minimizes the impact of long network routes. Repeatable deployments can make it simple to maintain multiple locations that are more performant for your players.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/games-industry-lens/gameperf02-bp02.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Design an approach that supports placing latency-sensitive game infrastructure close to players to improve performance",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/games-industry-lens/gameperf02-bp02.html"
+                            }
+                        },
+                        {
+                            "id": "GAMEPERF02_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "GAMEPERF02_BP01 && GAMEPERF02_BP02",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!GAMEPERF02_BP01) || (!GAMEPERF02_BP02)",
+                            "risk": "HIGH_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "MEDIUM_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "GAMEPERF03",
+                    "title": "How can you use Amazon GameLift for iterative development performance efficiency?",
+                    "description": "Amazon GameLift provides an end-to-end workflow for development and performance testing of your game in a local test environment.",
+                    "choices": [
+                        {
+                            "id": "GAMEPERF03_BP01",
+                            "title": "Use Amazon GameLift Anywhere and a GameLift testing toolkit",
+                            "helpfulResource": {
+                                "displayText": "To enhance performance efficiency through an iterative development process, utilize Amazon GameLift Anywhere along with the Amazon GameLift Testing Toolkit to establish a comprehensive testing environment. This approach allows rapid iteration, efficient data collection, and detailed performance analysis.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/games-industry-lens/gameperf03-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Use Amazon GameLift Anywhere and a GameLift testing toolkit",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/games-industry-lens/gameperf03-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "GAMEPERF03_BP02",
+                            "title": "Test performance and scalability of game servers",
+                            "helpfulResource": {
+                                "displayText": "To test the performance and scalability of your game servers, implement a robust testing framework using the Amazon GameLift features and the GameLift Testing Toolkit.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/games-industry-lens/gameperf03-bp02.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Test performance and scalability of game servers",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/games-industry-lens/gameperf03-bp02.html"
+                            }
+                        },
+                        {
+                            "id": "GAMEPERF03_BP03",
+                            "title": "Optimize resource utilization of GameLift containers",
+                            "helpfulResource": {
+                                "displayText": "To optimize resource utilization of GameLift containers, design your container fleet effectively and set precise resource limits.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/games-industry-lens/gameperf03-bp03.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Optimize resource utilization of GameLift containers",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/games-industry-lens/gameperf03-bp03.html"
+                            }
+                        },
+                        {
+                            "id": "GAMEPERF03_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "GAMEPERF03_BP01 && GAMEPERF03_BP02 && GAMEPERF03_BP03",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!GAMEPERF03_BP01) || (!GAMEPERF03_BP02)",
+                            "risk": "HIGH_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "MEDIUM_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "GAMEPERF04",
+                    "title": "How do you block game sessions from impacting players running on the same game server instance?",
+                    "description": "After your game server is running in AWS, you need to monitor its performance to provide a quality player experience regardless of resource utilization, underlying compute, or saturation.",
+                    "choices": [
+                        {
+                            "id": "GAMEPERF04_BP01",
+                            "title": "Monitor game server processes to detect issues",
+                            "helpfulResource": {
+                                "displayText": "You might run multiple game server processes per instance to efficiently utilize the resources on your game server instances. If so, design your architecture so that an individual game server process hosting a game session cannot cause adverse impact to other game sessions hosted on the same instance.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/games-industry-lens/gameperf04-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Monitor game server processes to detect issues",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/games-industry-lens/gameperf04-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "GAMEPERF04_BP02",
+                            "title": "Performance test your game server with simulated and real gameplay scenarios",
+                            "helpfulResource": {
+                                "displayText": "Conduct performance testing and evaluate various gameplay scenarios to determine whether the game server process handles the utilization of fixed resources appropriately, such as EC2 instance memory, CPU, and network bandwidth.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/games-industry-lens/gameperf04-bp02.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Performance test your game server with simulated and real gameplay scenarios",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/games-industry-lens/gameperf04-bp02.html"
+                            }
+                        },
+                        {
+                            "id": "GAMEPERF04_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "GAMEPERF04_BP01 && GAMEPERF04_BP02",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!GAMEPERF04_BP01) || (!GAMEPERF04_BP02)",
+                            "risk": "HIGH_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "MEDIUM_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "GAMEPERF05",
+                    "title": "How do you select the appropriate compute solution for your game?",
+                    "description": "Compute performance varies across instance sizes and families. It is beneficial to use multiple compute options that are from separate capacity pools. Develop a fleet composition strategy that gives preference to performance but includes enough diversity to avoid insufficient capacity errors.",
+                    "choices": [
+                        {
+                            "id": "GAMEPERF05_BP01",
+                            "title": "Benchmark your game performance across multiple compute types",
+                            "helpfulResource": {
+                                "displayText": "For game server workloads, there is no singular approach to identifying the optimal compute solution for hosting your game server. A common strategy for benchmarking game servers is to start with compute-optimized EC2 'c' instances, because this instance family provides high performance for workloads that are computationally intensive.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/games-industry-lens/gameperf05-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Benchmark your game performance across multiple compute types",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/games-industry-lens/gameperf05-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "GAMEPERF05_BP02",
+                            "title": "Move non-latency-sensitive compute tasks to asynchronous workflows",
+                            "helpfulResource": {
+                                "displayText": "When you are optimizing the performance for your game, it is important to keep in mind that only some of the interactions between the client and the game backend must be performed in a synchronous manner. You should consider each feature from the perspective of the player experience and determine whether certain interactions require synchronous communications.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/games-industry-lens/gameperf05-bp02.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Move non-latency-sensitive compute tasks to asynchronous workflows",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/games-industry-lens/gameperf05-bp02.html"
+                            }
+                        },
+                        {
+                            "id": "GAMEPERF05_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "GAMEPERF05_BP01 && GAMEPERF05_BP02",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!GAMEPERF05_BP01)",
+                            "risk": "HIGH_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "MEDIUM_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "GAMEPERF06",
+                    "title": "How do you efficiently manage and analyze game server logs and store different types of game data for optimal performance?",
+                    "description": "Games can have player data, game logs and server logs which should be decoupled from each other where possible. Centralizing log ingestion and lifecycle management can benefit your game teams by providing insights into what's happening in game and on the server.",
+                    "choices": [
+                        {
+                            "id": "GAMEPERF06_BP01",
+                            "title": "Centralize log collection and storage",
+                            "helpfulResource": {
+                                "displayText": "Implement a centralized log collection and storage solution to gather logs from game server instances and GameLift. Use services like Amazon CloudWatch Logs to collect, monitor, and store log data from your game servers and GameLift instances.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/games-industry-lens/gameperf06-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Centralize log collection and storage",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/games-industry-lens/gameperf06-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "GAMEPERF06_BP02",
+                            "title": "Categorize and store game data based on access patterns",
+                            "helpfulResource": {
+                                "displayText": "Categorize your game data into different types based on their access patterns and storage requirements. Common categories include player data, game saves, persistent world storage, and analytics data.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/games-industry-lens/gameperf06-bp02.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Categorize and store game data based on access patterns",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/games-industry-lens/gameperf06-bp02.html"
+                            }
+                        },
+                        {
+                            "id": "GAMEPERF06_BP03",
+                            "title": "Enable efficient log formatting and batching",
+                            "helpfulResource": {
+                                "displayText": "Configure your game server processes to generate logs in a structured and in a format that can be parsed, such as JSON. Implement log batching techniques to minimize the frequency of log data transfers from your game servers to the centralized log storage.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/games-industry-lens/gameperf06-bp03.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Enable efficient log formatting and batching",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/games-industry-lens/gameperf06-bp03.html"
+                            }
+                        },
+                        {
+                            "id": "GAMEPERF06_BP04",
+                            "title": "Implement log rotation and retention policies",
+                            "helpfulResource": {
+                                "displayText": "Establish log rotation and retention policies to manage the growth of log data and optimize storage utilization. Configure your game servers to automatically rotate logs based on size or time intervals.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/games-industry-lens/gameperf06-bp04.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Implement log rotation and retention policies",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/games-industry-lens/gameperf06-bp04.html"
+                            }
+                        },
+                        {
+                            "id": "GAMEPERF06_BP05",
+                            "title": "Use monitoring and visualization tools",
+                            "helpfulResource": {
+                                "displayText": "Use monitoring and visualization tools to gain insights into your game server performance and identify optimization opportunities. Use Amazon CloudWatch to monitor key metrics and set up alarms for proactive notifications.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/games-industry-lens/gameperf06-bp05.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Use monitoring and visualization tools",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/games-industry-lens/gameperf06-bp05.html"
+                            }
+                        },
+                        {
+                            "id": "GAMEPERF06_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "GAMEPERF06_BP01 && GAMEPERF06_BP02 && GAMEPERF06_BP03 && GAMEPERF06_BP04 && GAMEPERF06_BP05",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!GAMEPERF06_BP01) || (!GAMEPERF06_BP02)",
+                            "risk": "HIGH_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "MEDIUM_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "GAMEPERF07",
+                    "title": "How do you design your matchmaking service to optimize performance?",
+                    "description": "Player skill, internet service provider (ISP) quality, and player population distribution are important to consider as a dimension of performance tuning. Game sessions can be placed on servers that are strategically located to level the playing field and host a fair game.",
+                    "choices": [
+                        {
+                            "id": "GAMEPERF07_BP01",
+                            "title": "Define network latency thresholds for your game",
+                            "helpfulResource": {
+                                "displayText": "When developing a multiplayer game, verify that your game infrastructure does not introduce unnecessary latency for players. If your game is sensitive to network latency, then you should set latency thresholds in your matchmaking logic to prioritize placing players on game server sessions that are hosted in nearby game server locations or AWS Regions that meet your objective for ideal player experience.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/games-industry-lens/gameperf07-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Define network latency thresholds for your game",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/games-industry-lens/gameperf07-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "GAMEPERF07_BP02",
+                            "title": "Run a separate matchmaking service for each gameplay mode and game hosting Region",
+                            "helpfulResource": {
+                                "displayText": "If your game offers multiple gameplay modes for players to choose from, you should separate the matchmaking systems for each of them so that you can independently tune the performance for each gameplay mode based on its unique requirements and reduce resource contention.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/games-industry-lens/gameperf07-bp02.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Run a separate matchmaking service for each gameplay mode and game hosting Region",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/games-industry-lens/gameperf07-bp02.html"
+                            }
+                        },
+                        {
+                            "id": "GAMEPERF07_BP03",
+                            "title": "Regularly monitor matchmaking performance",
+                            "helpfulResource": {
+                                "displayText": "One of the most noticeable ways to optimize the performance of a game for players is to reduce the time that they must wait before they can enter a game session. Long wait times can cause players to lose interest and lead to attrition, so it is important to consider this when designing your matchmaking solution.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/games-industry-lens/gameperf07-bp03.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Regularly monitor matchmaking performance",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/games-industry-lens/gameperf07-bp03.html"
+                            }
+                        },
+                        {
+                            "id": "GAMEPERF07_BP04",
+                            "title": "Regularly monitor networking performance",
+                            "helpfulResource": {
+                                "displayText": "For competitive games, it is important to have a consistent player experience. A game that is reliably 50ms for a larger player base is fairer and more fun than a match where one player has 10ms ping and another who has 70ms ping.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/games-industry-lens/gameperf07-bp04.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Regularly monitor networking performance",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/games-industry-lens/gameperf07-bp04.html"
+                            }
+                        },
+                        {
+                            "id": "GAMEPERF07_BP05",
+                            "title": "Use network acceleration technology to improve performance across the internet",
+                            "helpfulResource": {
+                                "displayText": "In addition to physically placing latency-sensitive game infrastructure closer to players, you can also improve the player experience by optimizing the network performance for your game. AWS uses the BGP protocol to influence internet routing to use the fastest path to our border network from Internet Service Providers.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/games-industry-lens/gameperf07-bp05.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Use network acceleration technology to improve performance across the internet",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/games-industry-lens/gameperf07-bp05.html"
+                            }
+                        },
+                        {
+                            "id": "GAMEPERF07_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "GAMEPERF07_BP01 && GAMEPERF07_BP02 && GAMEPERF07_BP03 && GAMEPERF07_BP04 && GAMEPERF07_BP05",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!GAMEPERF07_BP01) || (!GAMEPERF07_BP04)",
+                            "risk": "HIGH_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "MEDIUM_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "GAMEPERF08",
+                    "title": "How do you align the performance bar for your game with player and developer expectations?",
+                    "description": "Knowing your player and developer is one of the most important aspects of improving performance efficiency. Delivering a performant game with low operational overhead is one of the best ways to show players and developers that you care about their experience and can differentiate your game and studio.",
+                    "choices": [
+                        {
+                            "id": "GAMEPERF08_BP01",
+                            "title": "Inform and include the player in your process",
+                            "helpfulResource": {
+                                "displayText": "Provide an option to display in game metrics like latency, frames per second and dropped packets. Surface infrastructure issues and maintenance downtime through player facing communication like status pages. Celebrate new game locations with player comms including dev blogs and set expectations for expected player experience improvements.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/games-industry-lens/gameperf08-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Inform and include the player in your process",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/games-industry-lens/gameperf08-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "GAMEPERF08_BP02",
+                            "title": "Align solution selection with engineering team skills and expertise",
+                            "helpfulResource": {
+                                "displayText": "Assess your team's skills and expertise in managing and optimizing game server performance when choosing your hosting option. Self-hosted solutions like EC2 and containers require more knowledge of infrastructure management, performance tuning, and scaling.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/games-industry-lens/gameperf08-bp02.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Align solution selection with engineering team skills and expertise",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/games-industry-lens/gameperf08-bp02.html"
+                            }
+                        },
+                        {
+                            "id": "GAMEPERF08_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "GAMEPERF08_BP01 && GAMEPERF08_BP02",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!GAMEPERF08_BP01) || (!GAMEPERF08_BP02)",
+                            "risk": "HIGH_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "MEDIUM_RISK"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "costOptimization",
+            "name": "Cost Optimization",
+            "questions": [
+                {
+                    "id": "GAMECOST01",
+                    "title": "How do you measure the cost of your game environments?",
+                    "description": "Understand the cost per player, game feature, and environment so that you can manage and forecast your spend as the number of players changes over time and features are added and improved. Consider the following best practices to manage your costs of your different game environments.",
+                    "choices": [
+                        {
+                            "id": "GAMECOST01_BP01",
+                            "title": "Implement attribution of cost per player, game feature, and environment",
+                            "helpfulResource": {
+                                "displayText": "Cost attribution for game servers is usually simpler to perform than game backend services because a game server is usually optimized to be able to host a specific number of concurrent players per instance which can be amortized across the cost of running the instance.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/games-industry-lens/gamecost01-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Implement attribution of cost per player, game feature, and environment",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/games-industry-lens/gamecost01-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "GAMECOST01_BP02",
+                            "title": "Discover opportunities for optimization",
+                            "helpfulResource": {
+                                "displayText": "Game developers and publishers can use AWS FinOps practices to help optimize their cloud costs and gain better visibility into their cloud spending. By doing so, game producers can align the average cost required to maintain infrastructure for the players with the financial results delivered by the game.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/games-industry-lens/gamecost01-bp02.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Discover opportunities for optimization",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/games-industry-lens/gamecost01-bp02.html"
+                            }
+                        },
+                        {
+                            "id": "GAMECOST01_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "GAMECOST01_BP01 && GAMECOST01_BP02",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!GAMECOST01_BP01)",
+                            "risk": "HIGH_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "MEDIUM_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "GAMECOST02",
+                    "title": "How are you choosing the right compute solution for your game servers?",
+                    "description": "One of the most unique aspects of a game workload, compared to other types of workloads, is the game server. The game server is critical to the player experience, as players connect to it from their game client to play a game session. The game server is also one of the biggest drivers of cost for operating a multiplayer game. Therefore, it is important to optimize how you utilize the compute infrastructure for your game servers to reduce costs.",
+                    "choices": [
+                        {
+                            "id": "GAMECOST02_BP01",
+                            "title": "Optimize the cost of data transfer across the internet",
+                            "helpfulResource": {
+                                "displayText": "While AWS primarily charges for outbound (egress) data transfer from your AWS resources to the internet, game companies can face high costs related to data transfer through AWS Direct Connect or AWS Gateway load balancers. Implement solutions that reduce the overall cost of transferring data from your game's AWS backend to your players.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/games-industry-lens/gamecost02-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Optimize the cost of data transfer across the internet",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/games-industry-lens/gamecost02-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "GAMECOST02_BP02",
+                            "title": "Optimize the number of game sessions hosted on each game server instance to optimize costs",
+                            "helpfulResource": {
+                                "displayText": "Optimize the number of game sessions hosted per server instance to achieve better compute utilization and reduce compute infrastructure costs.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/games-industry-lens/gamecost02-bp02.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Optimize the number of game sessions hosted on each game server instance to optimize costs",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/games-industry-lens/gamecost02-bp02.html"
+                            }
+                        },
+                        {
+                            "id": "GAMECOST02_BP03",
+                            "title": "Select the appropriate compute pricing option to reduce costs",
+                            "helpfulResource": {
+                                "displayText": "Run performance tests of your game server software across a variety of instance types and compute options to determine which option is most cost-effective for your game. In addition to efficiently utilizing the right EC2 instance types for your workload, consider which of the available compute pricing options is most suitable for your cost optimization goals.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/games-industry-lens/gamecost02-bp03.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Select the appropriate compute pricing option to reduce costs",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/games-industry-lens/gamecost02-bp03.html"
+                            }
+                        },
+                        {
+                            "id": "GAMECOST02_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "GAMECOST02_BP01 && GAMECOST02_BP02 && GAMECOST02_BP03",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!GAMECOST02_BP01) || (!GAMECOST02_BP02) || (!GAMECOST02_BP03)",
+                            "risk": "HIGH_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "MEDIUM_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "GAMECOST03",
+                    "title": "How are you optimizing the data transfer costs for your game infrastructure?",
+                    "description": "Games can transfer a significant amount of data across the internet between your players' game client devices and your game infrastructure to provide the gameplay experience, as well as between the components of your game infrastructure. It is important to understand where the data transfer occurs in your game workload to optimize your architecture choices to reduce this data transfer cost.",
+                    "choices": [
+                        {
+                            "id": "GAMECOST03_BP01",
+                            "title": "Choose the appropriate type of storage for user generated content to reduce costs",
+                            "helpfulResource": {
+                                "displayText": "Each type of data generated and stored in your game has unique characteristics that you should consider when determining the right storage solution for your workload. Use Amazon S3 Object Lifecycle Management to store object data in the most cost-effective storage class.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/games-industry-lens/gamecost03-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Choose the appropriate type of storage for user generated content to reduce costs",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/games-industry-lens/gamecost03-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "GAMECOST03_BP02",
+                            "title": "Optimize databases for game backends",
+                            "helpfulResource": {
+                                "displayText": "Games rely heavily on databases to store a wide range of critical data, from player profiles and inventories to in-game micro transactions and progression metrics. As the player base of a game grows, the associated database costs will inevitably rise to accommodate the increasing data and usage demands.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/games-industry-lens/gamecost03-bp02.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Optimize databases for game backends",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/games-industry-lens/gamecost03-bp02.html"
+                            }
+                        },
+                        {
+                            "id": "GAMECOST03_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "GAMECOST03_BP01 && GAMECOST03_BP02",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!GAMECOST03_BP01) || (!GAMECOST03_BP02)",
+                            "risk": "MEDIUM_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "HIGH_RISK"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "sustainability",
+            "name": "Sustainability",
+            "questions": [
+                {
+                    "id": "GAMESUS01",
+                    "title": "How do you manage user and game data in your game system?",
+                    "description": "Develop a data lifecycle strategy that optimizes data storage and relevance by only retaining critical historical data.",
+                    "choices": [
+                        {
+                            "id": "GAMESUS01_BP01",
+                            "title": "Use storage technologies that fit the patterns adapted to user content, subscriber information, and in-game purchases",
+                            "helpfulResource": {
+                                "displayText": "You should classify your data by type, retention need and frequency of access. This enables you to select the most optimized storage solution for the myriad data types of your game or backend services produce. Fast changing data should be stored in key-value or in-memory database services. Transactional data should be store in relational database services. Large files, game assets, or user-generated content should be stored in object storage services.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/games-industry-lens/gamesus01-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Use storage technologies that fit the patterns adapted to user content, subscriber information, and in-game purchases",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/games-industry-lens/gamesus01-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "GAMESUS01_BP02",
+                            "title": "Use lifecycle policies or TTL expiration to delete unnecessary games user data, log files, or deprecated assets",
+                            "helpfulResource": {
+                                "displayText": "You can use tags and data type to create lifecycle policies or TTL's to move data to archival storage or remove completely from the service. This may include temporary configurations, expired archived content, and historical logs that are no longer needed.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/games-industry-lens/gamesus01-bp02.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Use lifecycle policies or TTL expiration to delete unnecessary games user data, log files, or deprecated assets",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/games-industry-lens/gamesus01-bp02.html"
+                            }
+                        },
+                        {
+                            "id": "GAMESUS01_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "GAMESUS01_BP01 && GAMESUS01_BP02",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!GAMESUS01_BP01) || (!GAMESUS01_BP02)",
+                            "risk": "HIGH_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "MEDIUM_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "GAMESUS02",
+                    "title": "How do you manage the use of compute resources in your games backend?",
+                    "description": "Studios should develop a compute strategy that uses a mix of different compute types, managed services, and savings plan to optimize your usage. You should also optimize how game servers and backend services are packed on to compute instances to reduce the number of unneeded resources.",
+                    "choices": [
+                        {
+                            "id": "GAMESUS02_BP01",
+                            "title": "Select managed services for appropriate compute workloads",
+                            "helpfulResource": {
+                                "displayText": "Architect your game backend services to use managed services for event driven or highly variable traffic workloads. Managed services shift the management of infrastructure to AWS and distributes the environmental impact across multiple users because of the multi-tenanted control planes.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/games-industry-lens/gamesus02-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Select managed services for appropriate compute workloads",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/games-industry-lens/gamesus02-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "GAMESUS02_BP02",
+                            "title": "Right-size your compute and deploy GPU performance only where needed",
+                            "helpfulResource": {
+                                "displayText": "Architect your game servers and backend to efficiently utilize compute resources. Over-provisioning compute can lead to unnecessary costs and minimizes the amount of idle or under-utilized resources. GPU instances should be used to support specific development efforts like HLOD rebuilds in Unreal, or if you game servers require them by design.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/games-industry-lens/gamesus02-bp02.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Right-size your compute and deploy GPU performance only where needed",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/games-industry-lens/gamesus02-bp02.html"
+                            }
+                        },
+                        {
+                            "id": "GAMESUS02_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "GAMESUS02_BP01 && GAMESUS02_BP02",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!GAMESUS02_BP01) || (!GAMESUS02_BP02)",
+                            "risk": "HIGH_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "MEDIUM_RISK"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
