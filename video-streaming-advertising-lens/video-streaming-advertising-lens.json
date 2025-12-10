@@ -1,0 +1,2435 @@
+{
+    "schemaVersion": "2021-11-01",
+    "name": "Video Streaming Advertising Lens",
+    "description": "AWS Well-Architected Framework - Video Streaming Advertising Lens",
+    "pillars": [
+        {
+            "id": "operationalExcellence",
+            "name": "Operational Excellence",
+            "questions": [
+                {
+                    "id": "ADVOPS01",
+                    "title": "What organizational mechanisms do you have to support your advertising outcomes?",
+                    "description": "Effective organizational mechanisms are important for supporting successful advertising outcomes. It is important to assess the processes, roles, responsibilities, and performance management practices in place within the organization to ensure the efficient and reliable delivery of advertising workloads.",
+                    "choices": [
+                        {
+                            "id": "ADVOPS01_BP01",
+                            "title": "Assess trade-offs between ad serving architecture options and associated risks",
+                            "helpfulResource": {
+                                "displayText": "When designing the ad serving infrastructure, evaluate the trade-offs between different architectural approaches and their associated risks. This includes considering factors such as performance, scalability, availability, security, and cost to determine the optimal solution.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/video-streaming-advertising-lens/advops01-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Assess trade-offs between ad serving architecture options and associated risks",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/video-streaming-advertising-lens/advops01-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "ADVOPS01_BP02",
+                            "title": "Create RACI matrices that define the roles and responsibilities for each key advertising process like infrastructure monitoring",
+                            "helpfulResource": {
+                                "displayText": "When designing advertising workloads, define roles and set clear expectations for each stakeholder for seamless key advertising processes. By implementing this best practice, organizations can leverage RACI (responsible, accountable, consulted, and informed) matrices to establish a robust framework for accountability and decision-making.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/video-streaming-advertising-lens/advops01-bp02.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Create RACI matrices that define the roles and responsibilities for each key advertising process like infrastructure monitoring",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/video-streaming-advertising-lens/advops01-bp02.html"
+                            }
+                        },
+                        {
+                            "id": "ADVOPS01_BP03",
+                            "title": "Establish performance metrics by defining key performance indicators (KPIs) and service-level objectives (SLOs)",
+                            "helpfulResource": {
+                                "displayText": "Establishing a comprehensive set of operational performance metrics is critical in an advertising workload. It helps organizations to measure, monitor, and validate the performance of the advertising operations.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/video-streaming-advertising-lens/advops01-bp03.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Establish performance metrics by defining key performance indicators (KPIs) and service-level objectives (SLOs)",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/video-streaming-advertising-lens/advops01-bp03.html"
+                            }
+                        },
+                        {
+                            "id": "ADVOPS01_BP04",
+                            "title": "Establish data governance and compliance operations",
+                            "helpfulResource": {
+                                "displayText": "Advertising data management requires robust governance and compliance procedures, especially in a multi-Region environment. This best practice verifies adherence to regional data privacy laws while maintaining operational efficiency across global advertising operations.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/video-streaming-advertising-lens/advops01-bp04.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Establish data governance and compliance operations",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/video-streaming-advertising-lens/advops01-bp04.html"
+                            }
+                        },
+                        {
+                            "id": "ADVOPS01_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "ADVOPS01_BP01 && ADVOPS01_BP02 && ADVOPS01_BP03 && ADVOPS01_BP04",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!ADVOPS01_BP01) || (!ADVOPS01_BP02)",
+                            "risk": "HIGH_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "MEDIUM_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "ADVOPS02",
+                    "title": "How do you ensure comprehensive observability and monitoring across your advertising workload?",
+                    "description": "Advertising workloads often involve complex and distributed systems that must operate reliably and efficiently. To detect, diagnose, and resolve issues quickly, it's important to have comprehensive observability across the entire advertising workload. This includes implementing monitoring and logging solutions that provide visibility into key metrics, events, and dependencies between various components. By having a holistic view of the workload's performance and health, you can proactively identify and address problems. This approach can help ensure a reliable and predictable advertising experience for your customers.",
+                    "choices": [
+                        {
+                            "id": "ADVOPS02_BP01",
+                            "title": "Implement monitoring across each layer of your advertising stack including infrastructure, applications, and user experience",
+                            "helpfulResource": {
+                                "displayText": "Ensuring operational excellence in advertising workloads requires a holistic approach to monitoring. This best practice emphasizes the importance of implementing comprehensive monitoring solutions that span all layers of the advertising stack. The advertising stack includes the ad-serving infrastructure, data pipelines, application performance, and user experience. By monitoring these various components, you can gain a complete understanding of the overall health and performance of your advertising workload. This understanding helps you identify and address issues, optimize resource utilization, and deliver a seamless customer experience. With a multi-layered monitoring approach, you can proactively detect and resolve problems before they impact your business.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/video-streaming-advertising-lens/advops02-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Implement monitoring across each layer of your advertising stack including infrastructure, applications, and user experience",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/video-streaming-advertising-lens/advops02-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "ADVOPS02_BP02",
+                            "title": "Collect and analyze detailed metrics for successful operations and ad campaigns",
+                            "helpfulResource": {
+                                "displayText": "Advertising workloads can experience significant spikes in traffic and resource utilization, which can impact performance and availability. To maintain observability across these dynamic workloads, collect granular, one-second metrics with near real-time latency. Use advanced analytics, machine learning, and anomaly detection to continuously analyze this data and proactively identify issues before they impact campaigns. This level of observability and proactive issue detection improves the reliability and responsiveness of your advertising infrastructure, even during periods of high demand.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/video-streaming-advertising-lens/advops02-bp02.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Collect and analyze detailed metrics for successful operations and ad campaigns",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/video-streaming-advertising-lens/advops02-bp02.html"
+                            }
+                        },
+                        {
+                            "id": "ADVOPS02_BP03",
+                            "title": "Implement centralized logging to aggregate logs from all components of your advertising stack",
+                            "helpfulResource": {
+                                "displayText": "To provide comprehensive visibility and operational efficiency across your advertising stack, implement a centralized logging solution. You can gain a holistic view of your system's performance and behavior by aggregating logs from all components of your advertising stack, including third-party integrations and custom applications.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/video-streaming-advertising-lens/advops02-bp03.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Implement centralized logging to aggregate logs from all components of your advertising stack",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/video-streaming-advertising-lens/advops02-bp03.html"
+                            }
+                        },
+                        {
+                            "id": "ADVOPS02_BP04",
+                            "title": "Instrument your advertising application code and infrastructure to emit detailed, structured logs and metrics",
+                            "helpfulResource": {
+                                "displayText": "Instrument your advertising application code and infrastructure to emit detailed, structured logs and metrics to achieve comprehensive visibility into advertising workloads. Organizations can monitor all components of their workloads, define KPIs, and set up alerts for critical metrics by using observability services like Amazon CloudWatch. This structured approach enables teams to detect, diagnose, and resolve issues quickly. This approach also optimizes performance and reliability of advertising campaigns.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/video-streaming-advertising-lens/advops02-bp04.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Instrument your advertising application code and infrastructure to emit detailed, structured logs and metrics",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/video-streaming-advertising-lens/advops02-bp04.html"
+                            }
+                        },
+                        {
+                            "id": "ADVOPS02_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "ADVOPS02_BP01 && ADVOPS02_BP02 && ADVOPS02_BP03 && ADVOPS02_BP04",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!ADVOPS02_BP01) || (!ADVOPS02_BP02)",
+                            "risk": "HIGH_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "MEDIUM_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "ADVOPS03",
+                    "title": "How do you document runbooks to guide your teams to respond and resolve operational events that can impact your workload?",
+                    "description": "Advertising workloads often involve complex systems and processes that are susceptible to various operational events and incidents. These can include ad serving failures, data quality issues, regulatory changes, and other disruptions that can impact the performance and reliability of the advertising platform. Maintain well-documented runbooks and playbooks that guide your teams in effectively responding to and resolving these issues. You can improve the stability and resilience of your advertising workload by proactively identifying the most common operational events and incidents and establishing clear procedures for managing them.",
+                    "choices": [
+                        {
+                            "id": "ADVOPS03_BP01",
+                            "title": "Create runbooks for the most common operational events and incidents that can impact your workload",
+                            "helpfulResource": {
+                                "displayText": "Develop structured procedures to manage operational events and incidents in your advertising workloads. Runbooks provide step-by-step procedures for well-understood, routine operations, while playbooks guide your response to incidents with less predictable outcomes. These documented procedures assist teams to respond consistently and effectively, reducing human error and improving operational resilience.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/video-streaming-advertising-lens/advops03-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Create runbooks for the most common operational events and incidents that can impact your advertising workload",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/video-streaming-advertising-lens/advops03-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "ADVOPS03_BP02",
+                            "title": "Automate runbooks to gain operational efficiency",
+                            "helpfulResource": {
+                                "displayText": "Document runbooks for failover procedures, capacity scaling, and incident response workflows using AWS Systems Manager documents for automation.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/video-streaming-advertising-lens/advops03-bp02.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Automate runbooks to gain operational efficiency",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/video-streaming-advertising-lens/advops03-bp02.html"
+                            }
+                        },
+                        {
+                            "id": "ADVOPS03_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "ADVOPS03_BP01 && ADVOPS03_BP02",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!ADVOPS03_BP01)",
+                            "risk": "HIGH_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "MEDIUM_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "ADVOPS04",
+                    "title": "How do you manage operational processes for different data types, latency, and regulatory requirements in your workload?",
+                    "description": "Effective management of advertising data requires distinct operational processes based on data types and latency requirements. Organizations must implement appropriate procedures for handling real-time bidding data, user profiles, campaign data, and analytics while maintaining compliance with regional regulations and performance requirements.",
+                    "choices": [
+                        {
+                            "id": "ADVOPS04_BP01",
+                            "title": "Implement operational procedures based on data classification and latency requirements",
+                            "helpfulResource": {
+                                "displayText": "Managing advertising workloads requires different operational approaches based on data latency needs. This best practice focuses on establishing specific procedures for handling low-latency data like bid requests, medium-latency data such as campaign optimization, and high-latency data including historical analytics.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/video-streaming-advertising-lens/advops04-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Implement operational procedures based on data classification and latency requirements",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/video-streaming-advertising-lens/advops04-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "ADVOPS04_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "ADVOPS04_BP01",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!ADVOPS04_BP01)",
+                            "risk": "HIGH_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "MEDIUM_RISK"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "security",
+            "name": "Security",
+            "questions": [
+                {
+                    "id": "ADVSEC01",
+                    "title": "How do you manage access to your advertising platform?",
+                    "description": "Managing access to an advertising platform remains a critical security concern, as it involves protecting potentially sensitive data, financial information, and programmatic access while maintaining appropriate permissions for authorized users.",
+                    "choices": [
+                        {
+                            "id": "ADVSEC01_BP01",
+                            "title": "Implement user authentication and access control to protect bidding process and content",
+                            "helpfulResource": {
+                                "displayText": "Authenticate the approved SSPs (supply-side platforms) and advertisers. Based on this authentication, DSPs can provide them with least-privileged authorization and access to the relevant resources and data.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/video-streaming-advertising-lens/advsec01-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Implement user authentication and access control to protect bidding process and content",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/video-streaming-advertising-lens/advsec01-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "ADVSEC01_BP02",
+                            "title": "Restrict DSP access to allow only authorized SSPs",
+                            "helpfulResource": {
+                                "displayText": "Provide a mechanism to control and manage third-party access to each part of your cloud network environment.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/video-streaming-advertising-lens/advsec01-bp02.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Restrict DSP access to allow only authorized SSPs",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/video-streaming-advertising-lens/advsec01-bp02.html"
+                            }
+                        },
+                        {
+                            "id": "ADVSEC01_BP03",
+                            "title": "Restrict DSP outbound traffic to authorized SSPs only",
+                            "helpfulResource": {
+                                "displayText": "Address the risk of DSP unintentional data disclosure to SSPs that were not approved.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/video-streaming-advertising-lens/advsec01-bp03.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Restrict DSP outbound traffic to authorized SSPs only",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/video-streaming-advertising-lens/advsec01-bp03.html"
+                            }
+                        },
+                        {
+                            "id": "ADVSEC01_BP04",
+                            "title": "Implement authorization by setting access policies, and implement least privilege access to protect programmatic workloads",
+                            "helpfulResource": {
+                                "displayText": "Address the risk of authenticated advertisers and SSPs access to data they should not reach.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/video-streaming-advertising-lens/advsec01-bp04.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Implement authorization by setting access policies, and implement least privilege access to protect programmatic workloads",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/video-streaming-advertising-lens/advsec01-bp04.html"
+                            }
+                        },
+                        {
+                            "id": "ADVSEC01_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "ADVSEC01_BP01 && ADVSEC01_BP02 && ADVSEC01_BP03 && ADVSEC01_BP04",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!ADVSEC01_BP01) || (!ADVSEC01_BP02) || (!ADVSEC01_BP03) || (!ADVSEC01_BP04)",
+                            "risk": "HIGH_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "MEDIUM_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "ADVSEC02",
+                    "title": "How do you protect data in transit?",
+                    "description": "Protecting data in transit for advertising workloads is crucial as it involves the constant movement of potentially sensitive information including customer data, campaign metrics, and financial metrics across various portions of the network.",
+                    "choices": [
+                        {
+                            "id": "ADVSEC02_BP01",
+                            "title": "Encrypt DSP to SSP communication in transit using TLS",
+                            "helpfulResource": {
+                                "displayText": "Protect data in transit by using encrypted communication channel at the network communication level.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/video-streaming-advertising-lens/advsec02-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Encrypt DSP to SSP communication in transit using TLS",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/video-streaming-advertising-lens/advsec02-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "ADVSEC02_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "ADVSEC02_BP01",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!ADVSEC02_BP01)",
+                            "risk": "HIGH_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "MEDIUM_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "ADVSEC03",
+                    "title": "How do you protect availability of your programmatic advertisement platform?",
+                    "description": "Robust security measures protect advertisement workloads and can maintain desired uptime.",
+                    "choices": [
+                        {
+                            "id": "ADVSEC03_BP01",
+                            "title": "Use distributed denial of service (DDoS) protection service to maintain platform availability",
+                            "helpfulResource": {
+                                "displayText": "Deploying DDoS protection helps create strategies for robust system reliability against potential threats.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/video-streaming-advertising-lens/advsec03-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Use distributed denial of service (DDoS) protection service to maintain platform availability",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/video-streaming-advertising-lens/advsec03-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "ADVSEC03_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "ADVSEC03_BP01",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!ADVSEC03_BP01)",
+                            "risk": "HIGH_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "MEDIUM_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "ADVSEC04",
+                    "title": "How do you store and protect raw data in your DMP system?",
+                    "description": "A DMP solution often collects multiple forms of data from customers, advertising solutions, DSPs, and SSPs to transform raw data and provide insights to different portions of a cloud-based advertising workload. Protecting DMPs usually requires robust security measures for the different parts of the pipeline that ingest and transform data. Consider using Amazon S3 as a centralized data store. Amazon S3 is an object storage service that can securely store data for a range of use cases. For data protection, strict S3 bucket policies should be implemented that enforce encryption of data at rest and define strict access controls.",
+                    "choices": [
+                        {
+                            "id": "ADVSEC04_BP01",
+                            "title": "Implement secure data collaboration with least privileged access and privacy controls",
+                            "helpfulResource": {
+                                "displayText": "Raw data that is used in collaboration with SSPs, DSPs, and third-party systems need to be carefully shared to verify consumer privacy and data protection. Consider using AWS Clean Rooms, which enables more secure data collaboration without potentially exposing raw data and allows different parties to review and analyze data while maintaining strict privacy controls. With AWS Clean Rooms, you can create a more secure data clean room in minutes and collaborate with other companies to generate unique insights about advertising campaigns, investment decisions, and research and development.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/video-streaming-advertising-lens/advsec04-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Implement secure data collaboration with least privileged access and privacy controls",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/video-streaming-advertising-lens/advsec04-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "ADVSEC04_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "ADVSEC04_BP01",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!ADVSEC04_BP01)",
+                            "risk": "HIGH_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "MEDIUM_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "ADVSEC05",
+                    "title": "How do you detect and block fraud in your advertisement solution?",
+                    "description": "Traffic fraud in digital advertising could impact the advertising solution by affecting ad spend through fake clicks, bot traffic, and manipulation schemes. Workloads benefit from resilient and secure systems that implement defense in depth strategies for fraud prevention. Effective protection assists advertisers optimize budgets by focusing on genuine traffic and properly represented inventory, while publishers can maintain reputation and revenue by addressing fraudulent activities on their solution.",
+                    "choices": [
+                        {
+                            "id": "ADVSEC05_BP01",
+                            "title": "Validate and sanitize content before running a campaign",
+                            "helpfulResource": {
+                                "displayText": "Content validation is essential to mitigate ad fraud and block unwanted content from reaching ad audience.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/video-streaming-advertising-lens/advsec05-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Validate and sanitize content before running a campaign",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/video-streaming-advertising-lens/advsec05-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "ADVSEC05_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "ADVSEC05_BP01",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!ADVSEC05_BP01)",
+                            "risk": "HIGH_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "MEDIUM_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "ADVSEC06",
+                    "title": "How do you verify that you adhere to regulatory requirements for your advertising solution?",
+                    "description": "Compliance is essential for organizations as it supports organizational growth and enables organizations to operate legally across different jurisdictions. Also, compliance standards enhance data protection and security, by addressing requirements such as General Data Protection Regulation (GDPR) or NIST frameworks you verify proper data storage, handling, and deletion protocols.",
+                    "choices": [
+                        {
+                            "id": "ADVSEC06_BP01",
+                            "title": "Verify your advertising workload remains adherent to data protection regulations",
+                            "helpfulResource": {
+                                "displayText": "Maintaining compliance is essential to operate and grow your solution. Data encryption is a key requirement for several compliance programs; you can utilize AWS KMS to facilitate data encryption and key management for your solution. KMS allows for the creation and management of cryptographic keys which can be used to encrypt data at rest and in transit. It simply integrates with other AWS services and maintains an audit trail for key usage. KMS also maintains validation and certifications from multiple compliance regimes including FIPS, PCI DSS, and HIPAA.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/video-streaming-advertising-lens/advsec06-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Verify your advertising workload remains adherent to data protection regulations",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/video-streaming-advertising-lens/advsec06-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "ADVSEC06_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "ADVSEC06_BP01",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!ADVSEC06_BP01)",
+                            "risk": "HIGH_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "MEDIUM_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "ADVSEC07",
+                    "title": "How do you balance user privacy concerns with effective ad targeting?",
+                    "description": "A privacy sandbox within a web browser is designed to limit and reduce cross-site and cross-application tracking. This highlights a new age of user privacy, where there are less trackers between a user's internet browser and the end connections designed to increase a user's privacy. There is also an improved user experience with enhanced browser security and more transparent data practices.",
+                    "choices": [
+                        {
+                            "id": "ADVSEC07_BP01",
+                            "title": "Enable secure data privacy and collaboration between advertisers while protecting user privacy",
+                            "helpfulResource": {
+                                "displayText": "Delivering a privacy-centric advertising infrastructure assists to optimize your system to keep privacy which focuses on data minimization and secure processing.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/video-streaming-advertising-lens/advsec07-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Enable secure data privacy and collaboration between advertisers while protecting user privacy",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/video-streaming-advertising-lens/advsec07-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "ADVSEC07_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "ADVSEC07_BP01",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!ADVSEC07_BP01)",
+                            "risk": "HIGH_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "MEDIUM_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "ADVSEC08",
+                    "title": "How do you verify brand safety and proper content moderation in your workload?",
+                    "description": "Facilitating brand safety while meeting regulatory, security, and privacy standards in for your advertising workloads is essential for multiple reasons. Legal compliance is equally critical, as adherence to regulations like GDPR and CCPA assists to avoid fines while facilitating proper handling of personally identifiable information (PII). Financial security is protected by blocking fraud and misplacement, verifying ads appear in appropriate contexts and maximizing ROI on ad spend.",
+                    "choices": [
+                        {
+                            "id": "ADVSEC08_BP01",
+                            "title": "Create guardrails and controls to maintain brand safety and content moderation within your workload",
+                            "helpfulResource": {
+                                "displayText": "Brand reputation protection can block brand association with inappropriate or otherwise harmful content. Having guardrails can maintain customer trust and potential business relationships while avoiding reputational damage and negative publicity.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/video-streaming-advertising-lens/advsec08-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Create guardrails and controls to maintain brand safety and content moderation within your workload",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/video-streaming-advertising-lens/advsec08-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "ADVSEC08_BP02",
+                            "title": "Look for opportunities to block ad fraud and enhance transparency in your advertising solution",
+                            "helpfulResource": {
+                                "displayText": "DSP's need to verify their advertisers and agencies are purchasing legitimate advertising inventory across potentially multiple exchanges in real time. Consider implementing an ads.txt file, designed by IAB tech labs, is designed to enable additional transparency within the advertising solution by allowing DSPs to review legitimate companies authorized to market their advertisement inventory.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/video-streaming-advertising-lens/advsec08-bp02.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Look for opportunities to block ad fraud and enhance transparency in your advertising solution",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/video-streaming-advertising-lens/advsec08-bp02.html"
+                            }
+                        },
+                        {
+                            "id": "ADVSEC08_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "ADVSEC08_BP01 && ADVSEC08_BP02",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!ADVSEC08_BP01) || (!ADVSEC08_BP02)",
+                            "risk": "HIGH_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "MEDIUM_RISK"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "reliability",
+            "name": "Reliability",
+            "questions": [
+                {
+                    "id": "ADVREL01",
+                    "title": "How do you design your advertising workload service architecture around reliability?",
+                    "description": "Evaluate architectural approaches for building resilient systems through loosely coupled designs, including SOA, microservices, and event-driven patterns. Define recovery objectives, implement scalable solutions for handling demand fluctuations, and apply chaos engineering to validate system reliability and failure recovery capabilities.",
+                    "choices": [
+                        {
+                            "id": "ADVREL01_BP01",
+                            "title": "Use loosely-coupled architectures to enable graceful recovery from failures",
+                            "helpfulResource": {
+                                "displayText": "Use architecture patterns like service-oriented architecture (SOA), microservices, and event-driven architecture (EDA) to recover quickly and efficiently from failure. These architectural patterns enable robust failure recovery through loosely coupled designs and enhance system resilience and component self-sufficiency.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/video-streaming-advertising-lens/advrel01-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Use loosely-coupled architectures to enable graceful recovery from failures",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/video-streaming-advertising-lens/advrel01-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "ADVREL01_BP02",
+                            "title": "Architect your system with appropriate recovery objectives",
+                            "helpfulResource": {
+                                "displayText": "Avoid over- or under-architecting your services by working backwards from your services' recovery objectives, striking a balance with adjacent pillars such as cost optimization and operational excellence. KPIs established in the operational excellence pillar should inform approaches to reliability.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/video-streaming-advertising-lens/advrel01-bp02.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Architect your system with appropriate recovery objectives",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/video-streaming-advertising-lens/advrel01-bp02.html"
+                            }
+                        },
+                        {
+                            "id": "ADVREL01_BP03",
+                            "title": "Architect for variable demand",
+                            "helpfulResource": {
+                                "displayText": "Architect to elastically launch resources for variable demand, including the most challenging peak events, like flash crowds or thundering herds.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/video-streaming-advertising-lens/advrel01-bp03.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Architect for variable demand",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/video-streaming-advertising-lens/advrel01-bp03.html"
+                            }
+                        },
+                        {
+                            "id": "ADVREL01_BP04",
+                            "title": "Implement chaos engineering practices",
+                            "helpfulResource": {
+                                "displayText": "Accept that everything fails, all the time, (Dr. Werner Vogels, Amazon CTO), and safely disrupt things on your terms to discover faults and fragility so that you can later improve services.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/video-streaming-advertising-lens/advrel01-bp04.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Implement chaos engineering practices",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/video-streaming-advertising-lens/advrel01-bp04.html"
+                            }
+                        },
+                        {
+                            "id": "ADVREL01_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "ADVREL01_BP01 && ADVREL01_BP02 && ADVREL01_BP03 && ADVREL01_BP04",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!ADVREL01_BP01) || (!ADVREL01_BP02)",
+                            "risk": "HIGH_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "MEDIUM_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "ADVREL02",
+                    "title": "How do your latency sensitive advertising workloads react to including throttling and rate-limiting scenarios?",
+                    "description": "Consider strategies for managing latency-sensitive advertising workloads through throttling and rate-limiting implementations. Avoid traditional retry mechanisms for fast-failing services, implement effective caching strategies, and proportionally scale across all system components to maintain consistent performance.",
+                    "choices": [
+                        {
+                            "id": "ADVREL02_BP01",
+                            "title": "To allow fast and graceful failure of latency-sensitive services, avoid exponential backing off and retry",
+                            "helpfulResource": {
+                                "displayText": "With real-time bidding systems, your workload must handle failures in latency-sensitive services. Traditional exponential backoff and retry mechanisms should be avoided. Instead, opt for fast-fail approaches and appropriate rate-limiting techniques to maintain service responsiveness.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/video-streaming-advertising-lens/advrel02-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "To allow fast and graceful failure of latency-sensitive services, avoid exponential backing off and retry",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/video-streaming-advertising-lens/advrel02-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "ADVREL02_BP02",
+                            "title": "Implement a caching strategy",
+                            "helpfulResource": {
+                                "displayText": "Implementing caching strategies enhances system reliability and performance. Evaluate different caching levels from client-side to server-side, and explore various caching solutions, including ElastiCache, third-party databases, and CDNs for optimizing ad payload delivery and reducing backend load.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/video-streaming-advertising-lens/advrel02-bp02.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Implement a caching strategy",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/video-streaming-advertising-lens/advrel02-bp02.html"
+                            }
+                        },
+                        {
+                            "id": "ADVREL02_BP03",
+                            "title": "Prevent scale mismatch of both internal services and external partners",
+                            "helpfulResource": {
+                                "displayText": "It's important to implement proportional scaling across all system components in advertising workloads. Balance service capacities, particularly in DSP to SSP integrations, and use pub/sub patterns to reliably distribute load and prevent service overload in microservices architectures.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/video-streaming-advertising-lens/advrel02-bp03.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Prevent scale mismatch of both internal services and external partners",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/video-streaming-advertising-lens/advrel02-bp03.html"
+                            }
+                        },
+                        {
+                            "id": "ADVREL02_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "ADVREL02_BP01 && ADVREL02_BP02 && ADVREL02_BP03",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!ADVREL02_BP01) || (!ADVREL02_BP02)",
+                            "risk": "HIGH_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "MEDIUM_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "ADVREL03",
+                    "title": "How have you designed application to achieve reliability in single- and multi-Region deployments?",
+                    "description": "There are multiple strategies for achieving reliability in single and multi-Region deployments. Implement full Regional deployment using auto scaling and container orchestration. Select AWS Regions based on legal and disaster recovery requirements. Configure your databases with appropriate reliability and recovery strategies. Manage service capacity through proper resource reservation and load testing.",
+                    "choices": [
+                        {
+                            "id": "ADVREL03_BP01",
+                            "title": "Use a full Regional deployment for compute resources through Auto Scaling groups and compute container orchestrators",
+                            "helpfulResource": {
+                                "displayText": "Deploy compute resources across multiple Availability Zones (AZs) and Regions to enhance application resilience. Implement zone-aware architectures to optimize performance and manage costs, and focus on intra-AZ communication and load balancing configurations.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/video-streaming-advertising-lens/advrel03-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Use a full Regional deployment for compute resources through Auto Scaling groups and compute container orchestrators",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/video-streaming-advertising-lens/advrel03-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "ADVREL03_BP02",
+                            "title": "Choose AWS Regions that meet your legal and disaster recovery requirements",
+                            "helpfulResource": {
+                                "displayText": "Select AWS Regions based on compliance and disaster recovery needs. It emphasizes the importance of understanding data jurisdiction requirements, particularly for advertising systems, and explains how regional choices impact both regulatory compliance (like GDPR) and system redundancy.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/video-streaming-advertising-lens/advrel03-bp02.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Choose AWS Regions that meet your legal and disaster recovery requirements",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/video-streaming-advertising-lens/advrel03-bp02.html"
+                            }
+                        },
+                        {
+                            "id": "ADVREL03_BP03",
+                            "title": "Configure databases to span across multiple Availability Zones",
+                            "helpfulResource": {
+                                "displayText": "Explore database configuration strategies for reliability and disaster recovery, such as periodic snapshots to warm standby solutions. Evaluate trade-offs between single-AZ and multi-AZ deployments, costs considerations, and specific recovery time objectives (RTO).",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/video-streaming-advertising-lens/advrel03-bp03.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Configure databases to span across multiple Availability Zones",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/video-streaming-advertising-lens/advrel03-bp03.html"
+                            }
+                        },
+                        {
+                            "id": "ADVREL03_BP04",
+                            "title": "Reserve appropriate capacity of services in the supported Regions",
+                            "helpfulResource": {
+                                "displayText": "Manage service capacity across multiple Regions. Perform regular load testing at five times your baseline RTB traffic levels to validate capacity requirements. Validate that appropriate reservations are made to handle normal operations, peak loads, and potential disruptions.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/video-streaming-advertising-lens/advrel03-bp04.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Reserve appropriate capacity of services in the supported Regions",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/video-streaming-advertising-lens/advrel03-bp04.html"
+                            }
+                        },
+                        {
+                            "id": "ADVREL03_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "ADVREL03_BP01 && ADVREL03_BP02 && ADVREL03_BP03 && ADVREL03_BP04",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!ADVREL03_BP01) || (!ADVREL03_BP02)",
+                            "risk": "HIGH_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "MEDIUM_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "ADVREL04",
+                    "title": "How do you prevent regression from changes in your application and infrastructure?",
+                    "description": "Changes to your advertising workload or its environment must be anticipated and accommodated to achieve reliable operation of the workload. Changes include those imposed on your workload such as spikes in demand, as well as those from within such as feature deployments and security patches.",
+                    "choices": [
+                        {
+                            "id": "ADVREL04_BP01",
+                            "title": "Through your CI/CD pipeline, employ end-to-end regression, performance, and canary testing",
+                            "helpfulResource": {
+                                "displayText": "Integrate comprehensive testing methodologies into CI/CD pipelines for advertising workloads. Monitor key metrics like 5xx errors and latency, especially in RTB systems, and respond quickly to issues through immediate engagement and fast rollbacks.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/video-streaming-advertising-lens/advrel04-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Through your CI/CD pipeline, employ end-to-end regression, performance, and canary testing",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/video-streaming-advertising-lens/advrel04-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "ADVREL04_BP02",
+                            "title": "Deploy new code or resources in staggered phases, separated by sufficient time, to verify that the changes are successful",
+                            "helpfulResource": {
+                                "displayText": "Implement gradual, phased deployments to minimize risks and service impacts when updating systems.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/video-streaming-advertising-lens/advrel04-bp02.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Deploy new code or resources in staggered phases, separated by sufficient time, to verify that the changes are successful",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/video-streaming-advertising-lens/advrel04-bp02.html"
+                            }
+                        },
+                        {
+                            "id": "ADVREL04_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "ADVREL04_BP01 && ADVREL04_BP02",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!ADVREL04_BP01)",
+                            "risk": "HIGH_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "MEDIUM_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "ADVREL05",
+                    "title": "How do you continuously evaluate the resilience of your advertising workload to meet availability and recovery requirements?",
+                    "description": "Continuous resilience evaluation of advertising workloads can be achieved through two main approaches. Perform regular fault tolerance testing and assessment using tools like AWS Gamedays, Well-Architected Framework Reviews, and Support Countdowns. Additionally, create and test disaster recovery procedures through documented runbooks and restoration processes, which helps you quickly recover during incidents.",
+                    "choices": [
+                        {
+                            "id": "ADVREL05_BP01",
+                            "title": "Perform routine evaluation of your workload's fault tolerance capabilities",
+                            "helpfulResource": {
+                                "displayText": "Resiliency evaluations should not be considered a one-time effort, but a continuous part of any workload's lifecycle.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/video-streaming-advertising-lens/advrel05-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Perform routine evaluation of your workload's fault tolerance capabilities",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/video-streaming-advertising-lens/advrel05-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "ADVREL05_BP02",
+                            "title": "Create disaster recovery (DR) runbooks, and regularly test documented backup and restoration processes",
+                            "helpfulResource": {
+                                "displayText": "Processes for backup, restoration, and failover of data should be documented and regularly tested to validate efficacy and understanding.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/video-streaming-advertising-lens/advrel05-bp02.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Create disaster recovery (DR) runbooks, and regularly test documented backup and restoration processes",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/video-streaming-advertising-lens/advrel05-bp02.html"
+                            }
+                        },
+                        {
+                            "id": "ADVREL05_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "ADVREL05_BP01 && ADVREL05_BP02",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!ADVREL05_BP01)",
+                            "risk": "HIGH_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "MEDIUM_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "ADVREL06",
+                    "title": "How does the architecture handle challenges involved with tens to hundreds of partners running in a hybrid environment?",
+                    "description": "Identify the components in your workload which are outside your control, and the mechanisms which you have implemented to maintain your workload's availability when operations with those dependencies are disrupted.",
+                    "choices": [
+                        {
+                            "id": "ADVREL06_BP01",
+                            "title": "Architect defensively against failures",
+                            "helpfulResource": {
+                                "displayText": "Acknowledge that systems and services occasionally fail, and some failures will come from external partners and dependencies outside of your control.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/video-streaming-advertising-lens/advrel06-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Architect defensively against failures",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/video-streaming-advertising-lens/advrel06-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "ADVREL06_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "ADVREL06_BP01",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!ADVREL06_BP01)",
+                            "risk": "HIGH_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "MEDIUM_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "ADVREL07",
+                    "title": "How do you handle component failures and disaster recovery?",
+                    "description": "Handle component failures and disaster recovery by designing fault-tolerant systems using cell-based architectures and distributed resources. Implement backup strategies aligned with RTO/RPO objectives. Manage data backup across multiple locations, and comply with required regulations.",
+                    "choices": [
+                        {
+                            "id": "ADVREL07_BP01",
+                            "title": "Design your workloads to withstand failures of individual components, such as compute instances, queues, databases, and caches",
+                            "helpfulResource": {
+                                "displayText": "Build building resilient advertising systems by identifying critical components, and implement fault tolerance through cell-based architectures and distributed resources across Availability Zones.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/video-streaming-advertising-lens/advrel07-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Design your workloads to withstand failures of individual components, such as compute instances, queues, databases, and caches",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/video-streaming-advertising-lens/advrel07-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "ADVREL07_BP02",
+                            "title": "Implement a backup strategy which would meet RTO and RPO objectives",
+                            "helpfulResource": {
+                                "displayText": "Develop comprehensive backup strategies, focusing on data classification and meeting Recovery Time Objective (RTO) and Recovery Point Objective (RPO) requirements through appropriate service selection.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/video-streaming-advertising-lens/advrel07-bp02.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Implement a backup strategy which would meet RTO and RPO objectives",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/video-streaming-advertising-lens/advrel07-bp02.html"
+                            }
+                        },
+                        {
+                            "id": "ADVREL07_BP03",
+                            "title": "Back up data in multiple locations with consideration for your regulatory or legal requirements",
+                            "helpfulResource": {
+                                "displayText": "Back up data in multiple locations, and consider how consumer privacy laws may impact your data replication and storage plans.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/video-streaming-advertising-lens/advrel07-bp03.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Back up data in multiple locations with consideration for your regulatory or legal requirements",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/video-streaming-advertising-lens/advrel07-bp03.html"
+                            }
+                        },
+                        {
+                            "id": "ADVREL07_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "ADVREL07_BP01 && ADVREL07_BP02 && ADVREL07_BP03",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!ADVREL07_BP01) || (!ADVREL07_BP02)",
+                            "risk": "HIGH_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "MEDIUM_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "ADVREL08",
+                    "title": "How do you verify privacy while building reliable collaborations between multiple parties in your system?",
+                    "description": "Privacy-enhanced collaboration systems (such systems allow multiple parties to work together on advertising campaigns and data analysis while protecting individual user privacy and sensitive business data) require high reliability to maintain secure and consistent data sharing between parties while verifying data integrity and availability. Implementing reliable practices involves designing resilient architectures, maintaining data consistency, and verifying robust recovery mechanisms while preserving privacy. This includes redundancy in critical components, proper error handling, and maintaining service availability across different Regions.",
+                    "choices": [
+                        {
+                            "id": "ADVREL08_BP01",
+                            "title": "Design resilient architectures with privacy-preserving fault tolerance",
+                            "helpfulResource": {
+                                "displayText": "Build resilient architectures that maintain data privacy in multi-party collaborations, focusing on fault-tolerant AWS Clean Rooms deployment, encrypted failover mechanisms, and privacy-preserving disaster recovery procedures.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/video-streaming-advertising-lens/advrel08-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Design resilient architectures with privacy-preserving fault tolerance",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/video-streaming-advertising-lens/advrel08-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "ADVREL08_BP02",
+                            "title": "Maintain data consistency and availability across collaboration workflows",
+                            "helpfulResource": {
+                                "displayText": "Data consistency and availability is critical when working with multiple stakeholders or workflows. Implement tools like versioning, logging, and health checks to verify that data remains consistent and available.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/video-streaming-advertising-lens/advrel08-bp02.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Maintain data consistency and availability across collaboration workflows",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/video-streaming-advertising-lens/advrel08-bp02.html"
+                            }
+                        },
+                        {
+                            "id": "ADVREL08_BP03",
+                            "title": "Implement secure and privacy-preserving recovery mechanisms for collaboration workloads",
+                            "helpfulResource": {
+                                "displayText": "Ad data requires security and preservation of privacy. Implement tooling and systems that preserve secure data and avoid privacy breaches when collaborating with first and third parties, and verify that you have disaster recovery and automated backup mechanisms in place.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/video-streaming-advertising-lens/advrel08-bp03.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Implement secure and privacy-preserving recovery mechanisms for collaboration workloads",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/video-streaming-advertising-lens/advrel08-bp03.html"
+                            }
+                        },
+                        {
+                            "id": "ADVREL08_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "ADVREL08_BP01 && ADVREL08_BP02 && ADVREL08_BP03",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!ADVREL08_BP01) || (!ADVREL08_BP02)",
+                            "risk": "HIGH_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "MEDIUM_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "ADVREL09",
+                    "title": "How do you verify reliable ad measurement and verification across digital advertising solutions?",
+                    "description": "Ad measurement and verification reliability requires robust systems to accurately track, validate, and report advertising performance metrics while accounting for fraud, viewability, and data quality issues. This includes implementing redundant verification methods, maintaining data accuracy across multiple solutions, and verifying consistent measurement capabilities even during system failures or data anomalies.",
+                    "choices": [
+                        {
+                            "id": "ADVREL09_BP01",
+                            "title": "Implement redundant ad-verification systems with automated failover mechanisms",
+                            "helpfulResource": {
+                                "displayText": "Implement redundant ad-verification systems with automated failover capabilities. Use multiple verification providers and automated monitoring for continuous, reliable advertising measurement and validation.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/video-streaming-advertising-lens/advrel09-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Implement redundant ad-verification systems with automated failover mechanisms",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/video-streaming-advertising-lens/advrel09-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "ADVREL09_BP02",
+                            "title": "Establish robust data collection and validation pipelines for measurement accuracy",
+                            "helpfulResource": {
+                                "displayText": "Build reliable data collection and validation pipelines, emphasizing real-time monitoring, automated reconciliation, and recovery procedures to maintain measurement accuracy in advertising systems.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/video-streaming-advertising-lens/advrel09-bp02.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Establish robust data collection and validation pipelines for measurement accuracy",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/video-streaming-advertising-lens/advrel09-bp02.html"
+                            }
+                        },
+                        {
+                            "id": "ADVREL09_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "ADVREL09_BP01 && ADVREL09_BP02",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!ADVREL09_BP01)",
+                            "risk": "HIGH_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "MEDIUM_RISK"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "performance",
+            "name": "Performance Efficiency",
+            "questions": [
+                {
+                    "id": "ADVPERF01",
+                    "title": "How does your architecture account for advertising workload needs like low latency and bursty traffic?",
+                    "description": "Focus on the architecture design needs for your advertising workload, including networking, compute, storage, machine learning workloads, decision between self-managed and managed services. Address the low latency, burst traffic, and scaling needs of advertising workloads.",
+                    "choices": [
+                        {
+                            "id": "ADVPERF01_BP01",
+                            "title": "Design geographical affinity architecture with external entities (DSPs and SSPs)",
+                            "helpfulResource": {
+                                "displayText": "Design for the least-network path, but keep regulatory needs in consideration. Use the AWS backbone network to improve latency.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/video-streaming-advertising-lens/advperf01-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Design geographical affinity architecture with external entities (DSPs and SSPs)",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/video-streaming-advertising-lens/advperf01-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "ADVPERF01_BP02",
+                            "title": "Use appropriate scaling to handle burst traffic with cost considerations",
+                            "helpfulResource": {
+                                "displayText": "Consider start-up latency and scaling needs to handle burst traffic for networking, compute, and storage resources.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/video-streaming-advertising-lens/advperf01-bp02.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Use appropriate scaling to handle burst traffic with cost considerations",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/video-streaming-advertising-lens/advperf01-bp02.html"
+                            }
+                        },
+                        {
+                            "id": "ADVPERF01_BP03",
+                            "title": "Design for low latency with appropriate compute, storage, and network considerations",
+                            "helpfulResource": {
+                                "displayText": "Use features from AWS compute, storage, and network services that cater to low latency advertising workload needs.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/video-streaming-advertising-lens/advperf01-bp03.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Design for low latency with appropriate compute, storage, and network considerations",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/video-streaming-advertising-lens/advperf01-bp03.html"
+                            }
+                        },
+                        {
+                            "id": "ADVPERF01_BP04",
+                            "title": "Evaluate AI/ML-based architecture for optimization (like contextual advertising or scaling algorithms on event context)",
+                            "helpfulResource": {
+                                "displayText": "Use AWS services to implement a low latency, high throughput inference and MLOps framework.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/video-streaming-advertising-lens/advperf01-bp04.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Evaluate AI/ML-based architecture for optimization (like contextual advertising or scaling algorithms on event context)",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/video-streaming-advertising-lens/advperf01-bp04.html"
+                            }
+                        },
+                        {
+                            "id": "ADVPERF01_BP05",
+                            "title": "Evaluate the choice of open source-based software (self-managed) against using a fully-managed service",
+                            "helpfulResource": {
+                                "displayText": "Open source-based software is widely used by customers for advertising workloads. Carefully evaluate the factors for adoption of self-managed and managed services.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/video-streaming-advertising-lens/advperf01-bp05.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Evaluate the choice of open source-based software (self-managed) against using a fully-managed service",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/video-streaming-advertising-lens/advperf01-bp05.html"
+                            }
+                        },
+                        {
+                            "id": "ADVPERF01_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "ADVPERF01_BP01 && ADVPERF01_BP02 && ADVPERF01_BP03 && ADVPERF01_BP04 && ADVPERF01_BP05",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!ADVPERF01_BP01) || (!ADVPERF01_BP02) || (!ADVPERF01_BP03)",
+                            "risk": "HIGH_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "MEDIUM_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "ADVPERF02",
+                    "title": "How do you select and configure compute resources to optimize ISV compatibility, scaling, latency, and costs for ad workloads?",
+                    "description": "There are many compute choices to be considered for advertising workloads, with popular adtech ISV products, cloud native and machine learning needs, addressing low latency, burst traffic, and scaling design principles.",
+                    "choices": [
+                        {
+                            "id": "ADVPERF02_BP01",
+                            "title": "Evaluate compute benchmarks and compute options certified by the ISVs if applicable",
+                            "helpfulResource": {
+                                "displayText": "Evaluate ISV compatibility for running on AWS, and use the right resources based on published benchmarking results.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/video-streaming-advertising-lens/advperf02-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Evaluate compute benchmarks and compute options certified by the ISVs if applicable",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/video-streaming-advertising-lens/advperf02-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "ADVPERF02_BP02",
+                            "title": "Consider containerization for scalability, low latency, and cost optimization",
+                            "helpfulResource": {
+                                "displayText": "Adopt containerization as a strategy to operate at scale with low latency and cost optimization. Evaluate the various options of running container workloads on AWS.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/video-streaming-advertising-lens/advperf02-bp02.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Consider containerization for scalability, low latency, and cost optimization",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/video-streaming-advertising-lens/advperf02-bp02.html"
+                            }
+                        },
+                        {
+                            "id": "ADVPERF02_BP03",
+                            "title": "Consider using low latency scaling tools like Karpenter to improve startup and scaling time",
+                            "helpfulResource": {
+                                "displayText": "Integrate observability metrics to initiate scaling of compute resources. Use open-source frameworks like Karpenter and KEDA, which provide for low startup latency scaling.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/video-streaming-advertising-lens/advperf02-bp03.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Consider using low latency scaling tools like Karpenter to improve startup and scaling time",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/video-streaming-advertising-lens/advperf02-bp03.html"
+                            }
+                        },
+                        {
+                            "id": "ADVPERF02_BP04",
+                            "title": "Use a specialized instance family and features",
+                            "helpfulResource": {
+                                "displayText": "For advertising workloads, consider using a specialized instance family like compute-optimized for ad serving, storage-optimized for in-memory database, Trainium-based for machine learning (ML), and Inferentia-based for ML inferences.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/video-streaming-advertising-lens/advperf02-bp04.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Use a specialized instance family and features",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/video-streaming-advertising-lens/advperf02-bp04.html"
+                            }
+                        },
+                        {
+                            "id": "ADVPERF02_BP05",
+                            "title": "Evaluate ARM architecture for performance considerations by using AWS Graviton",
+                            "helpfulResource": {
+                                "displayText": "To address the low latency and high throughput needs of advertising workloads, consider adopting ARM architecture using AWS Graviton for improved performance and cost optimization.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/video-streaming-advertising-lens/advperf02-bp05.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Evaluate ARM architecture for performance considerations by using AWS Graviton",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/video-streaming-advertising-lens/advperf02-bp05.html"
+                            }
+                        },
+                        {
+                            "id": "ADVPERF02_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "ADVPERF02_BP01 && ADVPERF02_BP02 && ADVPERF02_BP03 && ADVPERF02_BP04 && ADVPERF02_BP05",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!ADVPERF02_BP02) || (!ADVPERF02_BP04)",
+                            "risk": "HIGH_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "MEDIUM_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "ADVPERF03",
+                    "title": "How do you choose the right storage services for your advertising workload?",
+                    "description": "In the fast-paced and data-intensive advertising industry, efficient storage solutions are crucial for handling large volumes of data generated from various sources, such as user interactions, advertising campaigns, and real-time bidding processes. With a wide range of purpose-built storage services available, you should understand the unique requirements of your advertising workload and choose the services that best align with your needs.",
+                    "choices": [
+                        {
+                            "id": "ADVPERF03_BP01",
+                            "title": "Choose appropriate block storage options to power your advertising workload",
+                            "helpfulResource": {
+                                "displayText": "Block storage is crucial for data storage in the cloud. Customers need to choose the appropriate block storage service based on different types of workloads, as well as their requirements for storage performance and stability.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/video-streaming-advertising-lens/advperf03-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Choose appropriate block storage options to power your advertising workload",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/video-streaming-advertising-lens/advperf03-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "ADVPERF03_BP02",
+                            "title": "Use object storage to store and analyze raw data from ad servers, DSPs, and DMP",
+                            "helpfulResource": {
+                                "displayText": "Object storage can be used to store massive amounts of data while balancing cost and performance. Customers can use object storage services to build data lakes and analyze this data to uncover valuable insights and achieve business goals.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/video-streaming-advertising-lens/advperf03-bp02.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Use object storage to store and analyze raw data from ad servers, DSPs, and DMP",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/video-streaming-advertising-lens/advperf03-bp02.html"
+                            }
+                        },
+                        {
+                            "id": "ADVPERF03_BP03",
+                            "title": "Use a cloud file system to store shared data between applications",
+                            "helpfulResource": {
+                                "displayText": "File storage services (such as Amazon EFS) provide a simple way to set up and scale file systems and are widely used for big data and analytics workloads, media processing workflows, and content management scenarios. They are well-suited for distributed workloads and applications that need to share files across multiple EC2 instances.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/video-streaming-advertising-lens/advperf03-bp03.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Use a cloud file system to store shared data between applications",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/video-streaming-advertising-lens/advperf03-bp03.html"
+                            }
+                        },
+                        {
+                            "id": "ADVPERF03_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "ADVPERF03_BP01 && ADVPERF03_BP02 && ADVPERF03_BP03",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!ADVPERF03_BP01) || (!ADVPERF03_BP02)",
+                            "risk": "HIGH_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "MEDIUM_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "ADVPERF04",
+                    "title": "How do you choose the right data management solution for your advertising workload?",
+                    "description": "Advertising workloads have different data classification, availability, and access latency needs based on their subsystems. Implement a strategy to identify an appropriate AWS data store service option, along with scaling and monitoring considerations.",
+                    "choices": [
+                        {
+                            "id": "ADVPERF04_BP01",
+                            "title": "Choose a data management strategy that matches your availability, latency, and access requirements",
+                            "helpfulResource": {
+                                "displayText": "Customers need to have a clear data management strategy for their advertising workload datastores. The factors to consider are latency needs, availability needs which will help them chose the right AWS data service.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/video-streaming-advertising-lens/advperf04-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Choose a data management strategy that matches your availability, latency, and access requirements",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/video-streaming-advertising-lens/advperf04-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "ADVPERF04_BP02",
+                            "title": "Consider purpose-built and streaming databases",
+                            "helpfulResource": {
+                                "displayText": "Purpose-built databases offer low latency and can better meet the scaling needs of advertising workloads.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/video-streaming-advertising-lens/advperf04-bp02.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Consider purpose-built and streaming databases",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/video-streaming-advertising-lens/advperf04-bp02.html"
+                            }
+                        },
+                        {
+                            "id": "ADVPERF04_BP03",
+                            "title": "Review your distributed database setup (sharding and replication) for performance, cost, and availability needs",
+                            "helpfulResource": {
+                                "displayText": "Customers need to consider tradeoffs between performance, cost, and availability needs, while using features like sharding for scaling and replication for availability requirements.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/video-streaming-advertising-lens/advperf04-bp03.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Review your distributed database setup (sharding and replication) for performance, cost, and availability needs",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/video-streaming-advertising-lens/advperf04-bp03.html"
+                            }
+                        },
+                        {
+                            "id": "ADVPERF04_BP04",
+                            "title": "Enable detailed performance and observability monitoring to help tune queries and refine compute and storage",
+                            "helpfulResource": {
+                                "displayText": "Provide access to necessary tools and metric granularity for performance debugging and compute and storage optimization, in particular because of the low latency requirements for advertising workloads.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/video-streaming-advertising-lens/advperf04-bp04.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Enable detailed performance and observability monitoring to help tune queries and refine compute and storage",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/video-streaming-advertising-lens/advperf04-bp04.html"
+                            }
+                        },
+                        {
+                            "id": "ADVPERF04_BP05",
+                            "title": "Manage high volume user profile data",
+                            "helpfulResource": {
+                                "displayText": "The user profile database is typically large, ranging from 100-200 million to 5 billion user profiles and contains a wide range of data about users' online activities and interactions. Hence this should be retained for a short time in the range of 30 days -1-year max, to manage data storage costs and data query latency SLO's.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/video-streaming-advertising-lens/advperf04-bp05.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Manage high volume user profile data",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/video-streaming-advertising-lens/advperf04-bp05.html"
+                            }
+                        },
+                        {
+                            "id": "ADVPERF04_BP06",
+                            "title": "Consider AWS Clean Rooms collaboration",
+                            "helpfulResource": {
+                                "displayText": "AWS Clean Rooms have limits on query result size (for example, AWS Clean Rooms has a 5GB limit), so consider using aggregations and filters to reduce result sets.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/video-streaming-advertising-lens/advperf04-bp06.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Consider AWS Clean Rooms collaboration",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/video-streaming-advertising-lens/advperf04-bp06.html"
+                            }
+                        },
+                        {
+                            "id": "ADVPERF04_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "ADVPERF04_BP01 && ADVPERF04_BP02 && ADVPERF04_BP03 && ADVPERF04_BP04 && ADVPERF04_BP05 && ADVPERF04_BP06",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!ADVPERF04_BP01) || (!ADVPERF04_BP02)",
+                            "risk": "HIGH_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "MEDIUM_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "ADVPERF05",
+                    "title": "How do you build network architecture to provide efficient performance and improved user experience for your workload?",
+                    "description": "By using the various networking services provided by AWS, you can build a high- performance, low-latency, and highly available network architecture. For advertising workloads, a robust network architecture is particularly important, as all ad requests rely on a stable network to function properly. Building a robust and efficient network architecture is crucial for delivering optimal performance and an exceptional user experience for advertising workloads on AWS.",
+                    "choices": [
+                        {
+                            "id": "ADVPERF05_BP01",
+                            "title": "Establish private connections between your VPC and AWS services to improve performance",
+                            "helpfulResource": {
+                                "displayText": "A private network not only enhances the overall stability and security of your system, but it also improves the latency and user experience for advertising customers.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/video-streaming-advertising-lens/advperf05-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Establish private connections between your VPC and AWS services to improve performance",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/video-streaming-advertising-lens/advperf05-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "ADVPERF05_BP02",
+                            "title": "Use edge services for static content caching and dynamic request acceleration to reduce latency and improve user experience",
+                            "helpfulResource": {
+                                "displayText": "Edge services can accelerate requests for static content as well as improve the response time for dynamic requests. By using the advantages of the cloud backbone network, it can maximize the efficiency and stability of access after requests enter the cloud.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/video-streaming-advertising-lens/advperf05-bp02.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Use edge services for static content caching and dynamic request acceleration to reduce latency and improve user experience",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/video-streaming-advertising-lens/advperf05-bp02.html"
+                            }
+                        },
+                        {
+                            "id": "ADVPERF05_BP03",
+                            "title": "Use load balancers to improve high availability and load distribution in your workload",
+                            "helpfulResource": {
+                                "displayText": "Use the load balancing service provided by AWS to enhance the high availability of applications. In the event of disruptions that cause targets to become unhealthy, load balancers can automatically exclude unhealthy targets from traffic routing.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/video-streaming-advertising-lens/advperf05-bp03.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Use load balancers to improve high availability and load distribution in your workload",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/video-streaming-advertising-lens/advperf05-bp03.html"
+                            }
+                        },
+                        {
+                            "id": "ADVPERF05_BP04",
+                            "title": "Provide dedicated network connection between your on-premises environment and AWS to offer high bandwidth and low latency",
+                            "helpfulResource": {
+                                "displayText": "Use dedicated network connections to provide stable and high-speed data communication between the on-premises data center and the AWS Cloud. This model is also applicable for connections between multiple Regions, providing efficient and secure data communication while effectively avoiding public network noise.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/video-streaming-advertising-lens/advperf05-bp04.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Provide dedicated network connection between your on-premises environment and AWS to offer high bandwidth and low latency",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/video-streaming-advertising-lens/advperf05-bp04.html"
+                            }
+                        },
+                        {
+                            "id": "ADVPERF05_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "ADVPERF05_BP01 && ADVPERF05_BP02 && ADVPERF05_BP03 && ADVPERF05_BP04",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!ADVPERF05_BP01) || (!ADVPERF05_BP02) || (!ADVPERF05_BP03)",
+                            "risk": "HIGH_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "MEDIUM_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "ADVPERF06",
+                    "title": "How do you adjust your design patterns to maximize performance in your advertising workload?",
+                    "description": "Organizations that design advertising workloads should adopt a loosely coupled architecture and use new industry protocols.",
+                    "choices": [
+                        {
+                            "id": "ADVPERF06_BP01",
+                            "title": "Adopt a chipset-agnostic workload design for best availability of cloud resources and cost",
+                            "helpfulResource": {
+                                "displayText": "Implement an x86 chip-agnostic design for workloads to optimize the compute price of your advertising workload.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/video-streaming-advertising-lens/advperf06-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Adopt a chipset-agnostic workload design for best availability of cloud resources and cost",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/video-streaming-advertising-lens/advperf06-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "ADVPERF06_BP02",
+                            "title": "Optimize your intake request format (like HTTP/2 or HTTP/3) for faster processing",
+                            "helpfulResource": {
+                                "displayText": "Use optimization in next generation networking protocols to address low latency needs for advertising workloads.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/video-streaming-advertising-lens/advperf06-bp02.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Optimize your intake request format (like HTTP/2 or HTTP/3) for faster processing",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/video-streaming-advertising-lens/advperf06-bp02.html"
+                            }
+                        },
+                        {
+                            "id": "ADVPERF06_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "ADVPERF06_BP01 && ADVPERF06_BP02",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!ADVPERF06_BP02)",
+                            "risk": "HIGH_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "MEDIUM_RISK"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "costOptimization",
+            "name": "Cost Optimization",
+            "questions": [
+                {
+                    "id": "ADVCOST01",
+                    "title": "How do you select and maintain cost-effective infrastructure for your advertising workloads?",
+                    "description": "Maintaining a cost-efficient infrastructure is essential for the profitability of advertising workloads.",
+                    "choices": [
+                        {
+                            "id": "ADVCOST01_BP01",
+                            "title": "Continually measure costs of different real-time bidding workloads, and adjust resource allocation accordingly",
+                            "helpfulResource": {
+                                "displayText": "With fluctuations in usage over time, the costs associated with real-time bidding workloads can vary significantly. Continually monitoring costs is the best way to keep them under control.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/video-streaming-advertising-lens/advcost01-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Continually measure costs of different real-time bidding workloads, and adjust resource allocation accordingly",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/video-streaming-advertising-lens/advcost01-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "ADVCOST01_BP02",
+                            "title": "Evaluate resiliency needs against the cost of downtime for ad delivery and bidding",
+                            "helpfulResource": {
+                                "displayText": "While resiliency can increase the cost of workloads, downtime can also be very expensive. It's important to understand the costs of having a resilient infrastructure against the costs of not having a resilient infrastructure.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/video-streaming-advertising-lens/advcost01-bp02.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Evaluate resiliency needs against the cost of downtime for ad delivery and bidding",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/video-streaming-advertising-lens/advcost01-bp02.html"
+                            }
+                        },
+                        {
+                            "id": "ADVCOST01_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "ADVCOST01_BP01 && ADVCOST01_BP02",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!ADVCOST01_BP01)",
+                            "risk": "HIGH_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "MEDIUM_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "ADVCOST02",
+                    "title": "How are you optimizing the costs associated with your bidding resources while providing the fastest performance?",
+                    "description": "Cost optimization isn't just about reducing costs, but about providing the performance required at the lowest possible cost.",
+                    "choices": [
+                        {
+                            "id": "ADVCOST02_BP01",
+                            "title": "Use ARM processors for faster and more cost-effective bidder nodes",
+                            "helpfulResource": {
+                                "displayText": "ARM processors can combine lower costs and higher performance, which makes them a great consideration for cost optimization.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/video-streaming-advertising-lens/advcost02-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Use ARM processors for faster and more cost-effective bidder nodes",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/video-streaming-advertising-lens/advcost02-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "ADVCOST02_BP02",
+                            "title": "Use compression to reduce network traffic and storage costs",
+                            "helpfulResource": {
+                                "displayText": "Using compression can reduce the amount of data transferred thus reducing network and storage costs.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/video-streaming-advertising-lens/advcost02-bp02.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Use compression to reduce network traffic and storage costs",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/video-streaming-advertising-lens/advcost02-bp02.html"
+                            }
+                        },
+                        {
+                            "id": "ADVCOST02_BP03",
+                            "title": "Use provisioned resource allocation for campaigns with predictable capacity, and use dynamic allocation for unexpected capacity",
+                            "helpfulResource": {
+                                "displayText": "Provisioned capacity can provide the lowest cost per hour. However, for unpredictable workloads dynamic allocation can provide a lower overall cost of ownership.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/video-streaming-advertising-lens/advcost02-bp03.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Use provisioned resource allocation for campaigns with predictable capacity, and use dynamic allocation for unexpected capacity",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/video-streaming-advertising-lens/advcost02-bp03.html"
+                            }
+                        },
+                        {
+                            "id": "ADVCOST02_BP04",
+                            "title": "Use Spot Instances for cost-effective bidding-as-a-service workloads with flexible fault-tolerance mechanisms",
+                            "helpfulResource": {
+                                "displayText": "For workloads that can be interrupted, Spot Instances can provide high performance for a very low cost per hour.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/video-streaming-advertising-lens/advcost02-bp04.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Use Spot Instances for cost-effective bidding-as-a-service workloads with flexible fault-tolerance mechanisms",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/video-streaming-advertising-lens/advcost02-bp04.html"
+                            }
+                        },
+                        {
+                            "id": "ADVCOST02_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "ADVCOST02_BP01 && ADVCOST02_BP02 && ADVCOST02_BP03 && ADVCOST02_BP04",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!ADVCOST02_BP01) || (!ADVCOST02_BP02) || (!ADVCOST02_BP03)",
+                            "risk": "HIGH_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "MEDIUM_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "ADVCOST03",
+                    "title": "How are you optimizing communication costs between SSPs and DSPs?",
+                    "description": "Communication between SSPs and DSPs can be significant and can lead to high communication costs.",
+                    "choices": [
+                        {
+                            "id": "ADVCOST03_BP01",
+                            "title": "Consider private communication channels between SSP and DSP",
+                            "helpfulResource": {
+                                "displayText": "Private communication channels can help keep traffic secure while also reducing internet egress charges.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/video-streaming-advertising-lens/advcost03-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Consider private communication channels between SSP and DSP",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/video-streaming-advertising-lens/advcost03-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "ADVCOST03_BP02",
+                            "title": "When integrating SSPs and DSPs for programmatic advertising, co-locate the platforms",
+                            "helpfulResource": {
+                                "displayText": "Keeping SSP and DSP components together can keep transactions fast while minimizing inter-AZ and inter-Region traffic charges.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/video-streaming-advertising-lens/advcost03-bp02.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "When integrating SSPs and DSPs for programmatic advertising, co-locate the platforms",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/video-streaming-advertising-lens/advcost03-bp02.html"
+                            }
+                        },
+                        {
+                            "id": "ADVCOST03_BP03",
+                            "title": "Co-locate bidder and database nodes",
+                            "helpfulResource": {
+                                "displayText": "Keeping bidder and database nodes together can help transactions occur quickly and can also reduce inter-AZ and inter-Region traffic charges.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/video-streaming-advertising-lens/advcost03-bp03.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Co-locate bidder and database nodes",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/video-streaming-advertising-lens/advcost03-bp03.html"
+                            }
+                        },
+                        {
+                            "id": "ADVCOST03_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "ADVCOST03_BP01 && ADVCOST03_BP02 && ADVCOST03_BP03",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!ADVCOST03_BP01) || (!ADVCOST03_BP02) || (!ADVCOST03_BP03)",
+                            "risk": "HIGH_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "MEDIUM_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "ADVCOST04",
+                    "title": "How are you optimizing user profile storage, access, and replication?",
+                    "description": "User profile databases tend to be large ranging from 100-200 million to 5 billion user profiles and contain a wide range of data about users' online activities and interactions. Storage and Access to this data can increase cost.",
+                    "choices": [
+                        {
+                            "id": "ADVCOST04_BP01",
+                            "title": "Consider lower cost storage for older User Profile data",
+                            "helpfulResource": {
+                                "displayText": "As the 30 most recent days are most relevant, using DynamoDB can prioritize high performance for the most relevant data (typically within the last 30 days), and archiving to Amazon S3 can reduce costs for less relevant data.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/video-streaming-advertising-lens/advcost04-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Consider lower cost storage for older User Profile data",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/video-streaming-advertising-lens/advcost04-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "ADVCOST04_BP02",
+                            "title": "Consider multi-level caching for user profile data",
+                            "helpfulResource": {
+                                "displayText": "DynamoDB Accelerator provides a powerful, cost-effective solution for caching user profile data by dramatically reducing read latency and minimizing direct database operations. By creating an in-memory caching layer, DAX can reduce DynamoDB read capacity unit (RCU) consumption, translating to significant cost savings for applications with high-frequency profile lookups.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/video-streaming-advertising-lens/advcost04-bp02.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Consider multi-level caching for user profile data",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/video-streaming-advertising-lens/advcost04-bp02.html"
+                            }
+                        },
+                        {
+                            "id": "ADVCOST04_BP03",
+                            "title": "Store profiles in a single Region and replicate asynchronously",
+                            "helpfulResource": {
+                                "displayText": "Generally, users will only be in one Region at a time and therefore will only be updating in one Region. As a result, schedule replication a few times a day with AWS Step Functions and AWS Lambda to meet the resiliency requirements for data while minimizing high latency and data transfer costs.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/video-streaming-advertising-lens/advcost04-bp03.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Store profiles in a single Region and replicate asynchronously",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/video-streaming-advertising-lens/advcost04-bp03.html"
+                            }
+                        },
+                        {
+                            "id": "ADVCOST04_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "ADVCOST04_BP01 && ADVCOST04_BP02 && ADVCOST04_BP03",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!ADVCOST04_BP01) || (!ADVCOST04_BP02)",
+                            "risk": "HIGH_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "MEDIUM_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "ADVCOST05",
+                    "title": "How are you implementing cost optimization for privacy-enhanced collaboration?",
+                    "description": "Privacy-enhanced collaboration in advertising technology empowers advertisers, publishers, and solutions to securely analyze and activate sensitive data such as user identities, behavioral signals, and conversion events, without revealing raw data. Achieving cost-efficient execution of these privacy-preserving workloads on AWS requires a dual focus: maintaining robust data protection through advanced privacy mechanisms while optimizing the underlying cloud infrastructure for financial efficiency.",
+                    "choices": [
+                        {
+                            "id": "ADVCOST05_BP01",
+                            "title": "Use cost efficient data types and configurations for collaborative data environments",
+                            "helpfulResource": {
+                                "displayText": "Use efficient storage formats and streamlined query configurations to reduce unnecessary data scanning, duplication, and transfer costs in collaborative analytics environments.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/video-streaming-advertising-lens/advcost05-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Use cost efficient data types and configurations for collaborative data environments",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/video-streaming-advertising-lens/advcost05-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "ADVCOST05_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "ADVCOST05_BP01",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!ADVCOST05_BP01)",
+                            "risk": "HIGH_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "MEDIUM_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "ADVCOST06",
+                    "title": "How do you monitor and manage data transfer and processing costs in your ad delivery, measurement, and anti-fraud pipelines?",
+                    "description": "In high-scale adtech environments where systems are engineered for low-latency and high-volume operations, fraudulent activity directly amplifies usage across compute, storage, and networking resources.",
+                    "choices": [
+                        {
+                            "id": "ADVCOST06_BP01",
+                            "title": "Design fraud detection pipelines to minimize redundant processing and optimize inference costs",
+                            "helpfulResource": {
+                                "displayText": "Design fraud detection workflows that avoid repeated evaluations by caching known outcomes, filtering threats as early as possible, and running only the necessary inference steps on cost-efficient compute resources.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/video-streaming-advertising-lens/advcost06-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Design fraud detection pipelines to minimize redundant processing and optimize inference costs",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/video-streaming-advertising-lens/advcost06-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "ADVCOST06_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "ADVCOST06_BP01",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!ADVCOST06_BP01)",
+                            "risk": "HIGH_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "MEDIUM_RISK"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "sustainability",
+            "name": "Sustainability",
+            "questions": [
+                {
+                    "id": "ADVSUS01",
+                    "title": "How do you select a region to optimize your advertising workloads for sustainability?",
+                    "description": "Select the AWS Region that optimizes sustainability and minimizes the environmental impact of your large-scale advertising workloads, considering factors such as energy mix, region efficiency, proximity to customers, and regulatory landscape.",
+                    "choices": [
+                        {
+                            "id": "ADVSUS01_BP01",
+                            "title": "Distribute data and workloads across Regions when necessary to minimize network usage and latency",
+                            "helpfulResource": {
+                                "displayText": "When selecting regions to host workloads for sustainability, distribute data and workloads across multiple Regions to minimize network usage and latency, prioritising the most sustainable Regions available that leverage renewable energy sources. The millisecond latency of programmatic advertising workloads typically requires ad-servicing architectures be near consuming workloads. However, there is opportunity to consolidate data analysis for these workloads into fewer Regions.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/video-streaming-advertising-lens/advsus01-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Distribute data and workloads across Regions when necessary to minimize network usage and latency",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/video-streaming-advertising-lens/advsus01-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "ADVSUS01_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "ADVSUS01_BP01",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!ADVSUS01_BP01)",
+                            "risk": "HIGH_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "MEDIUM_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "ADVSUS02",
+                    "title": "How do you align SLAs with sustainability goals?",
+                    "description": "Verify that the service-level agreements (SLAs) for your advertising workloads incorporate sustainability metrics, incentives, and monitoring processes that align with and actively support your organization's environmental goals.",
+                    "choices": [
+                        {
+                            "id": "ADVSUS02_BP01",
+                            "title": "Break down system components to determine which are business critical and compare the trade-offs",
+                            "helpfulResource": {
+                                "displayText": "When aligning SLAs with sustainability goals for advertising workloads, break down system components to identify business-critical elements, and evaluate trade-offs to balance SLAs with environmental objectives while minimizing waste.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/video-streaming-advertising-lens/advsus02-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Break down system components to determine which are business critical and compare the trade-offs",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/video-streaming-advertising-lens/advsus02-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "ADVSUS02_BP02",
+                            "title": "Identify redundant infrastructure and unnecessary data movement to reduce usage where possible",
+                            "helpfulResource": {
+                                "displayText": "Identify and eliminate redundant infrastructure components and unnecessary data movement within your advertising workloads, as this can help reduce resource usage, lower the overall carbon footprint, and improve sustainability-related key performance indicators (KPIs).",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/video-streaming-advertising-lens/advsus02-bp02.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Identify redundant infrastructure and unnecessary data movement to reduce usage where possible",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/video-streaming-advertising-lens/advsus02-bp02.html"
+                            }
+                        },
+                        {
+                            "id": "ADVSUS02_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "ADVSUS02_BP01 && ADVSUS02_BP02",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!ADVSUS02_BP01)",
+                            "risk": "HIGH_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "MEDIUM_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "ADVSUS03",
+                    "title": "What caching techniques are you using, and how do you store data in cache to reduce compute time and energy consumption?",
+                    "description": "Use caching techniques and store data in cache to reduce compute time and energy consumption for your advertising workloads.",
+                    "choices": [
+                        {
+                            "id": "ADVSUS03_BP01",
+                            "title": "Use caching techniques to prevent frequent data access",
+                            "helpfulResource": {
+                                "displayText": "Implement caching techniques to store frequently accessed data in cache, preventing repeated data retrieval and thereby reducing computing time and energy consumption for advertising workloads.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/video-streaming-advertising-lens/advsus03-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Use caching techniques to prevent frequent data access",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/video-streaming-advertising-lens/advsus03-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "ADVSUS03_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "ADVSUS03_BP01",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!ADVSUS03_BP01)",
+                            "risk": "HIGH_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "MEDIUM_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "ADVSUS04",
+                    "title": "How are you implementing architectures that minimize the average resources required per unit of work?",
+                    "description": "Design and implement architectures that minimize the average resources (such as compute, storage, and network) required per unit of work for your advertising workloads.",
+                    "choices": [
+                        {
+                            "id": "ADVSUS04_BP01",
+                            "title": "Use batch processing for data cleansing and enrichment to create customer profiles",
+                            "helpfulResource": {
+                                "displayText": "Use batch processing for data cleansing and customer profile enrichment in advertising workloads. Schedule the batch jobs during periods of lowest carbon consumption to minimize resource usage and environmental impact.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/video-streaming-advertising-lens/advsus04-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Use batch processing for data cleansing and enrichment to create customer profiles",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/video-streaming-advertising-lens/advsus04-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "ADVSUS04_BP02",
+                            "title": "Use serverless transaction processing",
+                            "helpfulResource": {
+                                "displayText": "Implement serverless transaction processing, such as for ad measurement, to reduce the required unit of work and associated resource consumption for your advertising workloads. Proxy metrics, as defined in the Well-Architected Framework Sustainability Pillar, can be used to measure improvements from serverless use.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/video-streaming-advertising-lens/advsus04-bp02.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Use serverless transaction processing",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/video-streaming-advertising-lens/advsus04-bp02.html"
+                            }
+                        },
+                        {
+                            "id": "ADVSUS04_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "ADVSUS04_BP01 && ADVSUS04_BP02",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!ADVSUS04_BP01)",
+                            "risk": "HIGH_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "MEDIUM_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "ADVSUS05",
+                    "title": "How are you optimizing data storage and retrieval?",
+                    "description": "Data management involves provisioning the minimum amount of storage required to meet your workload's needs. For existing storage, understand the needs and usage of your data to set appropriate lifecycles for your data to move data to the most efficient type of storage. Delete unnecessary data, when possible, to reduce storage footprint.",
+                    "choices": [
+                        {
+                            "id": "ADVSUS05_BP01",
+                            "title": "Identify and remove redundant data across storage",
+                            "helpfulResource": {
+                                "displayText": "Participants in the real-time advertising supply chain can accrue large volumes of data. Consider how you use data and data preservation as outlined in ADPERF04-BP01. Don't keep data that has no purpose, can easily be recreated, and expedite the removal of low value or short-lived data. Remove unwanted advertisement video, images, files, and any other associated data that is no longer needed.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/video-streaming-advertising-lens/advsus05-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Identify and remove redundant data across storage",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/video-streaming-advertising-lens/advsus05-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "ADVSUS05_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "ADVSUS05_BP01",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!ADVSUS05_BP01)",
+                            "risk": "HIGH_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "MEDIUM_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "ADVSUS06",
+                    "title": "How do you use the minimum amount and most efficient hardware to meet business needs?",
+                    "description": "Demand for advertising workloads can vary (for example, the number of transactions needed for supply ads and type of hardware that can be used for advertising use cases). Using the minimum amount and most efficient hardware reduces carbon footprint.",
+                    "choices": [
+                        {
+                            "id": "ADVSUS06_BP01",
+                            "title": "Shut down resources when not in use, and implement energy-efficient machine learning models",
+                            "helpfulResource": {
+                                "displayText": "Resources for machine learning may have real-time demands that fluctuate or not be needed at certain times, such as when data can be processed as a batch. Set machine learning workloads to respond to demand in real-time, including turning off or shutting down resources when not needed. Use available tools to optimize the compute resources and models used for machine learning workloads.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/video-streaming-advertising-lens/advsus06-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Shut down resources when not in use, and implement energy-efficient machine learning models",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/video-streaming-advertising-lens/advsus06-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "ADVSUS06_BP02",
+                            "title": "Continuously monitor and right-size your AWS resources, and use the minimum resources required to meet your workload needs",
+                            "helpfulResource": {
+                                "displayText": "Monitoring workloads allows you to optimize and elastically scale your workloads to meet demand. Using serverless offerings can also help you automatically scale to reduce resource usage and improve the ability to meet sustainability targets. Consider how your requirements change based on advertising campaigns, and take advantage of the elasticity and agility of cloud to optimize your resource usage.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/video-streaming-advertising-lens/advsus06-bp02.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Continuously monitor and right-size your AWS resources, and use the minimum resources required to meet your workload needs",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/video-streaming-advertising-lens/advsus06-bp02.html"
+                            }
+                        },
+                        {
+                            "id": "ADVSUS06_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "ADVSUS06_BP01 && ADVSUS06_BP02",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!ADVSUS06_BP01)",
+                            "risk": "HIGH_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "MEDIUM_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "ADVSUS07",
+                    "title": "Do you have an iterative approach for sustainability updates, including in your development, testing, and deployment processes?",
+                    "description": "It is important to revisit your approach to sustainability as requirements changes and options continue to evolve. Include sustainability at each stage of the software development lifecycle and in both non-production and production environments. Continue to evaluate how you are meeting sustainability objectives and ensure your process evolves over time.",
+                    "choices": [
+                        {
+                            "id": "ADVSUS07_BP01",
+                            "title": "Incorporate an improvement process to reduce low utilization and idle resources or maximize the output from resources",
+                            "helpfulResource": {
+                                "displayText": "Advertising workloads are changing at a rapid rate. As changes are introduced consider which resources are the most efficient and where resources can be removed. Use automation to create and remove infrastructure as needed.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/video-streaming-advertising-lens/advsus07-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Incorporate an improvement process to reduce low utilization and idle resources or maximize the output from resources",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/video-streaming-advertising-lens/advsus07-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "ADVSUS07_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "ADVSUS07_BP01",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!ADVSUS07_BP01)",
+                            "risk": "HIGH_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "MEDIUM_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "ADVSUS08",
+                    "title": "How are you implementing sustainability for privacy-enhanced collaboration?",
+                    "description": "Privacy-enhanced collaboration in advertising technology enables more secure analysis of sensitive data between parties while protecting user privacy. Implementing sustainable practices for these workloads requires optimizing resource usage and energy efficiency while maintaining security and compliance requirements. This includes strategic scheduling of intensive computations, efficient data storage approaches, and smart resource allocation.",
+                    "choices": [
+                        {
+                            "id": "ADVSUS08_BP01",
+                            "title": "Optimize privacy workload processing patterns and resource allocation for sustainability",
+                            "helpfulResource": {
+                                "displayText": "For privacy-enhanced collaboration, advertising workloads have specific sustainability considerations for combining first and third-party customer data directly.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/video-streaming-advertising-lens/advsus08-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Optimize privacy workload processing patterns and resource allocation for sustainability",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/video-streaming-advertising-lens/advsus08-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "ADVSUS08_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "ADVSUS08_BP01",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!ADVSUS08_BP01)",
+                            "risk": "HIGH_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "MEDIUM_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "ADVSUS09",
+                    "title": "How are you implementing sustainable practices for ad intelligence, measurement, and security?",
+                    "description": "For security, ad fraud detection and prevention systems require continuous monitoring and analysis of advertising traffic, which can be computationally intensive. Implementing sustainable practices while maintaining effective fraud prevention requires careful optimization of detection mechanisms and resource usage, especially for real-time bidding and campaign monitoring systems.",
+                    "choices": [
+                        {
+                            "id": "ADVSUS09_BP01",
+                            "title": "Optimize fraud detection systems for resource efficiency",
+                            "helpfulResource": {
+                                "displayText": "Fraud detection systems can perform efficiently and have a reduced carbon impact when using approaches such as intelligent sampling, scheduled analysis, and Regional detection.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/video-streaming-advertising-lens/advsus09-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Optimize fraud detection systems for resource efficiency",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/video-streaming-advertising-lens/advsus09-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "ADVSUS09_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "ADVSUS09_BP01",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!ADVSUS09_BP01)",
+                            "risk": "HIGH_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "MEDIUM_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "ADVSUS10",
+                    "title": "How do you verify sustainability in content moderation and brand safety systems?",
+                    "description": "Content moderation and brand safety systems require continuous processing of ad content and placement context across multiple channels and formats. Implementing sustainable practices while maintaining effective moderation requires balancing real-time performance requirements with energy efficiency and resource optimization.",
+                    "choices": [
+                        {
+                            "id": "ADVSUS10_BP01",
+                            "title": "Optimize content moderation systems for sustainable operation",
+                            "helpfulResource": {
+                                "displayText": "As content grows for organizations, optimizing content moderation systems can benefit sustainability-related key performance indicators (KPIs). Implement or build architectures that include efficient machine learning models, automated scaling, and optimized storage patterns.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/video-streaming-advertising-lens/advsus10-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Optimize content moderation systems for sustainable operation",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/video-streaming-advertising-lens/advsus10-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "ADVSUS10_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "ADVSUS10_BP01",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!ADVSUS10_BP01)",
+                            "risk": "HIGH_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "MEDIUM_RISK"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
