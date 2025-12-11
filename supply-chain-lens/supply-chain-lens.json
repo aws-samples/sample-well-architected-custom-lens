@@ -1,0 +1,2287 @@
+{
+    "schemaVersion": "2021-11-01",
+    "name": "Supply Chain Lens",
+    "description": "AWS Well-Architected Supply Chain Lens",
+    "pillars": [
+        {
+            "id": "operationalExcellence",
+            "name": "Operational Excellence",
+            "questions": [
+                {
+                    "id": "SCOPS01",
+                    "title": "How do you identify and track all stakeholders interacting with the supply chain application?",
+                    "description": "To assess the impact of outages and develop robust business continuity plans, it is important to understand who the end users of the application are and how they use it today.",
+                    "choices": [
+                        {
+                            "id": "SCOPS01_BP01",
+                            "title": "Identify and track all stakeholders interacting with the supply chain application",
+                            "helpfulResource": {
+                                "displayText": "Create a comprehensive inventory of all stakeholders who interact with the supply chain application. This includes internal users (like employees and departments), external partners (like suppliers and customers), and any third-party services integrated with the application. Document how each stakeholder group uses the application.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/supply-chain-lens/scops01-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Identify and track all stakeholders interacting with the supply chain application",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/supply-chain-lens/scops01-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "SCOPS01_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "SCOPS01_BP01",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!SCOPS01_BP01)",
+                            "risk": "MEDIUM_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "HIGH_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "SCOPS02",
+                    "title": "How are key performance indicators established, regularly reviewed, and communicated for each stage of the supply chain?",
+                    "description": "The ability to measure and understand the health and effectiveness of your supply chain operations is critical across all stages.",
+                    "choices": [
+                        {
+                            "id": "SCOPS02_BP01",
+                            "title": "Define, monitor, and communicate KPIs across the entire supply chain",
+                            "helpfulResource": {
+                                "displayText": "To effectively manage and optimize your supply chain, it's crucial to establish a comprehensive set of KPIs that span from demand planning through to final delivery. These KPIs should be carefully selected to align with business objectives and provide actionable insights. Regular monitoring of these KPIs, ideally through interactive dashboards, allows for real-time performance assessment. Furthermore, consistent and transparent communication of KPI results to all relevant stakeholders fosters accountability and makes sure everyone is working towards shared goals, ultimately leading to improved operational efficiency, enhanced decision-making, and better alignment of supply chain activities with overall business strategy.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/supply-chain-lens/scops02-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Define, monitor, and communicate KPIs across the entire supply chain",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/supply-chain-lens/scops02-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "SCOPS02_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "SCOPS02_BP01",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!SCOPS02_BP01)",
+                            "risk": "MEDIUM_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "HIGH_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "SCOPS03",
+                    "title": "How do you empower supply chain teams to make real-time decisions to optimize operations?",
+                    "description": "The agility and responsiveness of supply chain teams in modern supply chains is important for making informed and timely decisions.",
+                    "choices": [
+                        {
+                            "id": "SCOPS03_BP01",
+                            "title": "Provide supply chain teams with access to real-time data, analytics, and decision-making tools",
+                            "helpfulResource": {
+                                "displayText": "Empowering supply chain teams hinges on providing them with immediate access to current and accurate information, coupled with the analytical capabilities to interpret it. This involves investing in robust supply chain management (SCM) software that offers real-time data integration, advanced analytics, and predictive modeling features. Developing customized dashboards and reports makes sure that teams receive relevant insights tailored to their specific roles. Crucially, ongoing training and support are essential to make sure that teams are proficient in utilizing these tools and can confidently apply the insights gained to make swift and effective decisions, thereby enhancing operational efficiency, reducing costs, and improving resilience to disruptions.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/supply-chain-lens/scops03-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Provide supply chain teams with access to real-time data, analytics, and decision-making tools",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/supply-chain-lens/scops03-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "SCOPS03_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "SCOPS03_BP01",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!SCOPS03_BP01)",
+                            "risk": "MEDIUM_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "HIGH_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "SCOPS04",
+                    "title": "How do you determine priorities for integrating AI into your supply chain?",
+                    "description": "Determining priorities for AI integration in your supply chain is a critical strategic decision that impacts operational efficiency, cost management, and competitive advantage.",
+                    "choices": [
+                        {
+                            "id": "SCOPS04_BP01",
+                            "title": "Prioritize AI integration based on business value, feasibility, and alignment with strategic supply chain objectives",
+                            "helpfulResource": {
+                                "displayText": "Strategic AI integration begins with a clear prioritization framework. This involves identifying potential AI use cases across the supply chain and then rigorously assessing each one based on its potential business value, technical feasibility, and the readiness of the underlying data. Forming a cross-functional team with representatives from IT, supply chain operations, and business leadership is crucial for this evaluation process. By employing a scoring mechanism that considers business impact, feasibility, and strategic alignment, organizations can develop a clear, prioritized roadmap for AI initiatives. This approach makes sure that resources are efficiently allocated, leading to maximized ROI from AI investments and accelerated adoption of AI across the supply chain, ultimately contributing to improved decision-making and operational efficiency.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/supply-chain-lens/scops04-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Prioritize AI integration based on business value, feasibility, and alignment with strategic supply chain objectives",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/supply-chain-lens/scops04-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "SCOPS04_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "SCOPS04_BP01",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!SCOPS04_BP01)",
+                            "risk": "MEDIUM_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "HIGH_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "SCOPS05",
+                    "title": "How do you determine if everyone's part in enabling business success with AI is understood?",
+                    "description": "Understanding everyone's role in enabling AI success is crucial because it establishes clear accountability, facilitates proper resource allocation, and creates organizational alignment across technical and business functions.",
+                    "choices": [
+                        {
+                            "id": "SCOPS05_BP01",
+                            "title": "Establish clear roles, responsibilities, and communication channels for all stakeholders involved in AI-driven initiatives",
+                            "helpfulResource": {
+                                "displayText": "Successful integration of AI into the supply chain necessitates a workforce that fully comprehends and actively contributes to its success. This involves clearly defining roles and responsibilities for every stakeholder group impacted by AI, from data scientists to operational teams. Establishing robust communication plans and conducting workshops is vital to educate employees on the role of AI, its impact on their functions, and new processes. Providing comprehensive training programs equips employees with the necessary AI-related skills. Furthermore, creating feedback loops allows for continuous assessment of understanding and addresses concerns, fostering increased adoption, reduced resistance to change, and enhanced collaboration between human and AI capabilities.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/supply-chain-lens/scops05-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Establish clear roles, responsibilities, and communication channels for all stakeholders involved in AI-driven initiatives",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/supply-chain-lens/scops05-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "SCOPS05_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "SCOPS05_BP01",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!SCOPS05_BP01)",
+                            "risk": "MEDIUM_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "HIGH_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "SCOPS06",
+                    "title": "How do you structure your organization to support AI-driven supply chain outcomes?",
+                    "description": "Properly structuring your organization to support AI-driven supply chain outcomes is critical because it determines how effectively you can implement, scale, and derive value from AI technologies across your supply chain operations.",
+                    "choices": [
+                        {
+                            "id": "SCOPS06_BP01",
+                            "title": "Establish an org that fosters collaboration, data-driven decision-making, and continuous innovation in AI-driven operations",
+                            "helpfulResource": {
+                                "displayText": "To truly realize the benefits of AI in the supply chain, an organization's structure must be purposefully designed to support it. This involves evaluating the current structure to identify and remove potential barriers to AI integration. Defining new roles and reporting lines for AI-related functions, such as AI product owners or MLOps engineers, is crucial. Establishing cross-functional teams for specific AI projects and implementing agile development processes for AI solutions can significantly accelerate development and deployment. Additionally, developing a robust data governance framework supports data quality and accessibility, which are fundamental to AI success. By investing in training and upskilling programs, organizations can further enhance their ability to attract and retain AI talent, leading to greater agility and adaptability in response to market changes.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/supply-chain-lens/scops06-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Establish an org that fosters collaboration, data-driven decision-making, and continuous innovation in AI-driven operations",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/supply-chain-lens/scops06-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "SCOPS06_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "SCOPS06_BP01",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!SCOPS06_BP01)",
+                            "risk": "MEDIUM_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "HIGH_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "SCOPS07",
+                    "title": "How do you meet the compliance and regulatory needs for your supply chain workload?",
+                    "description": "Meeting compliance and regulatory requirements for your supply chain workload is essential because non-compliance can result in significant legal penalties, operational disruptions, and reputational damage across global markets.",
+                    "choices": [
+                        {
+                            "id": "SCOPS07_BP01",
+                            "title": "Implement processes and technologies for continuous compliance with regulations, data privacy laws, and internal policies",
+                            "helpfulResource": {
+                                "displayText": "Maintaining continuous compliance in supply chain applications requires a multi-faceted approach. This begins with thoroughly identifying all relevant compliance frameworks and regulations and then conducting a gap analysis to pinpoint areas requiring attention. Implementing necessary technical controls and process changes within the application, alongside developing a robust data governance and security framework, are crucial for protecting sensitive information. Engaging legal and compliance experts is vital for guidance. Use cloud provider compliance certifications and integrate compliance checks into the application development lifecycle to streamline the process. Furthermore, establishing a regular schedule for internal and external audits, providing continuous employee training on compliance best practices, and maintaining comprehensive documentation of all activities are essential for demonstrating adherence, reducing risks, and enhancing trust.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/supply-chain-lens/scops07-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Implement processes and technologies for continuous compliance with regulations, data privacy laws, and internal policies",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/supply-chain-lens/scops07-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "SCOPS07_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "SCOPS07_BP01",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!SCOPS07_BP01)",
+                            "risk": "HIGH_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "MEDIUM_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "SCOPS08",
+                    "title": "How do you assess and manage the operational readiness of new suppliers or logistics partners?",
+                    "description": "Assessing and managing the operational readiness of new suppliers or logistics partners is crucial because these third parties directly impact your ability to deliver products reliably, maintain quality standards, and respond to market changes.",
+                    "choices": [
+                        {
+                            "id": "SCOPS08_BP01",
+                            "title": "Implement a process for assessing, onboarding, and monitoring the operational readiness of new suppliers and logistics partners",
+                            "helpfulResource": {
+                                "displayText": "Integrating new suppliers and logistics partners seamlessly into the supply chain is vital for maintaining operational efficiency and resilience. This requires a structured process that begins with clearly defining criteria for selecting and evaluating potential partners. A comprehensive onboarding program, including system integration and training, should be in place to facilitate a smooth transition. Conducting thorough operational readiness assessments before full engagement is crucial to verify their capabilities. Furthermore, establishing performance KPIs and a regular monitoring schedule allows for continuous oversight of partner performance, while a formal review process verifies ongoing accountability. Utilizing supplier relationship management (SRM) software can help manage partner information and performance, leading to stronger relationships and enhanced contributions to the supply chain.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/supply-chain-lens/scops08-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Implement a process for assessing, onboarding, and monitoring the operational readiness of new suppliers and logistics partners",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/supply-chain-lens/scops08-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "SCOPS08_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "SCOPS08_BP01",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!SCOPS08_BP01)",
+                            "risk": "MEDIUM_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "HIGH_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "SCOPS09",
+                    "title": "How do you facilitate continuous refresh of your demand and supply data?",
+                    "description": "Facilitating continuous refresh of demand and supply data is critical because it enables real-time visibility and decision-making across your supply chain, allowing for faster responses to market changes and operational disruptions.",
+                    "choices": [
+                        {
+                            "id": "SCOPS09_BP01",
+                            "title": "Automate integrated data pipelines for real-time demand and supply data refresh across the supply chain",
+                            "helpfulResource": {
+                                "displayText": "To achieve an agile and responsive supply chain, it is imperative to have access to up-to-date and accurate demand and supply data. This necessitates the implementation of automated and integrated data pipelines that can provide real-time or near real-time data refresh from all relevant sources, both internal and external. Identifying current data flow bottlenecks and manual processes is the first step toward optimization. Investing in data integration tools and systems that support real-time processing, along with configuring real-time data streaming for critical datasets, is essential. Establishing robust data validation, cleansing, and governance procedures maintains data quality. Regularly reviewing and optimizing these data refresh processes and technologies further enhances the accuracy of forecasts, optimizes inventory, and enables faster responses to disruptions and market fluctuations.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/supply-chain-lens/scops09-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Automate integrated data pipelines for real-time demand and supply data refresh across the supply chain",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/supply-chain-lens/scops09-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "SCOPS09_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "SCOPS09_BP01",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!SCOPS09_BP01)",
+                            "risk": "MEDIUM_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "HIGH_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "SCOPS10",
+                    "title": "How are operational issues managed through to resolution, ensuring corrective actions are implemented and validated?",
+                    "description": "Effective management and tracking of operational issues through resolution is vital because it minimizes disruption impact, helps prevent recurring problems, and continuously improves supply chain resilience.",
+                    "choices": [
+                        {
+                            "id": "SCOPS10_BP01",
+                            "title": "Implement an orderly approach for identifying, tracking, resolving, and validating corrective actions for operational issues",
+                            "helpfulResource": {
+                                "displayText": "Efficient and effective management of operational issues is paramount for continuous improvement and resilience in the supply chain. This requires establishing a centralized system for logging and tracking all operational issues, coupled with a clear process for reporting, prioritization, and assignment. Implementing a robust root cause analysis methodology for critical issues is vital to help prevent recurrence. Developing and managing corrective and preventive action (CAPA) plans, and then diligently monitoring their implementation and effectiveness, makes sure that solutions are validated and sustained. Furthermore, documenting lessons learned and updating standard operating procedures (SOPs) contribute to organizational learning and better knowledge management, ultimately leading to faster problem resolution, reduced downtime, and enhanced accountability.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/supply-chain-lens/scops10-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Implement an orderly approach for identifying, tracking, resolving, and validating corrective actions for operational issues",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/supply-chain-lens/scops10-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "SCOPS10_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "SCOPS10_BP01",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!SCOPS10_BP01)",
+                            "risk": "MEDIUM_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "HIGH_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "SCOPS11",
+                    "title": "How is automation used to expedite the response to re-routing shipments or adjusting inventory allocations?",
+                    "description": "Using automation to expedite responses for re-routing shipments and adjusting inventory allocations is crucial because it dramatically reduces reaction time to disruptions, minimizing their impact on customer service levels and operational costs.",
+                    "choices": [
+                        {
+                            "id": "SCOPS11_BP01",
+                            "title": "Use rule-based and AI-driven automation to respond to disruptions by re-routing shipments and optimizing inventory",
+                            "helpfulResource": {
+                                "displayText": "To navigate the complexities of supply chain disruptions, using automation is essential for rapid and efficient responses. This involves identifying common disruption scenarios that necessitate re-routing or inventory reallocation and then implementing real-time visibility solutions for shipments and inventory. Configuring rule-based automation for frequent, less complex response actions can provide immediate benefits. As capabilities mature, integrating optimization algorithms or AI/ML models allows for more sophisticated and dynamic adjustments. Seamless integration with transportation and warehouse management systems is crucial for execution. While automation streamlines responses, it is important to establish clear protocols for human oversight and exception handling to maintain control and address unforeseen situations. This approach ultimately leads to reduced lead times, optimized costs, improved customer satisfaction, and increased resilience in the face of unforeseen events.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/supply-chain-lens/scops11-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Use rule-based and AI-driven automation to respond to disruptions by re-routing shipments and optimizing inventory",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/supply-chain-lens/scops11-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "SCOPS11_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "SCOPS11_BP01",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!SCOPS11_BP01)",
+                            "risk": "MEDIUM_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "HIGH_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "SCOPS12",
+                    "title": "How do you continuously evolve your supply chain operations?",
+                    "description": "Continuously evolving supply chain operations is essential because it enables organizations to adapt to changing market conditions, customer expectations, and technological advancements while maintaining competitive advantage.",
+                    "choices": [
+                        {
+                            "id": "SCOPS12_BP01",
+                            "title": "Establish a culture and processes for continuous improvement, innovation, and adaptation in supply chain operations",
+                            "helpfulResource": {
+                                "displayText": "Continuous evolution is vital for a supply chain to remain competitive and resilient. This involves establishing a formal continuous improvement program and dedicating resources to innovation initiatives. Implementing mechanisms for gathering and analyzing performance data and stakeholder feedback is crucial for identifying areas for optimization. Developing a structured process for evaluating and piloting new technologies and methodologies makes sure that the supply chain remains at the forefront of operational excellence. Fostering cross-functional teams dedicated to innovation and problem-solving, alongside investing in ongoing training and professional development for supply chain teams, creates a culture of learning and adaptation. Regularly reviewing and updating supply chain strategies based on performance insights and market trends facilitates alignment with evolving business and customer demands, leading to enhanced efficiency, cost-effectiveness, and customer satisfaction.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/supply-chain-lens/scops12-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Establish a culture and processes for continuous improvement, innovation, and adaptation in supply chain operations",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/supply-chain-lens/scops12-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "SCOPS12_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "SCOPS12_BP01",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!SCOPS12_BP01)",
+                            "risk": "MEDIUM_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "HIGH_RISK"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "security",
+            "name": "Security",
+            "questions": [
+                {
+                    "id": "SCSEC01",
+                    "title": "How does your governance model address security and compliance requirements for your supply chain workloads?",
+                    "description": "Security and compliance requirements must be considered for supply chain workloads, a robust governance model with a Cloud Center of Excellence (CCoE) is crucial to meet security and compliance requirements.",
+                    "choices": [
+                        {
+                            "id": "SCSEC01_BP01",
+                            "title": "Establish security and governance functions in your CCoE",
+                            "helpfulResource": {
+                                "displayText": "A robust Cloud Center of Excellence (CCoE) should incorporate dedicated security and governance functions to implement consistent implementation of security controls across your supply chain operations. By embedding these functions within your CCoE, organizations can establish standardized security practices, compliance frameworks, and risk management processes that address the unique challenges of supply chain systems. This approach enables proactive identification and mitigation of security vulnerabilities while supporting regulatory compliance across multi-party supply chain networks. Implementing strong governance within the CCoE also facilitates clear decision-making authority, accountability structures, and continuous improvement processes for supply chain security posture.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/supply-chain-lens/scsec01-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Establish security and governance functions in your CCoE",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/supply-chain-lens/scsec01-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "SCSEC01_BP02",
+                            "title": "Use cloud services to maintain security controls while scaling your supply chain environment",
+                            "helpfulResource": {
+                                "displayText": "Using cloud security services enables organizations to implement consistent, automated security controls that scale seamlessly with dynamic supply chain environments. These services provide built-in capabilities for threat detection, data protection, identity management, and compliance monitoring across your entire supply chain environment. By integrating cloud security services directly into your infrastructure as code and CI/CD pipelines, you can make sure security controls are consistently applied from development through production while maintaining operational agility. This approach reduces the operational burden on security teams while providing enhanced visibility and protection for supply chain workloads as they scale to meet changing business demands.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/supply-chain-lens/scsec01-bp02.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Use cloud services to maintain security controls while scaling your supply chain environment",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/supply-chain-lens/scsec01-bp02.html"
+                            }
+                        },
+                        {
+                            "id": "SCSEC01_BP03",
+                            "title": "Practice continuous governance",
+                            "helpfulResource": {
+                                "displayText": "By establishing a CCoE with cross-functional collaboration, using cloud governance services, and fostering a culture of continuous improvement, your organization can effectively address security and compliance requirements for supply chain workloads in the cloud.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/supply-chain-lens/scsec01-bp03.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Practice continuous governance",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/supply-chain-lens/scsec01-bp03.html"
+                            }
+                        },
+                        {
+                            "id": "SCSEC01_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "SCSEC01_BP01 && SCSEC01_BP02 && SCSEC01_BP03",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!SCSEC01_BP01 && SCSEC01_BP02 && SCSEC01_BP03)",
+                            "risk": "HIGH_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "MEDIUM_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "SCSEC02",
+                    "title": "How do you maintain visibility and oversight of your supply chain security posture across multiple environments and regions?",
+                    "description": "From a supply chain perspective, maintaining compliance with regulatory guidelines and mandates is crucial for companies executing a supply chain. Traditional compliance assessment methods may not be sufficient for the dynamic and agile cloud environment that underpins modern supply chain operations. As such, specific best practices and tools are required to facilitate compliance in the cloud-based supply chain environment. To maintain visibility and oversight of your supply chain security posture across multiple environments and regions, using cloud services for automated compliance monitoring and management is crucial.",
+                    "choices": [
+                        {
+                            "id": "SCSEC02_BP01",
+                            "title": "Track cloud resources and enforce compliance with automation",
+                            "helpfulResource": {
+                                "displayText": "Implement automated monitoring systems to continuously track and inventory all cloud resources throughout your supply chain environment. Establish compliance guardrails with automated enforcement mechanisms that validate configurations against security and regulatory requirements before deployment. Use automation to regularly audit existing resources, detect drift from approved configurations, and remediate non-compliant resources without manual intervention. This approach maintains consistent governance across your supply chain while reducing the operational burden of compliance management.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/supply-chain-lens/scsec02-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Track cloud resources and enforce compliance with automation",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/supply-chain-lens/scsec02-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "SCSEC02_BP02",
+                            "title": "Aggregate findings and metrics to maintain centralized visibility",
+                            "helpfulResource": {
+                                "displayText": "Centralizing security findings and metrics across your distributed supply chain environment provides comprehensive visibility into your overall security posture and enables more effective risk management. By aggregating data from multiple sources, accounts, and regions into unified dashboards, security teams can quickly identify patterns, prioritize threats, and coordinate response efforts across the entire supply chain environment. This consolidated approach minimizes blind spots that often exist between different supply chain components and trading partners, allowing for faster detection of potential security incidents and compliance issues. Maintaining centralized visibility also supports more informed decision-making by providing executives and stakeholders with clear, actionable insights into the security health of the supply chain network.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/supply-chain-lens/scsec02-bp02.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Aggregate findings and metrics to maintain centralized visibility",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/supply-chain-lens/scsec02-bp02.html"
+                            }
+                        },
+                        {
+                            "id": "SCSEC02_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "SCSEC02_BP01 && SCSEC02_BP02",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!SCSEC02_BP01)",
+                            "risk": "HIGH_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "MEDIUM_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "SCSEC03",
+                    "title": "How do you manage and control access to supply chain systems and data for partners, vendors, and third parties?",
+                    "description": "Managing access for partners, vendors, and third parties is critical for supply chain security as these external entities often require legitimate access to sensitive systems but represent significant potential threat vectors if not properly controlled. Implementing robust identity management, least privilege principles, and continuous monitoring for third-party access helps prevent unauthorized data exposure and supply chain infiltration. Effective third-party access management balances operational efficiency with security requirements, enabling necessary collaboration while protecting critical supply chain assets and maintaining regulatory compliance.",
+                    "choices": [
+                        {
+                            "id": "SCSEC03_BP01",
+                            "title": "Implement granular access controls",
+                            "helpfulResource": {
+                                "displayText": "Implementing granular access controls across your supply chain environment makes sure that users, systems, and third parties have precisely the level of access required for their specific functions. By defining and enforcing fine-grained permissions based on roles, responsibilities, and contextual factors such as location or time, organizations can significantly reduce the risk of unauthorized access to sensitive supply chain data and systems. This approach minimizes the potential exposure surface while maintaining operational efficiency through automated provisioning and de-provisioning processes. Regular reviews and continuous validation of access patterns help identify anomalies and maintain the principle of least privilege across complex, multi-party supply chain networks.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/supply-chain-lens/scsec03-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Implement granular access controls",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/supply-chain-lens/scsec03-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "SCSEC03_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "SCSEC03_BP01",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!SCSEC03_BP01)",
+                            "risk": "HIGH_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "MEDIUM_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "SCSEC04",
+                    "title": "How do you implement least privilege access and separation of duties for supply chain operations?",
+                    "description": "Implementing least privilege access and separation of duties is fundamental to supply chain security as it minimizes the risk of unauthorized actions, fraud, and insider threats by making sure individuals have only the permissions necessary for their specific roles.",
+                    "choices": [
+                        {
+                            "id": "SCSEC04_BP01",
+                            "title": "Implement least privilege access",
+                            "helpfulResource": {
+                                "displayText": "Least privilege access and separation of duties create critical security boundaries between different supply chain functions, helping to prevent a single individual from controlling an entire process that could compromise data integrity or operational security. For organizations with complex supply chains, these principles form the foundation of a zero-trust security model that protects sensitive information, maintains regulatory compliance, and preserves the integrity of supply chain operations.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/supply-chain-lens/scsec04-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Implement least privilege access",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/supply-chain-lens/scsec04-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "SCSEC04_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "SCSEC04_BP01",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!SCSEC04_BP01)",
+                            "risk": "HIGH_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "MEDIUM_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "SCSEC05",
+                    "title": "How do you monitor and detect potential security threats or anomalies across your supply chain infrastructure and applications?",
+                    "description": "Continuous monitoring and threat detection are essential for supply chain security as they enable early identification of potential breaches or anomalies across your distributed infrastructure. Effective monitoring helps prevent data breaches, service disruptions, and maintains the integrity of your supply chain operations.",
+                    "choices": [
+                        {
+                            "id": "SCSEC05_BP01",
+                            "title": "Implement comprehensive monitoring and threat detection",
+                            "helpfulResource": {
+                                "displayText": "Implement robust monitoring systems that provide real-time visibility across all supply chain infrastructure, applications, and data flows to quickly identify anomalous activities and performance issues. Deploy advanced threat detection capabilities that use behavioral analysis and pattern recognition to identify potential security breaches before they impact operations. Establish centralized logging and alerting mechanisms that consolidate security events from diverse sources, enabling rapid investigation and response to emerging threats. This comprehensive approach facilitates continuous protection of your supply chain environment while providing the intelligence needed to adapt security controls as threats evolve.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/supply-chain-lens/scsec05-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Implement comprehensive monitoring and threat detection",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/supply-chain-lens/scsec05-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "SCSEC05_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "SCSEC05_BP01",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!SCSEC05_BP01)",
+                            "risk": "HIGH_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "MEDIUM_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "SCSEC06",
+                    "title": "How do you secure and isolate the different stages of your supply chain?",
+                    "description": "Segmenting and isolating different stages of your supply chain is crucial for limiting the blast radius of potential security incidents. This approach helps prevent lateral movement of threats and makes sure that a compromise in one area doesn't cascade throughout your entire supply chain environment.",
+                    "choices": [
+                        {
+                            "id": "SCSEC06_BP01",
+                            "title": "Implement network segmentation and isolation to reduce risks across supply chain phases",
+                            "helpfulResource": {
+                                "displayText": "Network segmentation creates security boundaries between different stages of your supply chain, limiting the potential impact of security breaches. By implementing logical separation between procurement, manufacturing, distribution, and other supply chain functions, organizations can help prevent lateral movement of threats and apply specific security controls appropriate to each segment. This approach enables more granular access control, improved monitoring, and enhanced protection of sensitive assets across the supply chain environment. Effective segmentation should be based on business functions, data sensitivity, and regulatory requirements.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/supply-chain-lens/scsec06-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Implement network segmentation and isolation to reduce risks across supply chain phases",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/supply-chain-lens/scsec06-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "SCSEC06_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "SCSEC06_BP01",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!SCSEC06_BP01)",
+                            "risk": "HIGH_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "MEDIUM_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "SCSEC07",
+                    "title": "How do you protect your supply chain systems and workloads from potential vulnerabilities or misconfigurations?",
+                    "description": "Supply chain systems are prime targets for bad actors seeking to exploit vulnerabilities or misconfigurations. Proactive identification and remediation of these weaknesses is essential to maintain the security posture of your supply chain and help prevent disruptions to business operations.",
+                    "choices": [
+                        {
+                            "id": "SCSEC07_BP01",
+                            "title": "Regularly scan for vulnerabilities, patch your workloads and audit your systems for compliance",
+                            "helpfulResource": {
+                                "displayText": "Maintaining a proactive vulnerability management program is critical for identifying and addressing security weaknesses across supply chain systems. This involves implementing regular scanning processes to detect vulnerabilities in infrastructure, applications, and dependencies used throughout the supply chain. Establishing systematic patching procedures makes sure that identified vulnerabilities are remediated in a timely manner based on risk assessment and business impact. Complementing these activities with regular compliance audits helps verify that security controls are functioning as intended and meeting regulatory requirements.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/supply-chain-lens/scsec07-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Regularly scan for vulnerabilities, patch your workloads and audit your systems for compliance",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/supply-chain-lens/scsec07-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "SCSEC07_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "SCSEC07_BP01",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!SCSEC07_BP01)",
+                            "risk": "HIGH_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "MEDIUM_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "SCSEC08",
+                    "title": "How do you manage and protect encryption keys used within your supply chain systems?",
+                    "description": "Encryption keys are critical security assets that protect sensitive supply chain data both at rest and in transit. Proper key management supports data confidentiality and integrity across your supply chain network, while helping to prevent unauthorized access to protected information.",
+                    "choices": [
+                        {
+                            "id": "SCSEC08_BP01",
+                            "title": "Implement strong key management in your supply chain systems",
+                            "helpfulResource": {
+                                "displayText": "Effective encryption key management is fundamental to protecting sensitive data across supply chain operations. This includes implementing secure processes for key generation, storage, rotation, and revocation throughout the key lifecycle. Organizations should establish clear separation of duties for key management activities and make sure keys are protected with strong access controls. Regular auditing of key usage and implementing automated rotation schedules helps maintain the integrity of encryption throughout the supply chain environment.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/supply-chain-lens/scsec08-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Implement strong key management in your supply chain systems",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/supply-chain-lens/scsec08-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "SCSEC08_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "SCSEC08_BP01",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!SCSEC08_BP01)",
+                            "risk": "HIGH_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "MEDIUM_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "SCSEC09",
+                    "title": "How do you classify and handle sensitive supply chain data (for example, product designs, pricing, and logistics)?",
+                    "description": "Supply chains process various types of sensitive data that require different levels of protection. Proper classification and handling of this data is essential to apply appropriate security controls, meet compliance requirements, and help prevent competitive disadvantages from data breaches.",
+                    "choices": [
+                        {
+                            "id": "SCSEC09_BP01",
+                            "title": "Implement data classification and protection",
+                            "helpfulResource": {
+                                "displayText": "A comprehensive data classification framework enables organizations to identify and appropriately protect different types of supply chain information. This approach involves categorizing data based on sensitivity, regulatory requirements, and business impact to apply proportionate security controls. Organizations should implement automated discovery and classification tools to identify sensitive data across diverse supply chain systems. Protection mechanisms should align with classification levels, making sure that the most sensitive information receives the strongest safeguards while maintaining operational efficiency.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/supply-chain-lens/scsec09-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Implement data classification and protection",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/supply-chain-lens/scsec09-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "SCSEC09_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "SCSEC09_BP01",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!SCSEC09_BP01)",
+                            "risk": "HIGH_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "MEDIUM_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "SCSEC10",
+                    "title": "How are you encrypting supply chain data at rest and in transit across different environments?",
+                    "description": "Encryption is a fundamental security control for protecting supply chain data as it moves through various systems and networks. Implementing comprehensive encryption strategies safeguards sensitive information from unauthorized access and helps maintain compliance with industry regulations.",
+                    "choices": [
+                        {
+                            "id": "SCSEC10_BP01",
+                            "title": "Implement comprehensive data encryption",
+                            "helpfulResource": {
+                                "displayText": "A holistic encryption strategy is essential for protecting supply chain data throughout its lifecycle. This includes implementing strong encryption for data at rest in storage systems, databases, and backup media across all supply chain environments. Complementary transport encryption should secure data as it moves between systems, partners, and geographic locations. Organizations should select appropriate encryption algorithms and key lengths based on data sensitivity and regulatory requirements, while making sure that encryption implementation doesn't significantly impact system performance or user experience.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/supply-chain-lens/scsec10-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Implement comprehensive data encryption",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/supply-chain-lens/scsec10-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "SCSEC10_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "SCSEC10_BP01",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!SCSEC10_BP01)",
+                            "risk": "HIGH_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "MEDIUM_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "SCSEC11",
+                    "title": "How do you prepare for and respond to potential security incidents impacting your supply chain operations?",
+                    "description": "Security incidents in supply chain environments can have far-reaching consequences, disrupting operations and affecting multiple stakeholders. A well-defined incident response strategy enables rapid containment, minimizes operational impact, and facilitates swift recovery from security breaches.",
+                    "choices": [
+                        {
+                            "id": "SCSEC11_BP01",
+                            "title": "Develop and implement a comprehensive incident response plan",
+                            "helpfulResource": {
+                                "displayText": "Establish a comprehensive incident response plan tailored specifically for supply chain disruptions that clearly defines roles, responsibilities, and escalation procedures across all stakeholders including suppliers and logistics partners. Regularly conduct tabletop exercises and simulations to test the effectiveness of response protocols under various supply chain threat scenarios, making sure teams are prepared to act decisively during actual incidents. Implement automated detection mechanisms that can quickly identify potential supply chain security breaches or operational disruptions, triggering appropriate response workflows. Maintain secure communication channels and documentation procedures that enable effective coordination during incidents while preserving evidence for post-incident analysis and continuous improvement of security controls.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/supply-chain-lens/scsec11-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Develop and implement a comprehensive incident response plan",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/supply-chain-lens/scsec11-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "SCSEC11_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "SCSEC11_BP01",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!SCSEC11_BP01)",
+                            "risk": "HIGH_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "MEDIUM_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "SCSEC12",
+                    "title": "How do you enable traceability and forensic analysis of security events across the supply chain?",
+                    "description": "Comprehensive logging and forensic capabilities are essential for investigating security incidents across complex supply chain environments. Effective traceability allows organizations to understand the scope of incidents, identify root causes, and implement appropriate remediation measures.",
+                    "choices": [
+                        {
+                            "id": "SCSEC12_BP01",
+                            "title": "Implement comprehensive logging and forensic analysis framework",
+                            "helpfulResource": {
+                                "displayText": "Implement a robust logging and monitoring framework that captures detailed audit trails across all supply chain systems, applications, and partner interactions to enable thorough forensic analysis of security events. Deploy centralized log management solutions that aggregate and correlate security data from diverse sources, providing investigators with comprehensive visibility into supply chain activities and potential security incidents. Establish automated analysis capabilities that can quickly process large volumes of log data to identify patterns, anomalies, and indicators of compromise across the extended supply chain network. Maintain appropriate log retention policies and secure storage mechanisms to make sure forensic evidence remains available and tamper-proof for compliance and investigation purposes.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/supply-chain-lens/scsec12-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Implement comprehensive logging and forensic analysis framework",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/supply-chain-lens/scsec12-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "SCSEC12_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "SCSEC12_BP01",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!SCSEC12_BP01)",
+                            "risk": "MEDIUM_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "HIGH_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "SCSEC13",
+                    "title": "How do you incorporate security practices within the software development lifecycle for supply chain applications?",
+                    "description": "Integrating security throughout the software development lifecycle is crucial for building secure supply chain applications from the ground up. This approach helps identify and address vulnerabilities early, reducing the cost and impact of security issues in production environments.",
+                    "choices": [
+                        {
+                            "id": "SCSEC13_BP01",
+                            "title": "Integrate security throughout the software development lifecycle",
+                            "helpfulResource": {
+                                "displayText": "Incorporate security measures into the earliest stages of the software development lifecycle (SDLC) to support robust protection throughout the development process. Develop policies and procedures for secure coding practices where developers are trained to follow industry-standard guidelines. Implement security requirements during the requirements phase, design secure architectures during the design phase, develop secure code during implementation, conduct thorough security testing, and maintain secure deployment and maintenance practices. This comprehensive approach makes sure that security is not an afterthought but an integral part of the development process for supply chain applications.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/supply-chain-lens/scsec13-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Integrate security throughout the software development lifecycle",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/supply-chain-lens/scsec13-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "SCSEC13_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "SCSEC13_BP01",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!SCSEC13_BP01)",
+                            "risk": "HIGH_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "MEDIUM_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "SCSEC14",
+                    "title": "How do you validate the integrity of supply chain application code and dependencies?",
+                    "description": "Supply chain applications rely on numerous code dependencies that can introduce security vulnerabilities if not properly validated. Maintaining the integrity of application code and dependencies helps prevent supply chain attacks and maintains the trustworthiness of your systems.",
+                    "choices": [
+                        {
+                            "id": "SCSEC14_BP01",
+                            "title": "Implement comprehensive code and dependency integrity validation",
+                            "helpfulResource": {
+                                "displayText": "Maintaining the integrity of application code and dependencies is critical for helping to prevent supply chain attacks that target software components. Organizations should implement code signing to verify authenticity and help prevent tampering with application components. Automated scanning of dependencies for known vulnerabilities should be integrated into development workflows to identify security issues before deployment. Establishing trusted repositories for approved components and implementing integrity verification during build and deployment processes creates multiple layers of protection against compromised software in the supply chain.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/supply-chain-lens/scsec14-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Implement comprehensive code and dependency integrity validation",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/supply-chain-lens/scsec14-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "SCSEC14_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "SCSEC14_BP01",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!SCSEC14_BP01)",
+                            "risk": "MEDIUM_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "HIGH_RISK"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "reliability",
+            "name": "Reliability",
+            "questions": [
+                {
+                    "id": "SCREL01",
+                    "title": "How do you establish redundancy for key suppliers and logistics providers?",
+                    "description": "Single points of failure in suppliers or logistics providers can disrupt the entire supply chain, leading to missed delivery timelines or unfulfilled orders.",
+                    "choices": [
+                        {
+                            "id": "SCREL01_BP01",
+                            "title": "Identify suppliers and logistics partners and establish backup agreements or alternate sourcing strategies to mitigate risks",
+                            "helpfulResource": {
+                                "displayText": "Identifying critical suppliers and logistics partners is essential for building supply chain resilience, as these relationships often represent single points of failure that can severely impact operations when disrupted. Organizations should conduct thorough risk assessments to categorize partners based on their operational importance, substitutability, and geographic concentration. For high-risk dependencies, establish formal backup agreements with alternative providers who can quickly activate during disruptions, while maintaining appropriate inventory buffers for critical components. Implement regular testing of these contingency arrangements through simulated disruption scenarios to validate their effectiveness and refine response protocols before real emergencies occur.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/supply-chain-lens/screl01-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Identify suppliers and logistics partners and establish backup agreements or alternate sourcing strategies to mitigate risks",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/supply-chain-lens/screl01-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "SCREL01_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "SCREL01_BP01",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!SCREL01_BP01)",
+                            "risk": "HIGH_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "MEDIUM_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "SCREL02",
+                    "title": "How do you maintain holistic visibility of shipments and deliveries?",
+                    "description": "Holistic visibility makes sure that stakeholders can track the location, status, and condition of goods, enabling timely interventions for delays or issues.",
+                    "choices": [
+                        {
+                            "id": "SCREL02_BP01",
+                            "title": "Integrate shipment tracking solutions, providing real-time visibility through IoT devices and logistics APIs",
+                            "helpfulResource": {
+                                "displayText": "Integrate comprehensive shipment tracking solutions with core supply chain systems to create end-to-end visibility across transportation networks, warehouses, and last-mile delivery operations. Deploy IoT devices such as GPS trackers, temperature sensors, and shock monitors to capture real-time condition and location data from shipments, while establishing API connections with logistics partners to incorporate their tracking information into a unified visibility system. Implement geofencing capabilities to automatically trigger notifications and workflow actions when shipments enter or exit predefined geographic boundaries, enabling proactive exception management. This enhanced visibility infrastructure provides stakeholders with accurate estimated arrival times, condition monitoring, and chain-of-custody verification, significantly improving customer experience while reducing operational uncertainty.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/supply-chain-lens/screl02-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Integrate shipment tracking solutions, providing real-time visibility through IoT devices and logistics APIs",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/supply-chain-lens/screl02-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "SCREL02_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "SCREL02_BP01",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!SCREL02_BP01)",
+                            "risk": "MEDIUM_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "HIGH_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "SCREL03",
+                    "title": "How do you dynamically adjust transportation routes based on real-time conditions?",
+                    "description": "Transportation delays caused by traffic, weather, or other disruptions can significantly impact delivery timelines and customer satisfaction.",
+                    "choices": [
+                        {
+                            "id": "SCREL03_BP01",
+                            "title": "Integrate route optimization tools with real-time data from logistics providers and IoT sensors to dynamically adjust routes",
+                            "helpfulResource": {
+                                "displayText": "Implement advanced route optimization tools that continuously recalculate optimal delivery paths by incorporating real-time data streams from traffic systems, weather services, and vehicle telematics. Connect these optimization engines with IoT sensors deployed across the logistics network to capture immediate feedback on road conditions, vehicle performance, and cargo status, enabling dynamic rerouting decisions when disruptions occur. Establish bidirectional integration with logistics partners' systems to synchronize schedule changes, resource availability, and delivery constraints across the extended transportation network. This intelligent routing environment should support multi-objective optimization that balances competing priorities like fuel efficiency, delivery time windows, driver hours-of-service constraints, and carbon emissions targets while adapting to changing conditions throughout the execution cycle.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/supply-chain-lens/screl03-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Integrate route optimization tools with real-time data from logistics providers and IoT sensors to dynamically adjust routes",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/supply-chain-lens/screl03-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "SCREL03_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "SCREL03_BP01",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!SCREL03_BP01)",
+                            "risk": "MEDIUM_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "HIGH_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "SCREL04",
+                    "title": "How do you synchronize inventory and order data in real-time across all nodes in the supply chain?",
+                    "description": "Real-time synchronization enables inventory availability, procurement decisions, and customer orders are based on accurate and up-to-date information. This helps prevent issues like overselling, unfulfilled orders, or inventory wastage.",
+                    "choices": [
+                        {
+                            "id": "SCREL04_BP01",
+                            "title": "Implement a centralized inventory and order management system integrated with all warehouses, suppliers, and sales channels",
+                            "helpfulResource": {
+                                "displayText": "Use event-driven architectures to propagate updates across the supply chain. Implement a centralized inventory and order management system that provides a single source of truth for product availability, allocations, and fulfillment status across all physical and digital channels. Establish real-time integration with warehouse management systems, supplier portals, and sales systems to synchronize inventory movements and order status changes throughout the fulfillment lifecycle. Deploy event-driven architecture patterns that take immediate actions when significant changes occur, such as automatically reallocating inventory when stock levels reach thresholds or initiating replenishment workflows when demand signals change. This interconnected system should support sophisticated allocation rules that optimize inventory placement based on factors like customer promise dates, fulfillment costs, and service level agreements while maintaining data consistency across all supply chain nodes.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/supply-chain-lens/screl04-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Implement a centralized inventory and order management system integrated with all warehouses, suppliers, and sales channels",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/supply-chain-lens/screl04-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "SCREL04_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "SCREL04_BP01",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!SCREL04_BP01)",
+                            "risk": "HIGH_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "MEDIUM_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "SCREL05",
+                    "title": "How do you monitor and mitigate the risks of product spoilage or damage during transit?",
+                    "description": "Certain goods, such as perishable food or sensitive electronics, require strict environmental conditions during transit to maintain quality and usability.",
+                    "choices": [
+                        {
+                            "id": "SCREL05_BP01",
+                            "title": "Deploy IoT-based monitoring systems to track temperature, humidity, and other environmental factors during transit",
+                            "helpfulResource": {
+                                "displayText": "Deploy comprehensive IoT-based monitoring systems throughout your supply chain to continuously track critical environmental conditions like temperature, humidity, shock, light exposure, and location for sensitive products during storage and transit. Configure these systems with product-specific thresholds that trigger immediate alerts when measurements deviate from acceptable ranges, enabling rapid intervention before product quality is compromised. Implement a centralized monitoring dashboard that visualizes real-time condition data across all shipments, with drill-down capabilities to investigate anomalies and historical trend analysis to identify recurring issues. These monitoring capabilities should integrate with quality management systems to automatically document compliance with regulatory requirements and customer specifications while providing complete chain-of-custody verification for sensitive or high-value products.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/supply-chain-lens/screl05-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Deploy IoT-based monitoring systems to track temperature, humidity, and other environmental factors during transit",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/supply-chain-lens/screl05-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "SCREL05_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "SCREL05_BP01",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!SCREL05_BP01)",
+                            "risk": "HIGH_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "MEDIUM_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "SCREL06",
+                    "title": "How do you use predictive analytics to anticipate supply chain disruptions?",
+                    "description": "Predicting potential disruptions, such as demand surges, supplier delays, or geopolitical risks, enables proactive planning to avoid operational bottlenecks.",
+                    "choices": [
+                        {
+                            "id": "SCREL06_BP01",
+                            "title": "Use machine learning models to analyze historical data and external factors, predicting disruptions and optimizing inventory",
+                            "helpfulResource": {
+                                "displayText": "Implement machine learning models that analyze patterns across historical supply chain disruptions, correlating them with external factors such as weather events, geopolitical developments, and economic indicators to identify emerging risk patterns. Train predictive algorithms on comprehensive datasets that combine internal operational metrics with external variables to forecast potential disruption impacts on specific supply chain nodes and transportation lanes. Deploy these predictive insights through automated decision support systems that recommend preemptive inventory positioning, transportation mode shifts, and supplier diversification strategies before disruptions materialize. Continuously refine these models through feedback loops that compare predicted outcomes with actual events, enabling progressive improvement in disruption forecasting accuracy and response optimization over time.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/supply-chain-lens/screl06-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Use machine learning models to analyze historical data and external factors, predicting disruptions and optimizing inventory",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/supply-chain-lens/screl06-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "SCREL06_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "SCREL06_BP01",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!SCREL06_BP01)",
+                            "risk": "MEDIUM_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "HIGH_RISK"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "performance",
+            "name": "Performance Efficiency",
+            "questions": [
+                {
+                    "id": "SCPERF01",
+                    "title": "How do you select the best performing architecture?",
+                    "description": "Performance objectives for workloads can vary depending on the criticality of the workload. While more stringent performance requirements are expected for critical supply chain systems, such as global supply and demand, sourcing and procurement, and inbound and outbound logistics, cloud workloads still benefit from defining performance requirements.",
+                    "choices": [
+                        {
+                            "id": "SCPERF01_BP01",
+                            "title": "Use internal and external risk to determine performance requirements",
+                            "helpfulResource": {
+                                "displayText": "External regulatory or supplier systems, as well as internal risk requirements, are often a good place to start for performance requirements. For certain systems, regulators release sector-wide guidance and data residency rules and regulators require that system have the capability to deliver on the operational resilience and the performance targets they have set for themselves.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/supply-chain-lens/scperf01-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Use internal and external risk to determine performance requirements",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/supply-chain-lens/scperf01-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "SCPERF01_BP02",
+                            "title": "Factor in rate of increase in load, traffic, and scale-out intervals",
+                            "helpfulResource": {
+                                "displayText": "Identify the upper bounds of the peak load against a system, as well as the amount of time needed to reach peak load. Load tests often overlook the rate of increase in traffic and create tests that scale up too quickly or too slowly.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/supply-chain-lens/scperf01-bp02.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Factor in rate of increase in load, traffic, and scale-out intervals",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/supply-chain-lens/scperf01-bp02.html"
+                            }
+                        },
+                        {
+                            "id": "SCPERF01_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "SCPERF01_BP01 && SCPERF01_BP02",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!SCPERF01_BP01) || (!SCPERF01_BP02)",
+                            "risk": "HIGH_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "MEDIUM_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "SCPERF02",
+                    "title": "How do you select your compute architecture?",
+                    "description": "The optimal compute solution for a particular architecture depends on the workload deployment method, degree of automation, usage patterns, and configuration. Third-party solutions in a supply chain environment like transport management system (TMS), order management system (OMS), and customer management systems (CRMs) can bring their own requirements for infrastructure, which must also be considered.",
+                    "choices": [
+                        {
+                            "id": "SCPERF02_BP01",
+                            "title": "Use serverless compute to run tasks",
+                            "helpfulResource": {
+                                "displayText": "Choosing the correct compute power for the workload provides smooth performance of the application, not only for the end users also for the solution developer community to maintain the software stacks across various infrastructures.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/supply-chain-lens/scperf02-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Use serverless compute to run tasks",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/supply-chain-lens/scperf02-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "SCPERF02_BP02",
+                            "title": "Use machine learning capabilities for supply chain applications",
+                            "helpfulResource": {
+                                "displayText": "AWS Supply Chain unifies data and provides machine learning--powered actionable insights, built-in contextual collaboration, and demand planning.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/supply-chain-lens/scperf02-bp02.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Use machine learning capabilities for supply chain applications",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/supply-chain-lens/scperf02-bp02.html"
+                            }
+                        },
+                        {
+                            "id": "SCPERF02_BP03",
+                            "title": "Use edge compute capabilities for supply chain applications",
+                            "helpfulResource": {
+                                "displayText": "AWS offers a robust suite of edge computing solutions that extend cloud capabilities closer to end users, devices, and on-premises locations. At the core of AWS's edge computing strategy are two main services: AWS Outposts and AWS Local Zones.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/supply-chain-lens/scperf02-bp03.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Use edge compute capabilities for supply chain applications",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/supply-chain-lens/scperf02-bp03.html"
+                            }
+                        },
+                        {
+                            "id": "SCPERF02_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "SCPERF02_BP01 && SCPERF02_BP02 && SCPERF02_BP03",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!SCPERF02_BP01) && (!SCPERF02_BP02) && (!SCPERF02_BP03)",
+                            "risk": "HIGH_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "MEDIUM_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "SCPERF03",
+                    "title": "How do you select the database and storage for supply chain workloads?",
+                    "description": "When you select a database or storage solution, verify that it aligns with your access patterns to achieve the desired performance. AWS has predefined set of purpose-built databases engines (Relational or Non-relational) which suits for different data that the source system produces, and such systems can scale for performance.",
+                    "choices": [
+                        {
+                            "id": "SCPERF03_BP01",
+                            "title": "Select your database architecture based on workload",
+                            "helpfulResource": {
+                                "displayText": "Purpose-built data storage for your workloads can help increase the performance efficiency of the overall system, as well to be more resilient in case of failures.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/supply-chain-lens/scperf03-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Select your database architecture based on workload",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/supply-chain-lens/scperf03-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "SCPERF03_BP02",
+                            "title": "Select your storage architecture based on workload",
+                            "helpfulResource": {
+                                "displayText": "Data lineage is important in the world of producers and consumers of the data. This lineage can be verified and validated when it is tracked from the source system to the destination systems. As a result, well-organized data leads to better understanding.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/supply-chain-lens/scperf03-bp02.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Select your storage architecture based on workload",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/supply-chain-lens/scperf03-bp02.html"
+                            }
+                        },
+                        {
+                            "id": "SCPERF03_BP03",
+                            "title": "Use cache memory to help improve the performance",
+                            "helpfulResource": {
+                                "displayText": "Cache memory provides improved latency of the application when accessed outside of the solution-hosted Regions.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/supply-chain-lens/scperf03-bp03.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Use cache memory to help improve the performance",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/supply-chain-lens/scperf03-bp03.html"
+                            }
+                        },
+                        {
+                            "id": "SCPERF03_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "SCPERF03_BP01 && SCPERF03_BP02 && SCPERF03_BP03",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!SCPERF03_BP01) || (!SCPERF03_BP02) || (!SCPERF03_BP03)",
+                            "risk": "HIGH_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "MEDIUM_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "SCPERF04",
+                    "title": "How do you select your network architecture for supply chain application?",
+                    "description": "Proximity to data sources, both internal and external, and the distance between components can be a key factor for supply chain workloads, like high-frequency supplier networking and manufacturing systems from factory floors, so make use of AWS services to sit your solution as close as possible to dependencies.",
+                    "choices": [
+                        {
+                            "id": "SCPERF04_BP01",
+                            "title": "Use performance requirements to drive the selection of network components and architecture",
+                            "helpfulResource": {
+                                "displayText": "Bring the hosted solution closer to your users' Region to provide a better user experience and make the data safer while hosted or in transit.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/supply-chain-lens/scperf04-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Use performance requirements to drive the selection of network components and architecture",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/supply-chain-lens/scperf04-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "SCPERF04_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "SCPERF04_BP01",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!SCPERF04_BP01)",
+                            "risk": "HIGH_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "MEDIUM_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "SCPERF05",
+                    "title": "How do you test and monitor the performance of the supply chain systems?",
+                    "description": "Performance monitoring and testing are critical components of supply chain management as they make sure systems can handle varying loads, maintain reliability during peak operations, and provide visibility into system behavior across complex, interconnected supply chain networks. Without proper monitoring and testing, organizations risk service disruptions, poor customer experiences, and inability to identify performance bottlenecks before they impact business operations.",
+                    "choices": [
+                        {
+                            "id": "SCPERF05_BP01",
+                            "title": "Implement comprehensive monitoring and dashboards for supply chain performance",
+                            "helpfulResource": {
+                                "displayText": "Building an effective dashboard involves focusing on the key performance indicators (KPIs) that matter most to your organization and displaying them in an understandable and visually appealing way.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/supply-chain-lens/scperf05-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Implement comprehensive monitoring and dashboards for supply chain performance",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/supply-chain-lens/scperf05-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "SCPERF05_BP02",
+                            "title": "Evaluate compliance with performance requirements",
+                            "helpfulResource": {
+                                "displayText": "When many systems, including third-party systems, are involved in a workload, it is important to know the behavior of each system and to monitor who is contributing to performance loss so proper adjustments can be made.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/supply-chain-lens/scperf05-bp02.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Evaluate compliance with performance requirements",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/supply-chain-lens/scperf05-bp02.html"
+                            }
+                        },
+                        {
+                            "id": "SCPERF05_BP03",
+                            "title": "Integrate performance testing into the release cycle of the supply chain application",
+                            "helpfulResource": {
+                                "displayText": "Load testing results help you measure how the system behaves while in high-traffic or heavy loads. Note these measurements to help you adjust the underlying resources without wasting cost by over-provisioning.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/supply-chain-lens/scperf05-bp03.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Integrate performance testing into the release cycle of the supply chain application",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/supply-chain-lens/scperf05-bp03.html"
+                            }
+                        },
+                        {
+                            "id": "SCPERF05_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "SCPERF05_BP01 && SCPERF05_BP02 && SCPERF05_BP03",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!SCPERF05_BP01) || (!SCPERF05_BP03)",
+                            "risk": "HIGH_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "MEDIUM_RISK"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "costOptimization",
+            "name": "Cost Optimization",
+            "questions": [
+                {
+                    "id": "SCCOST01",
+                    "title": "How do you balance your scalability requirements against overall IT infrastructure cost considerations?",
+                    "description": "Balancing scalability requirements against IT infrastructure costs is essential for supply chain operations because it makes sure that systems can handle demand fluctuations while maintaining cost efficiency and operational effectiveness.",
+                    "choices": [
+                        {
+                            "id": "SCCOST01_BP01",
+                            "title": "Optimize integration and collaboration across the supply chain management",
+                            "helpfulResource": {
+                                "displayText": "Supply chain optimization, enhanced by location intelligence, can minimize unnecessary miles, resulting in a cost-effective approach to logistics and transportation management.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/supply-chain-lens/sccost01-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Optimize integration and collaboration across the supply chain management",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/supply-chain-lens/sccost01-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "SCCOST01_BP02",
+                            "title": "Adopt a flexible and scalable cloud infrastructure",
+                            "helpfulResource": {
+                                "displayText": "A typical supply chain landscape will include ERPs, warehouse management systems (WMS), and transportation management systems (TMS) running on a large infrastructure that needs to be reliable, scalable and optimized for cost and performance.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/supply-chain-lens/sccost01-bp02.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Adopt a flexible and scalable cloud infrastructure",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/supply-chain-lens/sccost01-bp02.html"
+                            }
+                        },
+                        {
+                            "id": "SCCOST01_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "SCCOST01_BP01 && SCCOST01_BP02",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!SCCOST01_BP01) || (!SCCOST01_BP02)",
+                            "risk": "HIGH_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "MEDIUM_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "SCCOST02",
+                    "title": "How do you optimize compute and data storage within supply chain systems?",
+                    "description": "In supply chain, data storage includes data such as customer and supplier data, services, and product catalogues. It also includes transactional data around orders, shipments, and tracking events. Supply chain data management is a critical driver of innovation and efficiency, offering valuable insights but requiring skillful handling of its volume, velocity, and variety to maximize value and minimize costs.",
+                    "choices": [
+                        {
+                            "id": "SCCOST02_BP01",
+                            "title": "Have a plan for your raw data storage to optimize cost",
+                            "helpfulResource": {
+                                "displayText": "Effective data management strategies can substantially lower expenses related to maintaining vast data volumes. Object storage is recommended for large-scale unstructured data due to its robustness, nearly unlimited capacity, scalability, and advanced metadata capabilities.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/supply-chain-lens/sccost02-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Have a plan for your raw data storage to optimize cost",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/supply-chain-lens/sccost02-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "SCCOST02_BP02",
+                            "title": "Query and retrieve data by partitions to save cost and improve performance",
+                            "helpfulResource": {
+                                "displayText": "Optimize data access by using partitioned queries to enhance cost-efficiency and performance in supply chain systems.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/supply-chain-lens/sccost02-bp02.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Query and retrieve data by partitions to save cost and improve performance",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/supply-chain-lens/sccost02-bp02.html"
+                            }
+                        },
+                        {
+                            "id": "SCCOST02_BP03",
+                            "title": "Only store useful data and discard the rest",
+                            "helpfulResource": {
+                                "displayText": "A well-designed supply chain data management architecture incorporates a data lake to store processed and normalized useful data, while raw data is either discarded or archived in cost-effective storage for potential future needs.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/supply-chain-lens/sccost02-bp03.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Only store useful data and discard the rest",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/supply-chain-lens/sccost02-bp03.html"
+                            }
+                        },
+                        {
+                            "id": "SCCOST02_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "SCCOST02_BP01 && SCCOST02_BP02 && SCCOST02_BP03",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!SCCOST02_BP01)",
+                            "risk": "HIGH_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "MEDIUM_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "SCCOST03",
+                    "title": "How do you optimize your network consumption and interactions between plant floor and overall IT infrastructure?",
+                    "description": "Optimizing network consumption and payload size is crucial for efficient data communication between industrial plants and the cloud, especially with limited bandwidth and real-time processing needs.",
+                    "choices": [
+                        {
+                            "id": "SCCOST03_BP01",
+                            "title": "Compress and aggregate data whenever possible to reduce the amount of data that needs to be transmitted over the network",
+                            "helpfulResource": {
+                                "displayText": "Maximizing processing and sanitation of data reduces the amount of data to be sent and processed in the cloud, leading to significant cost savings and improved performance.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/supply-chain-lens/sccost03-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Compress and aggregate data whenever possible to reduce the amount of data that needs to be transmitted over the network",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/supply-chain-lens/sccost03-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "SCCOST03_BP02",
+                            "title": "Adjust collection frequency depending on the context",
+                            "helpfulResource": {
+                                "displayText": "Optimize data collection frequency based on business needs and context using event-based triggers and thresholds to reduce costs while maintaining performance and efficiency.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/supply-chain-lens/sccost03-bp02.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Adjust collection frequency depending on the context",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/supply-chain-lens/sccost03-bp02.html"
+                            }
+                        },
+                        {
+                            "id": "SCCOST03_BP03",
+                            "title": "Choose the right communication service and configuration depending on the use case",
+                            "helpfulResource": {
+                                "displayText": "Tailor your communication service selection and setup to match specific supply chain scenarios and requirements.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/supply-chain-lens/sccost03-bp03.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Choose the right communication service and configuration depending on the use case",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/supply-chain-lens/sccost03-bp03.html"
+                            }
+                        },
+                        {
+                            "id": "SCCOST03_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "SCCOST03_BP01 && SCCOST03_BP02 && SCCOST03_BP03",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!SCCOST03_BP03)",
+                            "risk": "HIGH_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "MEDIUM_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "SCCOST04",
+                    "title": "How do you regularly analyze and fine-tune supply chain overall IT infrastructure expenses for peak efficiency?",
+                    "description": "Regular analysis and fine-tuning of supply chain IT infrastructure expenses is essential for maintaining cost efficiency while achieving optimal performance and meeting evolving business requirements.",
+                    "choices": [
+                        {
+                            "id": "SCCOST04_BP01",
+                            "title": "Use AWS services and advanced analytics to optimize overall supply chain costs",
+                            "helpfulResource": {
+                                "displayText": "Consider using AWS Supply Chain to help optimize overall supply chain costs by taking advantage of pre-built features that are already optimized for cloud infrastructure cost efficiency.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/supply-chain-lens/sccost04-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Use AWS services and advanced analytics to optimize overall supply chain costs",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/supply-chain-lens/sccost04-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "SCCOST04_BP02",
+                            "title": "Implement a monitoring strategy for your cloud spend",
+                            "helpfulResource": {
+                                "displayText": "Continually monitor and analyze usage patterns, network traffic, and associated costs to maintain optimal cost efficiency.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/supply-chain-lens/sccost04-bp02.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Implement a monitoring strategy for your cloud spend",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/supply-chain-lens/sccost04-bp02.html"
+                            }
+                        },
+                        {
+                            "id": "SCCOST04_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "SCCOST04_BP01 && SCCOST04_BP02",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!SCCOST04_BP01) || (!SCCOST04_BP02)",
+                            "risk": "MEDIUM_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "HIGH_RISK"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "sustainability",
+            "name": "Sustainability",
+            "questions": [
+                {
+                    "id": "SCSUS01",
+                    "title": "Can you optimize the AWS Regions where workloads should run to balance business needs and sustainability targets?",
+                    "description": "Optimizing AWS Region selection is crucial for supply chain operations because it directly impacts both operational performance and environmental sustainability by reducing latency, improving user experience, and minimizing carbon footprint through strategic placement of workloads.",
+                    "choices": [
+                        {
+                            "id": "SCSUS01_BP01",
+                            "title": "Optimize your visibility over the entire supply chain network",
+                            "helpfulResource": {
+                                "displayText": "Verify consistent visibility of your supply chain workloads across the entire supply chain network. The goal is to collect information on where workloads are running and how much resources they require to fulfill business needs. Reaching this level of visibility enables organizations to look for optimal AWS Regions, from both business efficiency and sustainability needs standpoint, where workloads can or should run to match service levels and sustainability targets.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/supply-chain-lens/scsus01-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Optimize your visibility over the entire supply chain network",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/supply-chain-lens/scsus01-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "SCSUS01_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "SCSUS01_BP01",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!SCSUS01_BP01)",
+                            "risk": "HIGH_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "MEDIUM_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "SCSUS02",
+                    "title": "Can you optimize where your trading partners can consume required services based on supply chain network areas of execution?",
+                    "description": "Optimizing AWS Regions for trading partner access is considered important because it enables efficient global supply chain operations while minimizing environmental impact through strategic service placement and reduced data transmission requirements.",
+                    "choices": [
+                        {
+                            "id": "SCSUS02_BP01",
+                            "title": "Use the available AWS infrastructure to implement your distributed architecture",
+                            "helpfulResource": {
+                                "displayText": "Consider optimizing where you run your workloads using the extensive AWS infrastructure and a distributed architecture to enable your trading partners to rely on services based on their predominant areas of operation.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/supply-chain-lens/scsus02-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Use the available AWS infrastructure to implement your distributed architecture",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/supply-chain-lens/scsus02-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "SCSUS02_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "SCSUS02_BP01",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!SCSUS02_BP01)",
+                            "risk": "MEDIUM_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "HIGH_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "SCSUS03",
+                    "title": "Can you align your planning, execution, and enablement operations to the actual demand to optimize the emissions?",
+                    "description": "Aligning supply chain operations to actual demand is essential for sustainability because it minimizes waste, reduces unnecessary resource consumption, and optimizes emissions by making sure resources are used only when and where needed.",
+                    "choices": [
+                        {
+                            "id": "SCSUS03_BP01",
+                            "title": "Use the supply chain operations reference (SCOR) to map your supply chain",
+                            "helpfulResource": {
+                                "displayText": "Consider the adoption of the SCOR model or equivalent standardized models like Value Reference Model (VRM) and managing for supply chain performance (M4SC) to map your supply chains and keep related metrics monitored, to be sure you are aligning planning, execution and enablement to the actual demand, leading to emissions optimizations.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/supply-chain-lens/scsus03-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Use the supply chain operations reference (SCOR) to map your supply chain",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/supply-chain-lens/scsus03-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "SCSUS03_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "SCSUS03_BP01",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!SCSUS03_BP01)",
+                            "risk": "HIGH_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "MEDIUM_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "SCSUS04",
+                    "title": "Can you optimize your compute workloads for your supply chain sustainability?",
+                    "description": "Optimizing compute workloads for sustainability is crucial because it directly impacts energy consumption and carbon emissions while maintaining the performance and reliability required for effective supply chain operations.",
+                    "choices": [
+                        {
+                            "id": "SCSUS04_BP01",
+                            "title": "Optimize your compute workloads for your supply chain sustainability",
+                            "helpfulResource": {
+                                "displayText": "Consider configuring AWS Compute Optimizer to analyze and investigate supply chain sustainability related workloads, to support your analysis on how to optimize the usage of compute resources to sustain your supply chain workloads.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/supply-chain-lens/scsus04-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Optimize your compute workloads for your supply chain sustainability",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/supply-chain-lens/scsus04-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "SCSUS04_BP02",
+                            "title": "Build and run optimization models for resources involved in supply chains sustainability",
+                            "helpfulResource": {
+                                "displayText": "Consider building and run specific optimization models targeting supply chains sustainability, through scenarios simulation able to simulate resources usage and collect metrics for supply chains planning, execution and enablement.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/supply-chain-lens/scsus04-bp02.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Build and run optimization models for resources involved in supply chains sustainability",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/supply-chain-lens/scsus04-bp02.html"
+                            }
+                        },
+                        {
+                            "id": "SCSUS04_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "SCSUS04_BP01 && SCSUS04_BP02",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!SCSUS04_BP01) || (!SCSUS04_BP02)",
+                            "risk": "MEDIUM_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "HIGH_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "SCSUS05",
+                    "title": "How does your data strategy support your sustainability outcomes?",
+                    "description": "A well-designed data strategy is fundamental to achieve sustainability outcomes because it enables efficient data collection, processing, and analysis while minimizing resource consumption and supporting informed decision-making for environmental goals.",
+                    "choices": [
+                        {
+                            "id": "SCSUS05_BP01",
+                            "title": "Adopt data management and governance practices for sustainability, and focus on economic, environmental, and social needs",
+                            "helpfulResource": {
+                                "displayText": "Consider supply chain fine-tuned data lake, analytics, and data governance practices with specific focus on sustainability to address economic, environmental and social needs.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/supply-chain-lens/scsus05-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Adopt modern data management and governance practices for your supply chain sustainability, and focus on economic, environmental, and social needs",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/supply-chain-lens/scsus05-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "SCSUS05_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "SCSUS05_BP01",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!SCSUS05_BP01)",
+                            "risk": "HIGH_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "MEDIUM_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "SCSUS06",
+                    "title": "How do you exchange data with trading partners to efficiently reach higher levels of compliance?",
+                    "description": "Efficient data exchange with trading partners is essential for sustainability compliance because it enables transparent reporting, collaborative sustainability initiatives, and adherence to evolving environmental regulations across the supply chain network.",
+                    "choices": [
+                        {
+                            "id": "SCSUS06_BP01",
+                            "title": "Enhance your data strategy and exchange capabilities with your trading partners",
+                            "helpfulResource": {
+                                "displayText": "Consider enhancing your data strategy and your data exchange capabilities with external parties and trading partners or providers to address compliance needs (for example, digital product passport, battery passport, and CO2 emissions reports) and to accelerate the path towards your sustainability targets.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/supply-chain-lens/scsus06-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Enhance your data strategy and exchange capabilities with your trading partners",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/supply-chain-lens/scsus06-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "SCSUS06_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "SCSUS06_BP01",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!SCSUS06_BP01)",
+                            "risk": "HIGH_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "MEDIUM_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "SCSUS07",
+                    "title": "Do you plan and design your supply chain and sustainability needs for automation?",
+                    "description": "Planning and designing for automation in supply chain sustainability is crucial because it reduces manual processes, optimizes resource utilization, and enables dynamic scaling that aligns with actual demand patterns while minimizing environmental impact.",
+                    "choices": [
+                        {
+                            "id": "SCSUS07_BP01",
+                            "title": "Plan and design for automation for supply chain sustainability",
+                            "helpfulResource": {
+                                "displayText": "Consider optimizing your supply chain sustainability through automation, planning, and designing for automation. Plan for designing completely or partially, where applicable, all the time-consuming tasks to reduce the usage time of a required AWS resource, to collect data for peaks and valleys analysis to feed them into ML models or advanced analysis to enable automatic scalability based on demand. Provision the AWS Cloud services you need to support your operations based on your business needs.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/supply-chain-lens/scsus07-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Plan and design for automation for supply chain sustainability",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/supply-chain-lens/scsus07-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "SCSUS07_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "SCSUS07_BP01",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!SCSUS07_BP01)",
+                            "risk": "MEDIUM_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "HIGH_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "SCSUS08",
+                    "title": "Are you designing the architecture for your resources for on-demand over always-on?",
+                    "description": "Designing architecture for on-demand resource usage rather than always-on is essential for sustainability because it significantly reduces energy consumption and carbon emissions by making sure resources are only active when needed.",
+                    "choices": [
+                        {
+                            "id": "SCSUS08_BP01",
+                            "title": "Collect usage data to feed advanced analysis and ML models to better predict future resources needs",
+                            "helpfulResource": {
+                                "displayText": "Consider improving your ability to predict AWS Cloud resources required for your supply chain and sustainability-related workloads to prefer on-demand over always-on. Base this data on forecasts, seasonality, and peaks and valleys analysis to efficiently turn resources on and off accordingly or scaling resources up and down and horizontally.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/supply-chain-lens/scsus08-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Collect usage data to feed advanced analysis and ML models to better predict future resources needs",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/supply-chain-lens/scsus08-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "SCSUS08_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "SCSUS08_BP01",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!SCSUS08_BP01)",
+                            "risk": "MEDIUM_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "HIGH_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "SCSUS09",
+                    "title": "Do you align your supply chain sustainability metrics with company-wise mid/long-term sustainability goals?",
+                    "description": "Aligning supply chain sustainability metrics with company-wide goals is critical because it facilitates coordinated efforts, maximizes impact, and provides clear accountability for environmental performance across the entire organization.",
+                    "choices": [
+                        {
+                            "id": "SCSUS09_BP01",
+                            "title": "Align your supply chain sustainability goals and metrics with the broader set of company-wise sustainability goals",
+                            "helpfulResource": {
+                                "displayText": "Align supply chain workloads and the technology-related emissions to the wider organization's sustainability strategy and goals to monitor how their impact evolves over the time and contributes to your organization's sustainability targets.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/supply-chain-lens/scsus09-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Align your supply chain sustainability goals and metrics with the broader set of company-wise sustainability goals",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/supply-chain-lens/scsus09-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "SCSUS09_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "SCSUS09_BP01",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!SCSUS09_BP01)",
+                            "risk": "HIGH_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "MEDIUM_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "SCSUS10",
+                    "title": "Are you using document digitization to reduce paper waste and align with your ESG and sustainability goals?",
+                    "description": "Using document digitization is important for sustainability because it significantly reduces paper consumption, alleviates physical storage requirements, and enables more efficient data sharing while supporting broader ESG objectives.",
+                    "choices": [
+                        {
+                            "id": "SCSUS10_BP01",
+                            "title": "Use document digitization as an ESG goal",
+                            "helpfulResource": {
+                                "displayText": "Explore opportunities to digitize any physical documentation used for supply chain operations within the company but also in operations involving partners and external entities. Digitization of physical documentation leads to a positive ripple effect over sustainability-related use cases, simplifying data sharing across companies and supply chains, data transparency, and solutions required to solve compliance-related needs.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/supply-chain-lens/scsus10-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Use document digitization as an ESG goal",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/supply-chain-lens/scsus10-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "SCSUS10_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "SCSUS10_BP01",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!SCSUS10_BP01)",
+                            "risk": "MEDIUM_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "HIGH_RISK"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
