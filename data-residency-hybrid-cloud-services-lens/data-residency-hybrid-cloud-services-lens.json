@@ -1,0 +1,2019 @@
+{
+    "schemaVersion": "2021-11-01",
+    "name": "Data Residency with Hybrid Cloud Services Lens",
+    "description": "Best practices for architecting your data residency with hybrid cloud services workloads on AWS.",
+    "pillars": [
+        {
+            "id": "operationalExcellence",
+            "name": "Operational Excellence",
+            "questions": [
+                {
+                    "id": "DRHCOPS01",
+                    "title": "What are the specific data residency regulations and organizational policies that apply to your hybrid edge workloads? ",
+                    "description": "Thoroughly understand your organization's data residency regulations and policies across locations to ensure operational alignment.",
+                    "helpfulResource": {
+                        "displayText": "Data residency regulations and org policies",
+                        "url": "https://docs.aws.amazon.com/wellarchitected/latest/data-residency-hybrid-cloud-services-lens/organization.html"
+                    },
+                    "choices": [
+                        {
+                            "id": "DRHCOPS01_BP01",
+                            "title": "Understand your organization's specific legal and compliance requirements.",
+                            "helpfulResource": {
+                                "displayText": "Your use of AWS Hybrid Edge services should be guided by your data residency requirements. Clearly understand those requirements to ensure your operational practices meet them.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/data-residency-hybrid-cloud-services-lens/drhcops01-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Understand your organization's specific legal and compliance requirements.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/data-residency-hybrid-cloud-services-lens/drhcops01-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "DRHCOPS01_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "DRHCOPS01_BP01",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!DRHCOPS01_BP01) || (!DRHCOPS01_no)",
+                            "risk": "HIGH_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "MEDIUM_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "DRHCOPS02",
+                    "title": "How do you decide between using AWS Local Zones and AWS Outposts for data residency workloads?",
+                    "description": "AWS Outposts can help address data residency requirements by allowing you to control the physical location of your data. AWS Local Zones provide low-latency access to clients from specific geographic locations, which is important when evaluating data residency requirements around latency and access.",
+                    "helpfulResource": {
+                        "displayText": "AWS Outpost compared to AWS Local Zones",
+                        "url": "https://docs.aws.amazon.com/wellarchitected/latest/data-residency-hybrid-cloud-services-lens/organization.html"
+                    },
+                    "choices": [
+                        {
+                            "id": "DRHCOPS02_BP01",
+                            "title": "Consider AWS Outposts for data residency requirements when you need to evaluate data residency requirements",
+                            "helpfulResource": {
+                                "displayText": "Consider AWS Outposts to run AWS services on-premises and meet data residency requirements for regulatory compliance or data sovereignty reasons.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/data-residency-hybrid-cloud-services-lens/drhcops02-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Consider AWS Outposts for data residency requirements when you need to evaluate data residency requirements",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/data-residency-hybrid-cloud-services-lens/drhcops02-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "DRHCOPS02_BP02",
+                            "title": "Consider AWS Local Zones for low-latency access from specific geographic locations",
+                            "helpfulResource": {
+                                "displayText": "Consider AWS Local Zones for applications with low latency requirements and data residency requirements.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/data-residency-hybrid-cloud-services-lens/drhcops02-bp02.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Consider AWS Local Zones for low-latency access from specific geographic locations",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/data-residency-hybrid-cloud-services-lens/drhcops02-bp02.html"
+                            }
+                        },
+                        {
+                            "id": "DRHCOPS02_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "DRHCOPS02_BP01 && DRHCOPS02_BP02",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!DRHCOPS02_BP01) || (!DRHCOPS02_BP02)",
+                            "risk": "HIGH_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "MEDIUM_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "DRHCOPS03",
+                    "title": "How do you plan for business continuity for Hybrid Edge workloads?",
+                    "description": "Establishing clear RTO and RPO requirements is crucial for designing an effective disaster recovery solution when using AWS Outposts or Local Zones for your workloads. Implement the right data replication strategy, build redundant network connectivity, automate failover processes, and maintain comprehensive monitoring and documentation to ensure business continuity and alignment with your data residency needs.",
+                    "helpfulResource": {
+                        "displayText": "Business continuity for Hybrid Edge workloads",
+                        "url": "https://docs.aws.amazon.com/wellarchitected/latest/data-residency-hybrid-cloud-services-lens/organization.html"
+                    },
+                    "choices": [
+                        {
+                            "id": "DRHCOPS03_BP01",
+                            "title": "Understand your organizations RTO/ RPO requirements, and build out your disaster recovery solution.",
+                            "helpfulResource": {
+                                "displayText": "Understand your organization's RTO and RPO requirements and build a tailored disaster recovery solution to minimize disruptions, data loss, and financial impacts. When using AWS Outposts or Local Zones, consider data replication, network redundancy, failover automation, and capacity planning to meet desired RTO and RPO targets across on-premises and AWS environments.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/data-residency-hybrid-cloud-services-lens/drhcops03-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Understand your organizations RTO/ RPO requirements, and build out your disaster recovery solution.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/data-residency-hybrid-cloud-services-lens/drhcops03-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "DRHCOPS03_BP02",
+                            "title": "Understand factors that determine your data replication strategy",
+                            "helpfulResource": {
+                                "displayText": " Understand the factors that determine your data replication strategy, and implement replication within the boundaries of your data residency requirements to align with disaster recovery objectives, data integrity, and compliance mandates. ",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/data-residency-hybrid-cloud-services-lens/drhcops03-bp02.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Understand factors that determine your data replication strategy",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/data-residency-hybrid-cloud-services-lens/drhcops03-bp02.html"
+                            }
+                        },
+                        {
+                            "id": "DRHCOPS03_BP03",
+                            "title": "Build redundant network connectivity",
+                            "helpfulResource": {
+                                "displayText": "Create redundant network connections to avoid connectivity loss to the Region and your workloads.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/data-residency-hybrid-cloud-services-lens/drhcops03-bp03.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Build redundant network connectivity",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/data-residency-hybrid-cloud-services-lens/drhcops03-bp03.html"
+                            }
+                        },
+                        {
+                            "id": "DRHCOPS03_BP04",
+                            "title": "Implement failover automation, and test your disaster recovery strategies",
+                            "helpfulResource": {
+                                "displayText": " Implement failover automations, and validate the automations through ongoing tests. Verify that your automation adheres to the boundaries of the data residency requirements. ",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/data-residency-hybrid-cloud-services-lens/drhcops03-bp04.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Implement failover automation, and test your disaster recovery strategies",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/data-residency-hybrid-cloud-services-lens/drhcops03-bp04.html"
+                            }
+                        },
+                        {
+                            "id": "DRHCOPS03_BP05",
+                            "title": "Keep your monitoring, alerting, and documentation up to date and in-line with your RTO and RPO targets",
+                            "helpfulResource": {
+                                "displayText": " Implement monitoring and alerting in line with your failover strategy, security and operations strategy, and data residency requirements. ",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/data-residency-hybrid-cloud-services-lens/drhcops03-bp05.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Keep your monitoring, alerting, and documentation up to date and in-line with your RTO and RPO targets",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/data-residency-hybrid-cloud-services-lens/drhcops03-bp05.html"
+                            }
+                        },
+                        {
+                            "id": "DRHCOPS03_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "DRHCOPS03_BP01 && DRHCOPS03_BP02 && DRHCOPS03_BP03 && DRHCOPS03_BP04 && DRHCOPS03_BP05",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!DRHCOPS03_BP01) || (!DRHCOPS03_BP02) || (!DRHCOPS03_BP03) || (!DRHCOPS03_BP04) || (!DRHCOPS03_BP05)",
+                            "risk": "HIGH_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "MEDIUM_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "DRHCOPS04",
+                    "title": "Which operational considerations do you make when designing your data residency workloads for operations in hybrid edge?",
+                    "description": " Verify Outposts facilities meet requirements, design robust network connectivity, and select data storage solutions that keep data within required geographic boundaries. ",
+                    "helpfulResource": {
+                        "displayText": "Operational considerations for Hybrid Edge workloads",
+                        "url": "https://docs.aws.amazon.com/wellarchitected/latest/data-residency-hybrid-cloud-services-lens/prepare.html"
+                    },
+                    "choices": [
+                        {
+                            "id": "DRHCOPS04_BP01",
+                            "title": "Verify that your Outposts facilities are meeting the requirements to operate within the laws for your regulated workloads",
+                            "helpfulResource": {
+                                "displayText": " Using Outposts rack requires that you procure and manage the data center within the city, state, province, or country boundary for your applications' regulated components, as required by local regulations. ",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/data-residency-hybrid-cloud-services-lens/drhcops04-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Verify that your Outposts facilities are meeting the requirements to operate within the laws for your regulated workloads",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/data-residency-hybrid-cloud-services-lens/drhcops04-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "DRHCOPS04_BP02",
+                            "title": "Design your Outposts and Local Zone workloads to consider network connectivity",
+                            "helpfulResource": {
+                                "displayText": " With the updated shared responsibility model for Outposts, you own the operations of the network connectivity and bandwidth. ",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/data-residency-hybrid-cloud-services-lens/drhcops04-bp02.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Design your Outposts and Local Zone workloads to consider network connectivity",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/data-residency-hybrid-cloud-services-lens/drhcops04-bp02.html"
+                            }
+                        },
+                        {
+                            "id": "DRHCOPS04_BP03",
+                            "title": "Review the available data storage options for Local Zones and Outposts to keep data within required geographic boundaries",
+                            "helpfulResource": {
+                                "displayText": "Thoroughly understand the applicable data laws and regulations for your specific workloads (as per DRHCOPS01). Be aware that while Outposts and Local Zones allow data processing closer to users, they may still be across geographic borders from the connected AWS Availability Zone or Region. Account for the fact that logging, monitoring, and snapshot data may be transferred back to the AWS Region, which could have cross-border data transfer implications.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/data-residency-hybrid-cloud-services-lens/drhcops04-bp03.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Review the available data storage options for Local Zones and Outposts to build architectures that keep data within required geographic boundaries",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/data-residency-hybrid-cloud-services-lens/drhcops04-bp03.html"
+                            }
+                        },
+                        {
+                            "id": "DRHCOPS04_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "DRHCOPS04_BP01 && DRHCOPS04_BP02 && DRHCOPS04_BP03",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!DRHCOPS04_BP01) || (!DRHCOPS04_BP02) || (!DRHCOPS04_BP03)",
+                            "risk": "HIGH_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "MEDIUM_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "DRHCOPS05",
+                    "title": "Which metrics do you need to understand your workload and operational health?",
+                    "description": " For Local Zones and Outposts, focus on establishing similar observability and alerting capabilities as in an Availability Zone. To understand the workload and operational health of your Local Zones and Outposts, you should focus on establishing similar observability and alerting capabilities as in an Availability Zone. For Local Zones, this involves implementing comprehensive monitoring and alerting at both the infrastructure and application layers. For Outposts, you should also account for the shared responsibility model by adding alerts for security, networking, and capacity management.",
+                    "helpfulResource": {
+                        "displayText": "Monitoring and alerting considerations for Hybrid Edge workloads",
+                        "url": "https://docs.aws.amazon.com/wellarchitected/latest/data-residency-hybrid-cloud-services-lens/operate.html"
+                    },
+                    "choices": [
+                        {
+                            "id": "DRHCOPS05_BP01",
+                            "title": "Understand monitoring requirements in your Local Zones",
+                            "helpfulResource": {
+                                "displayText": "Focus on similar observability and alerting as in an Availability Zone.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/data-residency-hybrid-cloud-services-lens/drhcops05-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Understand monitoring requirements in your Local Zones",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/data-residency-hybrid-cloud-services-lens/drhcops05-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "DRHCOPS05_BP02",
+                            "title": "Understand monitoring requirements in your Outposts",
+                            "helpfulResource": {
+                                "displayText": "Focus on similar observability and alerting as in an Availability Zone. In addition, add alerts for added responsibility such as security, networking, and capacity.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/data-residency-hybrid-cloud-services-lens/drhcops05-bp02.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Understand monitoring requirements in your Outposts",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/data-residency-hybrid-cloud-services-lens/drhcops05-bp02.html"
+                            }
+                        },
+                        {
+                            "id": "DRHCOPS05_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "DRHCOPS05_BP01 && DRHCOPS05_BP02",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!DRHCOPS05_BP01) || (!DRHCOPS05_BP02)",
+                            "risk": "HIGH_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "MEDIUM_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "DRHCOPS06",
+                    "title": "How do you perform incident response across your organization's teams and projects to operate your hybrid edge environment?",
+                    "description": " Develop a well-defined process for each alert generated by monitoring systems for Outposts and Local Zone workloads, clearly identifying the responsible teams and their respective incident response and remediation procedures. ",
+                    "helpfulResource": {
+                        "displayText": "Incident response",
+                        "url": "https://docs.aws.amazon.com/wellarchitected/latest/data-residency-hybrid-cloud-services-lens/operate.html"
+                    },
+                    "choices": [
+                        {
+                            "id": "DRHCOPS06_BP01",
+                            "title": "Develop a process for each alert that you defined for your Outposts and Local Zone workloads",
+                            "helpfulResource": {
+                                "displayText": "For Outposts, understand who owns different alerts. Instance-level alerts should likely be owned by the account owners, whereas application owners on those resources can stay informed. Loss of network or power should be owned by the team operating the infrastructure.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/data-residency-hybrid-cloud-services-lens/drhcops06-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Develop a process for each alert that you defined for your Outposts and Local Zone workloads",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/data-residency-hybrid-cloud-services-lens/drhcops06-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "DRHCOPS06_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "DRHCOPS06_BP01",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!DRHCOPS06_BP01)",
+                            "risk": "HIGH_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "MEDIUM_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "DRHCOPS07",
+                    "title": "How can you automate to streamline deployment, configuration, and monitoring processes across edge and cloud environments?",
+                    "description": " Use AWS services and tools for automation and infrastructure as code (IaC) to consistently provision, manage, and maintain hybrid and edge environments, including AWS Outposts and Local Zones, to streamline deployment, configuration, and monitoring processes across these environments. ",
+                    "helpfulResource": {
+                        "displayText": "Automate processes across edge and cloud environments",
+                        "url": "https://docs.aws.amazon.com/wellarchitected/latest/data-residency-hybrid-cloud-services-lens/evolve.html"
+                    },
+                    "choices": [
+                        {
+                            "id": "DRHCOPS07_BP01",
+                            "title": "Use AWS services and tools for automation and infrastructure as code (IaC) across hybrid and edge environments",
+                            "helpfulResource": {
+                                "displayText": " Automation helps you provide consistent deployment, configuration, and monitoring processes, even for applications and data that need to reside in specific locations due to data residency requirements. This approach improves operational efficiency, reduces errors, and facilitates governance and compliance across your hybrid and edge infrastructure.  ",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/data-residency-hybrid-cloud-services-lens/drhcops07-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Use AWS services and tools for automation and infrastructure as code (IaC) across hybrid and edge environments",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/data-residency-hybrid-cloud-services-lens/drhcops07-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "DRHCOPS07_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "DRHCOPS07_BP01",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!DRHCOPS07_BP01)",
+                            "risk": "HIGH_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "MEDIUM_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "DRHCOPS08",
+                    "title": "What processes have you implemented to review data residency to align with regulatory landscape and organizational needs?",
+                    "description": " Establish feedback loops to continuously adapt to evolving data residency requirements for Outposts and Local Zones, enabling proactive compliance with data sovereignty and localization mandates by facilitating timely adjustments to deployments as new AWS infrastructure becomes available. ",
+                    "helpfulResource": {
+                        "displayText": "Regularly review processes",
+                        "url": "https://docs.aws.amazon.com/wellarchitected/latest/data-residency-hybrid-cloud-services-lens/evolve.html"
+                    },
+                    "choices": [
+                        {
+                            "id": "DRHCOPS08_BP01",
+                            "title": "Build feedback loops to adapt to changing data residency requirements",
+                            "helpfulResource": {
+                                "displayText": " Data residency requirements can change over time. As AWS expands its Local Zones and Region footprint, new options may become available that allow you to move your data closer to AWS-managed infrastructure while still meeting your residency needs. ",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/data-residency-hybrid-cloud-services-lens/drhcops08-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Build feedback loops to adapt to changing data residency requirements",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/data-residency-hybrid-cloud-services-lens/drhcops08-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "DRHCOPS08_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "DRHCOPS08_BP01",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!DRHCOPS08_BP01)",
+                            "risk": "HIGH_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "MEDIUM_RISK"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "security",
+            "name": "Security",
+            "questions": [
+                {
+                    "id": "DRHCSEC01",
+                    "title": "Have you updated and validated your control objectives to address data residency compliance requirements? ",
+                    "description": " Based on your requirements and risks identified from your data residency compliance requirements, update and validate the control objectives and controls that apply to the workload. Ongoing validation of control objectives and controls help you measure the effectiveness of risk mitigation. ",
+                    "helpfulResource": {
+                        "displayText": "Update and validate control objectives",
+                        "url": "https://docs.aws.amazon.com/wellarchitected/latest/data-residency-hybrid-cloud-services-lens/security-foundations.html"
+                    },
+                    "choices": [
+                        {
+                            "id": "DRHCSEC01_BP01",
+                            "title": "Update your control objectives to address your data residency compliance requirements",
+                            "helpfulResource": {
+                                "displayText": " Control objectives should be updated to clearly indicate where data is expected to be located due to data residency requirements. ",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/data-residency-hybrid-cloud-services-lens/drhcsec01-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Update your control objectives to address your data residency compliance requirements",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/data-residency-hybrid-cloud-services-lens/drhcsec01-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "DRHCSEC01_BP02",
+                            "title": "Document any differences in the treatment of log data into the control objectives",
+                            "helpfulResource": {
+                                "displayText": " As data residency requirements have the potential to apply to Log data, control objectives should explicitly state which data elements are subject to data residency requirements and if there is differences is requirements when stored in the form of logs. ",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/data-residency-hybrid-cloud-services-lens/drhcsec01-bp02.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Document any differences in the treatment of log data into the control objectives",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/data-residency-hybrid-cloud-services-lens/drhcsec01-bp02.html"
+                            }
+                        },
+                        {
+                            "id": "DRHCSEC01_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "DRHCSEC01_BP01 && DRHCSEC01_BP02",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!DRHCSEC01_BP01)",
+                            "risk": "HIGH_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "MEDIUM_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "DRHCSEC02",
+                    "title": "Does your account management strategy separate workloads that have different data residency requirements? ",
+                    "description": " Separating workloads at the AWS account level is recommended, as it provides a strong separation boundary and simplifies the implementation of preventative controls, such as Identity and Access Management (IAM) policies and service control policies (SCPs), as well as detective controls. ",
+                    "helpfulResource": {
+                        "displayText": "Separate workloads with differing residency requirements",
+                        "url": "https://docs.aws.amazon.com/wellarchitected/latest/data-residency-hybrid-cloud-services-lens/security-foundations.html"
+                    },
+                    "choices": [
+                        {
+                            "id": "DRHCSEC02_BP01",
+                            "title": "Separate workloads that have different data residency requirements",
+                            "helpfulResource": {
+                                "displayText": "As attempting to implement different sets of preventative and detective controls in the same AWS account is complicated at best, we highly recommend separating workloads into different accounts especially when their data residency requirements are different.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/data-residency-hybrid-cloud-services-lens/drhcsec02.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Separate workloads that have different data residency requirements",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/data-residency-hybrid-cloud-services-lens/drhcsec02.html"
+                            }
+                        },
+                        {
+                            "id": "DRHCSEC02_BP02",
+                            "title": "Manage workloads with similar data residency requirements efficiently",
+                            "helpfulResource": {
+                                "displayText": "When there are at least some control policies applicable to more than one account, configuring those accounts to be with the same Organizational Units (OUs) then applying the Service control policies (SCPs) at the OU level is more efficient than applying to each account, and much better than duplicating the policy statements into multiple SCPs.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/data-residency-hybrid-cloud-services-lens/drhcsec02-bp02.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Manage workloads with similar data residency requirements efficiently",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/data-residency-hybrid-cloud-services-lens/drhcsec02-bp02.html"
+                            }
+                        },
+                        {
+                            "id": "DRHCSEC02_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "DRHCSEC02_BP01 && DRHCSEC02_BP02",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!DRHCSEC02_BP01)",
+                            "risk": "HIGH_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "MEDIUM_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "DRHCSEC03",
+                    "title": "Have you implemented controls designed to enhance your digital sovereignty governance posture?",
+                    "description": "Digital sovereignty means control over digital assets. Data residency is control over the location of your data.",
+                    "helpfulResource": {
+                        "displayText": "improve digital sovereignty posture",
+                        "url": "https://docs.aws.amazon.com/wellarchitected/latest/data-residency-hybrid-cloud-services-lens/identity-and-access-management.html"
+                    },
+                    "choices": [
+                        {
+                            "id": "DRHCSEC03_BP01",
+                            "title": "Implement controls that enhance your digital sovereignty governance posture",
+                            "helpfulResource": {
+                                "displayText": " Consider implementing controls which are not data residency specific as these controls help enable a defense in depth approach to security and are often easy to enable without requiring customization. ",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/data-residency-hybrid-cloud-services-lens/drhcsec03-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Implement controls that enhance your digital sovereignty governance posture",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/data-residency-hybrid-cloud-services-lens/drhcsec03-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "DRHCSEC03_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "DRHCSEC03_BP01",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!DRHCSEC03_BP01)",
+                            "risk": "HIGH_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "MEDIUM_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "DRHCSEC04",
+                    "title": "How do you control access to support data residency requirements? ",
+                    "description": " While some least privilege review processes focus decisions on access to actions and data, even more scrutiny is needed on actions that can move data. This helps you reduce the risk of non-compliance with data residency by restricting access using the resources of policies. ",
+                    "helpfulResource": {
+                        "displayText": "use access control to provide data residency compliance",
+                        "url": "https://docs.aws.amazon.com/wellarchitected/latest/data-residency-hybrid-cloud-lens/security/drhcsec04.html"
+                    },
+                    "choices": [
+                        {
+                            "id": "DRHCSEC04_BP01",
+                            "title": "Restrict access by location of resource",
+                            "helpfulResource": {
+                                "displayText": " Specify IAM actions to restrict based on where the resource's storage of data would be located. ",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/data-residency-hybrid-cloud-services-lens/drhcsec04-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Restrict access by location of resource",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/data-residency-hybrid-cloud-services-lens/drhcsec04-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "DRHCSEC04_BP02",
+                            "title": "Grant least privilege access with a strong focus on actions that enable the storage of data",
+                            "helpfulResource": {
+                                "displayText": " Restricting access to actions which store data should be a strong focus of least privilege access analysis. ",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/data-residency-hybrid-cloud-services-lens/drhcsec04-bp02.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Grant least privilege access with a strong focus on actions that enable the storage of data",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/data-residency-hybrid-cloud-services-lens/drhcsec04-bp02.html"
+                            }
+                        },
+                        {
+                            "id": "DRHCSEC04_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "DRHCSEC04_BP01 && DRHCSEC04_BP02",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!DRHCSEC04_BP01) || (!DRHCSEC04_BP02)",
+                            "risk": "HIGH_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "MEDIUM_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "DRHCSEC05",
+                    "title": "How do you detect resources created in unauthorized locations? ",
+                    "description": "Configure detective controls to notify you if someone in your organization creates resources in unapproved locations according to your data residency compliance requirements.",
+                    "helpfulResource": {
+                        "displayText": "Detection",
+                        "url": "https://docs.aws.amazon.com/wellarchitected/latest/data-residency-hybrid-cloud-services-lens/detection.html"
+                    },
+                    "choices": [
+                        {
+                            "id": "DRHCSEC05_BP01",
+                            "title": "Implement detective controls that notify a security operations team when resources are found in unauthorized locations",
+                            "helpfulResource": {
+                                "displayText": " Automate the detection and notification to security operations teams if data is stored is locations out of compliance with your data residency compliance requirements. ",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/data-residency-hybrid-cloud-services-lens/drhcsec05-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Implement detective controls that notify a security operations team when resources are found in unauthorized locations",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/data-residency-hybrid-cloud-services-lens/drhcsec05-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "DRHCSEC05_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "DRHCSEC05_BP01",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!DRHCSEC05_BP01)",
+                            "risk": "HIGH_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "MEDIUM_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "DRHCSEC06",
+                    "title": "How do you physically secure your AWS Outposts? ",
+                    "description": "If AWS Outposts is part of your solution, there are customer responsibilities for the physical security of the Outpost.",
+                    "helpfulResource": {
+                        "displayText": "Secure Outposts",
+                        "url": "https://docs.aws.amazon.com/wellarchitected/latest/data-residency-hybrid-cloud-services-lens/infrastructure-protection.html"
+                    },
+                    "choices": [
+                        {
+                            "id": "DRHCSEC06_BP01",
+                            "title": "Restrict the number of people authorized to gain physical access to your AWS Outposts",
+                            "helpfulResource": {
+                                "displayText": "Physical access should only be provided to those who have a legitimate business need for it.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/data-residency-hybrid-cloud-services-lens/drhcsec06-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Restrict the number of people authorized to gain physical access to your AWS Outposts",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/data-residency-hybrid-cloud-services-lens/drhcsec06-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "DRHCSEC06_BP02",
+                            "title": "Control access to locations where AWS Outposts are deployed using systems like keys and biometrics",
+                            "helpfulResource": {
+                                "displayText": "This practice verifies that only authorized personnel can gain physical access to AWS Outposts racks or servers.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/data-residency-hybrid-cloud-services-lens/drhcsec06-bp02.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Control access to locations where AWS Outposts are deployed using systems like keys and biometrics",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/data-residency-hybrid-cloud-services-lens/drhcsec06-bp02.html"
+                            }
+                        },
+                        {
+                            "id": "DRHCSEC06_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "DRHCSEC06_BP01 && DRHCSEC06_BP02",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!DRHCSEC06_BP01) || (!DRHCSEC06_BP02)",
+                            "risk": "HIGH_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "MEDIUM_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "DRHCSEC07",
+                    "title": "How do you protect your network resources? ",
+                    "description": "Do you have any form of firewall or other mechanisms to block traffic, such as by port, CIDR block range, or protocol?",
+                    "helpfulResource": {
+                        "displayText": "Protect network resource",
+                        "url": "https://docs.aws.amazon.com/wellarchitected/latest/data-residency-hybrid-cloud-services-lens/infrastructure-protection.html"
+                    },
+                    "choices": [
+                        {
+                            "id": "DRHCSEC07_BP01",
+                            "title": "Implement network traffic inspection-based protection",
+                            "helpfulResource": {
+                                "displayText": " Set up traffic inspection points between your network layers to make sure data in transit matches the expected categories and patterns. Analyze traffic flows, metadata, and patterns to help identify, detect, and respond to events more effectively. Traffic Inspection can be implemented using EC2 instances, including those running on Outposts or Local Zones. ",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/data-residency-hybrid-cloud-services-lens/drhcsec07-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Implement network traffic inspection-based protection",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/data-residency-hybrid-cloud-services-lens/drhcsec07-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "DRHCSEC07_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "DRHCSEC07_BP01",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!DRHCSEC07_BP01)",
+                            "risk": "HIGH_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "MEDIUM_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "DRHCSEC08",
+                    "title": "What mechanisms do you use to recover from data corruption and data deletion, can you provide point-in-time views of your data?",
+                    "description": " Do you have any form of backups of your data that are verified to work in scenarios where data is unintentionally or intentionally changed or deleted? Do you have a mechanism to view what the data was at a given point in time? ",
+                    "helpfulResource": {
+                        "displayText": "Data protection",
+                        "url": "https://docs.aws.amazon.com/wellarchitected/latest/data-residency-hybrid-cloud-services-lens/data-protection.html"
+                    },
+                    "choices": [
+                        {
+                            "id": "DRHCSEC08_BP01",
+                            "title": "Implement backups to enable recovery from data corruption and data deletion, as well as point-in-time views of data",
+                            "helpfulResource": {
+                                "displayText": " Configure backups to be taken automatically based on a periodic schedule informed by the Recovery Point Objective (RPO), or by changes in the dataset. Critical datasets with low data loss requirements need to be backed up automatically on a frequent basis, whereas less critical data where some loss is acceptable can be backed up less frequently. ",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/data-residency-hybrid-cloud-services-lens/drhcsec08-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Implement backups to enable recovery from data corruption and data deletion, as well as point-in-time views of data",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/data-residency-hybrid-cloud-services-lens/drhcsec08-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "DRHCSEC08_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "DRHCSEC08_BP01",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!DRHCSEC08_BP01)",
+                            "risk": "HIGH_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "MEDIUM_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "DRHCSEC09",
+                    "title": "Have your incident responders been trained on your data residency policies?",
+                    "description": "Incident responders should be aware of your data residency policies, and they should check for data that is located in unapproved locations.",
+                    "helpfulResource": {
+                        "displayText": "Incident response",
+                        "url": "https://docs.aws.amazon.com/wellarchitected/latest/data-residency-hybrid-cloud-services-lens/incident-response.html"
+                    },
+                    "choices": [
+                        {
+                            "id": "DRHCSEC09_BP01",
+                            "title": "Train and test incident responders on policies specific to data residency",
+                            "helpfulResource": {
+                                "displayText": " Train and test incident responders on regulations on storage location based on data classification.  ",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/data-residency-hybrid-cloud-services-lens/drhcsec09-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Train and test incident responders on policies specific to data residency",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/data-residency-hybrid-cloud-services-lens/drhcsec09-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "DRHCSEC09_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "DRHCSEC09_BP01",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!DRHCSEC09_BP01)",
+                            "risk": "HIGH_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "MEDIUM_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "DRHCSEC10",
+                    "title": "Have your threat models been updated to cover data unauthorized locations? ",
+                    "description": "While threat models typically focus on exfiltration of data, they should be updated to include scenarios where data gets stored in locations that aren t compliant with data residency regulations and control objectives.",
+                    "helpfulResource": {
+                        "displayText": "Update models on unauthorized data storage locations",
+                        "url": "https://docs.aws.amazon.com/wellarchitected/latest/data-residency-hybrid-cloud-services-lens/incident-response.html"
+                    },
+                    "choices": [
+                        {
+                            "id": "DRHCSEC10_BP01",
+                            "title": "Update your threat models to cover the accidental or malicious storage of data in unauthorized locations",
+                            "helpfulResource": {
+                                "displayText": " Threat models should include specific scenarios where the threat is data stored in unauthorized locations due to accidental storage as well as maliciously intent. ",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/data-residency-hybrid-cloud-services-lens/drhcsec10-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Update your threat models to cover the accidental or malicious storage of data in unauthorized locations",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/data-residency-hybrid-cloud-services-lens/drhcsec10-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "DRHCSEC10_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "DRHCSEC10_BP01",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!DRHCSEC10_BP01)",
+                            "risk": "HIGH_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "MEDIUM_RISK"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "reliability",
+            "name": "Reliability",
+            "questions": [
+                {
+                    "id": "DRHCREL01",
+                    "title": "How do you manage Service Quotas for resources running in AWS Local Zones and AWS Outposts?",
+                    "description": " For cloud-based workload architectures, there are Service Quotas (also referred to as service limits). These quotas exist to prevent accidentally provisioning more resources than you need and to limit request rates on API operations to protect services from abuse. Both AWS Local Zones and AWS Outposts are homed to specific AWS Regions. Regional service quotas apply to AWS resources (for example, Amazon EC2 instances) running on Local Zones or Outposts. ",
+                    "helpfulResource": {
+                        "displayText": "Service limits prevent overprovisioning resources and limit API requests",
+                        "url": "https://docs.aws.amazon.com/wellarchitected/latest/data-residency-hybrid-cloud-services-lens/foundations.html"
+                    },
+                    "choices": [
+                        {
+                            "id": "DRHCREL01_BP01",
+                            "title": "Set service quotas to accommodate for the peak usage of AWS resources on Outposts for their homed Regions",
+                            "helpfulResource": {
+                                "displayText": " AWS Outposts and Local Zones adhere to the service quotas of their parent AWS Regions, requiring management of service quotas to accommodate peak usage. ",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/data-residency-hybrid-cloud-services-lens/drhcrel01-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Set service quotas to accommodate for the peak usage of AWS resources on Outposts for their homed Regions",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/data-residency-hybrid-cloud-services-lens/drhcrel01-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "DRHCREL01_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "DRHCREL01_BP01",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!DRHCREL01_BP01)",
+                            "risk": "HIGH_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "MEDIUM_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "DRHCREL02",
+                    "title": "Do you have redundant power and network to on-premises AWS components?",
+                    "description": " AWS Outposts depends on a resilient connection to its anchor Availability Zone for management, monitoring, and service operations to function properly. Redundant network connections for each Outpost are needed for reliable connectivity back to the anchor points in the AWS Cloud. Outposts have documented power requirements, and it is recommended to provide dual power sources for resilience in case of power failure. ",
+                    "helpfulResource": {
+                        "displayText": "Redundant power and network should be provided to on-premises AWS components",
+                        "url": "https://docs.aws.amazon.com/wellarchitected/latest/data-residency-hybrid-cloud-lens/reliability/drhcrel02.html"
+                    },
+                    "choices": [
+                        {
+                            "id": "DRHCREL02_BP01",
+                            "title": "Provision redundant power and network to on-premises components",
+                            "helpfulResource": {
+                                "displayText": " To ensure high availability for AWS Outposts deployments, implement redundant power sources and network connectivity while considering multi-Outpost distribution across different Availability Zones. ",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/data-residency-hybrid-cloud-services-lens/drhcrel02-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Provision redundant power and network to on-premises components",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/data-residency-hybrid-cloud-services-lens/drhcrel02-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "DRHCREL02_BP02",
+                            "title": "Use AWS DirectConnect with redundant tunnels/connections to Outposts control plane actions and high availability requirements.",
+                            "helpfulResource": {
+                                "displayText": " AWS Outposts maintains connectivity to its parent Region through encrypted service link tunnels to anchor points in designated Availability Zones, requiring redundant network paths and dynamic routing for high availability of control plane operations. ",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/data-residency-hybrid-cloud-services-lens/drhcrel02-bp02.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Use AWS DirectConnect with redundant tunnels/connections to Outposts control plane actions and high availability requirements.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/data-residency-hybrid-cloud-services-lens/drhcrel02-bp02.html"
+                            }
+                        },
+                        {
+                            "id": "DRHCREL02_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "DRHCREL02_BP01 && DRHCREL02_BP02",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!DRHCREL02_BP01) || (!DRHCREL02_BP02)",
+                            "risk": "HIGH_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "MEDIUM_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "DRHCREL03",
+                    "title": "What strategies should you implement to provide reliable data access and processing across your environments?",
+                    "description": "If a resource failure occurs, healthy resources should continue to serve requests. When you have effective failover strategies, your systems in place can fail over to healthy resources in unimpaired locations. The failover must be implemented in accordance with your data residency requirements across on-premises, edge, and cloud environments.",
+                    "helpfulResource": {
+                        "displayText": "Upon failures, fail over to on-premises, edge, and cloud environments per your data residency requirements",
+                        "url": "https://docs.aws.amazon.com/wellarchitected/latest/data-residency-hybrid-cloud-services-lens/workload-architecture.html"
+                    },
+                    "choices": [
+                        {
+                            "id": "DRHCREL03_BP01",
+                            "title": "Use AWS Outposts or Local Zones when data must reside within a country or jurisdiction without a local AWS Region",
+                            "helpfulResource": {
+                                "displayText": " To meet data residency requirements in Regions without local AWS infrastructure, leverage AWS Outposts across multiple locations or AWS Local Zones with redundancy, while utilizing services like Amazon S3 on Outposts for resilient local data management. ",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/data-residency-hybrid-cloud-services-lens/drhcrel03-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Use AWS Outposts or Local Zones when data must reside within a country or jurisdiction without a local AWS Region",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/data-residency-hybrid-cloud-services-lens/drhcrel03-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "DRHCREL03_BP02",
+                            "title": "Implement failover mechanisms to maintain data access and processing across on-premises, edge, and cloud environments",
+                            "helpfulResource": {
+                                "displayText": " Data residency requirements can be addressed through various high-availability architectures, ranging from fully local deployments using redundant Outposts to hybrid solutions leveraging AWS Regions where regulations permit data transfer with proper consent and controls. ",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/data-residency-hybrid-cloud-services-lens/drhcrel03-bp02.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Implement failover mechanisms to maintain data access and processing across on-premises, edge, and cloud environments",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/data-residency-hybrid-cloud-services-lens/drhcrel03-bp02.html"
+                            }
+                        },
+                        {
+                            "id": "DRHCREL03_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "DRHCREL03_BP01 && DRHCREL03_BP02",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!DRHCREL03_BP01) || (!DRHCREL03_BP02)",
+                            "risk": "HIGH_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "MEDIUM_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "DRHCREL04",
+                    "title": "Have you planned your hybrid storage, compute, and network capacity ahead of time?",
+                    "description": " As part of the AWS Shared Responsibility Model, customers are responsible for capacity planning while using AWS Outposts. Customers must forecast compute and storage needs in addition to data center space, power, and HVAC requirements along with associated lead times. ",
+                    "helpfulResource": {
+                        "displayText": "Change management",
+                        "url": "https://docs.aws.amazon.com/wellarchitected/latest/data-residency-hybrid-cloud-services-lens/change-management.html"
+                    },
+                    "choices": [
+                        {
+                            "id": "DRHCREL04_BP01",
+                            "title": "Due to the finite capacity of Outposts on-premises, plan ahead for required compute, storage, and network resources",
+                            "helpfulResource": {
+                                "displayText": " Proactively manage AWS Outposts capacity by planning compute, storage, and network resources to ensure high availability and optimal performance while following Well-Architected best practices. ",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/data-residency-hybrid-cloud-services-lens/drhcrel04-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Due to the finite capacity of Outposts on-premises, plan ahead for required compute, storage, and network resources",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/data-residency-hybrid-cloud-services-lens/drhcrel04-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "DRHCREL04_BP02",
+                            "title": "Implement monitoring and observability to track resource utilization, capacity availability, and application health",
+                            "helpfulResource": {
+                                "displayText": " Plan and monitor AWS Outposts capacity proactively through right-sizing, forecasting, and CloudWatch metrics to ensure sufficient N+M capacity for high availability. ",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/data-residency-hybrid-cloud-services-lens/drhcrel04-bp02.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Implement monitoring and observability to track resource utilization, capacity availability, and application health",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/data-residency-hybrid-cloud-services-lens/drhcrel04-bp02.html"
+                            }
+                        },
+                        {
+                            "id": "DRHCREL04_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "DRHCREL04_BP01 && DRHCREL04_BP02",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "!(DRHCREL04_BP01 && DRHCREL04_BP02)",
+                            "risk": "HIGH_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "MEDIUM_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "DRHCREL05",
+                    "title": "How do you recover from failure to maintain reliable data access, processing across on-premises, edge, and cloud environments?",
+                    "description": " Running workloads are subject to disruptions for a number of reasons. Therefore, you must take steps to implement resiliency if you need your workload to be reliable while also meeting your data residency requirements. ",
+                    "helpfulResource": {
+                        "displayText": "Maintain data access and processing during and after infrastructure failures",
+                        "url": "https://docs.aws.amazon.com/wellarchitected/latest/data-residency-hybrid-cloud-services-lens/failure-management.html"
+                    },
+                    "choices": [
+                        {
+                            "id": "DRHCREL05_BP01",
+                            "title": "Provision spare compute capacity following an N+M model",
+                            "helpfulResource": {
+                                "displayText": " Provision spare compute capacity following an N+M availability model, where N is the required capacity and M is the spare capacity to accommodate server failures. Use features like Amazon EC2 Auto Scaling groups, shared storage services, and AWS Elastic Disaster Recovery for reliable recovery. ",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/data-residency-hybrid-cloud-services-lens/drhcrel05-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Provision spare compute capacity following an N+M model",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/data-residency-hybrid-cloud-services-lens/drhcrel05-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "DRHCREL05_BP02",
+                            "title": "Deploy multiple Outposts in different Availability Zones or Regions to mitigate the impact of failures",
+                            "helpfulResource": {
+                                "displayText": " Design workloads across multiple AWS Outposts to ensure resilience against failures through load balancing and failover capabilities, similar to multi-AZ architectures in AWS Regions. ",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/data-residency-hybrid-cloud-services-lens/drhcrel05-bp02.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Deploy multiple Outposts in different Availability Zones or Regions to mitigate the impact of failures",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/data-residency-hybrid-cloud-services-lens/drhcrel05-bp02.html"
+                            }
+                        },
+                        {
+                            "id": "DRHCREL05_BP03",
+                            "title": "Maintain high availability during on-premises maintenance activities",
+                            "helpfulResource": {
+                                "displayText": " AWS Outposts hardware failures require proactive management through EC2 retirement notifications and automated failover mechanisms. ",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/data-residency-hybrid-cloud-services-lens/drhcrel05-bp03.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Maintain high availability during on-premises maintenance activities",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/data-residency-hybrid-cloud-services-lens/drhcrel05-bp03.html"
+                            }
+                        },
+                        {
+                            "id": "DRHCREL05_BP04",
+                            "title": "Design your environment to maintain availability and recover in case of failure in a critical sub-system",
+                            "helpfulResource": {
+                                "displayText": " You should consider the failure modes in this section when planning your Outposts and application deployments. The following sections review how to mitigate these failure modes to provide an increased level of high availability for your application environment. ",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/data-residency-hybrid-cloud-services-lens/drhcrel05-bp04.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Design your environment to maintain availability and recover in case of failure in a critical sub-system",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/data-residency-hybrid-cloud-services-lens/drhcrel05-bp04.html"
+                            }
+                        },
+                        {
+                            "id": "DRHCREL05_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "DRHCREL05_BP01 && DRHCREL05_BP02 && DRHCREL05_BP03 && DRHCREL05_BP04",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!DRHCREL05_BP01) || (!DRHCREL05_BP04)",
+                            "risk": "HIGH_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "MEDIUM_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "DRHCREL06",
+                    "title": "Is your application resilient to on-premises maintenance activities?",
+                    "description": " Under the shared responsibility model, AWS is responsible for the hardware and software that run AWS services. This applies to AWS Outposts, just as it does to an AWS Region. AWS monitors the performance, health, and metrics for your Outposts rack and determines whether any maintenance is required. If AWS detects an irreparable issue with hardware during the server provisioning process or while hosting Amazon EC2 instances running on your Outposts server, we will notify the Outpost owner and the owner of the instances that the affected instances are scheduled for retirement. For high availability, your workloads must be resilient during maintenance activities while also preserving data residency requirements. ",
+                    "helpfulResource": {
+                        "displayText": "Keep application resilient to maintenance activities",
+                        "url": "https://docs.aws.amazon.com/wellarchitected/latest/data-residency-hybrid-cloud-services-lens/failure-management.html"
+                    },
+                    "choices": [
+                        {
+                            "id": "DRHCREL06_BP01",
+                            "title": "Use AWS Health to receive EC2 instance retirement notifications and scheduled events on Outposts that may require instance fail",
+                            "helpfulResource": {
+                                "displayText": "Configure AWS Health event monitoring and maintain current operations contact information while ensuring adequate capacity to minimize impact during maintenance activities.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/data-residency-hybrid-cloud-services-lens/drhcrel06-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Use AWS Health to receive EC2 instance retirement notifications and scheduled events on Outposts that may require instance fail",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/data-residency-hybrid-cloud-services-lens/drhcrel06-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "DRHCREL06_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "DRHCREL06_BP01",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!DRHCREL06_BP01)",
+                            "risk": "HIGH_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "MEDIUM_RISK"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "performance",
+            "name": "Performance Efficiency",
+            "questions": [
+                {
+                    "id": "DRHCPERF01",
+                    "title": "How do you achieve performant workload configuration?",
+                    "description": "To achieve performant workload configuration in a hybrid edge architecture, organizations should understand their workload requirements to achieve optimal architecture.",
+                    "helpfulResource": {
+                        "displayText": "Architecture selection",
+                        "url": "https://docs.aws.amazon.com/wellarchitected/latest/data-residency-hybrid-cloud-services-lens/architecture-selection.html"
+                    },
+                    "choices": [
+                        {
+                            "id": "DRHCPERF01_BP01",
+                            "title": "Understand your data residency requirements when selecting the platform for your workload",
+                            "helpfulResource": {
+                                "displayText": "Assess your data residency requirements first to guide your workload deployment location.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/data-residency-hybrid-cloud-services-lens/drhcperf01-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Understand your data residency requirements when selecting the platform for your workload",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/data-residency-hybrid-cloud-services-lens/drhcperf01-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "DRHCPERF01_BP02",
+                            "title": "Monitor hybrid edge-specific metrics, and update resource configurations",
+                            "helpfulResource": {
+                                "displayText": " Monitor your current capacity and plan for scaling to meet demand. ",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/data-residency-hybrid-cloud-services-lens/drhcperf01-bp02.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Monitor hybrid edge-specific metrics, and update resource configurations",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/data-residency-hybrid-cloud-services-lens/drhcperf01-bp02.html"
+                            }
+                        },
+                        {
+                            "id": "DRHCPERF01_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "DRHCPERF01_BP01 && DRHCPERF01_BP02",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!DRHCPERF01_BP01) || (!DRHCPERF01_BP02)",
+                            "risk": "HIGH_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "MEDIUM_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "DRHCPERF02",
+                    "title": "Is your workload modular in design such that components can be easily altered to embrace new technologies ?",
+                    "description": " AWS is constantly releasing new services, features, and functionality. Keeping workloads modular and loosely coupled enables faster adoption of these capabilities. ",
+                    "helpfulResource": {
+                        "displayText": "Data management",
+                        "url": "https://docs.aws.amazon.com/wellarchitected/latest/data-residency-hybrid-cloud-lens/performance-efficiency/drhcperf02.html"
+                    },
+                    "choices": [
+                        {
+                            "id": "DRHCPERF02_BP01",
+                            "title": "Design workloads with modularity and loose coupling.",
+                            "helpfulResource": {
+                                "displayText": "New capability deployment starts in the commercial regions and moves out to the edge based on feedback from customers.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/data-residency-hybrid-cloud-services-lens/drhcperf02-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Design workloads with modularity and loose coupling.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/data-residency-hybrid-cloud-services-lens/drhcperf02-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "DRHCPERF02_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "DRHCPERF02_BP01",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "MEDIUM_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "DRHCPERF03",
+                    "title": "How do you engineer network traffic flow to meet workload performance requirements ?",
+                    "description": " In order to maintain performant workloads, you should keep network flows local to the compute environment. ",
+                    "helpfulResource": {
+                        "displayText": "Networking and content delivery",
+                        "url": "https://docs.aws.amazon.com/wellarchitected/latest/data-residency-hybrid-cloud-services-lens/networking-and-content-delivery.html"
+                    },
+                    "choices": [
+                        {
+                            "id": "DRHCPERF03_BP01",
+                            "title": "Engineer optimal traffic flow for the edge solution",
+                            "helpfulResource": {
+                                "displayText": " Design network routing for data residency requirements. ",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/data-residency-hybrid-cloud-services-lens/drhcperf03-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Engineer optimal traffic flow for the edge solution",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/data-residency-hybrid-cloud-services-lens/drhcperf03-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "DRHCPERF03_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "DRHCPERF03_BP01",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "MEDIUM_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "DRHCPERF04",
+                    "title": "How do you know if your edge workload performance characteristics are healthy or at risk?",
+                    "description": " In order for you to meet the application requirements, monitor the system end-to-end. The application at edge can span hybrid edge services as well as on-premises infrastructure. ",
+                    "helpfulResource": {
+                        "displayText": "Process and culture",
+                        "url": "https://docs.aws.amazon.com/wellarchitected/latest/data-residency-hybrid-cloud-services-lens/process-and-culture.html"
+                    },
+                    "choices": [
+                        {
+                            "id": "DRHCPERF04_BP01",
+                            "title": "Establish hybrid edge workload health KPIs",
+                            "helpfulResource": {
+                                "displayText": " Demonstrate your workload is meeting your business requirements. ",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/data-residency-hybrid-cloud-services-lens/drhcperf04-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Establish hybrid edge workload health KPIs",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/data-residency-hybrid-cloud-services-lens/drhcperf04-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "DRHCPERF04_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "DRHCPERF04_BP01",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "MEDIUM_RISK"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "costOptimization",
+            "name": "Cost Optimization",
+            "questions": [
+                {
+                    "id": "DRHCCOST01",
+                    "title": "Have you defined a tagging strategy for your hybrid edge workloads?",
+                    "description": " Tagging helps you meter usage and facilitate cost attribution. ",
+                    "helpfulResource": {
+                        "displayText": "Practice Cloud Financial Management",
+                        "url": "https://docs.aws.amazon.com/wellarchitected/latest/data-residency-hybrid-cloud-services-lens/practice-cloud-financial-management.html"
+                    },
+                    "choices": [
+                        {
+                            "id": "DRHCCOST01_BP01",
+                            "title": "Implement a comprehensive tagging strategy for hybrid edge workloads",
+                            "helpfulResource": {
+                                "displayText": "Implement cost attribution using resource tagging.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/data-residency-hybrid-cloud-services-lens/drhccost01-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Implement a comprehensive tagging strategy for hybrid edge workloads",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/data-residency-hybrid-cloud-services-lens/drhccost01-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "DRHCCOST01_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "DRHCCOST01_BP01",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "MEDIUM_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "DRHCCOST02",
+                    "title": "How do you achieve the maximum value out of Outposts?",
+                    "description": " Outposts are fixed and finite capacity that can be scaled. Understanding available capacity helps you plan accordingly and maximize value in the investment. ",
+                    "helpfulResource": {
+                        "displayText": "Expenditure and usage awareness",
+                        "url": "https://docs.aws.amazon.com/wellarchitected/latest/data-residency-hybrid-cloud-services-lens/expenditure-and-usage-awareness.html"
+                    },
+                    "choices": [
+                        {
+                            "id": "DRHCCOST02_BP01",
+                            "title": "Monitor and manage Outposts capacity and utilization effectively",
+                            "helpfulResource": {
+                                "displayText": "Understand available edge capacity and its utilization.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/data-residency-hybrid-cloud-services-lens/drhccost02-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Monitor and manage Outposts capacity and utilization effectively",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/data-residency-hybrid-cloud-services-lens/drhccost02-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "DRHCCOST02_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "DRHCCOST02_BP01",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "MEDIUM_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "DRHCCOST03",
+                    "title": "How do you target workload placement to achieve greatest cost efficiency? ",
+                    "description": " In order to properly place of a workload, you must understand workload profiles. Outposts, Local Zones, and Regions offer different capabilities at different costs. ",
+                    "helpfulResource": {
+                        "displayText": "Cost-effective resources",
+                        "url": "https://docs.aws.amazon.com/wellarchitected/latest/data-residency-hybrid-cloud-services-lens/cost-effective-resources.html"
+                    },
+                    "choices": [
+                        {
+                            "id": "DRHCCOST03_BP01",
+                            "title": "Optimize placement of running workloads",
+                            "helpfulResource": {
+                                "displayText": "Select the most economical location by comparing costs.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/data-residency-hybrid-cloud-services-lens/drhccost03-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Optimize placement of running workloads",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/data-residency-hybrid-cloud-services-lens/drhccost03-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "DRHCCOST03_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "DRHCCOST03_BP01",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "MEDIUM_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "DRHCCOST04",
+                    "title": "How do you manage the lifecycle of your edge data?",
+                    "description": " Lifecycle management is important regardless of where you run your workload. It is cost effective to only retain needed data according to business requirements. ",
+                    "helpfulResource": {
+                        "displayText": "Manage demand and supply resources",
+                        "url": "https://docs.aws.amazon.com/wellarchitected/latest/data-residency-hybrid-cloud-services-lens/manage-demand-and-supply-resources.html"
+                    },
+                    "choices": [
+                        {
+                            "id": "DRHCCOST04_BP01",
+                            "title": "Implement mechanisms to manage the lifecycle of Amazon S3 data, EBS volumes, and snapshots",
+                            "helpfulResource": {
+                                "displayText": "Apply data lifecycle management practices to hybrid edge environments.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/data-residency-hybrid-cloud-services-lens/drhccost04-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Implement mechanisms to manage the lifecycle of Amazon S3 data, EBS volumes, and snapshots",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/data-residency-hybrid-cloud-services-lens/drhccost04-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "DRHCCOST04_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "DRHCCOST04_BP01",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!DRHCCOST04_BP01)",
+                            "risk": "HIGH_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "MEDIUM_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "DRHCCOST05",
+                    "title": "How do you optimize network configuration for edge services?",
+                    "description": " Services have different costs depending on where they are run in the cloud continuum. ",
+                    "helpfulResource": {
+                        "displayText": "Optimize over time",
+                        "url": "https://docs.aws.amazon.com/wellarchitected/latest/data-residency-hybrid-cloud-services-lens/optimize-over-time.html"
+                    },
+                    "choices": [
+                        {
+                            "id": "DRHCCOST05_BP01",
+                            "title": "Monitor data transfer to and from your hybrid edge workload",
+                            "helpfulResource": {
+                                "displayText": "Regularly track and analyze data transfer costs.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/data-residency-hybrid-cloud-services-lens/drhccost05-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Monitor data transfer to and from your hybrid edge workload",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/data-residency-hybrid-cloud-services-lens/drhccost05-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "DRHCCOST05_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "DRHCCOST05_BP01",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "MEDIUM_RISK"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "sustainability",
+            "name": "Sustainability",
+            "questions": [
+                {
+                    "id": "DRHCSUS01",
+                    "title": "How do you assess the sustainability of anchor AWS Regions when selecting an AWS Local Zone?",
+                    "description": " The sustainability characteristics of an AWS Local Zone's anchor region should be considered when more than one Local Zone can address your data residency requirements. ",
+                    "helpfulResource": {
+                        "displayText": "Region selection",
+                        "url": "https://docs.aws.amazon.com/wellarchitected/latest/data-residency-hybrid-cloud-services-lens/region-selection.html"
+                    },
+                    "choices": [
+                        {
+                            "id": "DRHCSUS01_BP01",
+                            "title": "Choose the Local Zone anchored to the Region that aligns with your sustainability goals if more than one meets your requirements",
+                            "helpfulResource": {
+                                "displayText": " It may be possible to evaluate and choose an AWS Local Zone that is anchored to a more sustainable AWS Region when there are several which meet your data residency requirements. ",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/data-residency-hybrid-cloud-services-lens/drhcsus01-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Choose the Local Zone anchored to the Region that aligns with your sustainability goals if more than one meets your requirements",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/data-residency-hybrid-cloud-services-lens/drhcsus01-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "DRHCSUS01_BP02",
+                            "title": "Anchor your AWS Outposts to the Region that best aligns to both your cloud deployment patterns and sustainability goals",
+                            "helpfulResource": {
+                                "displayText": " You have the flexibility to anchor an AWS Outposts to any supported AWS Region and can consider anchoring to an AWS Region that helps you meet your sustainability objectives. ",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/data-residency-hybrid-cloud-services-lens/drhcsus01-bp02.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Anchor your AWS Outposts to the Region that best aligns to both your cloud deployment patterns and sustainability goals",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/data-residency-hybrid-cloud-services-lens/drhcsus01-bp02.html"
+                            }
+                        },
+                        {
+                            "id": "DRHCSUS01_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "DRHCSUS01_BP01 && DRHCSUS01_BP02",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "MEDIUM_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "DRHCSUS02",
+                    "title": "How are you scaling and sizing your infrastructure to match demand and minimize resource consumption",
+                    "description": " Infrastructure resources such as Amazon EC2 instances and load balancers should be dynamically scaled to match observed demand. ",
+                    "helpfulResource": {
+                        "displayText": "Alignment to demand",
+                        "url": "https://docs.aws.amazon.com/wellarchitected/latest/data-residency-hybrid-cloud-services-lens/alignment-to-demand.html"
+                    },
+                    "choices": [
+                        {
+                            "id": "DRHCSUS02_BP01",
+                            "title": "When using Local Zones, monitor and scale your workloads to match demand, and use only the minimum required resources",
+                            "helpfulResource": {
+                                "displayText": "Resources and services in AWS Local Zones, like those in AWS Regions, can be scaled dynamically to match measured demand, minimizing energy consumption",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/data-residency-hybrid-cloud-services-lens/drhcsus02-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "When using Local Zones, monitor and scale your workloads to match demand, and use only the minimum required resources",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/data-residency-hybrid-cloud-services-lens/drhcsus02-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "DRHCSUS02_BP02",
+                            "title": "Before ordering an AWS Outpost, engage an Outposts specialist to verify the ordered capacity aligns with workload requirements",
+                            "helpfulResource": {
+                                "displayText": " Care should be given to aligning AWS Outposts capacity to actual resource requirements before placing an order to avoid overprovisioning capacity that cannot be scaled down after deployment. ",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/data-residency-hybrid-cloud-services-lens/drhcsus02-bp02.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Before ordering an AWS Outpost, engage an Outposts specialist to verify the ordered capacity aligns with workload requirements",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/data-residency-hybrid-cloud-services-lens/drhcsus02-bp02.html"
+                            }
+                        },
+                        {
+                            "id": "DRHCSUS02_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "DRHCSUS02_BP01 && DRHCSUS02_BP02",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "MEDIUM_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "DRHCSUS03",
+                    "title": "How do you monitor workloads and evaluate architectures to support your sustainability goals?",
+                    "description": "Workloads should be monitored to support optimal sizing, scaling, and alignment to sustainability goals.",
+                    "helpfulResource": {
+                        "displayText": "Software and architecture patterns",
+                        "url": "https://docs.aws.amazon.com/wellarchitected/latest/data-residency-hybrid-cloud-services-lens/software-and-architecture-patterns.html"
+                    },
+                    "choices": [
+                        {
+                            "id": "DRHCSUS03_BP01",
+                            "title": "Monitor workload and component resource utilization to identify if any are unneeded or overprovisioned when using Local Zones",
+                            "helpfulResource": {
+                                "displayText": "Monitoring workload utilization is critical to identifying those which are overprovisioned and can be scaled down to reduce energy consumption.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/data-residency-hybrid-cloud-services-lens/drhcsus03-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Monitor workload and component resource utilization to identify if any are unneeded or overprovisioned when using Local Zones",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/data-residency-hybrid-cloud-services-lens/drhcsus03-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "DRHCSUS03_BP02",
+                            "title": "Monitor workload resource utilization and EC2 instance consumption to maximize use of AWS Outpost resources and sustainability",
+                            "helpfulResource": {
+                                "displayText": " Portable workloads can be migrated from AWS Regions onto unused or underutilized compute resources on AWS Outposts to minimize energy consumption and maximize the use of fixed AWS Outposts resources. ",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/data-residency-hybrid-cloud-services-lens/drhcsus03-bp02.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Monitor workload resource utilization and EC2 instance consumption to maximize use of AWS Outpost resources and sustainability",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/data-residency-hybrid-cloud-services-lens/drhcsus03-bp02.html"
+                            }
+                        },
+                        {
+                            "id": "DRHCSUS03_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "DRHCSUS03_BP01 && DRHCSUS03_BP02",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "MEDIUM_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "DRHCSUS04",
+                    "title": "How do you optimize the use of AWS block and object storage to meet your sustainability goals?",
+                    "description": "Sizing and placement of block and object storage should be optimized to ensure use of the most efficient and sustainable storage services.",
+                    "helpfulResource": {
+                        "displayText": "Data optimization",
+                        "url": "https://docs.aws.amazon.com/wellarchitected/latest/data-residency-hybrid-cloud-services-lens/data-management-sus.html"
+                    },
+                    "choices": [
+                        {
+                            "id": "DRHCSUS04_BP01",
+                            "title": "Consider sustainable object storage options for Local Zones",
+                            "helpfulResource": {
+                                "displayText": "Amazon S3 Object storage in AWS Regions used by workloads deployed in AWS Local Zones can be optimized to use the most energy-efficient and sustainable service tiers, based on data access and resiliency requirements.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/data-residency-hybrid-cloud-services-lens/drhcsus04-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Consider sustainable object storage options for Local Zones",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/data-residency-hybrid-cloud-services-lens/drhcsus04-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "DRHCSUS04_BP02",
+                            "title": "Use elasticity and automation to optimize storage volumes usage in AWS Local Zones",
+                            "helpfulResource": {
+                                "displayText": "EBS volumes attached to EC2 instances in AWS Local Zones should be provisioned as small as possible to meet workload requirements and then grown as needed when more capacity is required.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/data-residency-hybrid-cloud-services-lens/drhcsus04-bp02.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Use elasticity and automation to optimize storage volumes usage in AWS Local Zones",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/data-residency-hybrid-cloud-services-lens/drhcsus04-bp02.html"
+                            }
+                        },
+                        {
+                            "id": "DRHCSUS04_BP03",
+                            "title": "Consider sustainable storage options for AWS Outposts",
+                            "helpfulResource": {
+                                "displayText": "Both Amazon S3 on Outposts and Amazon EBS provide tools for data lifecycle management, the functions of which should be considered in advance when sizing and ordering storage for an AWS Outposts.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/data-residency-hybrid-cloud-services-lens/drhcsus04-bp03.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Consider sustainable storage options for AWS Outposts",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/data-residency-hybrid-cloud-services-lens/drhcsus04-bp03.html"
+                            }
+                        },
+                        {
+                            "id": "DRHCSUS04_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "DRHCSUS04_BP01 && DRHCSUS04_BP02 && DRHCSUS04_BP03",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "MEDIUM_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "DRHCSUS05",
+                    "title": "How does your organization minimize the duplication of data?",
+                    "description": "Duplication of data should be avoided to minimize use of storage resources in alignment with sustainability goals.",
+                    "helpfulResource": {
+                        "displayText": "Data deduplication",
+                        "url": "https://docs.aws.amazon.com/wellarchitected/latest/data-residency-hybrid-cloud-services-lens/data-management-sus.html"
+                    },
+                    "choices": [
+                        {
+                            "id": "DRHCSUS05_BP01",
+                            "title": "Consider using supported AWS-managed file services to minimize data duplication in Local Zones",
+                            "helpfulResource": {
+                                "displayText": "Shared file services can be implemented using AWS managed file services, AWS marketplace offerings, or even self-managed solutions to minimize data duplication for your data-residency workloads.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/data-residency-hybrid-cloud-services-lens/drhcsus05-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Consider using supported AWS-managed file services to minimize data duplication in Local Zones",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/data-residency-hybrid-cloud-services-lens/drhcsus05-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "DRHCSUS05_BP02",
+                            "title": "Consider Amazon S3 for Outposts, or deploy a self-managed shared-file sharing solution",
+                            "helpfulResource": {
+                                "displayText": "Amazon S3 for Outposts or EBS-backed shared storage solutions which are self-managed or procured from the AWS Marketplace can be used to reduce data duplication and overall storage consumption.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/data-residency-hybrid-cloud-services-lens/drhcsus05-bp02.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Consider Amazon S3 for Outposts, or deploy a self-managed shared-file sharing solution",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/data-residency-hybrid-cloud-services-lens/drhcsus05-bp02.html"
+                            }
+                        },
+                        {
+                            "id": "DRHCSUS05_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "DRHCSUS05_BP01 && DRHCSUS05_BP02",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "MEDIUM_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "DRHCSUS06",
+                    "title": "How do you choose and update EC2 instances to support both data-residency workload and sustainability goals?",
+                    "description": "Using the latest available instance families which are frequently more efficient than their predecessors can help with the attainment of sustainability goals.",
+                    "helpfulResource": {
+                        "displayText": "It's important to use shared file and / or object storage to minimize data duplication, which improves sustainability.",
+                        "url": "https://docs.aws.amazon.com/wellarchitected/latest/data-residency-hybrid-cloud-lens/sustainability/drhcsus06.html"
+                    },
+                    "choices": [
+                        {
+                            "id": "DRHCSUS06_BP01",
+                            "title": "Monitor Local Zone hardware introductions and choose the latest EC2 Instances taking advantage of power efficiency improvements",
+                            "helpfulResource": {
+                                "displayText": "As new more powerful and efficient Amazon EC2 instance families are introduced into AWS Local Zones they should be adopted to reduce the number of EC2 instances used and overall energy consumption.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/data-residency-hybrid-cloud-services-lens/drhcsus06-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Monitor Local Zone hardware introductions and choose the latest EC2 Instances taking advantage of power efficiency improvements",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/data-residency-hybrid-cloud-services-lens/drhcsus06-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "DRHCSUS06_BP02",
+                            "title": "Track AWS Outposts roadmaps, and structure contracts to enable timely upgrades to the latest EC2 instances",
+                            "helpfulResource": {
+                                "displayText": "When new more powerful and efficient AWS Outposts offerings are on the near-term roadmap you should consider refreshing at the end of your current AWS Outposts term, or consider using a shorter term with the existing generation if current needs must be met before the next generation is available.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/data-residency-hybrid-cloud-services-lens/drhcsus06-bp02.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Track AWS Outposts roadmaps, and structure contracts to enable timely upgrades to the latest EC2 instances",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/data-residency-hybrid-cloud-services-lens/drhcsus06-bp02.html"
+                            }
+                        },
+                        {
+                            "id": "DRHCSUS06_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "DRHCSUS06_BP01 && DRHCSUS06_BP02",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "MEDIUM_RISK"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
