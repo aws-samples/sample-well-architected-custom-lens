@@ -1,0 +1,1463 @@
+{
+  "schemaVersion": "2021-11-01",
+  "name": "Amazon OpenSearch Service Lens",
+  "description": "Best practices for configuring Amazon OpenSearch Service domains",
+  "pillars": [
+    {
+      "id": "operationalExcellence",
+      "name": "Operational Excellence",
+      "questions": [
+        {
+          "id": "AOSOPS1",
+          "title": "How do you manage indexes in your OpenSearch Service domain?",
+          "description": "It's crucial to establish an index policy to control the number of indices and shards",
+          "choices": [
+            {
+              "id": "AOSOPS1_BP01",
+              "title": "Employ Index State Management (ISM) to manage logs or time series data",
+              "helpfulResource": {
+                "displayText": "Index State Management (ISM) automates index lifecycle tasks, including alias rollovers, snapshots, storage tier transitions, and deletion of old indices",
+                "url": "https://docs.aws.amazon.com/wellarchitected/latest/amazon-opensearch-service-lens/aosops01-bp01.html"
+              },
+              "improvementPlan": {
+                "displayText": "Create an Index State Management (ISM) policy",
+                "url": "https://docs.aws.amazon.com/wellarchitected/latest/amazon-opensearch-service-lens/aosops01-bp01.html"
+              }
+            },
+            {
+              "id": "AOSOPS1_BP02",
+              "title": "Configure index templates to automate index configuration upon creation",
+              "helpfulResource": {
+                "displayText": "Index template is a way to instruct OpenSearch on configuring an index upon creation. Configure these templates before creating indexes, ensuring that newly created indexes inherit the specified settings and mappings",
+                "url": "https://docs.aws.amazon.com/wellarchitected/latest/amazon-opensearch-service-lens/aosops01-bp02.html"
+              },
+              "improvementPlan": {
+                "displayText": "Implement an index template to guarantee that newly created indexes inherit the defined settings and mappings from the template",
+                "url": "https://docs.aws.amazon.com/wellarchitected/latest/amazon-opensearch-service-lens/aosops01-bp02.html"
+              }
+            },
+            {
+              "id": "AOSOPS1_BP03",
+              "title": "Remove unused indexes",
+              "helpfulResource": {
+                "displayText": "Even when idle, indexes consume machine resources for internal maintenance activities",
+                "url": "https://docs.aws.amazon.com/wellarchitected/latest/amazon-opensearch-service-lens/aosops01-bp03.html"
+              },
+              "improvementPlan": {
+                "displayText": "Instead of manually deleting unused indexes, leverage Index State Management (ISM) to automate snapshot creation and index deletion based on a defined time period",
+                "url": "https://docs.aws.amazon.com/wellarchitected/latest/amazon-opensearch-service-lens/aosops01-bp03.html"
+              }
+            },
+            {
+                "id": "AOSOPS1_no",
+                "title": "None of these",
+                "helpfulResource": {
+                    "displayText": "Choose this if your workload does not follow these best practices."
+                }
+            }
+          ],
+          "riskRules": [
+            {
+              "condition": "(AOSOPS1_BP01 && AOSOPS1_BP02 && AOSOPS1_BP03)",
+              "risk": "NO_RISK"
+            },
+            {
+              "condition": "default",
+              "risk": "HIGH_RISK"
+            }
+          ]
+        },
+        {
+          "id": "AOSOPS2",
+          "title": "How do you maintain your snapshots?",
+          "description": "Snapshots in Amazon OpenSearch Service are backups of a cluster's indexes and state. State includes cluster settings, node information, index settings, and shard allocation",
+          "choices": [
+            {
+              "id": "AOSOPS2_BP01",
+              "title": "Establish a manual snapshot repository",
+              "helpfulResource": {
+                "displayText": "You need to register a snapshot repository with OpenSearch Service before you can take manual index snapshots",
+                "url": "https://docs.aws.amazon.com/wellarchitected/latest/amazon-opensearch-service-lens/aosops02-bp01.html"
+              },
+              "improvementPlan": {
+                "displayText": "Register a snapshot repository to enable the manual capturing of snapshots for crucial indices.",
+                "url": "https://docs.aws.amazon.com/wellarchitected/latest/amazon-opensearch-service-lens/aosops02-bp01.html"
+              }
+            },
+            {
+              "id": "AOSOPS2_BP02",
+              "title": "Automate the process of taking snapshots",
+              "helpfulResource": {
+                "displayText": "You can set up a Snapshot Management (SM) or Index State Management (ISM) policy in OpenSearch Dashboards to automate periodic snapshot creation and deletion",
+                "url": "https://docs.aws.amazon.com/wellarchitected/latest/amazon-opensearch-service-lens/aosops02-bp02.html"
+              },
+              "improvementPlan": {
+                "displayText": "Create Snapshot Management (SM) or Index State Management (ISM) policies to automate the process of taking snapshots",
+                "url": "https://docs.aws.amazon.com/wellarchitected/latest/amazon-opensearch-service-lens/aosops02-bp02.html"
+              }
+            },
+            {
+                "id": "AOSOPS2_no",
+                "title": "None of these",
+                "helpfulResource": {
+                    "displayText": "Choose this if your workload does not follow these best practices."
+                }
+            }
+          ],
+          "riskRules": [
+            {
+              "condition": "(AOSOPS2_BP01 && AOSOPS2_BP02)",
+              "risk": "NO_RISK"
+            },
+            {
+              "condition": "default",
+              "risk": "MEDIUM_RISK"
+            }
+          ]
+        },
+        {
+          "id": "AOSOPS3",
+          "title": "How do you implement real-time monitoring and alerting for your OpenSearch Service domain?",
+          "description": "Amazon OpenSearch Service emits performance metrics to Amazon CloudWatch. Regularly review your cluster and instance metrics and set up CloudWatch alarms based on workload performance recommendations",
+          "choices": [
+            {
+              "id": "AOSOPS3_BP01",
+              "title": "Establish alarms for OpenSearch Service domain",
+              "helpfulResource": {
+                "displayText": "CloudWatch alarms trigger an action when a CloudWatch metric surpasses a defined value for a specified duration. For instance, you can receive an email notification if your cluster health status remains red for more than one minute",
+                "url": "https://docs.aws.amazon.com/wellarchitected/latest/amazon-opensearch-service-lens/aosops03-bp01.html"
+              },
+              "improvementPlan": {
+                "displayText": "Configure CloudWatch alarms to receive notifications when a metric exceeds a set value for a specified duration.",
+                "url": "https://docs.aws.amazon.com/wellarchitected/latest/amazon-opensearch-service-lens/aosops03-bp01.html"
+              }
+            },
+            {
+              "id": "AOSOPS3_BP02",
+              "title": "Configure notification services to receive monitoring alerts",
+              "helpfulResource": {
+                "displayText": "CloudWatch utilizes Amazon Simple Notification Service (SNS) to alert users about changes in alarms",
+                "url": "https://docs.aws.amazon.com/wellarchitected/latest/amazon-opensearch-service-lens/aosops03-bp02.html"
+              },
+              "improvementPlan": {
+                "displayText": "Set up Amazon SNS to alert users when an alarm changes",
+                "url": "https://docs.aws.amazon.com/wellarchitected/latest/amazon-opensearch-service-lens/aosops03-bp02.html"
+              }
+            },
+            {
+              "id": "AOSOPS3_BP03",
+              "title": "Enable search and indexing slow log functionality",
+              "helpfulResource": {
+                "displayText": "Search slow logs, indexing slow logs, and error logs are valuable for diagnosing performance and stability issues. Audit logs record user activity for compliance purposes",
+                "url": "https://docs.aws.amazon.com/wellarchitected/latest/amazon-opensearch-service-lens/aosops03-bp03.html"
+              },
+              "improvementPlan": {
+                "displayText": "Activate the slow logs functionality to diagnose performance and stability issues",
+                "url": "https://docs.aws.amazon.com/wellarchitected/latest/amazon-opensearch-service-lens/aosops03-bp03.html"
+              }
+            },
+            {
+              "id": "AOSOPS3_BP04",
+              "title": "Enable audit logs for OpenSearch Service domains using fine-grained access control",
+              "helpfulResource": {
+                "displayText": "Audit logs allow you to monitor user activity on your OpenSearch clusters, capturing details such as authentication successes and failures, OpenSearch requests, index modifications, and incoming search queries",
+                "url": "https://docs.aws.amazon.com/wellarchitected/latest/amazon-opensearch-service-lens/aosops03-bp04.html"
+              },
+              "improvementPlan": {
+                "displayText": "Set up audit logs",
+                "url": "https://docs.aws.amazon.com/wellarchitected/latest/amazon-opensearch-service-lens/aosops03-bp04.html"
+              }
+            },
+            {
+                "id": "AOSOPS3_no",
+                "title": "None of these",
+                "helpfulResource": {
+                    "displayText": "Choose this if your workload does not follow these best practices."
+                }
+            }
+          ],
+          "riskRules": [
+            {
+              "condition": "(AOSOPS3_BP01 && AOSOPS3_BP02 && AOSOPS3_BP03 && AOSOPS3_BP04)",
+              "risk": "NO_RISK"
+            },
+            {
+              "condition": "default",
+              "risk": "HIGH_RISK"
+            }
+          ]
+        },
+        {
+          "id": "AOSOPS4",
+          "title": "How do you proactively troubleshoot issues?",
+          "description": "Operational runbooks serve as a valuable resource for troubleshooting common issues and restoring services to their normal operation",
+          "choices": [
+            {
+              "id": "AOSOPS4_BP01",
+              "title": "Train staff on common OpenSearch issues and how to remediate them",
+              "helpfulResource": {
+                "displayText": "Operational runbooks can significantly decrease the time required to restore services when encountering issues",
+                "url": "https://docs.aws.amazon.com/wellarchitected/latest/amazon-opensearch-service-lens/aosops04-bp01.html"
+              },
+              "improvementPlan": {
+                "displayText": "Acquire information on common challenges and the corresponding solutions in OpenSearch Service",
+                "url": "https://docs.aws.amazon.com/wellarchitected/latest/amazon-opensearch-service-lens/aosops04-bp01.html"
+              }
+            },
+            {
+                "id": "AOSOPS4_no",
+                "title": "None of these",
+                "helpfulResource": {
+                    "displayText": "Choose this if your workload does not follow these best practices."
+                }
+            }
+          ],
+          "riskRules": [
+            {
+              "condition": "(AOSOPS4_BP01)",
+              "risk": "NO_RISK"
+            },
+            {
+              "condition": "default",
+              "risk": "HIGH_RISK"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "security",
+      "name": "Security",
+      "questions": [
+        {
+          "id": "AOSSEC1",
+          "title": "How do you implement robust security measures to protect your OpenSearch Service domain?",
+          "description": "AWS oversees the safeguarding of the worldwide infrastructure supporting the entire AWS Cloud. It is your responsibility to retain control over the content hosted on this infrastructure",
+          "choices": [
+            {
+              "id": "AOSSEC1_BP01",
+              "title": "Launch your OpenSearch Service domains within a Virtual Private Cloud",
+              "helpfulResource": {
+                "displayText": "Placing an OpenSearch Service domain in a VPC enables secure communication with other VPC services, eliminating the need for an internet gateway, NAT device, or VPN. All traffic stays securely within the AWS Cloud",
+                "url": "https://docs.aws.amazon.com/wellarchitected/latest/amazon-opensearch-service-lens/aossec01-bp01.html"
+              },
+              "improvementPlan": {
+                "displayText": "Launch your Amazon OpenSearch Service domains within a VPC",
+                "url": "https://docs.aws.amazon.com/wellarchitected/latest/amazon-opensearch-service-lens/aossec01-bp01.html"
+              }
+            },
+            {
+              "id": "AOSSEC1_BP02",
+              "title": "Activate node-to-node encryption",
+              "helpfulResource": {
+                "displayText": "Node-to-node encryption adds an extra layer of security to the inherent security features of OpenSearch Service. It incorporates Transport Layer Security (TLS) to secure all communications between nodes",
+                "url": "https://docs.aws.amazon.com/wellarchitected/latest/amazon-opensearch-service-lens/aossec01-bp02.html"
+              },
+              "improvementPlan": {
+                "displayText": "Enable node-to-node encryption for OpenSearch domains",
+                "url": "https://docs.aws.amazon.com/wellarchitected/latest/amazon-opensearch-service-lens/aossec01-bp02.html"
+              }
+            },
+            {
+              "id": "AOSSEC1_BP03",
+              "title": "Enable encryption at rest",
+              "helpfulResource": {
+                "displayText": "OpenSearch Service domains provide data-at-rest encryption to mitigate unauthorized access to your data",
+                "url": "https://docs.aws.amazon.com/wellarchitected/latest/amazon-opensearch-service-lens/aossec01-bp03.html"
+              },
+              "improvementPlan": {
+                "displayText": "Enable encryption at rest for OpenSearch domains",
+                "url": "https://docs.aws.amazon.com/wellarchitected/latest/amazon-opensearch-service-lens/aossec01-bp03.html"
+              }
+            },
+            {
+              "id": "AOSSEC1_BP04",
+              "title": "Encrypt slow and error logs in Amazon CloudWatch to protect sensitive information",
+              "helpfulResource": {
+                "displayText": "If you publish slow and error logs to Amazon CloudWatch and want to encrypt them, you can encrypt their CloudWatch Logs log group using the same AWS KMS key as the OpenSearch Service domain",
+                "url": "https://docs.aws.amazon.com/wellarchitected/latest/amazon-opensearch-service-lens/aossec01-bp04.html"
+              },
+              "improvementPlan": {
+                "displayText": "Encrypt the CloudWatch Logs log group using the same AWS KMS key as the OpenSearch Service domain",
+                "url": "https://docs.aws.amazon.com/wellarchitected/latest/amazon-opensearch-service-lens/aossec01-bp04.html"
+              }
+            },
+            {
+                "id": "AOSEC1_no",
+                "title": "None of these",
+                "helpfulResource": {
+                    "displayText": "Choose this if your workload does not follow these best practices."
+                }
+            }
+          ],
+          "riskRules": [
+            {
+              "condition": "(AOSSEC1_BP01 && AOSSEC1_BP02 && AOSSEC1_BP03 && AOSSEC1_BP04)",
+              "risk": "NO_RISK"
+            },
+            {
+              "condition": "default",
+              "risk": "HIGH_RISK"
+            }
+          ]
+        },
+        {
+          "id": "AOSSEC2",
+          "title": "How do you track and audit user and API access to your OpenSearch Service domains?",
+          "description": "Amazon OpenSearch provides multiple methods to monitor, track, and audit access to domains",
+          "choices": [
+            {
+              "id": "AOSSEC2_BP01",
+              "title": "Set up audit logging for OpenSearch Service domains that use fine-grained access control",
+              "helpfulResource": {
+                "displayText": "All audit logs must be diligently recorded for security purposes",
+                "url": "https://docs.aws.amazon.com/wellarchitected/latest/amazon-opensearch-service-lens/aossec02-bp01.html"
+              },
+              "improvementPlan": {
+                "displayText": "Enable Audit-logs on the OpenSearch Domains (only for FGAC enabled domains)",
+                "url": "https://docs.aws.amazon.com/wellarchitected/latest/amazon-opensearch-service-lens/aossec02-bp01.html"
+              }
+            },
+            {
+              "id": "AOSSEC2_BP02",
+              "title": "Track OpenSearch Service API calls",
+              "helpfulResource": {
+                "displayText": "Amazon OpenSearch Service seamlessly integrates with AWS CloudTrail, a service that logs actions performed by users, roles, or AWS services within OpenSearch Service",
+                "url": "https://docs.aws.amazon.com/wellarchitected/latest/amazon-opensearch-service-lens/aossec02-bp02.html"
+              },
+              "improvementPlan": {
+                "displayText": "Monitor the CloudTrail logs generated for the Opensearch service actions",
+                "url": "https://docs.aws.amazon.com/wellarchitected/latest/amazon-opensearch-service-lens/aossec02-bp02.html"
+              }
+            },
+            {
+              "id": "AOSSEC2_BP03",
+              "title": "Monitor real-time events in your OpenSearch Service domains",
+              "helpfulResource": {
+                "displayText": "Amazon OpenSearch Service seamlessly integrates with Amazon EventBridge to provide notifications for specific events impacting your domains. Events from AWS services are delivered to EventBridge in near real-time",
+                "url": "https://docs.aws.amazon.com/wellarchitected/latest/amazon-opensearch-service-lens/aossec02-bp03.html"
+              },
+              "improvementPlan": {
+                "displayText": "Use Amazon EventBridge to monitor real-time events in your Amazon OpenSearch domains",
+                "url": "https://docs.aws.amazon.com/wellarchitected/latest/amazon-opensearch-service-lens/aossec02-bp03.html"
+              }
+            },
+            {
+              "id": "AOSSEC2_BP04",
+              "title": "Assess your OpenSearch Service domain's configuration with AWS Config",
+              "helpfulResource": {
+                "displayText": "AWS Config can be utilized to ensure OpenSearch compliance by evaluating and monitoring the configuration settings of OpenSearch domains",
+                "url": "https://docs.aws.amazon.com/wellarchitected/latest/amazon-opensearch-service-lens/aossec02-bp04.html"
+              },
+              "improvementPlan": {
+                "displayText": "Use AWS Config to ensure OpenSearch compliance by evaluating and monitoring the configuration settings of OpenSearch domains",
+                "url": "https://docs.aws.amazon.com/wellarchitected/latest/amazon-opensearch-service-lens/aossec02-bp04.html"
+              }
+            },
+            {
+                "id": "AOSEC2_no",
+                "title": "None of these",
+                "helpfulResource": {
+                    "displayText": "Choose this if your workload does not follow these best practices."
+                }
+            }
+          ],
+          "riskRules": [
+            {
+              "condition": "(AOSSEC2_BP01 && AOSSEC2_BP02 && AOSSEC2_BP03 && AOSSEC2_BP04)",
+              "risk": "NO_RISK"
+            },
+            {
+              "condition": "default",
+              "risk": "HIGH_RISK"
+            }
+          ]
+        },
+        {
+          "id": "AOSSEC3",
+          "title": "How do you protect your data, indices, and documents?",
+          "description": "Fine-grained access control in Amazon OpenSearch Service provides additional control over data access. For instance, you can tailor search results based on the requester, displaying results from specific indexes or concealing certain fields in documents",
+          "choices": [
+            {
+              "id": "AOSSEC3_BP01",
+              "title": "Implement fine-grained access control to manage access to your data on Amazon OpenSearch Service",
+              "helpfulResource": {
+                "displayText": "Fine-grained access control in Amazon OpenSearch Service provides additional control over data access. For instance, you can tailor search results based on the requester, displaying results from specific indexes or concealing certain fields in documents",
+                "url": "https://docs.aws.amazon.com/wellarchitected/latest/amazon-opensearch-service-lens/aossec03-bp01.html"
+              },
+              "improvementPlan": {
+                "displayText": "Adopt the fine-grained access control in Amazon OpenSearch Service",
+                "url": "https://docs.aws.amazon.com/wellarchitected/latest/amazon-opensearch-service-lens/aossec03-bp01.html"
+              }
+            },
+            {
+              "id": "AOSSEC3_BP02",
+              "title": "Secure your indices, documents, and fields using fine-grained access control",
+              "helpfulResource": {
+                "displayText": "Fine-grained Access Control (FGAC) allows you to restrict access to your indices, documents, and fields, ensuring that only authorized users can access them",
+                "url": "https://docs.aws.amazon.com/wellarchitected/latest/amazon-opensearch-service-lens/aossec03-bp02.html"
+              },
+              "improvementPlan": {
+                "displayText": "Use Fine-grained Access Control (FGAC) for authentcation and authorization of users accessing indices, documents and fields",
+                "url": "https://docs.aws.amazon.com/wellarchitected/latest/amazon-opensearch-service-lens/aossec03-bp02.html"
+              }
+            },
+            {
+                "id": "AOSEC3_no",
+                "title": "None of these",
+                "helpfulResource": {
+                    "displayText": "Choose this if your workload does not follow these best practices."
+                }
+            }
+          ],
+          "riskRules": [
+            {
+              "condition": "AOSSEC3_BP01 && AOSSEC3_BP02",
+              "risk": "NO_RISK"
+            },
+            {
+              "condition": "default",
+              "risk": "HIGH_RISK"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "reliability",
+      "name": "Reliability",
+      "questions": [
+        {
+          "id": "AOSREL1",
+          "title": "How do you keep your OpenSearch version up to date?",
+          "description": "Amazon OpenSearch Service emits metrics to Amazon CloudWatch. Regularly review your cluster and instance metrics and set up CloudWatch alarms to be notified when failures occur",
+          "choices": [
+            {
+              "id": "AOSREL1_BP01",
+              "title": "Implement a system update notification strategy",
+              "helpfulResource": {
+                "displayText": "Stay informed about notifications regarding updates to Amazon OpenSearch Service, which prepares you for changes or new features. ",
+                "url": "https://docs.aws.amazon.com/wellarchitected/latest/amazon-opensearch-service-lens/aosrel01-bp01.html"
+              },
+              "improvementPlan": {
+                "displayText": "You stay informed about notifications regarding updates to Amazon OpenSearch Service.",
+                "url": "https://docs.aws.amazon.com/wellarchitected/latest/amazon-opensearch-service-lens/aosrel01-bp01.html"
+              }
+            },
+            {
+              "id": "AOSREL1_BP02",
+              "title": "Regularly update your OpenSearch Service domain to the latest version",
+              "helpfulResource": {
+                "displayText": "Keep your OpenSearch Service domain current by regularly updating it to the latest available version, which provides improved performance, issue resolution, and access to new features.",
+                "url": "https://docs.aws.amazon.com/wellarchitected/latest/amazon-opensearch-service-lens/aosrel01-bp02.html"
+              },
+              "improvementPlan": {
+                "displayText": "Your OpenSearch Service domain is updated to the latest available version.",
+                "url": "https://docs.aws.amazon.com/wellarchitected/latest/amazon-opensearch-service-lens/aosrel01-bp02.html"
+              }
+            },
+            {
+                "id": "AOSREL1_no",
+                "title": "None of these",
+                "helpfulResource": {
+                    "displayText": "Choose this if your workload does not follow these best practices."
+                }
+            }
+          ],
+          "riskRules": [
+            {
+              "condition": "(AOSREL1_BP01 && AOSREL1_BP02)",
+              "risk": "NO_RISK"
+            },
+            {
+              "condition": "default",
+              "risk": "HIGH_RISK"
+            }
+          ]
+        },
+        {
+          "id": "AOSREL2",
+          "title": "How do you provide high availability for your OpenSearch Service domain?",
+          "description": "To mitigate data loss and reduce downtime for your Amazon OpenSearch Service cluster during a service disruption, you can deploy nodes across two or three Availability Zones within the same Region. This configuration, known as Multi-AZ, leverages isolated locations called Availability Zones within each AWS Region",
+          "choices": [
+            {
+              "id": "AOSREL2_BP01",
+              "title": "Create Multi-AZ with Standby OpenSearch Service domains",
+              "helpfulResource": {
+                "displayText": "When you use Multi-AZ with Standby, domains are resilient to infrastructure failures, with no impact to performance or availability",
+                "url": "https://docs.aws.amazon.com/wellarchitected/latest/amazon-opensearch-service-lens/aosrel02-bp01.html"
+              },
+              "improvementPlan": {
+                "displayText": "Use Multi-AZ with Standby deployment option when deploying OpenSearch domains",
+                "url": "https://docs.aws.amazon.com/wellarchitected/latest/amazon-opensearch-service-lens/aosrel02-bp01.html"
+              }
+            },
+            {
+                "id": "AOSREL2_no",
+                "title": "None of these",
+                "helpfulResource": {
+                    "displayText": "Choose this if your workload does not follow these best practices."
+                }
+            }
+          ],
+          "riskRules": [
+            {
+              "condition": "(AOSREL2_BP01)",
+              "risk": "NO_RISK"
+            },
+            {
+              "condition": "default",
+              "risk": "HIGH_RISK"
+            }
+          ]
+        },
+        {
+          "id": "AOSREL3",
+          "title": "How do you monitor quotas and limits in your OpenSearch Service domain?",
+          "description": "Default quotas, known as limits, are assigned to each AWS service within your account",
+          "choices": [
+            {
+              "id": "AOSREL3_BP01",
+              "title": "Regularly review your OpenSearch Service quotas",
+              "helpfulResource": {
+                "displayText": "Be familiar with the domain and instance quotas for Amazon OpenSearch Service in your specific region",
+                "url": "https://docs.aws.amazon.com/wellarchitected/latest/amazon-opensearch-service-lens/aosrel03-bp01.html"
+              },
+              "improvementPlan": {
+                "displayText": "Always review your OpenSearch service quotas to prevent limitations on your OpenSearch workloads",
+                "url": "https://docs.aws.amazon.com/wellarchitected/latest/amazon-opensearch-service-lens/aosrel03-bp01.html"
+              }
+            },
+            {
+                "id": "AOSREL3_no",
+                "title": "None of these",
+                "helpfulResource": {
+                    "displayText": "Choose this if your workload does not follow these best practices."
+                }
+            }
+          ],
+          "riskRules": [
+            {
+              "condition": "(AOSREL3_BP01)",
+              "risk": "NO_RISK"
+            },
+            {
+              "condition": "default",
+              "risk": "MEDIUM_RISK"
+            }
+          ]
+        },
+        {
+          "id": "AOSREL4",
+          "title": "How do you recover your OpenSearch Service domains from outages?",
+          "description": "Disaster recovery involves plans and processes to resume operations and restore data in the aftermath of a disruptive event or catastrophe",
+          "choices": [
+            {
+              "id": "AOSREL4_BP01",
+              "title": "Implement a disaster recovery (DR) strategy for your OpenSearch Service for business continuity",
+              "helpfulResource": {
+                "displayText": "Learn more about disaster recovery (DR) concepts and strategies",
+                "url": "https://docs.aws.amazon.com/wellarchitected/latest/amazon-opensearch-service-lens/aosrel04-bp01.html"
+              },
+              "improvementPlan": {
+                "displayText": "Define clear disaster recovery strategies for your Amazon OpenSearch Service domain.",
+                "url": "https://docs.aws.amazon.com/wellarchitected/latest/amazon-opensearch-service-lens/aosrel04-bp01.html"
+              }
+            },
+            {
+              "id": "AOSREL4_BP02",
+              "title": "Implement an Index State Management (ISM) policy to generate snapshots for your crucial indices",
+              "helpfulResource": {
+                "displayText": "Snapshots in Amazon OpenSearch Service are backups of a cluster's indexes and state. State includes cluster settings, node information, index settings, and shard allocation",
+                "url": "https://docs.aws.amazon.com/wellarchitected/latest/amazon-opensearch-service-lens/aosrel04-bp02.html"
+              },
+              "improvementPlan": {
+                "displayText": "Setup an ISM policy to take snapshots of your crucial indices",
+                "url": "https://docs.aws.amazon.com/wellarchitected/latest/amazon-opensearch-service-lens/aosrel04-bp02.html"
+              }
+            },
+            {
+              "id": "AOSREL4_BP03",
+              "title": "Enable index replication for your critical indices",
+              "helpfulResource": {
+                "displayText": "Index replication enables the creation of duplicate copies of your data across diverse data nodes",
+                "url": "https://docs.aws.amazon.com/wellarchitected/latest/amazon-opensearch-service-lens/aosrel04-bp03.html"
+              },
+              "improvementPlan": {
+                "displayText": "Utilize index replication functionalities to generate duplicates of your data across various data nodes",
+                "url": "https://docs.aws.amazon.com/wellarchitected/latest/amazon-opensearch-service-lens/aosrel04-bp03.html"
+              }
+            },
+            {
+              "id": "AOSREL4_BP04",
+              "title": "Employ cross-cluster replication to achieve higher availability",
+              "helpfulResource": {
+                "displayText": "Leveraging cross-cluster replication ensures disaster recovery during outages and enables the replication of data across geographically distant data centers, minimizing latency",
+                "url": "https://docs.aws.amazon.com/wellarchitected/latest/amazon-opensearch-service-lens/aosrel04-bp04.html"
+              },
+              "improvementPlan": {
+                "displayText": "Leveraging cross-cluster replication ensures disaster recovery during outages and enables the replication of data across geographically distant data centers, minimizing latency",
+                "url": "https://docs.aws.amazon.com/wellarchitected/latest/amazon-opensearch-service-lens/aosrel04-bp04.html"
+              }
+            },
+            {
+                "id": "AOSREL4_no",
+                "title": "None of these",
+                "helpfulResource": {
+                    "displayText": "Choose this if your workload does not follow these best practices."
+                }
+            }
+          ],
+          "riskRules": [
+            {
+              "condition": "(AOSREL4_BP01 && AOSREL4_BP02 && AOSREL4_BP03 && AOSREL4_BP04)",
+              "risk": "NO_RISK"
+            },
+            {
+              "condition": "default",
+              "risk": "HIGH_RISK"
+            }
+          ]
+        },
+        {
+          "id": "AOSREL5",
+          "title": " How do you use reliable instances for your production search workloads?",
+          "description": "Avoid using T2 or t3.small instances for production domains because they can become unstable under sustained heavy load",
+          "choices": [
+            {
+              "id": "AOSREL5_BP01",
+              "title": "Implement appropriate compute sizing for production workloads",
+              "helpfulResource": {
+                "displayText": "Avoid using T2 or t3.small instances for production domains because they can become unstable under sustained heavy load",
+                "url": "https://docs.aws.amazon.com/wellarchitected/latest/amazon-opensearch-service-lens/aosrel05-bp01.html"
+              },
+              "improvementPlan": {
+                "displayText": "Avoid using T2 or t3.small instances for production domains because they can become unstable under sustained heavy load",
+                "url": "https://docs.aws.amazon.com/wellarchitected/latest/amazon-opensearch-service-lens/aosrel05-bp01.html"
+              }
+            },
+            {
+                "id": "AOSREL5_no",
+                "title": "None of these",
+                "helpfulResource": {
+                    "displayText": "Choose this if your workload does not follow these best practices."
+                }
+            }
+          ],
+          "riskRules": [
+            {
+              "condition": "AOSREL5_BP01",
+              "risk": "NO_RISK"
+            },
+            {
+              "condition": "default",
+              "risk": "HIGH_RISK"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "performance",
+      "name": "Performance Efficiency",
+      "questions": [
+        {
+          "id": "AOSPERF1",
+          "title": "How do you plan, monitor, and optimize your sharding strategy?",
+          "description": "Efficient instance resource usage is crucial for balancing performance, stability, and cost in your Amazon OpenSearch Domain. Continuous monitoring and optimization are essential for maintaining a healthy and efficient system.",
+          "choices": [
+            {
+              "id": "AOSPERF1_BP01",
+              "title": "Maintain shard sizes at recommended ranges",
+              "helpfulResource": {
+                "displayText": "Shards fall within the recommended size range of 10 GiB to 50 GiB, for efficient indexing, querying and relocation performance",
+                "url": "https://docs.aws.amazon.com/wellarchitected/latest/amazon-opensearch-service-lens/aosperf01-bp01.html"
+              },
+              "improvementPlan": {
+                "displayText": "Shard size is recommended in a range of 10 GiB to 50 GiB",
+                "url": "https://docs.aws.amazon.com/wellarchitected/latest/amazon-opensearch-service-lens/aosperf01-bp01.html"
+              }
+            },
+            {
+              "id": "AOSPERF1_BP02",
+              "title": "Check shard-to-CPU ratio",
+              "helpfulResource": {
+                "displayText": "The Shard-to-CPU ratio is maintained at a minimum level of 1.5 vCPUs per shard. This may vary depending on the use case. Search use cases might require a higher ratio, while log analytics use cases may work with a smaller ratio",
+                "url": "https://docs.aws.amazon.com/wellarchitected/latest/amazon-opensearch-service-lens/aosperf01-bp02.html"
+              },
+              "improvementPlan": {
+                "displayText": "Shards are allocated a minimum of 1.5 vCPUs per shard, supporting efficient processing and scalability",
+                "url": "https://docs.aws.amazon.com/wellarchitected/latest/amazon-opensearch-service-lens/aosperf01-bp02.html"
+              }
+            },
+            {
+              "id": "AOSPERF1_BP03",
+              "title": "Check the number of shards per GiB of heap memory",
+              "helpfulResource": {
+                "displayText": "Prevent inefficient resource utilization by keeping each data node's heap under a shard load of 25",
+                "url": "https://docs.aws.amazon.com/wellarchitected/latest/amazon-opensearch-service-lens/aosperf01-bp03.html"
+              },
+              "improvementPlan": {
+                "displayText": "Each data node's heap memory should support no more than 25 shards, thereby optimizing resource utilization and enhancing query performance",
+                "url": "https://docs.aws.amazon.com/wellarchitected/latest/amazon-opensearch-service-lens/aosperf01-bp03.html"
+              }
+            },
+            {
+                "id": "AOSPERF1_no",
+                "title": "None of these",
+                "helpfulResource": {
+                    "displayText": "Choose this if your workload does not follow these best practices."
+                }
+            }
+          ],
+          "riskRules": [
+            {
+              "condition": "(AOSPERF1_BP01 && AOSPERF1_BP02 && AOSPERF1_BP03)",
+              "risk": "NO_RISK"
+            },
+            {
+              "condition": "default",
+              "risk": "HIGH_RISK"
+            }
+          ]
+        },
+        {
+          "id": "AOSPERF2",
+          "title": "How do you monitor and optimize resource allocation for your OpenSearch instances?",
+          "description": "Shards distribute your workload among data nodes in your OpenSearch domain, and well-configured indexes contribute to enhanced overall domain performance",
+          "choices": [
+            {
+              "id": "AOSPERF2_BP01",
+              "title": "Implement processor utilization monitoring",
+              "helpfulResource": {
+                "displayText": "Keep CPU usage under 75% to maintain efficient resource utilization and prevent potential performance issues",
+                "url": "https://docs.aws.amazon.com/wellarchitected/latest/amazon-opensearch-service-lens/aosperf02-bp01.html"
+              },
+              "improvementPlan": {
+                "displayText": "CPU utilization is below 75% for efficient resource utilization and minimizing potential performance issues",
+                "url": "https://docs.aws.amazon.com/wellarchitected/latest/amazon-opensearch-service-lens/aosperf02-bp01.html"
+              }
+            },
+            {
+              "id": "AOSPERF2_BP02",
+              "title": "Implement Java memory utilization monitoring",
+              "helpfulResource": {
+                "displayText": "Keep JVMMemoryPressure below 85% to maintain efficient memory utilization and prevent potential performance issues",
+                "url": "https://docs.aws.amazon.com/wellarchitected/latest/amazon-opensearch-service-lens/aosperf02-bp02.html"
+              },
+              "improvementPlan": {
+                "displayText": "The JVMMemoryPressure metric remains below 85% for efficient memory utilization and minimizing potential performance issues or domain blocks",
+                "url": "https://docs.aws.amazon.com/wellarchitected/latest/amazon-opensearch-service-lens/aosperf02-bp02.html"
+              }
+            },
+            {
+                "id": "AOSPERF2_no",
+                "title": "None of these",
+                "helpfulResource": {
+                    "displayText": "Choose this if your workload does not follow these best practices."
+                }
+            }
+          ],
+          "riskRules": [
+            {
+              "condition": "AOSPERF2_BP01 && AOSPERF2_BP02",
+              "risk": "NO_RISK"
+            },
+            {
+              "condition": "default",
+              "risk": "HIGH_RISK"
+            }
+          ]
+        },
+        {
+          "id": "AOSPERF3",
+          "title": "How do you monitor and optimize storage resource utilization in your OpenSearch Service domain?",
+          "description": "To efficiently use storage resources in an Amazon OpenSearch domain, optimize the storage configuration, manage indices effectively, and monitor resource usage",
+          "choices": [
+            {
+              "id": "AOSPERF3_BP01",
+              "title": "Establish storage utilization thresholds",
+              "helpfulResource": {
+                "displayText": "Basic write operations, such as adding documents and creating indexes, may fail if one or more nodes in your cluster have less than 20% of available storage space or less than 20 GB of storage space",
+                "url": "https://docs.aws.amazon.com/wellarchitected/latest/amazon-opensearch-service-lens/aosperf03-bp01.html"
+              },
+              "improvementPlan": {
+                "displayText": "Monitor the FreeStorageSpace metric in the OpenSearch Service console and set up CloudWatch alarms to activate when FreeStorageSpace falls below a specified threshold",
+                "url": "https://docs.aws.amazon.com/wellarchitected/latest/amazon-opensearch-service-lens/aosperf03-bp01.html"
+              }
+            },
+            {
+              "id": "AOSPERF3_BP02",
+              "title": "Evenly distribute data across data nodes in your OpenSearch Service domain",
+              "helpfulResource": {
+                "displayText": "Storage skew occurs when certain nodes or indexes within a cluster have substantially more storage usage than the others",
+                "url": "https://docs.aws.amazon.com/wellarchitected/latest/amazon-opensearch-service-lens/aosperf03-bp02.html"
+              },
+              "improvementPlan": {
+                "displayText": "Ensure even distribution across data nodes by using shard counts that are multiples of the data node count",
+                "url": "https://docs.aws.amazon.com/wellarchitected/latest/amazon-opensearch-service-lens/aosperf03-bp02.html"
+              }
+            },
+            {
+              "id": "AOSPERF3_BP03",
+              "title": "Use storage types that provide higher IOPs and throughput baseline",
+              "helpfulResource": {
+                "displayText": "gp3 is the successor to the general-purpose SSD gp2 volume, offering higher baseline performance, and the capability to provision higher performance independent of volume size",
+                "url": "https://docs.aws.amazon.com/wellarchitected/latest/amazon-opensearch-service-lens/aosperf03-bp03.html"
+              },
+              "improvementPlan": {
+                "displayText": "We advise considering gp3 as the optimal Amazon EBS choice for a balance of price, performance, and flexibility",
+                "url": "https://docs.aws.amazon.com/wellarchitected/latest/amazon-opensearch-service-lens/aosperf03-bp03.html"
+              }
+            },
+            {
+                "id": "AOSPERF3_no",
+                "title": "None of these",
+                "helpfulResource": {
+                    "displayText": "Choose this if your workload does not follow these best practices."
+                }
+            }
+          ],
+          "riskRules": [
+            {
+              "condition": "AOSPERF3_BP01 && AOSPERF3_BP02 && AOSPERF3_BP03",
+              "risk": "NO_RISK"
+            },
+            {
+              "condition": "default",
+              "risk": "HIGH_RISK"
+            }
+          ]
+        },
+        {
+          "id": "AOSPERF4",
+          "title": "How do you monitor and optimize query performance?",
+          "description": "Efficient query execution in an Amazon OpenSearch domain requires considerations related to query optimization, index design, and overall system configuration",
+          "choices": [
+            {
+              "id": "AOSPERF4_BP01",
+              "title": "Enable slow log functionality for search and indexing",
+              "helpfulResource": {
+                "displayText": "Search slow logs, indexing slow logs, and error logs are valuable for diagnosing performance and stability issues",
+                "url": "https://docs.aws.amazon.com/wellarchitected/latest/amazon-opensearch-service-lens/aosperf04-bp01.html"
+              },
+              "improvementPlan": {
+                "displayText": "Activate the slow logs functionality to diagnose performance and stability issues",
+                "url": "https://docs.aws.amazon.com/wellarchitected/latest/amazon-opensearch-service-lens/aosperf04-bp01.html"
+              }
+            },
+            {
+              "id": "AOSPERF4_BP02",
+              "title": "Use static mapping for your index",
+              "helpfulResource": {
+                "displayText": "A well defined list of mappings is crucial for optimizing indexing and search performance. It enables efficient storage of various data fields tailored to the intended functions",
+                "url": "https://docs.aws.amazon.com/wellarchitected/latest/amazon-opensearch-service-lens/aosperf04-bp02.html"
+              },
+              "improvementPlan": {
+                "displayText": "For search workloads, it is advisable to employ static mapping instead of dynamic mapping. This ensures correct indexing and searching of data types",
+                "url": "https://docs.aws.amazon.com/wellarchitected/latest/amazon-opensearch-service-lens/aosperf04-bp02.html"
+              }
+            },
+            {
+              "id": "AOSPERF4_BP03",
+              "title": "Use the flat object type for nested objects",
+              "helpfulResource": {
+                "displayText": "The flat object field type treats the JSON object as a string, allowing subfield access without indexing for faster lookup, addressing performance concerns",
+                "url": "https://docs.aws.amazon.com/wellarchitected/latest/amazon-opensearch-service-lens/aosperf04-bp03.html"
+              },
+              "improvementPlan": {
+                "displayText": "Consider employing flat objects for documents containing nested structures",
+                "url": "https://docs.aws.amazon.com/wellarchitected/latest/amazon-opensearch-service-lens/aosperf04-bp03.html"
+              }
+            },
+            {
+                "id": "AOSPERF4_no",
+                "title": "None of these",
+                "helpfulResource": {
+                    "displayText": "Choose this if your workload does not follow these best practices."
+                }
+            }
+          ],
+          "riskRules": [
+            {
+              "condition": "(AOSPERF4_BP01 && AOSPERF4_BP02 && AOSPERF4_BP03)",
+              "risk": "NO_RISK"
+            },
+            {
+              "condition": "default",
+              "risk": "MEDIUM_RISK"
+            }
+          ]
+        },
+        {
+          "id": "AOSPERF5",
+          "title": "How do you separate cluster management from data processing functions?",
+          "description": "Determining the ideal bulk request size depends on your unique use case and the attributes of your Amazon OpenSearch Domain. Experimenting with various configurations and closely monitoring performance is recommended to find the optimal balance tailored to your specific needs",
+          "choices": [
+            {
+              "id": "AOSPERF5_BP01",
+              "title": "Enable a dedicated leader node for OpenSearch Service domain",
+              "helpfulResource": {
+                "displayText": "Configure dedicated leader nodes with appropriate instance types to improve cluster stability and performance. This separation of cluster management tasks helps prevent split-brain scenarios and optimizes resource utilization as your OpenSearch Service domain grows",
+                "url": "https://docs.aws.amazon.com/wellarchitected/latest/amazon-opensearch-service-lens/aosperf05-bp01.html"
+              },
+              "improvementPlan": {
+                "displayText": "Your OpenSearch Service domain has dedicated leader nodes with appropriately sized instances to handle cluster management tasks. This configuration improves cluster stability, prevents split-brain scenarios, and maintains performance as your workload grows",
+                "url": "https://docs.aws.amazon.com/wellarchitected/latest/amazon-opensearch-service-lens/aosperf05-bp01.html"
+              }
+            },
+            {
+              "id": "AOSPERF5_BP02",
+              "title": "Enable a dedicated coordinator node for OpenSearch Service domain",
+              "helpfulResource": {
+                "displayText": "Improve resource utilization and resilience by enabling a dedicated coordinator node, reducing private IP address reservations",
+                "url": "https://docs.aws.amazon.com/wellarchitected/latest/amazon-opensearch-service-lens/aosperf05-bp02.html"
+              },
+              "improvementPlan": {
+                "displayText": "You use a dedicated coordinator node for an OpenSearch Service domain to improve resource utilization, enhance resilience, and reduce private IP address reservations",
+                "url": "https://docs.aws.amazon.com/wellarchitected/latest/amazon-opensearch-service-lens/aosperf05-bp02.html"
+              }
+            },
+            {
+                "id": "AOSPERF5_no",
+                "title": "None of these",
+                "helpfulResource": {
+                    "displayText": "Choose this if your workload does not follow these best practices."
+                }
+            }
+          ],
+          "riskRules": [
+            {
+              "condition": "(AOSPERF5_BP01 && AOSPERF5_BP02)",
+              "risk": "NO_RISK"
+            },
+            {
+              "condition": "default",
+              "risk": "MEDIUM_RISK"
+            }
+          ]
+        },
+        {
+          "id": "AOSPERF6",
+          "title": "How do you balance throughput and latency through bulk request size?",
+          "description": "Determining the ideal bulk request size depends on your unique use case and the attributes of your Amazon OpenSearch Domain. Experimenting with various configurations and closely monitoring performance is recommended to find the optimal balance tailored to your specific needs",
+          "choices": [
+            {
+              "id": "AOSPERF6_BP01",
+              "title": "Identify index refresh controls for optimal ingestion performance",
+              "helpfulResource": {
+                "displayText": "A refresh operation ensures that all updates made to an index are accessible for search. The default refresh interval is one second, indicating that OpenSearch performs a refresh every second during ongoing index writes",
+                "url": "https://docs.aws.amazon.com/wellarchitected/latest/amazon-opensearch-service-lens/aosperf06-bp01.html"
+              },
+              "improvementPlan": {
+                "displayText": "Reducing the frequency of index refreshes (higher refresh interval) improves overall indexing performance. It's advised to set the refresh_interval parameter for all indexes to 30 seconds or longer for optimal performance",
+                "url": "https://docs.aws.amazon.com/wellarchitected/latest/amazon-opensearch-service-lens/aosperf06-bp01.html"
+              }
+            },
+            {
+              "id": "AOSPERF6_BP02",
+              "title": "Evaluate bulk request size",
+              "helpfulResource": {
+                "displayText": "Determining the optimal bulk size depends on your data, and domain configuration. However, a recommended starting point is a bulk size of 3\u20135 MiB per request",
+                "url": "https://docs.aws.amazon.com/wellarchitected/latest/amazon-opensearch-service-lens/aosperf06-bp02.html"
+              },
+              "improvementPlan": {
+                "displayText": "Begin with a bulk request size of 3-5 MiB, and gradually increase the size until the indexing performance ceases to improve",
+                "url": "https://docs.aws.amazon.com/wellarchitected/latest/amazon-opensearch-service-lens/aosperf06-bp02.html"
+              },
+              "additionalResources": [
+                {
+                  "type": "HELPFUL_RESOURCE",
+                  "content": [
+                    {
+                      "displayText": "Additional resources on improving indexing performance on OpenSearch Service clusters.",
+                      "url": "https://repost.aws/knowledge-center/opensearch-indexing-performance"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "AOSPERF6_BP03",
+              "title": "Implement HTTP compression",
+              "helpfulResource": {
+                "displayText": "In Amazon OpenSearch Service domains, gzip compression can be utilized to compress HTTP requests and responses. This compression helps reduce document size, lowering bandwidth usage and latency, resulting in improved transfer speeds",
+                "url": "https://docs.aws.amazon.com/wellarchitected/latest/amazon-opensearch-service-lens/aosperf06-bp03.html"
+              },
+              "improvementPlan": {
+                "displayText": "Use gzip compression to reduce document size, lower bandwidth usage, minimize latency, and enhance transfer speeds",
+                "url": "https://docs.aws.amazon.com/wellarchitected/latest/amazon-opensearch-service-lens/aosperf06-bp03.html"
+              }
+            },
+            {
+              "id": "AOSPERF6_BP04",
+              "title": "Evaluate filter_path criteria",
+              "helpfulResource": {
+                "displayText": "Responses from the _index and _bulk APIs carry extensive information, valuable for troubleshooting or implementing retry logic. However, due to bandwidth considerations, indexing a 32-byte document, for instance, results in a 339-byte response (including headers)",
+                "url": "https://docs.aws.amazon.com/wellarchitected/latest/amazon-opensearch-service-lens/aosperf06-bp04.html"
+              },
+              "improvementPlan": {
+                "displayText": "Use the filter_path parameter to reduce the size of the OpenSearch Service response, but be careful not to filter out fields that you need in order to identify or retry failed requests",
+                "url": "https://docs.aws.amazon.com/wellarchitected/latest/amazon-opensearch-service-lens/aosperf06-bp04.html"
+              }
+            },
+            {
+                "id": "AOSPERF6_no",
+                "title": "None of these",
+                "helpfulResource": {
+                    "displayText": "Choose this if your workload does not follow these best practices."
+                }
+            }
+          ],
+          "riskRules": [
+            {
+              "condition": "(AOSPERF6_BP01 && AOSPERF6_BP02 && AOSPERF6_BP03 && AOSPERF6_BP04)",
+              "risk": "NO_RISK"
+            },
+            {
+              "condition": "default",
+              "risk": "MEDIUM_RISK"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "costOptimization",
+      "name": "Cost Optimization",
+      "questions": [
+        {
+          "id": "AOSCOST1",
+          "title": "How do you select optimal compute resources for your OpenSearch Service workloads?",
+          "description": "Amazon OpenSearch Service allows you to easily choose the optimal instance type and storage option for your workload",
+          "choices": [
+            {
+              "id": "AOSCOST1_BP01",
+              "title": "Use the latest generation of instances for your OpenSearch Service domains",
+              "helpfulResource": {
+                "displayText": "Amazon OpenSearch Service offers the option to create domains using the latest generation instance types, delivering enhanced performance and reduced costs",
+                "url": "https://docs.aws.amazon.com/wellarchitected/latest/amazon-opensearch-service-lens/aoscost01-bp01.html"
+              },
+              "improvementPlan": {
+                "displayText": "Upgrade to the latest generation of instances to enjoy improved performance and cost savings",
+                "url": "https://docs.aws.amazon.com/wellarchitected/latest/amazon-opensearch-service-lens/aoscost01-bp01.html"
+              }
+            },
+            {
+              "id": "AOSCOST1_BP02",
+              "title": "Employ the appropriate instance type and count",
+              "helpfulResource": {
+                "displayText": "Hardware requirements differ significantly depending on the workload",
+                "url": "https://docs.aws.amazon.com/wellarchitected/latest/amazon-opensearch-service-lens/aoscost01-bp02.html"
+              },
+              "improvementPlan": {
+                "displayText": "Identifying the suitable instance type for your workload involves making an informed initial estimate, conducting tests with representative workloads, adjusting as needed, and iterating through the testing process",
+                "url": "https://docs.aws.amazon.com/wellarchitected/latest/amazon-opensearch-service-lens/aoscost01-bp02.html"
+              }
+            },
+            {
+              "id": "AOSCOST1_BP03",
+              "title": "Evaluate manager nodes",
+              "helpfulResource": {
+                "displayText": "The master node's instance type correlates with its capability to effectively manage the number of instances, indexes, and shards",
+                "url": "https://docs.aws.amazon.com/wellarchitected/latest/amazon-opensearch-service-lens/aoscost01-bp03.html"
+              },
+              "improvementPlan": {
+                "displayText": "Understand your Amazon OpenSearch Service workloads before sizing the dedicated nodes.",
+                "url": "https://docs.aws.amazon.com/wellarchitected/latest/amazon-opensearch-service-lens/aoscost01-bp03.html"
+              }
+            },
+            {
+                "id": "AOSCOST1_no",
+                "title": "None of these",
+                "helpfulResource": {
+                    "displayText": "Choose this if your workload does not follow these best practices."
+                }
+            }
+          ],
+          "riskRules": [
+            {
+              "condition": "(AOSCOST1_BP01 && AOSCOST1_BP02 && AOSCOST1_BP03)",
+              "risk": "NO_RISK"
+            },
+            {
+              "condition": "default",
+              "risk": "MEDIUM_RISK"
+            }
+          ]
+        },
+        {
+          "id": "AOSCOST2",
+          "title": "How do you choose appropriate storage tiering?",
+          "description": "The OpenSearch service offers tiered data storage, beneficial for long-term data retention or read-only accessed data, ultimately contributing to cost reduction",
+          "choices": [
+            {
+              "id": "AOSCOST2_BP01",
+              "title": "Use the latest Amazon EBS gp3 volumes with your OpenSearch Service nodes",
+              "helpfulResource": {
+                "displayText": "gp3 is the successor to the general-purpose SSD gp2 volume, offering higher baseline performance, and the capability to provision higher performance independent of volume size",
+                "url": "https://docs.aws.amazon.com/wellarchitected/latest/amazon-opensearch-service-lens/aoscost02-bp01.html"
+              },
+              "improvementPlan": {
+                "displayText": "We advise considering gp3 as the optimal Amazon EBS choice for a balance of price, performance, and flexibility",
+                "url": "https://docs.aws.amazon.com/wellarchitected/latest/amazon-opensearch-service-lens/aoscost02-bp01.html"
+              }
+            },
+            {
+              "id": "AOSCOST2_BP02",
+              "title": "Use instances optimized for heavy indexing use cases",
+              "helpfulResource": {
+                "displayText": "OR1 is an instance family for Amazon OpenSearch Service that provides a cost-effective way to store large amounts of heady indexing data",
+                "url": "https://docs.aws.amazon.com/wellarchitected/latest/amazon-opensearch-service-lens/aoscost02-bp02.html"
+              },
+              "improvementPlan": {
+                "displayText": "Analyze access patterns for indices and use OR1 instances for heavy indexing data",
+                "url": "https://docs.aws.amazon.com/wellarchitected/latest/amazon-opensearch-service-lens/aoscost02-bp02.html"
+              }
+            },
+            {
+              "id": "AOSCOST2_BP03",
+              "title": "Use the warm storage tier to optimize storage for a significant amount of read-only data",
+              "helpfulResource": {
+                "displayText": "UltraWarm provides a cost-effective way to store large amounts of read-only data in OpenSearch Service. UltraWarm uses Amazon S3 for storage, which means that the data is immutable and only one copy is needed. You only pay for storage that's equivalent to the size of the primary shards in your indexes",
+                "url": "https://docs.aws.amazon.com/wellarchitected/latest/amazon-opensearch-service-lens/aoscost02-bp03.html"
+              },
+              "improvementPlan": {
+                "displayText": "Analyze access patterns for indices and transfer read-only indices to the UltraWarm tier",
+                "url": "https://docs.aws.amazon.com/wellarchitected/latest/amazon-opensearch-service-lens/aoscost02-bp03.html"
+              }
+            },
+            {
+              "id": "AOSCOST2_BP04",
+              "title": "Use the cold tier storage option to store and retrieve infrequently accessed or historical data",
+              "helpfulResource": {
+                "displayText": "Using cold storage tier to store infrequently accessed data or historical log data that requires on-demand analysis",
+                "url": "https://docs.aws.amazon.com/wellarchitected/latest/amazon-opensearch-service-lens/aoscost02-bp04.html"
+              },
+              "improvementPlan": {
+                "displayText": "Identify access patterns for logs that are accessed infrequently, data necessary for compliance, or logs with historical value, and transfer them to the Cold tier",
+                "url": "https://docs.aws.amazon.com/wellarchitected/latest/amazon-opensearch-service-lens/aoscost02-bp04.html"
+              }
+            },
+            {
+                "id": "AOSCOST2_no",
+                "title": "None of these",
+                "helpfulResource": {
+                    "displayText": "Choose this if your workload does not follow these best practices."
+                }
+            }
+          ],
+          "riskRules": [
+            {
+              "condition": "(AOSCOST2_BP01 && AOSCOST2_BP02 && AOSCOST2_BP03 && AOSCOST2_BP04)",
+              "risk": "NO_RISK"
+            },
+            {
+              "condition": "default",
+              "risk": "MEDIUM_RISK"
+            }
+          ]
+        },
+        {
+          "id": "AOSCOST3",
+          "title": "How do you take advance of capacity reservation commitments to reduce costs?",
+          "description": "Reserved Instances (RIs) in Amazon OpenSearch Service provide substantial discounts compared to standard On-Demand Instances. The instances remain identical. RIs are essentially a billing discount applied to On-Demand Instances within your account",
+          "choices": [
+            {
+              "id": "AOSCOST3_BP01",
+              "title": "Evaluate forecasting for your workloads",
+              "helpfulResource": {
+                "displayText": "Maximize savings for your OpenSearch domain by utilizing Reserved Instances (RIs) if your workload is consistent over the next 1-3 years",
+                "url": "https://docs.aws.amazon.com/wellarchitected/latest/amazon-opensearch-service-lens/aoscost03-bp01.html"
+              },
+              "improvementPlan": {
+                "displayText": "Leverage Cost Explorer to automatically receive OpenSearch Reserved Instance (RI) purchase recommendations, aiding in cost reduction efforts",
+                "url": "https://docs.aws.amazon.com/wellarchitected/latest/amazon-opensearch-service-lens/aoscost03-bp01.html"
+              }
+            },
+            {
+                "id": "AOSCOST3_no",
+                "title": "None of these",
+                "helpfulResource": {
+                    "displayText": "Choose this if your workload does not follow these best practices."
+                }
+            }
+          ],
+          "riskRules": [
+            {
+              "condition": "AOSCOST3_BP01",
+              "risk": "NO_RISK"
+            },
+            {
+              "condition": "default",
+              "risk": "MEDIUM_RISK"
+            }
+          ]
+        },
+        {
+          "id": "AOSCOST4",
+          "title": "How can regular monitoring and tracking of costs help achieving cost optimization?",
+          "description": "Actively monitoring the usage and cost of Amazon OpenSearch Service is crucial for cost optimization because it allows you to identify inefficiencies, optimize resource allocation, budget management and plan for growth",
+          "choices": [
+            {
+              "id": "AOSCOST4_BP01",
+              "title": "Apply cost allocation tags to your OpenSearch resources for detailed cost tracking and analysis",
+              "helpfulResource": {
+                "displayText": "A tag is a label assigned by you or AWS to an AWS resource, comprising a key and a value. For each resource, each tag key must be unique, and a tag key can have only one value",
+                "url": "https://docs.aws.amazon.com/wellarchitected/latest/amazon-opensearch-service-lens/aoscost04-bp01.html"
+              },
+              "improvementPlan": {
+                "displayText": "Apply unique tags to your AWS resources, assigning a distinct key and value to each tag for effective resource management",
+                "url": "https://docs.aws.amazon.com/wellarchitected/latest/amazon-opensearch-service-lens/aoscost04-bp01.html"
+              }
+            },
+            {
+                "id": "AOSCOST4_no",
+                "title": "None of these",
+                "helpfulResource": {
+                    "displayText": "Choose this if your workload does not follow these best practices."
+                }
+            }
+          ],
+          "riskRules": [
+            {
+              "condition": "AOSCOST4_BP01",
+              "risk": "NO_RISK"
+            },
+            {
+              "condition": "default",
+              "risk": "MEDIUM_RISK"
+            }
+          ]
+        },
+        {
+          "id": "AOSCOST5",
+          "title": "How do estimate your OpenSearch Service cost?",
+          "description": "Calculate your Amazon OpenSearch Service and architecture cost in a single estimate tool.",
+          "choices": [
+            {
+              "id": "AOSCOST5_BP01",
+              "title": "Assess the pricing for instances and storage in Amazon OpenSearch Service",
+              "helpfulResource": {
+                "displayText": "Improve cost transparency and accuracy of cost estimation by assessing pricing for instances and storage to make informed decisions on resource allocation",
+                "url": "https://docs.aws.amazon.com/wellarchitected/latest/amazon-opensearch-service-lens/aoscost05-bp01.html"
+              },
+              "improvementPlan": {
+                "displayText": "You can estimate costs by assessing the pricing for instances and storage in Amazon OpenSearch Service",
+                "url": "https://docs.aws.amazon.com/wellarchitected/latest/amazon-opensearch-service-lens/aoscost05-bp01.html"
+              }
+            },
+            {
+              "id": "AOSCOST5_BP02",
+              "title": "Examine the costs associated with Amazon S3 storage for manually creating snapshots of your OpenSearch Service domain",
+              "helpfulResource": {
+                "displayText": "Understand cost associated with On-Demand and Reserved Instances as well as cost associated with storage options",
+                "url": "https://docs.aws.amazon.com/wellarchitected/latest/amazon-opensearch-service-lens/aoscost05-bp02.html"
+              },
+              "improvementPlan": {
+                "displayText": "Calculate your Amazon OpenSearch Service cost using the pricing tool",
+                "url": "https://docs.aws.amazon.com/wellarchitected/latest/amazon-opensearch-service-lens/aoscost05-bp02.html"
+              }
+            },
+            {
+                "id": "AOSCOST5_no",
+                "title": "None of these",
+                "helpfulResource": {
+                    "displayText": "Choose this if your workload does not follow these best practices."
+                }
+            }
+          ],
+          "riskRules": [
+            {
+              "condition": "AOSCOST5_BP01 && AOSCOST5_BP02",
+              "risk": "NO_RISK"
+            },
+            {
+              "condition": "default",
+              "risk": "MEDIUM_RISK"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sustainability",
+      "name": "Sustainability",
+      "questions": [
+        {
+          "id": "AOSSUS1",
+          "title": "How do you choose Regions for your OpenSearch Service workloads?",
+          "description": "The selection of a Region for your workload plays a crucial role in influencing its key performance indicators (KPIs), such as performance, cost, and carbon footprint. To effectively enhance these KPIs, it is essential to choose Regions for your workloads by considering both business requirements and sustainability goals",
+          "choices": [
+            {
+              "id": "AOSSUS1_BP01",
+              "title": "Select the Region for your OpenSearch Service deployment based on combination of business requirements and sustainability goals",
+              "helpfulResource": {
+                "displayText": "In 2022, the electricity consumed in 19 AWS Regions was derived entirely from 100% renewable energy sources",
+                "url": "https://docs.aws.amazon.com/wellarchitected/latest/amazon-opensearch-service-lens/aossus01-bp01.html"
+              },
+              "improvementPlan": {
+                "displayText": "Choose Region based on both business requirements and sustainability goals"
+              }
+            },
+            {
+                "id": "AOSSUS1_no",
+                "title": "None of these",
+                "helpfulResource": {
+                    "displayText": "Choose this if your workload does not follow these best practices."
+                }
+            }
+          ],
+          "riskRules": [
+            {
+              "condition": "AOSSUS1_BP01",
+              "risk": "NO_RISK"
+            },
+            {
+              "condition": "default",
+              "risk": "MEDIUM_RISK"
+            }
+          ]
+        },
+        {
+          "id": "AOSSUS2",
+          "title": "How do you use instance families in OpenSearch Service to support your organization's sustainability goals?",
+          "description": "Use OpenSearch instance families that align with sustainability objectives. Certain OpenSearch instance families are designed to be more energy-efficient than others. Choosing energy-efficient instances contributes to the overall reduction in power consumption and carbon footprint, helping lower the environmental impact of your infrastructure. Remember that sustainability is not only about energy efficiency but also about optimizing resource usage. Choosing appropriate instance families helps in resource optimization, which helps you use computing resources efficiently without unnecessary waste. This can lead to cost savings as well.",
+          "choices": [
+            {
+              "id": "AOSSUS2_BP01",
+              "title": "Evaluate instances in alignment to sustainability goals",
+              "helpfulResource": {
+                "displayText": "Reduce carbon footprint, improve sustainability performance, and enhance regulatory compliance by evaluating instance choices that align with your organization's sustainability goals",
+                "url": "https://docs.aws.amazon.com/wellarchitected/latest/amazon-opensearch-service-lens/aossus02-bp01.html"
+              },
+              "improvementPlan": {
+                "displayText": "Reduce carbon footprint, improve sustainability performance, and enhance regulatory compliance by evaluating instance choices that align with your organization's sustainability goals"
+              }
+            },
+            {
+              "id": "AOSSUS2_BP02",
+              "title": "Use the minimum number of instances necessary to meet your workload requirements",
+              "helpfulResource": {
+                "displayText": "Use the minimum amount of hardware for your workload to efficiently meet your business needs",
+                "url": "https://docs.aws.amazon.com/wellarchitected/latest/amazon-opensearch-service-lens/aossus02-bp02.html"
+              },
+              "improvementPlan": {
+                "displayText": "Use the minimum amount of hardware for your workload to efficiently meet your business needs"
+              }
+            },
+            {
+                "id": "AOSSUS2_no",
+                "title": "None of these",
+                "helpfulResource": {
+                    "displayText": "Choose this if your workload does not follow these best practices."
+                }
+            }
+          ],
+          "riskRules": [
+            {
+              "condition": "(AOSSUS2_BP01 && AOSSUS2_BP02)",
+              "risk": "NO_RISK"
+            },
+            {
+              "condition": "default",
+              "risk": "MEDIUM_RISK"
+            }
+          ]
+        },
+        {
+          "id": "AOSSUS3",
+          "title": "How do you align data management practices with environmental sustainability objectives?",
+          "description": "The OpenSearch service offers tiered data storage, beneficial for long-term data retention or read-only accessed data, ultimately contributing to cost reduction",
+          "choices": [
+            {
+              "id": "AOSSUS3_BP01",
+              "title": "Use Index State Management to manage the lifecycle of your dataset",
+              "helpfulResource": {
+                "displayText": "Index State Management (ISM) eliminates the necessity for establishing and overseeing external processes to execute your index operations",
+                "url": "https://docs.aws.amazon.com/wellarchitected/latest/amazon-opensearch-service-lens/aossus03-bp01.html"
+              },
+              "improvementPlan": {
+                "displayText": "Index State Management (ISM) eliminates the necessity for establishing and overseeing external processes to execute your index operations"
+              }
+            },
+            {
+              "id": "AOSSUS3_BP02",
+              "title": "Reduce unnecessary or redundant data from your domain",
+              "helpfulResource": {
+                "displayText": "You can eliminate unneeded and redundant data through various methods, like using indexing strategies, implement ISM and archive data",
+                "url": "https://docs.aws.amazon.com/wellarchitected/latest/amazon-opensearch-service-lens/aossus03-bp02.html"
+              },
+              "improvementPlan": {
+                "displayText": "You can eliminate unneeded and redundant data through various methods, like using indexing strategies, implement ISM and archive data"
+              }
+            },
+            {
+              "id": "AOSSUS3_BP03",
+              "title": "Take manual snapshots of your indices only when it is difficult to recreate the dataset",
+              "helpfulResource": {
+                "displayText": "Snapshots in Amazon OpenSearch Service serve as backups for a cluster's indexes and state. Excessive snapshotting leads to unnecessary storage wastage",
+                "url": "https://docs.aws.amazon.com/wellarchitected/latest/amazon-opensearch-service-lens/aossus03-bp03.html"
+              },
+              "improvementPlan": {
+                "displayText": "Snapshots in Amazon OpenSearch Service serve as backups for a cluster's indexes and state. Excessive snapshotting leads to unnecessary storage wastage"
+              }
+            },
+            {
+                "id": "AOSSUS3_no",
+                "title": "None of these",
+                "helpfulResource": {
+                    "displayText": "Choose this if your workload does not follow these best practices."
+                }
+            }
+          ],
+          "riskRules": [
+            {
+              "condition": "(AOSSUS3_BP01 && AOSSUS3_BP02 && AOSSUS3_BP03)",
+              "risk": "NO_RISK"
+            },
+            {
+              "condition": "default",
+              "risk": "MEDIUM_RISK"
+            }
+          ]
+        },
+        {
+          "id": "AOSSUS4",
+          "title": "How do you optimize your development and test environment footprint?",
+          "description": "Consolidate development and test workloads into fewer OpenSearch domains to facilitate their simultaneous deletion when they are no longer relevant",
+          "choices": [
+            {
+              "id": "AOSSUS4_BP01",
+              "title": "Consolidate OpenSearch Service domain environments",
+              "helpfulResource": {
+                "displayText": "Combining multiple workloads into a smaller number of OpenSearch domains not only minimizes compute and storage waste but also contributes to a reduction in carbon emissions",
+                "url": "https://docs.aws.amazon.com/wellarchitected/latest/amazon-opensearch-service-lens/aossus04-bp01.html"
+              },
+              "improvementPlan": {
+                "displayText": "Combining multiple workloads into a smaller number of OpenSearch domains not only minimizes compute and storage waste but also contributes to a reduction in carbon emissions"
+              }
+            },
+            {
+                "id": "AOSSUS4_no",
+                "title": "None of these",
+                "helpfulResource": {
+                    "displayText": "Choose this if your workload does not follow these best practices."
+                }
+            }
+          ],
+          "riskRules": [
+            {
+              "condition": "AOSSUS4_BP01",
+              "risk": "NO_RISK"
+            },
+            {
+              "condition": "default",
+              "risk": "MEDIUM_RISK"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
