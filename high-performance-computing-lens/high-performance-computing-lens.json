@@ -1,0 +1,1059 @@
+{
+    "schemaVersion": "2021-11-01",
+    "name": "High Performance Computing Lens",
+    "description": "The AWS Well-Architected High Performance Computing (HPC) Lens describes user scenarios, questions related to the AWS Well-Architected pillars, best practices, and prescriptive guidance for customers building their workloads.",
+    "pillars": [
+        {
+            "id": "operationalExcellence",
+            "name": "Operational Excellence",
+            "questions": [
+                {
+                    "id": "HPCOPS01",
+                    "title": "What factors drive operational design decisions for your HPC environment?",
+                    "description": "Understand how the benefits of the cloud such as scalability and elasticity are used in your HPC environment so that you can make informed decisions about your operational architecture. This understanding helps you avoid bias from a fixed cluster mindset influencing any assumptions made when designing your architecture and help your organization use the broadest range of cloud benefits applicable to your use case.",
+                    "choices": [
+                        {
+                            "id": "HPCOPS01_BP01",
+                            "title": "Start from business objectives and organizational priorities, and drive operational choices about your HPC environment from them",
+                            "helpfulResource": {
+                                "displayText": "Collect business objectives and priorities from your users and organizational stakeholders to guide your operational decisions. Use these in combination with price objectives to design the HPC system, as opposed to starting with hardware requirements, in order to take the most advantage of the cloud. Examples of business requirements may include number of completed jobs per month, wait times for jobs to begin, requirements for runtimes, ability to specify priorities for jobs which affect the scheduling, and managing cluster access for fair usage from all users over time.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/high-performance-computing-lens/organization.html#hpcops01-bp01"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Collect business objectives and priorities from your users and organizational stakeholders to guide your operational decisions. Use these in combination with price objectives to design the HPC system, as opposed to starting with hardware requirements, in order to take the most advantage of the cloud.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/high-performance-computing-lens/organization.html#hpcops01-bp01"
+                            }
+                        },
+                        {
+                            "id": "HPCOPS01_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "HPCOPS01_BP01",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!HPCOPS01_BP01)",
+                            "risk": "HIGH_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "MEDIUM_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "HPCOPS02",
+                    "title": "How do you plan to schedule and run your batch jobs in the cloud?",
+                    "description": "In a traditional HPC environment, there is typically a single scheduling system that is used to handle batch jobs with a variety of characteristics. In the cloud there are a number of options for job scheduling and orchestration, which address different requirements you may have.",
+                    "choices": [
+                        {
+                            "id": "HPCOPS02_BP01",
+                            "title": "Evaluate options for scheduling jobs in your cloud environment",
+                            "helpfulResource": {
+                                "displayText": "If you have an existing system, consider how you currently schedule and manage jobs and if it meets your current requirements. Considering whether you want to complement, augment or replace your current system with your cloud system, determine the level of integration needed between your hybrid environments. Determine whether you want to integrate a traditional scheduler with flexible cloud provisioning, use a cloud native scheduling mechanism, such as AWS Batch, or develop job orchestration to create an ephemeral cluster for each job.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/high-performance-computing-lens/prepare.html#hpcops02-bp01"
+                            },
+                            "improvementPlan": {
+                                "displayText": "If you have an existing system, consider how you currently schedule and manage jobs and if it meets your current requirements. Determine whether you want to integrate a traditional scheduler with flexible cloud provisioning, use a cloud native scheduling mechanism, such as AWS Batch, or develop job orchestration to create an ephemeral cluster for each job.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/high-performance-computing-lens/prepare.html#hpcops02-bp01"
+                            }
+                        },
+                        {
+                            "id": "HPCOPS02_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "HPCOPS02_BP01",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!HPCOPS02_BP01)",
+                            "risk": "HIGH_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "MEDIUM_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "HPCOPS03",
+                    "title": "Does your use case require data movement between separated environments, and how is this handled?",
+                    "description": "Will your users be moving data between separated environments, such as an on-premises cluster and the cloud, and if so, do you know the predicted amount and movement patterns? Do you want to enable a seamless data management workflow for movement and archiving for ease of use, or do you want users to make an intentional choice of where they run their workloads at submission time? Have you considered alternative options to minimize the required data movement, such as remote visualization solutions?",
+                    "choices": [
+                        {
+                            "id": "HPCOPS03_BP01",
+                            "title": "Understand your data movement requirements",
+                            "helpfulResource": {
+                                "displayText": "In general, moving data back and forth regularly should be avoided unless absolutely necessary. Identify early however if data needs to be loaded to a location before a job starts and if results need to be copied out on job completion, and whether this can occur asynchronously or not. Identify how users are interacting with each of your environments, and whether they are taking advantage of the benefits of each one as far as reasonable.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/high-performance-computing-lens/prepare.html#hpcops03-bp01"
+                            },
+                            "improvementPlan": {
+                                "displayText": "In general, moving data back and forth regularly should be avoided unless absolutely necessary. Identify early if data needs to be loaded to a location before a job starts and if results need to be copied out on job completion. Consider extending the HPC system to include virtual desktop infrastructure (VDI) solutions and/or automated data processing steps to avoid the need for data movement.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/high-performance-computing-lens/prepare.html#hpcops03-bp01"
+                            }
+                        },
+                        {
+                            "id": "HPCOPS03_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "HPCOPS03_BP01",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!HPCOPS03_BP01)",
+                            "risk": "HIGH_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "MEDIUM_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "HPCOPS04",
+                    "title": "How will you handle future environment updates with minimal user impact?",
+                    "description": "With constantly improving hardware, service, and product offerings and patches, it is worthwhile considering how you can design your system upfront to allow for easy replacement of modules and phased migrations between environments with minimal effort and automated testing.",
+                    "choices": [
+                        {
+                            "id": "HPCOPS04_BP01",
+                            "title": "Minimize impact when migrating users and their jobs between HPC environments",
+                            "helpfulResource": {
+                                "displayText": "Standardize access across HPC environments, and retain and migrate data in the cases of environment upgrades or migrations. If you are using a scheduling mechanism, understand how these can be migrated to different environments, and the impact on running jobs. Separate your file system from the lifecycle of your HPC environment, and implement regular backups.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/high-performance-computing-lens/prepare.html#hpcops04-bp01"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Standardize access across HPC environments, and retain and migrate data in the cases of environment upgrades or migrations. Separate your file system from the lifecycle of your HPC environment, and implement regular backups. Consider decoupling the cluster access from the user access.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/high-performance-computing-lens/prepare.html#hpcops04-bp01"
+                            }
+                        },
+                        {
+                            "id": "HPCOPS04_BP02",
+                            "title": "Implement your environments with infrastructure as code and version control your deployments",
+                            "helpfulResource": {
+                                "displayText": "Implementing your environment with infrastructure as code (IaC) as much as feasible, and complementing it with clear documentation steps for components that cannot be automated allows you to automate your deployments. These templates can then also be put under version control, which allows you to track changes between deployment versions, and provides a centralized location for different stakeholders in your organization to observe and approve operational changes.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/high-performance-computing-lens/prepare.html#hpcops04-bp02"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Implement your environment with infrastructure as code (IaC) as much as feasible. Put templates under version control to track changes between deployment versions. Utilize tools such as AWS CloudFormation and bootstrap scripts to define your HPC environments with code.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/high-performance-computing-lens/prepare.html#hpcops04-bp02"
+                            }
+                        },
+                        {
+                            "id": "HPCOPS04_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "HPCOPS04_BP01 && HPCOPS04_BP02",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!HPCOPS04_BP01) || (!HPCOPS04_BP02)",
+                            "risk": "HIGH_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "MEDIUM_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "HPCOPS05",
+                    "title": "How will your system respond to failures and anomalies?",
+                    "description": "Have you designed your architecture to mitigate predictable failure modes of your system and user jobs? How easy will it be to diagnose and correct various error sources, and are there opportunities to automate responses? While we will test the system and implement recovery strategies in the Reliability pillar of the lens, planning for predictable failure modes and working backwards to architect solutions will have implications for your operational decisions.",
+                    "choices": [
+                        {
+                            "id": "HPCOPS05_BP01",
+                            "title": "Predict how your system will respond to failures and design your operational management to mitigate these",
+                            "helpfulResource": {
+                                "displayText": "For some of the potential failure modes you identify, you may be able to mitigate them entirely by considering alternative services and products early that reduce your operational burden. For others you may have to implement automated responses or documented runbooks as part of your reliability planning. Determine and configure the behavior of your scheduler in the case of compute node failures.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/high-performance-computing-lens/prepare.html#hpcops05-bp01"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Minimize your operational burden by choosing managed services where possible and configuring your environment to automate recovery. Choose managed services and features for your storage and scheduling systems. At the scheduler level, implement job retries on failure.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/high-performance-computing-lens/prepare.html#hpcops05-bp01"
+                            }
+                        },
+                        {
+                            "id": "HPCOPS05_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "HPCOPS05_BP01",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!HPCOPS05_BP01)",
+                            "risk": "HIGH_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "MEDIUM_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "HPCOPS06",
+                    "title": "How do you monitor your workloads to verify they are operating as expected?",
+                    "description": "In HPC environments, job-level performance is often one of the most important characteristics not just for end-user experience but also for cost optimization. This performance can be affected by a number of different factors and updates or changes can cause unexpected performance impacts.",
+                    "choices": [
+                        {
+                            "id": "HPCOPS06_BP01",
+                            "title": "Test and observe job-level performance for every change",
+                            "helpfulResource": {
+                                "displayText": "Before moving users to a new cluster environment, you should run a set of representative HPC job benchmarks to confirm that your system is performing as expected. To verify that this performance is maintained, consider periodically rerunning these benchmarks or a subset so that any unexpected changes can be localized and investigated early.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/high-performance-computing-lens/operate.html#hpcops06-bp01"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Log job-level statistics, track anomalies and integrate your environment logging into a dashboard. Leverage Slurm accounting with AWS ParallelCluster to log job-level statistics in an external database. Use tagging cloud resources by project and using them to drill down into cost reports using AWS cost allocation tags.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/high-performance-computing-lens/operate.html#hpcops06-bp01"
+                            }
+                        },
+                        {
+                            "id": "HPCOPS06_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "HPCOPS06_BP01",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!HPCOPS06_BP01)",
+                            "risk": "HIGH_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "MEDIUM_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "HPCOPS07",
+                    "title": "What mechanisms are you using to keep your environment updated with relevant service, product, and software improvements?",
+                    "description": "Having designed your system to allow for upgrades and modular additions of new components, consider how you can keep up to date with and test the latest releases of services, products and software.",
+                    "choices": [
+                        {
+                            "id": "HPCOPS07_BP01",
+                            "title": "Review and test the latest service, product and software updates for business fit and reduction in operational overhead",
+                            "helpfulResource": {
+                                "displayText": "Consider creating a test environment where you can review your representative workload benchmarks on new instances and software versions. If using AWS Organizations, create your test environment within a designated Sandbox organizational unit (OU). Consider also new storage options and configurations which may offer additional functionality such as increased resiliency.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/high-performance-computing-lens/evolve.html#hpcops07-bp01"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Test the latest versions of your chosen products, and review the latest HPC on AWS news. If using AWS ParallelCluster, periodically deploy test environments with the latest release. To keep updated on new releases relevant to the HPC space more broadly, periodically review the AWS HPC community site, Day1HPC.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/high-performance-computing-lens/evolve.html#hpcops07-bp01"
+                            }
+                        },
+                        {
+                            "id": "HPCOPS07_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "HPCOPS07_BP01",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!HPCOPS07_BP01)",
+                            "risk": "HIGH_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "MEDIUM_RISK"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "security",
+            "name": "Security",
+            "questions": [
+                {
+                    "id": "HPCSEC01",
+                    "title": "How do you implement network-layer separation in your HPC cluster?",
+                    "description": "HPC clusters can be separated by workload components into different network layers based on their data sensitivity, access requirements, and functional purpose. When separated by layers, traffic can be controlled between layers and additional controls can be applied based on layer requirements as part of a defense-in-depth security approach.",
+                    "choices": [
+                        {
+                            "id": "HPCSEC01_BP01",
+                            "title": "Separate HPC cluster components in different network layers",
+                            "helpfulResource": {
+                                "displayText": "When architecting for SEC05-BP01, you create network layers and separate components into different layers. In HPC clusters, you can separate different cluster components, such as head node, login nodes, and compute resources. For example, with AWS ParallelCluster, the cluster head node can be separated from the compute resources. The head node could be running in a public subnet with the compute fleet running in a private subnet.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/high-performance-computing-lens/infrastructure-protection.html#hpcsec01-bp01"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Create network layers and separate components into different layers. In HPC clusters, separate different cluster components, such as head node, login nodes, and compute resources. With AWS ParallelCluster, the cluster head node can be separated from the compute resources with the head node running in a public subnet and the compute fleet running in a private subnet.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/high-performance-computing-lens/infrastructure-protection.html#hpcsec01-bp01"
+                            }
+                        },
+                        {
+                            "id": "HPCSEC01_BP02",
+                            "title": "Control traffic flow within your HPC cluster",
+                            "helpfulResource": {
+                                "displayText": "According to SEC05-BP02, you control traffic flow within your network layers. You permit only the network flows necessary for the components of your workloads to communicate. When running tightly coupled HPC workloads with Elastic Fabric Adapter (EFA), EFA requires being a member of a security group allowing all inbound and outbound traffic to and from itself.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/high-performance-computing-lens/infrastructure-protection.html#hpcsec01-bp02"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Control traffic flow within your network layers. Permit only the network flows necessary for the components of your workloads to communicate. If your environment requires further security separation by job, consider an alternative design, such as multiple clusters or a more advanced security group mapping.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/high-performance-computing-lens/infrastructure-protection.html#hpcsec01-bp02"
+                            }
+                        },
+                        {
+                            "id": "HPCSEC01_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "HPCSEC01_BP01 && HPCSEC01_BP02",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!HPCSEC01_BP01) || (!HPCSEC01_BP02)",
+                            "risk": "HIGH_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "MEDIUM_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "HPCSEC02",
+                    "title": "How do you manage data encryption in your HPC cluster?",
+                    "description": "As described in the Data Protection section, classifying and protecting data are foundational practices. The same foundational practices apply to the data related to your HPC workloads, and once the data is classified, there are a few additional HPC consideration for protecting it.",
+                    "choices": [
+                        {
+                            "id": "HPCSEC02_BP01",
+                            "title": "Enforce encryption at rest in your HPC environment",
+                            "helpfulResource": {
+                                "displayText": "With SEC08-BP01, you securely manage encryption keys to protect data at rest. You also tightly control access through the use of key policies and IAM policies. AWS HPC products, such as AWS ParallelCluster, configure IAM permissions on different components, such as cluster, queues, and login nodes. If your HPC environment needs further isolation, such as by project or group separation, consider an architecture with multiple clusters for data separation by encryption key.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/high-performance-computing-lens/data-protection.html#hpcsec02-bp01"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Securely manage encryption keys to protect data at rest. Tightly control access through the use of key policies and IAM policies. If your HPC environment needs further isolation, consider an architecture with multiple clusters for data separation by encryption key.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/high-performance-computing-lens/data-protection.html#hpcsec02-bp01"
+                            }
+                        },
+                        {
+                            "id": "HPCSEC02_BP02",
+                            "title": "Enforce encryption in transit in your HPC environment",
+                            "helpfulResource": {
+                                "displayText": "When implementing SEC09-BP02, you enforce encryption in transit. Tightly coupled HPC applications using EFA bypass the operating system kernel and directly communicate with the EFA device rather than traditional TCP/IP networking. AWS provides secure and private connectivity between EC2 instances of all types. Some instance types use the offload capabilities of the underlying Nitro System hardware to automatically encrypt in-transit traffic between instances.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/high-performance-computing-lens/data-protection.html#hpcsec02-bp02"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Enforce encryption in transit. Your EFA traffic is automatically encrypted between cluster members with no impact to performance. This automatic encryption is also used with FSx for Lustre between cluster members and an FSx for Lustre filesystem.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/high-performance-computing-lens/data-protection.html#hpcsec02-bp02"
+                            }
+                        },
+                        {
+                            "id": "HPCSEC02_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "HPCSEC02_BP01 && HPCSEC02_BP02",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!HPCSEC02_BP01) || (!HPCSEC02_BP02)",
+                            "risk": "HIGH_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "MEDIUM_RISK"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "reliability",
+            "name": "Reliability",
+            "questions": [
+                {
+                    "id": "HPCREL01",
+                    "title": "How does your architecture optimize for capacity pool flexibility?",
+                    "description": "HPC workloads can potentially scale to hundreds, thousands, and even millions of cores. In order for an HPC job to run reliably, it needs access to the amount of cores or nodes requested. Without the required capacity, a job could fail at runtime, or queue with an insufficient number of nodes provisioned in the AWS account. When designing your architecture for your required scalability, consider building flexibility in instance choice and deploying across multiple availability zones if your workload supports it.",
+                    "choices": [
+                        {
+                            "id": "HPCREL01_BP01",
+                            "title": "Consider instance type flexibility for your workload",
+                            "helpfulResource": {
+                                "displayText": "Consider using multiple instance types for your workload. HPC orchestration services including Amazon Parallel Computing Service and AWS Batch allow you to select multiple instance types for a given workload. Additionally, in AWS ParallelCluster, multiple instance types can be selected for a single Slurm partition. In AWS Batch, multiple instance types can be specified for a single Compute Environment.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/high-performance-computing-lens/workload-architecture.html#hpcrel01-bp01"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Allow for multiple instance types in your compute environment, and cycle through different instance types if need be. With AWS Batch, users can list multiple instance types or families for the Compute Environment. Multiple instance types can also be configured with AWS ParallelCluster and with Amazon Parallel Computing Service.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/high-performance-computing-lens/workload-architecture.html#hpcrel01-bp01"
+                            }
+                        },
+                        {
+                            "id": "HPCREL01_BP02",
+                            "title": "Deploy loosely coupled workloads across multiple Availability Zones",
+                            "helpfulResource": {
+                                "displayText": "Deploying across multiple Availability Zones can help improve capacity availability for scale-out workloads, and can also help with disaster recovery. AWS ParallelCluster and AWS Batch both allow for deploying architectures across multiple Availability Zones. Loosely coupled jobs that do not have interdependency on each other should be deployed across multiple Availability Zones.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/high-performance-computing-lens/workload-architecture.html#hpcrel01-bp02"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Deploy loosely coupled workloads across multiple Availability Zones to improve capacity availability and disaster recovery. Tightly coupled workloads should be deployed within a single Availability Zone, and within a placement group. Use a central data repository and infrastructure as code with CloudFormation templates to allow recovery to an alternative Availability Zone.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/high-performance-computing-lens/workload-architecture.html#hpcrel01-bp02"
+                            }
+                        },
+                        {
+                            "id": "HPCREL01_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "HPCREL01_BP01 && HPCREL01_BP02",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!HPCREL01_BP01) || (!HPCREL01_BP02)",
+                            "risk": "HIGH_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "MEDIUM_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "HPCREL02",
+                    "title": "How do you reliably manage software packages and dependencies across users?",
+                    "description": "HPC workloads often consist of software packages with complex dependencies. Managing software and dependencies, with specific versioning requirements, across many users, can be complex. Consider the following best practices when building out your architecture.",
+                    "choices": [
+                        {
+                            "id": "HPCREL02_BP01",
+                            "title": "Install software packages in a shared location to simplify multi-user, multi-resource software requirements management",
+                            "helpfulResource": {
+                                "displayText": "Installing software packages on shared storage, such as Amazon Elastic File System (EFS), allows users across compute environments and clusters access the same versioned set of packages. Dependencies can also be installed using a custom AMI, or using a post-install script, such as configured with AWS ParallelCluster.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/high-performance-computing-lens/change-management.html#hpcrel02-bp01"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Install software in shared location for multi-user or multi-resource environments. Single resource environments can use a custom AMI or separate Amazon Elastic Block Store (Amazon EBS) volume, and multi-resource environments can use shared storage, such as Amazon Elastic File System (Amazon EFS).",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/high-performance-computing-lens/change-management.html#hpcrel02-bp01"
+                            }
+                        },
+                        {
+                            "id": "HPCREL02_BP02",
+                            "title": "Use package managers to simplify software dependency management when possible",
+                            "helpfulResource": {
+                                "displayText": "Managing HPC applications can potentially be simplified with package managers, such as Spack, SBGrid, and EasyBuild. AWS hosts a Spack binary cache for fast installation of commonly used HPC packages and applications. Leveraging a package manager simplifies dependency management for system admins while providing exact versioning per user requirements.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/high-performance-computing-lens/change-management.html#hpcrel02-bp02"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Consider a package manager to simplify software dependencies. Use package managers such as Spack, SBGrid, and EasyBuild. Leverage AWS Spack binary cache for fast installation of commonly used HPC packages and applications.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/high-performance-computing-lens/change-management.html#hpcrel02-bp02"
+                            }
+                        },
+                        {
+                            "id": "HPCREL02_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "HPCREL02_BP01 && HPCREL02_BP02",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!HPCREL02_BP01) || (!HPCREL02_BP02)",
+                            "risk": "HIGH_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "MEDIUM_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "HPCREL03",
+                    "title": "How does your application recover from failures?",
+                    "description": "Failure tolerance can be improved in multiple ways, including checkpointing your applications and backing up data to Amazon S3. Some of these best practices are covered in the primary reliability pillar. See the following for some HPC-specific considerations.",
+                    "choices": [
+                        {
+                            "id": "HPCREL03_BP01",
+                            "title": "Implement checkpointing",
+                            "helpfulResource": {
+                                "displayText": "For long-running cases, incorporating regular checkpoints in your code allows you to continue from a partial state in the event of a failure. Checkpointing is a common feature of application-level failure management already built into many HPC applications. Checkpointing is recommended for long running jobs on both on demand and Spot Instances.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/high-performance-computing-lens/failure-management.html#hpcrel03-bp01"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Implement checkpointing for long-running jobs. The most common approach is for applications to periodically write out intermediate results. You can implement checkpointing at the application level and use the Spot Interruption notices when using Spot Instances.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/high-performance-computing-lens/failure-management.html#hpcrel03-bp01"
+                            }
+                        },
+                        {
+                            "id": "HPCREL03_BP02",
+                            "title": "Use durable storage to store and back up datasets",
+                            "helpfulResource": {
+                                "displayText": "HPC workloads often require parallel file systems for high throughput I/O. In many cases, data also needs to be stored securely and durably for several years. To achieve both these requirements, store and back up data in durable storage, and use high performant file systems primarily during data processing.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/high-performance-computing-lens/failure-management.html#hpcrel03-bp02"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Create a Data Repository Association (DRA) between Amazon FSx for Lustre and Amazon S3. When using Amazon FSx for Lustre, create a data repository association (DRA) with an Amazon S3 bucket. Amazon Simple Storage Service (S3) allows users to store data in highly available, cost-effective object storage.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/high-performance-computing-lens/failure-management.html#hpcrel03-bp02"
+                            }
+                        },
+                        {
+                            "id": "HPCREL03_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "HPCREL03_BP01 && HPCREL03_BP02",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!HPCREL03_BP01) || (!HPCREL03_BP02)",
+                            "risk": "HIGH_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "MEDIUM_RISK"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "performance",
+            "name": "Performance Efficiency",
+            "questions": [
+                {
+                    "id": "HPCPERF01",
+                    "title": "How do you select the compute environment for your application?",
+                    "description": "The optimal compute solution for a particular HPC architecture depends on the workload deployment method, degree of automation, usage patterns, and configuration. Different compute solutions may be chosen for each step of a process. Selecting the wrong compute solutions for an architecture can cause lower performance efficiency.",
+                    "choices": [
+                        {
+                            "id": "HPCPERF01_BP01",
+                            "title": "Evaluate containers or serverless functions",
+                            "helpfulResource": {
+                                "displayText": "When evaluating compute options, consider containers or serverless functions for your HPC workload or for parts of your surrounding workflow. Containers are a method of operating system virtualization that is attractive for many HPC workloads, particularly if the applications have already been containerized. AWS services such as AWS Batch, Amazon Elastic Container Service (Amazon ECS), and Amazon Elastic Kubernetes Service (Amazon EKS) help deploy containerized applications.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/high-performance-computing-lens/compute-architecture.html#hpcperf01-bp01"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Evaluate containers or serverless functions for your HPC workload. Use AWS services such as AWS Batch, Amazon ECS, and Amazon EKS for containerized applications. Use AWS Lambda to run code without deploying, running, or maintaining, an instance.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/high-performance-computing-lens/compute-architecture.html#hpcperf01-bp01"
+                            }
+                        },
+                        {
+                            "id": "HPCPERF01_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "HPCPERF01_BP01",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!HPCPERF01_BP01)",
+                            "risk": "HIGH_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "MEDIUM_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "HPCPERF02",
+                    "title": "How do you select your computing instances?",
+                    "description": "EC2 instances are virtualized servers and come in different families and sizes to offer a wide variety of capabilities. Some instance families target specific workloads, for example, compute, memory, or GPU intensive workloads. Other instances are general purpose. Both the targeted-workload and general-purpose instance families are useful for HPC applications.",
+                    "choices": [
+                        {
+                            "id": "HPCPERF02_BP01",
+                            "title": "Select the best computing instance type for your workload by measuring application performance",
+                            "helpfulResource": {
+                                "displayText": "Select the optimal Amazon EC2 instance type for your workload and consider factors, such as family and generation, to optimize for your desired price-for-performance. With access to on-demand instances, testing different configurations is the best way to determine your desired configuration for each of your workloads.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/high-performance-computing-lens/compute-architecture.html#hpcperf02-bp01"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Select the optimal Amazon EC2 instance type for your workload. EC2 Instances are available in different generations. We recommend you use the current generation Amazon EC2 instance types to get the best performance. Testing different instance types is affordable since you only pay for active usage.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/high-performance-computing-lens/compute-architecture.html#hpcperf02-bp01"
+                            }
+                        },
+                        {
+                            "id": "HPCPERF02_BP02",
+                            "title": "Default to virtualized over bare-metal instances",
+                            "helpfulResource": {
+                                "displayText": "Virtualized instances have a faster initialization time and offer indistinguishable performance when compared to bare-metal instances. Unless you specifically require a bare-metal instance, we recommend virtualized instances, especially in dynamic HPC environments.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/high-performance-computing-lens/compute-architecture.html#hpcperf02-bp02"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Use virtualized instances to avoid the longer boot time with metal instances without a gain in performance. New-generation EC2 instances run on the AWS Nitro System which delivers performance that is indistinguishable from bare metal.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/high-performance-computing-lens/compute-architecture.html#hpcperf02-bp02"
+                            }
+                        },
+                        {
+                            "id": "HPCPERF02_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "HPCPERF02_BP01 && HPCPERF02_BP02",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!HPCPERF02_BP01) || (!HPCPERF02_BP02)",
+                            "risk": "HIGH_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "MEDIUM_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "HPCPERF03",
+                    "title": "How do you optimize the compute environment?",
+                    "description": "You can optimize your compute environment through multiple components, including the operating system and hardware features. Since running in the cloud provides flexibility, we recommend testing different configurations before determining your final implementation.",
+                    "choices": [
+                        {
+                            "id": "HPCPERF03_BP01",
+                            "title": "Optimize your compute environment for your workload",
+                            "helpfulResource": {
+                                "displayText": "We recommend optimizing your machine image, application-compile options, instance configuration, and runtime environment when running your HPC applications. A current operating system running a modern kernel is critical to achieve the best performance and ensuring access to the most up-to-date libraries.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/high-performance-computing-lens/compute-architecture.html#hpcperf03-bp01"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Optimize your machine image, application-compile options, instance configuration, and runtime environment. Take advantage of advanced processor features, manage Simultaneous multithreading (SMT) settings, and configure processor affinity. Most HPC applications benefit from disabling multithreading.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/high-performance-computing-lens/compute-architecture.html#hpcperf03-bp01"
+                            }
+                        },
+                        {
+                            "id": "HPCPERF03_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "HPCPERF03_BP01",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!HPCPERF03_BP01)",
+                            "risk": "HIGH_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "MEDIUM_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "HPCPERF04",
+                    "title": "How do you select your storage solution?",
+                    "description": "AWS offers a wide range of storage services. The right storage choice for optimal performance is specific to your HPC application rather than a one-size-fits-all approach. We recommend testing different configurations to find the most cost-effective solution that meets your performance needs.",
+                    "choices": [
+                        {
+                            "id": "HPCPERF04_BP01",
+                            "title": "Select the optimal HPC storage solution based on your targeted individual application",
+                            "helpfulResource": {
+                                "displayText": "The optimal storage solution for a particular HPC architecture depends largely on the individual applications targeted for that architecture. Workload deployment method, degree of automation, and desired data lifecycle patterns are also factors. AWS offers a wide range of storage options. Amazon FSx for Lustre is a managed service that provides a cost effective and performant solution for HPC architectures requiring a high-performance parallel file system.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/high-performance-computing-lens/storage-architecture.html#hpcperf04-bp01"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Select the optimal HPC storage solution based on your targeted individual application. Use Amazon FSx for Lustre for high-performance parallel file system needs. Consider Amazon FSx for OpenZFS for ZFS file system requirements. Choose EBS-optimized instance types for intensive I/O data needs.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/high-performance-computing-lens/storage-architecture.html#hpcperf04-bp01"
+                            }
+                        },
+                        {
+                            "id": "HPCPERF04_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "HPCPERF04_BP01",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!HPCPERF04_BP01)",
+                            "risk": "HIGH_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "MEDIUM_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "HPCPERF05",
+                    "title": "How do you select your network solution?",
+                    "description": "Loosely and tightly coupled workloads have different network communication patterns and needs. When selecting your network solution, consider your workload's network latency, bandwidth, and throughput requirements.",
+                    "choices": [
+                        {
+                            "id": "HPCPERF05_BP01",
+                            "title": "Consider latency, bandwidth, and throughput requirements for HPC workloads",
+                            "helpfulResource": {
+                                "displayText": "The optimal network solution for an HPC workload varies based on latency, bandwidth, and throughput requirements. Tightly coupled HPC applications often require the lowest latency possible for network connections between compute nodes. Use cluster placement groups and Elastic Fabric Adapter for tightly coupled applications.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/high-performance-computing-lens/network-architecture.html#hpcperf05-bp01"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Use cluster placement groups and Elastic Fabric Adapter for tightly coupled applications. Distribute jobs across multiple Availability Zones or Regions for loosely coupled workloads. Use the Instance Type Matrix to determine the right instance type for your network bandwidth needs.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/high-performance-computing-lens/network-architecture.html#hpcperf05-bp01"
+                            }
+                        },
+                        {
+                            "id": "HPCPERF05_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "HPCPERF05_BP01",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!HPCPERF05_BP01)",
+                            "risk": "HIGH_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "MEDIUM_RISK"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "costOptimization",
+            "name": "Cost Optimization",
+            "questions": [
+                {
+                    "id": "HPCCOST01",
+                    "title": "How do you keep track of expenditure used for HPC?",
+                    "description": "HPC workloads can use a large number of resources in a short space of time. Use of cloud compute changes the way users decide what to run, where decisions on what jobs will be run are budget based. Using the following best practices, on-going expenditure can be tracked.",
+                    "choices": [
+                        {
+                            "id": "HPCCOST01_BP01",
+                            "title": "Use the right tools to collect and analyze the data you need",
+                            "helpfulResource": {
+                                "displayText": "There are many ways to keep track of costs using the standard AWS tools, which will vary depending on the chosen architecture. For HPC applications, it is very common to use tagging. Resources used for jobs can be tagged with project names, user ids or any other attributes you choose. Once resources are tagged with tags activated for cost allocation, you can generate reports based on the attributes chosen earlier.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/high-performance-computing-lens/practice-cloud-financial-management.html#hpccost01-bp01"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Use tagging for HPC applications. Resources used for jobs can be tagged with project names, user ids or any other attributes you choose. If a queuing system is in use, leverage their ways to log the usage of resources, such as Slurm Accounting or LSF Analytics.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/high-performance-computing-lens/practice-cloud-financial-management.html#hpccost01-bp01"
+                            }
+                        },
+                        {
+                            "id": "HPCCOST01_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "HPCCOST01_BP01",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!HPCCOST01_BP01)",
+                            "risk": "HIGH_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "MEDIUM_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "HPCCOST02",
+                    "title": "How have you evaluated the trade-offs between job completion time and cost?",
+                    "description": "With greater resource availability there is greater capability to run jobs on faster or more compute resources. Even though this may result in a faster turnaround of a job (based on wall clock time), it could also result in a much greater cost of running that job if speed up is non-linear. For every workload there is a sweet-spot for run time and cost.",
+                    "choices": [
+                        {
+                            "id": "HPCCOST02_BP01",
+                            "title": "Use the most appropriate instances and resources",
+                            "helpfulResource": {
+                                "displayText": "Using the appropriate instances and resources for your system is key to cost management. The technology choice may increase or decrease the overall cost of running an HPC workload. Verify that instances have sufficient physical memory to complete jobs but not more, as unused memory will not improve compute performance.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/high-performance-computing-lens/cost-effective-resources.html#hpccost02-bp01"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Use the most appropriate instances and resources. Verify that instances have sufficient physical memory to complete jobs but not more. Choose the pricing model best suited for workload duration and criticality. Consider the choice of storage impact on cost. For some applications, the cost of licenses exceeds the cost of AWS resources.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/high-performance-computing-lens/cost-effective-resources.html#hpccost02-bp01"
+                            }
+                        },
+                        {
+                            "id": "HPCCOST02_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "HPCCOST02_BP01",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!HPCCOST02_BP01)",
+                            "risk": "HIGH_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "MEDIUM_RISK"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "sustainability",
+            "name": "Sustainability",
+            "questions": [
+                {
+                    "id": "HPCSUS01",
+                    "title": "Have you chosen an AWS Region that takes into consideration your sustainability KPI?",
+                    "description": "In SUS01-BP01, you choose a Region based on both business requirements and sustainability goals. For HPC workloads, you need to consider additional operational requirements, such as instance availability and performance needs.",
+                    "choices": [
+                        {
+                            "id": "HPCSUS01_BP01",
+                            "title": "Select target AWS Regions that balance performance and resource availability with your sustainability goals",
+                            "helpfulResource": {
+                                "displayText": "The AWS Cloud is a constantly expanding network of Regions and points of presence (PoP), with a global network infrastructure linking them together. The choice of Region for your workload significantly affects its KPIs, including end user latency, cost, and carbon footprint. To effectively improve these KPIs, you should choose Regions for your workload based on both your business requirements and sustainability goals.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/high-performance-computing-lens/region-selection.html#hpcsus01-bp01"
+                            },
+                            "improvementPlan": {
+                                "displayText": "To achieve your sustainability goals, choose Regions that are near Amazon renewable energy projects and where the grid has a published carbon intensity that is lower than other locations (or Regions). First identify which Regions have your preferred instance type, then select the best Region following sustainability practices.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/high-performance-computing-lens/region-selection.html#hpcsus01-bp01"
+                            }
+                        },
+                        {
+                            "id": "HPCSUS01_BP02",
+                            "title": "Select Regions based on where your users are located",
+                            "helpfulResource": {
+                                "displayText": "Placing a workload closer to its users provides the lowest latency while decreasing data movement across the network and reducing environmental impact.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/high-performance-computing-lens/region-selection.html#hpcsus01-bp02"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Place workloads closer to users to provide the lowest latency while decreasing data movement across the network and reducing environmental impact. If the preferred instances are not available in the Region closest to the end-users, find the right tradeoff between the business objectives and the sustainability objectives.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/high-performance-computing-lens/region-selection.html#hpcsus01-bp02"
+                            }
+                        },
+                        {
+                            "id": "HPCSUS01_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "HPCSUS01_BP01 && HPCSUS01_BP02",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!HPCSUS01_BP01) || (!HPCSUS01_BP02)",
+                            "risk": "HIGH_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "MEDIUM_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "HPCSUS02",
+                    "title": "Have you complemented your architecture with a remote desktop solution?",
+                    "description": "By enabling remote visualization of simulation results, rather than transferring and storing large datasets locally, organizations can minimize network traffic, optimize resource usage, and improve overall sustainability of their HPC operations.",
+                    "choices": [
+                        {
+                            "id": "HPCSUS02_BP01",
+                            "title": "Use a VDI solution to reduce data movement",
+                            "helpfulResource": {
+                                "displayText": "In SUS03-BP05 Use software patterns and architectures that best support data access and storage patterns, you understand how data is used within your workload, consumed by your users, transferred, and stored. For HPC workloads, Virtual Desktop Infrastructure (VDI) technologies help you reduce network traffic between the end-users' clients rather than transferring the entire data set and duplicating storage on-premises.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/high-performance-computing-lens/software-and-architecture.html#hpcsus02-bp01"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Use a remote visualization technology, such as Amazon DCV or Amazon AppStream 2.0, to visualize the results of your simulations without the need of copying back the results. Consider Research and Engineering Studio on AWS for managing VDI requirements.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/high-performance-computing-lens/software-and-architecture.html#hpcsus02-bp01"
+                            }
+                        },
+                        {
+                            "id": "HPCSUS02_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "HPCSUS02_BP01",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!HPCSUS02_BP01)",
+                            "risk": "HIGH_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "MEDIUM_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "HPCSUS03",
+                    "title": "Have you selected the most efficient EC2 instance type for your HPC workload?",
+                    "description": "Evaluate and stay current with new Amazon EC2 instance types for HPC workloads to maximize efficiency and sustainability. As new instances are introduced, you can adopt them for your workload and become more efficient.",
+                    "choices": [
+                        {
+                            "id": "HPCSUS03_BP01",
+                            "title": "Continually monitor the release of new EC2 instance types",
+                            "helpfulResource": {
+                                "displayText": "As stated in the performance efficiency Pillar, we recommend benchmarking your applications with different EC2 instances to identify which instance type can deliver the best performance for your HPC workloads. Using efficient Amazon EC2 instances in HPC workloads is crucial for lower resource usage and cost-effectiveness.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/high-performance-computing-lens/hardware-and-services.html#hpcsus03-bp01"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Continually monitor the release of new instance types and take advantage of energy efficiency improvements, including those instance types designed to support specific workloads such as machine learning training and inference. Keep an eye for ISVs that can support the ARM architecture or accelerators, such as GPUs.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/high-performance-computing-lens/hardware-and-services.html#hpcsus03-bp01"
+                            }
+                        },
+                        {
+                            "id": "HPCSUS03_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "HPCSUS03_BP01",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!HPCSUS03_BP01)",
+                            "risk": "HIGH_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "MEDIUM_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "HPCSUS04",
+                    "title": "What are your methods to rapidly introduce sustainability improvements?",
+                    "description": "With the energy-intensive nature of HPC workloads, it is important to constantly monitor and continually adopt new technologies to reduce your environmental impact. You can test and adopt new technologies quicker in the cloud when compared to a traditional on-premises environment.",
+                    "choices": [
+                        {
+                            "id": "HPCSUS04_BP01",
+                            "title": "Promote a culture of constant monitoring and performance improvement",
+                            "helpfulResource": {
+                                "displayText": "HPC workloads aggregate computing power and storage to allow for fast processing and calculation to solve scientific, mathematical, and engineering challenges. As a result of scale, HPC workloads are often more energy-intensive than general purpose computing. Therefore, better use of resources (both hardware and software), coupled with shorter runtimes, can lead to improved utilization and environmental sustainability.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/high-performance-computing-lens/process-and-culture.html#hpcsus04-bp01"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Promote a culture of constant monitoring and improvement for HPC workloads. When running HPC in the cloud, promote a culture of continuous innovation. Automate your cluster deployment using CI/CD pipelines to easily test and deploy potential performance improvements and limit errors caused by manual processes.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/high-performance-computing-lens/process-and-culture.html#hpcsus04-bp01"
+                            }
+                        },
+                        {
+                            "id": "HPCSUS04_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "HPCSUS04_BP01",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!HPCSUS04_BP01)",
+                            "risk": "HIGH_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "MEDIUM_RISK"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
