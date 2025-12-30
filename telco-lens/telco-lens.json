@@ -1,0 +1,1651 @@
+{
+    "schemaVersion": "2021-11-01",
+    "name": "Telco Lens",
+    "description": "The Telco Lens provides best practices for designing and operating telecommunications workloads in AWS, with guidance on building resiliency and sustainability, recommendations for performance, data privacy, and security, and strategies to assist communication service providers meet industry-specific requirements.",
+    "pillars": [
+        {
+            "id": "operationalExcellence",
+            "name": "Operational Excellence",
+            "questions": [
+                {
+                    "id": "TELCOOPS01",
+                    "title": "How do you create the optimal cross-functional team?",
+                    "description": "Telecom products frequently interface with multiple upstream and downstream applications, interacting with both internal and external stakeholders. Creating cross-functional teams is critical to gain comprehensive visibility across end-to-end workflows.",
+                    "choices": [
+                        {
+                            "id": "TELCOOPS01_BP01",
+                            "title": "Promote cross-functional collaboration across internal and external stakeholders",
+                            "helpfulResource": {
+                                "displayText": "Involve key stakeholders, including business, development, and operations teams, to determine where to focus efforts on external and internal goals. Identify long-term and short-term goals which assist to prioritize tasks with added efficiency. Encourage collaboration between different teams, such as network engineers, cloud architects, ISV architects and security experts, to verify efficient communication and knowledge sharing across the organization.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/telco-lens/telcoops01-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Promote cross-functional collaboration across internal and external stakeholders",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/telco-lens/telcoops01-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "TELCOOPS01_BP02",
+                            "title": "Evaluate your governance and regulatory requirements",
+                            "helpfulResource": {
+                                "displayText": "Systematically assess and verify telco governance frameworks, regulatory mandates, and security requirements across network operations. This includes evaluating legal intercept capabilities, security controls, and industry-specific regulations while maintaining documentation of assessment activities and findings. Regular evaluation verifies continued alignment with evolving regulatory landscapes and identify gaps that require remediation.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/telco-lens/telcoops01-bp02.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Evaluate your governance and regulatory requirements",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/telco-lens/telcoops01-bp02.html"
+                            }
+                        },
+                        {
+                            "id": "TELCOOPS01_BP03",
+                            "title": "Evaluate tradeoffs and threats while managing benefits and risks for telecommunication workloads",
+                            "helpfulResource": {
+                                "displayText": "Conduct comprehensive analysis of benefits, risks, and tradeoffs associated with telco workloads to make informed architectural and operational decisions. This involves evaluating multiple dimensions including technical capabilities, security implications, vendor relationships, and organizational impact. The assessment should balance immediate operational needs with long-term strategic objectives while considering security threats, technological maturity, and cross-functional requirements.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/telco-lens/telcoops01-bp03.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Evaluate tradeoffs and threats while managing benefits and risks for telecommunication workloads",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/telco-lens/telcoops01-bp03.html"
+                            }
+                        },
+                        {
+                            "id": "TELCOOPS01_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "TELCOOPS01_BP01 && TELCOOPS01_BP02 && TELCOOPS01_BP03",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!TELCOOPS01_BP01) || (!TELCOOPS01_BP02)",
+                            "risk": "HIGH_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "MEDIUM_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "TELCOOPS02",
+                    "title": "What factors should be considered when implementing a multi-account strategy for telecommunication workloads?",
+                    "description": "This addresses the critical factors and best practices for designing and implementing a multi-account architecture that effectively supports telecommunications operations while maintaining security and operational efficiency.",
+                    "choices": [
+                        {
+                            "id": "TELCOOPS02_BP01",
+                            "title": "Telecommunication resources, operations and projects have identified owners",
+                            "helpfulResource": {
+                                "displayText": "Establish clear ownership and accountability frameworks for telecommunications assets, operations, and projects through formal assignment of responsibilities to specific individuals or teams. This includes mapping ownership of applications, VNFs, solutions, and infrastructure components while documenting their business value proposition and justification for ownership allocation. Clear ownership structures enable efficient decision-making, streamlined problem resolution, and effective resource management across the telecommunications environment.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/telco-lens/telcoops02-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Telecommunication resources, operations and projects have identified owners",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/telco-lens/telcoops02-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "TELCOOPS02_BP02",
+                            "title": "Adopt a multi-account strategy to isolate different telecommunication workload",
+                            "helpfulResource": {
+                                "displayText": "Implement a strategic multi-account architecture that effectively separates and isolates telecommunications workloads while maintaining necessary interconnectivity and operational efficiency. This approach creates logical boundaries between different environments, services, and data classifications to enhance security and operational stability. The strategy should balance the benefits of isolation with the need for seamless integration and management across the telecommunications landscape.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/telco-lens/telcoops02-bp02.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Adopt a multi-account strategy to isolate different telecommunication workload",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/telco-lens/telcoops02-bp02.html"
+                            }
+                        },
+                        {
+                            "id": "TELCOOPS02_BP03",
+                            "title": "Predict and mitigate deployment risks by adapting least disruptive deployment strategy for telecommunication workloads",
+                            "helpfulResource": {
+                                "displayText": "Implement risk-aware deployment strategies that minimize service disruption in telecommunications environments through predictive analysis, parallel testing, and proactive capacity management. This approach combines advanced analytics, infrastructure redundancy, and staged deployment methodologies to verify seamless service delivery while implementing necessary changes and updates to the network infrastructure.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/telco-lens/telcoops02-bp03.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Predict and mitigate deployment risks by adapting least disruptive deployment strategy for telecommunication workloads",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/telco-lens/telcoops02-bp03.html"
+                            }
+                        },
+                        {
+                            "id": "TELCOOPS02_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "TELCOOPS02_BP01 && TELCOOPS02_BP02 && TELCOOPS02_BP03",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!TELCOOPS02_BP01) || (!TELCOOPS02_BP02)",
+                            "risk": "HIGH_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "MEDIUM_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "TELCOOPS03",
+                    "title": "How do you effectively manage IP address allocation and assignment for telco and high-performance networking workloads?",
+                    "description": "Many telco and high-performance networking workloads, such as those using user-plane separation, DPDK, or SR-IOV, require secondary network interfaces at both the infrastructure and container levels. These workloads need robust IP address management solutions that integrate seamlessly with cloud infrastructure while providing enterprise-grade support and maintenance. The solution must address operational requirements including high availability, performance, scalability, and support for cloud-native architectures.",
+                    "choices": [
+                        {
+                            "id": "TELCOOPS03_BP01",
+                            "title": "Implement an enterprise-grade IP Address Management solution with cloud infrastructure integration",
+                            "helpfulResource": {
+                                "displayText": "Implement a cloud-based IPAM solution that is optimized for performance and tightly integrated with the underlying cloud networking infrastructure. This should provide reliable, scalable, and high-throughput IP address management capabilities tailored for telco and high-performance networking workloads that require secondary network interfaces.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/telco-lens/telcoops03-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Implement an enterprise-grade IP Address Management solution with cloud infrastructure integration",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/telco-lens/telcoops03-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "TELCOOPS03_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "TELCOOPS03_BP01",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!TELCOOPS03_BP01)",
+                            "risk": "HIGH_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "MEDIUM_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "TELCOOPS04",
+                    "title": "How do you represent IP addresses to the internet and verify the quality of the address representation?",
+                    "description": "Telco's own large CIDR blocks of IP addresses and wish to have them represented with their ownership even when advertised by AWS. The IP address CIDR block are assigned to telco resources in the cloud and should be propagated through AWS to the Internet where both the CIDR block and the ASN associated with the prefixes are represented as owned by the telco. This improves the reputation of the address prefix propagated across the Internet for telco subscribers and gives CSPs responsibility and accountability of the address space.",
+                    "choices": [
+                        {
+                            "id": "TELCOOPS04_BP01",
+                            "title": "Implement the Bring Your Own IP (BYOIP) address processes and associate the prefixes with the IPAM solution",
+                            "helpfulResource": {
+                                "displayText": "The IPAM is a shared resource that can be provisioned in a single Region in a shared services account. Pools of IP addresses can be shared using Resource Access Manager to sub-accounts and specific Regions where telco assets reside. The BYOIP process allows the telco to present their mobile subscribers to the Internet as members of their own network instead of AWS. The size of the address pools should be forecasted with sufficient room for growth. It is important to minimize the fragmentation of the address blocks and allow for contiguous blocks for a given Region. This will simplify access controls such as firewall rules, NACLs, and security groups. Finally, the bring your own ASN process should be invoked to enable AWS to use BGP to represent the BYOIP pool to the Internet as owned by the CSPs.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/telco-lens/telcoops04-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Implement the Bring Your Own IP (BYOIP) address processes and associate the prefixes with the IPAM solution",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/telco-lens/telcoops04-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "TELCOOPS04_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "TELCOOPS04_BP01",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!TELCOOPS04_BP01)",
+                            "risk": "HIGH_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "MEDIUM_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "TELCOOPS05",
+                    "title": "How do you automate the provisioning and assignment of a secondary network interface?",
+                    "description": "This generic question captures the key challenge without referencing a specific cloud provider or networking technology like ENA. The associated best practice and description can also be updated to be more cloud-agnostic.",
+                    "choices": [
+                        {
+                            "id": "TELCOOPS05_BP01",
+                            "title": "Implement standardized provisioning and management of high-performance network interfaces",
+                            "helpfulResource": {
+                                "displayText": "Telco and high-performance network workloads require specialized networking interfaces (like SR-IOV, DPDK, and Multus) for separating control, management, and data plane traffic. While other cloud and container solutions provide native support for these interfaces, AWS currently requires custom implementation. This creates challenges for standardization and automation in large-scale deployments. Until AWS support becomes available, organizations need to implement enterprise-grade solutions that provide consistent, supported, and maintainable approaches to interface provisioning and management.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/telco-lens/telcoops05-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Implement standardized provisioning and management of high-performance network interfaces",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/telco-lens/telcoops05-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "TELCOOPS05_BP02",
+                            "title": "Implement a structured sequence of interface assignment based on the persistent or ephemeral nature of the interfaces",
+                            "helpfulResource": {
+                                "displayText": "The order of operations is important as the creation and termination of instances often creates and destroys interfaces. This is a useful property for ephemeral interfaces. However, it can lead to problems where other resources are dependent on the persistence of an interface and IP addressed across network domains. Persistent interfaces should be created prior to the creation of the EC2 instance with their properties assigned through IaC. Upon EC2 instance creation ephemeral interfaces and addresses can be created at the initialization of the EC2 instance while persistent interfaces which were previously created can be added to the EC2 instance. Thus, the termination of the instance will remove the ephemeral interfaces while preserving the persistent interfaces. The persistent interfaces retain their properties and can be re-assigned to a new EC2 instance without impacting adjacent functions.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/telco-lens/telcoops05-bp02.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Implement a structured sequence of interface assignment based on the persistent or ephemeral nature of the interfaces",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/telco-lens/telcoops05-bp02.html"
+                            }
+                        },
+                        {
+                            "id": "TELCOOPS05_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "TELCOOPS05_BP01 && TELCOOPS05_BP02",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!TELCOOPS05_BP01) || (!TELCOOPS05_BP02)",
+                            "risk": "HIGH_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "MEDIUM_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "TELCOOPS06",
+                    "title": "How do you verify resource availability for scale-out scenarios in telecommunication workloads?",
+                    "description": "Telecommunication workloads often require rapid scaling to meet sudden increases in demand or to maintain service continuity. However, cloud environments may not guarantee immediate availability of resources, especially for large instance types commonly used in telco deployments. This question addresses the challenges of maintaining consistent resource availability for scale-out scenarios in dynamic telecommunication environments.",
+                    "choices": [
+                        {
+                            "id": "TELCOOPS06_BP01",
+                            "title": "Verify resource availability for scale-out scenarios in telecommunication workloads",
+                            "helpfulResource": {
+                                "displayText": "If the cloud providers cannot guarantee instant EC2 instance availability, especially for large instance types commonly used in telco deployments, implement proactive capacity planning. Capacity planning can be broken into two classes: new service and run-rate. New service planning requires cloud resources where there is no trend data to indicate a future demand profile, and the service team has no visibility to the future demand profile. Run-rate planning indicates a stable environment where organic growth can be modeled and forecast based on service consumption. Introduction of new services in an existing deployment requires both approaches as the composite demand is both run-rate and new service. The methods include utilizing capacity reservations, maintaining buffer capacity, and implementing predictive scaling strategies based on historical usage patterns. Organizations should also consider using a mix of instance types and sizes that can support their workloads while increasing the likelihood of resource availability during scale-out events.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/telco-lens/telcoops06-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Verify resource availability for scale-out scenarios in telecommunication workloads",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/telco-lens/telcoops06-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "TELCOOPS06_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "TELCOOPS06_BP01",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!TELCOOPS06_BP01)",
+                            "risk": "HIGH_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "MEDIUM_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "TELCOOPS07",
+                    "title": "How do you address geographical redundancy requirements within data residency constraints?",
+                    "description": "Telecommunication service providers often face strict requirements for geographical redundancy (for example, 200 or more kilometers of separation) while simultaneously needing to comply with data residency regulations. This creates unique challenges in cloud environments where multiple regions within a single country may not be available. This question explores strategies for balancing redundancy needs with regulatory adherence in cloud-based telecommunication architectures.",
+                    "choices": [
+                        {
+                            "id": "TELCOOPS07_BP01",
+                            "title": "Design architecture patterns that maximize redundancy within available geographical constraints",
+                            "helpfulResource": {
+                                "displayText": "For telco CSPs requiring 200 or more kilometers of geo-redundancy while maintaining in-country data residency, it is essential to design cloud-based architectural solutions within available geographical constraints. This may include leveraging available Availability Zones, Local Zones, or Wavelength Zones where available, implementing hybrid architectures, or working with cloud providers to understand future infrastructure expansion plans. The solution should balance regulatory requirements with disaster recovery needs while maintaining required service levels.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/telco-lens/telcoops07-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Design architecture patterns that maximize redundancy within available geographical constraints",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/telco-lens/telcoops07-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "TELCOOPS07_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "TELCOOPS07_BP01",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!TELCOOPS07_BP01)",
+                            "risk": "HIGH_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "MEDIUM_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "TELCOOPS08",
+                    "title": "How do you implement comprehensive failure testing for telecommunication workloads in cloud environments?",
+                    "description": "Cloud environments present unique failure modes and behaviors that may differ significantly from on-premises infrastructure. Telecommunication workloads, given their critical nature, require robust failure testing to verify resilience. This question addresses the need for adapting traditional testing approaches to account for cloud-specific characteristics and implementing comprehensive failure testing programs for telecommunication services.",
+                    "choices": [
+                        {
+                            "id": "TELCOOPS08_BP01",
+                            "title": "Develop and execute comprehensive failure testing programs that reflect cloud infrastructure characteristics",
+                            "helpfulResource": {
+                                "displayText": "ISVs and CSPs should adapt their testing approaches to account for cloud infrastructure characteristics that differ from on-premises environments. This includes developing comprehensive failure testing programs that simulate various network and infrastructure failures, implementing chaos engineering practices, and using tools like AWS Fault Injection Service to test system resilience. Tests should go beyond basic instance or pod failures to include network impairments, Availability Zone failures, and other realistic failure scenarios that could impact telecommunication services.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/telco-lens/telcoops08-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Develop and execute comprehensive failure testing programs that reflect cloud infrastructure characteristics",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/telco-lens/telcoops08-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "TELCOOPS08_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "TELCOOPS08_BP01",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!TELCOOPS08_BP01)",
+                            "risk": "HIGH_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "MEDIUM_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "TELCOOPS09",
+                    "title": "How do you verify accurate performance baseline measurements for capacity planning?",
+                    "description": "In cloud environments, particularly those with shared underlying infrastructure, accurately measuring performance baselines for telecommunication workloads can be challenging. The lack of visibility into resource utilization at the hardware level and potential variations in performance due to multi-tenancy can lead to inaccurate capacity planning. This question explores strategies for establishing reliable performance baselines in cloud environments to support effective capacity planning for telecommunication workloads.",
+                    "choices": [
+                        {
+                            "id": "TELCOOPS09_BP01",
+                            "title": "Implement comprehensive performance monitoring and baseline testing that accounts for shared infrastructure characteristics",
+                            "helpfulResource": {
+                                "displayText": "To address the challenges of performance baselining in cloud environments with shared resources (like Nitro-based instances), organizations should implement comprehensive monitoring and testing strategies that account for various load conditions. This includes monitoring instance-level metrics, understanding resource allocation limits, and conducting performance tests under different multi-tenant scenarios. Organizations should also leverage available performance metrics and tools to understand resource utilization patterns and verify accurate capacity planning that accounts for shared infrastructure characteristics.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/telco-lens/telcoops09-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Implement comprehensive performance monitoring and baseline testing that accounts for shared infrastructure characteristics",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/telco-lens/telcoops09-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "TELCOOPS09_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "TELCOOPS09_BP01",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!TELCOOPS09_BP01)",
+                            "risk": "HIGH_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "MEDIUM_RISK"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "security",
+            "name": "Security",
+            "questions": [
+                {
+                    "id": "TELCOSEC01",
+                    "title": "Is your network compatible with the telecom industry and regulatory requirements?",
+                    "description": "Telecom networks must comply with industry specifications and local regulatory requirements to demonstrate a commitment to security and build customer trust. This question focuses on how the organization verifies its network and operations adhere to the relevant mandates in its serving regions.",
+                    "choices": [
+                        {
+                            "id": "TELCOSEC01_BP01",
+                            "title": "Follow the industry standards and local regulations to host telecom networks in the cloud, demonstrating a security commitment",
+                            "helpfulResource": {
+                                "displayText": "When operating a telecommunications network in a cloud environment, it is crucial to comply with relevant industry specifications and local regulatory requirements. This includes adhering to standards set forth by leading telecom standardization bodies such as the 3rd Generation Partnership Project (3GPP), which develops technical specifications for mobile networks, and the European Telecommunications Standards Institute (ETSI), which produces globally applicable standards for information and communications technologies. Additionally, the network operations must meet the regulations enforced by authorities like the Federal Communications Commission (FCC) in the United States and the European Union's Electronic Communications Code. By aligning with these industry specifications and local laws, the organization demonstrates a strong commitment to security and building trust with customers.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/telco-lens/telcosec01-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Follow the industry standards and local regulations to host telecom networks in the cloud, demonstrating a security commitment",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/telco-lens/telcosec01-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "TELCOSEC01_BP02",
+                            "title": "Encrypt data at-rest and sensitive traffic (control plane, data plane) using secure VPNs and custom encryption keys",
+                            "helpfulResource": {
+                                "displayText": "Due to regulatory requirements, the CSPs often need to apply additional encryption to traffic that is not already secured by the underlying transport or application protocols. Both control plane traffic, such as Diameter signaling, and data plane traffic, like voice or RTP, require the use of encrypted virtual private networks (VPNs), most commonly IPsec. It is crucial for CSPs to evaluate their regulatory landscape and establish a framework to identify and label the traffic and data that needs to be encrypted in transit as well as at rest, using customer-owned encryption keys. The data in-use is protected by the underlying CPU architecture and features like AMD SEV-SNP, Intel TME, and Graviton Memory Encryption. However, these security measures come with additional costs and limitations, such as restrictions on packets per second (PPS) per flow (number of IPsec tunnels), PPS per instance (lack of equal-cost multi-path routing after reaching the largest single-slot capacity), complexity, and vendor dependencies.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/telco-lens/telcosec01-bp02.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Encrypt data at-rest and sensitive traffic (control plane, data plane) using secure VPNs and custom encryption keys",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/telco-lens/telcosec01-bp02.html"
+                            }
+                        },
+                        {
+                            "id": "TELCOSEC01_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "TELCOSEC01_BP01 && TELCOSEC01_BP02",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!TELCOSEC01_BP01) || (!TELCOSEC01_BP02)",
+                            "risk": "HIGH_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "MEDIUM_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "TELCOSEC02",
+                    "title": "How do you implement holistic security within your telco network to avoid risks and provide integrity?",
+                    "description": "Telecom networks face diverse security threats, making it crucial for operators to implement comprehensive end-to-end security measures to block unauthorized access, malicious attacks, and data breaches while providing for confidentiality, integrity, and availability of your network services and subscriber information.",
+                    "choices": [
+                        {
+                            "id": "TELCOSEC02_BP01",
+                            "title": "Use secure control plane protocols between the network functions (NF)",
+                            "helpfulResource": {
+                                "displayText": "The 3rd Generation Partnership Project (3GPP) recommends that telco organizations use secure control plane protocols between the various network functions (NF) within their 5G core network architecture. This best practice is crucial for maintaining the confidentiality, integrity, and availability of the control plane communications, which are essential for the proper functioning and management of the network. The control plane is responsible for the exchange of signaling and management information between network elements, handling critical tasks such as session establishment, mobility management, and policy enforcement. By implementing secure control plane protocols, telco organizations can mitigate the risk of unauthorized access, eavesdropping, and tampering of the control plane traffic, thereby enhancing the overall security and resilience of the network.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/telco-lens/telcosec02-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Use secure control plane protocols between the network functions (NF)",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/telco-lens/telcosec02-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "TELCOSEC02_BP02",
+                            "title": "Implement features such as concealed or spoofed subscriber identities for signaling over the interfaces with access network",
+                            "helpfulResource": {
+                                "displayText": "The 3rd Generation Partnership Project (3GPP) recommends that telco organizations use the Subscription Concealed Identifier (SUCI) instead of the Subscription Permanent Identifier (SUPI) on the air interface between the user equipment (UE) and the access network. This best practice is aimed at enhancing the privacy and security of subscriber identities, as the air interface is considered the most exposed and vulnerable part of the network. The SUPI, which includes sensitive subscriber information such as the International Mobile Subscriber Identity (IMSI), is a unique and permanent identifier associated with each subscriber. By using the SUCI, a privacy-preserving temporary identifier derived from the SUPI, telco organizations can block the disclosure of the actual subscriber identity over the air interface, mitigating the risk of subscriber tracking, profiling, and other privacy-related attacks.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/telco-lens/telcosec02-bp02.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Implement features such as concealed or spoofed subscriber identities for signaling over the interfaces with access network",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/telco-lens/telcosec02-bp02.html"
+                            }
+                        },
+                        {
+                            "id": "TELCOSEC02_BP03",
+                            "title": "Segment and isolate telco network domains and slices",
+                            "helpfulResource": {
+                                "displayText": "To maintain the security and resilience of a telco network in a cloud environment, segment and isolate the various domains within the network. The same understanding applies to the situation where multiple virtual network slices are hosted in a common environment. This approach assists to mitigate the risk of potential security breaches and minimize the impact of an incident.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/telco-lens/telcosec02-bp03.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Segment and isolate telco network domains and slices",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/telco-lens/telcosec02-bp03.html"
+                            }
+                        },
+                        {
+                            "id": "TELCOSEC02_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "TELCOSEC02_BP01 && TELCOSEC02_BP02 && TELCOSEC02_BP03",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!TELCOSEC02_BP01) || (!TELCOSEC02_BP02) || (!TELCOSEC02_BP03)",
+                            "risk": "HIGH_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "MEDIUM_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "TELCOSEC03",
+                    "title": "How do you maintain security on the external interfaces of your telco network?",
+                    "description": "Telecom networks expose critical functionality through external interfaces that include APIs, control plane protocols, and data traffic. Maintaining robust security across these access points is essential to block unauthorized access and protect the network's integrity. This question explores how the organization implements security controls and updates mitigation measures to verify only authorized systems can interact with the network's external touchpoints.",
+                    "choices": [
+                        {
+                            "id": "TELCOSEC03_BP01",
+                            "title": "Secure the APIs used to expose telco network functionality",
+                            "helpfulResource": {
+                                "displayText": "In modern telco networks, the Network Exposure Function (NEF) for 5G networks and the Service Capability Exposure Function (SCEF) for 4G networks provide APIs to expose network capabilities and services to external applications and partners. These APIs serve as the gateway for accessing sensitive network resources and data, making it crucial to implement robust security measures to protect them.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/telco-lens/telcosec03-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Secure the APIs used to expose telco network functionality",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/telco-lens/telcosec03-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "TELCOSEC03_BP02",
+                            "title": "Deploy signaling firewall on the roaming and interconnecting interfaces with other telco networks",
+                            "helpfulResource": {
+                                "displayText": "The Global System for Mobile Communications Association (GSMA) recommends deploying signaling firewalls on the roaming and interconnecting interfaces with other telco networks. This best practice is aimed at protecting the telco network from potential signaling-based attacks and maintaining the overall security and integrity of the network. The signaling firewall acts as a gatekeeper, monitoring and filtering the signaling traffic exchanged between the telco network and its roaming partners or interconnected networks. By implementing a signaling firewall, organizations can effectively mitigate the risk of unauthorized access, signaling storms, and other signaling-related security threats, thereby enhancing the resilience and reliability of the network.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/telco-lens/telcosec03-bp02.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Deploy signaling firewall on the roaming and interconnecting interfaces with other telco networks",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/telco-lens/telcosec03-bp02.html"
+                            }
+                        },
+                        {
+                            "id": "TELCOSEC03_BP03",
+                            "title": "Perform regular penetration testing on each of the protocols implemented on the signaling layer",
+                            "helpfulResource": {
+                                "displayText": "Perform regular penetration testing on each of the protocols implemented on the signaling layer of their network. This best practice is crucial for identifying and addressing vulnerabilities that could be exploited by malicious actors to compromise the security and integrity of the telco network. The signaling layer is responsible for the exchange of control and management information between network elements, making it a critical attack surface. Penetration testing on the signaling layer protocols assists organizations to uncover potential weaknesses, such as improper protocol implementation, cryptographic flaws, or insecure configurations, which could lead to unauthorized access, data breaches, or service disruptions. By conducting regular and comprehensive penetration testing, telco organizations can proactively identify and mitigate risks, maintaining the overall resilience and security of their signaling infrastructure.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/telco-lens/telcosec03-bp03.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Perform regular penetration testing on each of the protocols implemented on the signaling layer",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/telco-lens/telcosec03-bp03.html"
+                            }
+                        },
+                        {
+                            "id": "TELCOSEC03_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "TELCOSEC03_BP01 && TELCOSEC03_BP02 && TELCOSEC03_BP03",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!TELCOSEC03_BP01) || (!TELCOSEC03_BP02) || (!TELCOSEC03_BP03)",
+                            "risk": "HIGH_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "MEDIUM_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "TELCOSEC04",
+                    "title": "How do you protect customer proprietary network information (CPNI) and personally identifiable information (PII)?",
+                    "description": "Telecom operators must protect sensitive customer data like CPNI and PII in accordance with strict regulations. This question examines the organization's implementation of encryption, access controls, audit logging, and data handling procedures to block unauthorized access or misuse of customer information.",
+                    "choices": [
+                        {
+                            "id": "TELCOSEC04_BP01",
+                            "title": "Enable encryption for CPNI and PII information at rest and in transit and access restriction",
+                            "helpfulResource": {
+                                "displayText": "It is recommended that telecommunications organizations implement comprehensive encryption measures for both customer proprietary network information (CPNI) and personally identifiable information (PII) at rest and in transit to verify robust data protection and regulatory adherence. Organizations should use industry-standard encryption algorithms (such as AES-256) for data at rest, implement TLS/SSL protocols for data in transit, and establish secure key management practices. This implementation should include encryption where applicable, strong access controls with multi-factor authentication, and regular security audits to verify encryption effectiveness. The organization must verify that third-party vendors handling CPNI or PII adhere to the same encryption standards and maintain detailed documentation of encryption practices.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/telco-lens/telcosec04-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Enable encryption for CPNI and PII information at rest and in transit and access restriction",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/telco-lens/telcosec04-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "TELCOSEC04_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "TELCOSEC04_BP01",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!TELCOSEC04_BP01)",
+                            "risk": "HIGH_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "MEDIUM_RISK"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "reliability",
+            "name": "Reliability",
+            "questions": [
+                {
+                    "id": "TELCOREL01",
+                    "title": "Does your telecommunication network meet local regulatory requirements and service level agreements on the service availability?",
+                    "description": "Telecom networks operate in a highly regulated environment, where regulatory authorities set guidelines and minimum service availability requirements for CSPs in each country/region. This question focuses on how the telecom organization can meet these regulatory requirements focused on critical service availability.",
+                    "choices": [
+                        {
+                            "id": "TELCOREL01_BP01",
+                            "title": "Conduct regular load and failure tests to validate resilience on node, interface, and infrastructure levels",
+                            "helpfulResource": {
+                                "displayText": "Implement a comprehensive testing strategy that evaluates network resilience through simulated failures of nodes, interfaces, and infrastructure components. This includes testing in both lower environments and production during maintenance windows to identify potential weaknesses, validate redundancy measures, and verify recovery procedures. The testing should cover both individual component failures and complex failure scenarios that could impact network services.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/telco-lens/telcorel01-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Conduct regular load and failure tests to validate resilience on node, interface, and infrastructure levels",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/telco-lens/telcorel01-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "TELCOREL01_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "TELCOREL01_BP01",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!TELCOREL01_BP01)",
+                            "risk": "MEDIUM_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "HIGH_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "TELCOREL02",
+                    "title": "How do you verify high availability and fault tolerance in your network architecture?",
+                    "description": "Telecom networks underpin essential communication services that individuals and businesses rely on daily. Maintaining the resilience and fault tolerance of these cloud-based networks is paramount as disruptions can hinder vital connections and access to emergency services. Robust network architectures with redundant components, failover mechanisms, and self-healing capabilities are crucial to providing the availability required for modern telecommunication needs.",
+                    "choices": [
+                        {
+                            "id": "TELCOREL02_BP01",
+                            "title": "Deploy user plane functions in a distributed architecture and highly available configuration",
+                            "helpfulResource": {
+                                "displayText": "Follow a distributed architecture approach to deploy user plane nodes across multiple geographical locations with built-in redundancy. Such a design maintains service continuity through redundant instances and geographical distribution, minimizing the impact of localized failures or outages while optimizing network performance through efficient load distribution.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/telco-lens/telcorel02-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Deploy user plane functions in a distributed architecture and highly available configuration",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/telco-lens/telcorel02-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "TELCOREL02_BP02",
+                            "title": "Implement full mesh between control plane and user plane functions",
+                            "helpfulResource": {
+                                "displayText": "Implement a resilient architecture design where each control plane node can manage user plane functions in a mesh configuration. For each user plane function, one control plane node will be active at a time. The control plane node should be designed to have enough capacity to control the user plane nodes, when needed. This verifies that if one or multiple control plane nodes fail, the remaining nodes can manage user plane functions without service interruption. The design incorporates high-capacity centralized control components with distributed user plane functions.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/telco-lens/telcorel02-bp02.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Implement full mesh between control plane and user plane functions",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/telco-lens/telcorel02-bp02.html"
+                            }
+                        },
+                        {
+                            "id": "TELCOREL02_BP03",
+                            "title": "Implement a flexible network function (NF) design to leverage available infrastructure resources for autoscaling",
+                            "helpfulResource": {
+                                "displayText": "Designing a flexible network function design enables the telecom network to dynamically scale its resources based on the availability of suitable instance types in the deployment region. This approach avoids issues like Insufficient Capacity Error that can occur when the required instance type is not available, by using alternative instance types that can be provisioned. The architecture should be able to automatically adapt to the most suitable instance types that are present, allowing the network to scale up or down as needed without being constrained by the availability of a specific instance configuration.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/telco-lens/telcorel02-bp03.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Implement a flexible network function (NF) design to leverage available infrastructure resources for autoscaling",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/telco-lens/telcorel02-bp03.html"
+                            }
+                        },
+                        {
+                            "id": "TELCOREL02_BP04",
+                            "title": "Introduce an SCTP load balancer designed for control-plane network functions, carrier-grade performance, and high availability",
+                            "helpfulResource": {
+                                "displayText": "The major public cloud services providers lack native support for load balancing of the Telecom services that rely on control-plane signaling protocols like SCTP (Stream Control Transmission Protocol). It is recommended to introduce a cloud-based SCTP Load Balancer for control plane network functions, designed specifically for telco workloads in the public cloud. Such a solution will provide SCTP protocol awareness, including support for multi-homing and association management, along with carrier-grade performance. The load balancer should also deliver high availability through failover and health checks, maintaining reliable and scalable operation of critical telecommunications components deployed in the public cloud.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/telco-lens/telcorel02-bp04.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Introduce an SCTP load balancer designed for control-plane network functions, carrier-grade performance, and high availability",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/telco-lens/telcorel02-bp04.html"
+                            }
+                        },
+                        {
+                            "id": "TELCOREL02_BP05",
+                            "title": "Optimize failure recovery timers for the shared tenancy and potential for transient network issues in cloud environments",
+                            "helpfulResource": {
+                                "displayText": "Many telecom network function vendors implement health monitoring thresholds based on on-premises architectural assumptions, where redundant network interfaces and multiple physical network paths may exist between components. However, when these telecom network functions are deployed in cloud environments, the underlying network is a shared resource with a single connection. This can lead to frequent connection alarms and service disruptions due to transient network issues or single point of failure events, even though the network function itself may remain functional. It is recommended to proactively engage with telecom ISVs and Network Function developers to optimize the timers and behaviors used for health monitoring and failure recovery. This includes designing network architecture to be resilient to packet losses or higher latencies over the underlying network.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/telco-lens/telcorel02-bp05.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Optimize failure recovery timers for the shared tenancy and potential for transient network issues in cloud environments",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/telco-lens/telcorel02-bp05.html"
+                            }
+                        },
+                        {
+                            "id": "TELCOREL02_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "TELCOREL02_BP01 && TELCOREL02_BP02 && TELCOREL02_BP03 && TELCOREL02_BP04 && TELCOREL02_BP05",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!TELCOREL02_BP01) || (!TELCOREL02_BP04)",
+                            "risk": "HIGH_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "MEDIUM_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "TELCOREL03",
+                    "title": "How do you manage changes while maintaining the service continuity?",
+                    "description": "This question addresses how the telecom organization manages changes to their network and systems to maintain uninterrupted service delivery for customers. It involves establishing robust change management processes, testing procedures, and rollback capabilities to minimize service disruptions during system scaling, updates, and upgrades.",
+                    "choices": [
+                        {
+                            "id": "TELCOREL03_BP01",
+                            "title": "Use a controlled change management mechanism for software updates in production",
+                            "helpfulResource": {
+                                "displayText": "Follow a controlled change management approach that blocks automatic updates in production environments while maintaining changes are thoroughly tested in lower environments. This includes establishing proper testing procedures, implementing structured change management, and maintaining comprehensive rollback capabilities to minimize service disruption during system updates.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/telco-lens/telcorel03-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Use a controlled change management mechanism for software updates in production",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/telco-lens/telcorel03-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "TELCOREL03_BP02",
+                            "title": "Design a stateful, session-aware load balancing solution for cloud network functions (CNFs) to enable scaling and resilience",
+                            "helpfulResource": {
+                                "displayText": "Cloud network functions (CNFs) such as AMF, SMF, and UPF in 5G architectures are typically designed to be horizontally scalable. However, these components maintain subscriber session state, and scaling events (up and down) can disrupt session continuity, leading to call drops, session re-establishment delays, or degraded user experience. To address this challenge, it is recommended to design a stateful, session-aware load balancing solution for CNFs that enables seamless scaling and resilience. This can be achieved by collaborating with the CNF vendors and relevant CNF communities to explore how cloud-based services can be adapted to support seamless session handling.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/telco-lens/telcorel03-bp02.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Design a stateful, session-aware load balancing solution for cloud network functions (CNFs) to enable scaling and resilience",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/telco-lens/telcorel03-bp02.html"
+                            }
+                        },
+                        {
+                            "id": "TELCOREL03_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "TELCOREL03_BP01 && TELCOREL03_BP02",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!TELCOREL03_BP01)",
+                            "risk": "HIGH_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "MEDIUM_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "TELCOREL04",
+                    "title": "How do you block and manage failures in your telco network?",
+                    "description": "Maintaining reliable service in a complex, mission-critical telecom network is paramount. Telecom operators must proactively block and rapidly respond to various failure scenarios, from individual component outages to large-scale disruptive events.",
+                    "choices": [
+                        {
+                            "id": "TELCOREL04_BP01",
+                            "title": "Implement the Bypass Mode on peripheral network devices such as firewalls and network probes while connecting to the cloud",
+                            "helpfulResource": {
+                                "displayText": "Implementing bypass mode on network peripheral devices like firewalls and network probes is crucial for maintaining service continuity during device failures or power outages. This mechanism automatically creates a direct connection between incoming and outgoing network ports when a device fails, maintaining that critical network traffic continues to flow without interruption. By deploying bypass-capable devices while connecting to the cloud-based network infrastructure, telecom operators can block service disruptions that could occur during device failures, maintenance windows, or unexpected outages. This approach is particularly important for maintaining high availability in telecommunications networks where continuous service is essential for customer satisfaction and regulatory adherence.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/telco-lens/telcorel04-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Implement the Bypass Mode on peripheral network devices such as firewalls and network probes while connecting to the cloud",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/telco-lens/telcorel04-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "TELCOREL04_BP02",
+                            "title": "Implement dual network planes for signaling or control plane",
+                            "helpfulResource": {
+                                "displayText": "A resilient network architecture implementing two independent and redundant signaling networks that operate in parallel. Each signaling plane handles messages and controls network resources independently, with logical and physical separation to verify that failures in one plane do not impact the other plane's operations.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/telco-lens/telcorel04-bp02.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Implement dual network planes for signaling or control plane",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/telco-lens/telcorel04-bp02.html"
+                            }
+                        },
+                        {
+                            "id": "TELCOREL04_BP03",
+                            "title": "Implement default configuration to bypass billing and charging services in case the system is down",
+                            "helpfulResource": {
+                                "displayText": "Implementing a default configuration to bypass billing and charging services in a telecom network maintains service continuity for customers in the event of a failure or outage in the billing or charging system. The network is configured with a failover mechanism that continues providing critical communication services while bypassing the charging/billing component if they become unavailable or unresponsive. This bypass mode allows customers to continue accessing and using the telecom services without interruption, even when the billing or charging systems are down.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/telco-lens/telcorel04-bp03.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Implement default configuration to bypass billing and charging services in case the system is down",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/telco-lens/telcorel04-bp03.html"
+                            }
+                        },
+                        {
+                            "id": "TELCOREL04_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "TELCOREL04_BP01 && TELCOREL04_BP02 && TELCOREL04_BP03",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!TELCOREL04_BP02)",
+                            "risk": "HIGH_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "MEDIUM_RISK"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "performance",
+            "name": "Performance Efficiency",
+            "questions": [
+                {
+                    "id": "TELCOPERF01",
+                    "title": "How do you determine which geographic regions to host your telco infrastructure?",
+                    "description": "The strategic placement of telecom infrastructure across geographic regions is crucial for optimizing network performance, maintaining regulatory adherence, and meeting customer needs. This consideration involves evaluating factors such as latency requirements, data sovereignty laws, disaster recovery planning, and proximity to end-users. The choice of hosting locations can significantly impact service quality, operational efficiency, and the overall resilience of the telecom network.",
+                    "choices": [
+                        {
+                            "id": "TELCOPERF01_BP01",
+                            "title": "Use Edge locations to deploy latency sensitive telco network workloads such as RAN and user-plane nodes",
+                            "helpfulResource": {
+                                "displayText": "Deploying latency-sensitive telco network workloads like Radio Access Network (RAN) and user plane nodes in edge locations is recommended. Placing these components closer to the end users at the edge of the network minimizes latency and improves performance for real-time, latency-critical applications and services.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/telco-lens/telcoperf01-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Use Edge locations to deploy latency sensitive telco network workloads such as RAN and user-plane nodes",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/telco-lens/telcoperf01-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "TELCOPERF01_BP02",
+                            "title": "Select the infrastructure regions to deploy telco workloads based on performance requirements and regulatory considerations",
+                            "helpfulResource": {
+                                "displayText": "Selecting the appropriate infrastructure regions for deploying telco workloads is crucial for optimizing network performance and maintaining regulatory adherence. When choosing regions, consider factors such as latency requirements, data sovereignty laws, and the geographical distribution of your customer base. For latency-sensitive applications like voice services or real-time video, prioritize regions closer to your end users. Also, consider regional regulations regarding data storage and processing, especially for customer information and call records. By strategically selecting infrastructure regions, you can enhance service quality, reduce latency, and maintain adherence with local regulations, improving the overall user experience and operational efficiency of your telco services.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/telco-lens/telcoperf01-bp02.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Select the infrastructure regions to deploy telco workloads based on performance requirements and regulatory considerations",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/telco-lens/telcoperf01-bp02.html"
+                            }
+                        },
+                        {
+                            "id": "TELCOPERF01_BP03",
+                            "title": "Deploy the control plane network functions on centralized locations to meet high scalability and agility requirements",
+                            "helpfulResource": {
+                                "displayText": "Running the control plane nodes in centralized geographical locations is a strategy used to meet the demands for high scalability and mobility. Centralizing the control plane components in strategically placed data centers enables efficient resource management, load balancing, and fault tolerance across the distributed system. This approach allows the system to better handle sudden traffic increases, support many client nodes, and provide reliable failover mechanisms in case of individual node failures.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/telco-lens/telcoperf01-bp03.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Deploy the control plane network functions on centralized locations to meet high scalability and agility requirements",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/telco-lens/telcoperf01-bp03.html"
+                            }
+                        },
+                        {
+                            "id": "TELCOPERF01_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "TELCOPERF01_BP01 && TELCOPERF01_BP02 && TELCOPERF01_BP03",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!TELCOPERF01_BP01) || (!TELCOPERF01_BP02)",
+                            "risk": "HIGH_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "MEDIUM_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "TELCOPERF02",
+                    "title": "How do you select the appropriate compute solution for your telco workloads?",
+                    "description": "The selection of compute resources must account for specific telecommunications needs such as deterministic performance, ultra-low latency, hardware acceleration capabilities, and support for specialized telecom protocols. This includes consideration of bare metal, virtualized, and containerized environments, as well as specific instance types optimized for telecom workloads like Network Function Virtualization (NFV) and Radio Access Network (RAN) processing.",
+                    "choices": [
+                        {
+                            "id": "TELCOPERF02_BP01",
+                            "title": "Implement containers to achieve optimal performance and resource utilization",
+                            "helpfulResource": {
+                                "displayText": "Implementing containers in your telco architecture is a crucial step towards achieving optimal performance and resource utilization. When adopting this approach, it is essential to carefully consider your instance type and hardware selection. For example, User Plane Function (UPF) components require specific performance capabilities to handle high data plane throughput, while Radio Access Network (RAN) elements may benefit from specialized hardware accelerators.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/telco-lens/telcoperf02-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Implement containers to achieve optimal performance and resource utilization",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/telco-lens/telcoperf02-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "TELCOPERF02_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "TELCOPERF02_BP01",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!TELCOPERF02_BP01)",
+                            "risk": "MEDIUM_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "HIGH_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "TELCOPERF03",
+                    "title": "How do you select the appropriate network infrastructure for your telco workloads?",
+                    "description": "Network infrastructure is the backbone of telecom operations to verify optimal performance and reliability. This involves evaluating options for both physical and virtual networking components, including switches, routers, load balancers, and software-defined networking (SDN) solutions. The selection process must also account for future growth, emerging technologies like 5G and edge computing, and the ability to support diverse services ranging from voice and data to IoT and multimedia applications.",
+                    "choices": [
+                        {
+                            "id": "TELCOPERF03_BP01",
+                            "title": "Implement dedicated network infrastructure for control and user plane functions",
+                            "helpfulResource": {
+                                "displayText": "Separating network infrastructure for control and user plane functions (CUPS) is essential for optimizing telco workload performance. Control plane infrastructure should be designed with high availability and security features to handle signaling traffic effectively, while user plane infrastructure must be optimized for high throughput and low latency to manage subscriber data. This separation enables independent scaling of each plane based on specific requirements while maintaining secure and efficient inter-plane communication, leading to better resource utilization and improved service quality.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/telco-lens/telcoperf03-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Implement dedicated network infrastructure for control and user plane functions",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/telco-lens/telcoperf03-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "TELCOPERF03_BP02",
+                            "title": "Deploy hardware acceleration solutions for enhanced packet processing and network performance",
+                            "helpfulResource": {
+                                "displayText": "Implementing hardware acceleration solutions such as SmartNICs and FPGAs is crucial for meeting the demanding performance requirements of modern telco workloads. These solutions offload intensive packet processing tasks from the main CPU, significantly improving network performance and reducing latency. By integrating hardware acceleration with virtualized network functions (VNFs) and containerized network functions (CNFs), operators can achieve the performance levels required for 5G networks while maintaining the flexibility of cloud-based architectures.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/telco-lens/telcoperf03-bp02.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Deploy hardware acceleration solutions for enhanced packet processing and network performance",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/telco-lens/telcoperf03-bp02.html"
+                            }
+                        },
+                        {
+                            "id": "TELCOPERF03_BP03",
+                            "title": "Implement network timing synchronization and distribution mechanisms to verify service consistency",
+                            "helpfulResource": {
+                                "displayText": "Establishing robust network timing synchronization across distributed infrastructure is critical for maintaining consistent service quality in telco workloads. Proper timing mechanisms verify smooth handovers, accurate billing, and reliable service delivery, particularly in edge computing scenarios. Deploy timing solutions that comply with 3GPP specifications and support future network evolution, while considering geographic distribution requirements and the need for precise synchronization between network elements at different locations.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/telco-lens/telcoperf03-bp03.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Implement network timing synchronization and distribution mechanisms to verify service consistency",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/telco-lens/telcoperf03-bp03.html"
+                            }
+                        },
+                        {
+                            "id": "TELCOPERF03_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "TELCOPERF03_BP01 && TELCOPERF03_BP02 && TELCOPERF03_BP03",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!TELCOPERF03_BP01) || (!TELCOPERF03_BP03)",
+                            "risk": "HIGH_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "MEDIUM_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "TELCOPERF04",
+                    "title": "How do you select the appropriate monitoring solution for your telco workloads?",
+                    "description": "Effective monitoring solutions for telecom workloads require comprehensive visibility into both infrastructure and service performance metrics to maintain and meet service level agreements (SLAs).",
+                    "choices": [
+                        {
+                            "id": "TELCOPERF04_BP01",
+                            "title": "Implement AI and ML-powered monitoring solutions to gain insights into network health and performance",
+                            "helpfulResource": {
+                                "displayText": "Implementing advanced monitoring solutions that use artificial intelligence (AI) and machine learning (ML) technologies is crucial for optimizing telco network performance and operational efficiency. By using AI solutions, telecom operators can gain deep insights into network behavior, identify patterns, and predict potential issues before they impact service quality. These AI-driven monitoring solutions can analyze vast amounts of network data in real-time, enabling more accurate capacity planning, proactive network optimization, and improved customer support. This approach not only enhances overall network performance but also reduces operational costs and improving customer satisfaction by minimizing service disruptions and enabling faster problem resolution.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/telco-lens/telcoperf04-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Implement AI and ML-powered monitoring solutions to gain insights into network health and performance",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/telco-lens/telcoperf04-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "TELCOPERF04_BP02",
+                            "title": "Monitor deviations from nominal performance parameters using system alerts and automated responses",
+                            "helpfulResource": {
+                                "displayText": "Effective monitoring of telecom workloads requires establishing and tracking performance baselines to quickly identify anomalies and deviations from expected behavior. By leveraging observability solutions, operators can implement comprehensive monitoring and alerting systems that continuously track system performance against established baselines. This approach enables automated responses to specific events and early detection of potential issues, assisting to maintain optimal network performance and reducing the risk of service disruptions. Setting up these monitoring systems with appropriate thresholds and alert mechanisms verifies that operations teams can proactively address performance issues before they impact service quality.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/telco-lens/telcoperf04-bp02.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Monitor deviations from nominal performance parameters using system alerts and automated responses",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/telco-lens/telcoperf04-bp02.html"
+                            }
+                        },
+                        {
+                            "id": "TELCOPERF04_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "TELCOPERF04_BP01 && TELCOPERF04_BP02",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!TELCOPERF04_BP02)",
+                            "risk": "HIGH_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "MEDIUM_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "TELCOPERF05",
+                    "title": "How do you select the appropriate storage solution for your telco workloads?",
+                    "description": "Selecting the appropriate storage solution for telco workloads is crucial for managing performance and cost requirements. The key is to categorize your telco data based on access patterns, regulatory needs, and business value, and then match the storage solution accordingly.",
+                    "choices": [
+                        {
+                            "id": "TELCOPERF05_BP01",
+                            "title": "Implement data lifecycle management strategies for IVR and call logs to optimize storage costs and performance",
+                            "helpfulResource": {
+                                "displayText": "Implementing effective data lifecycle management for Interactive Voice Response (IVR) systems and call logs is crucial in telecommunications environments. This strategy involves categorizing data based on access patterns, regulatory requirements, and business value, then moving it through different storage tiers to balance performance and cost-effectiveness. By automating the transition of data from high-performance storage for frequently accessed records to more cost-effective archival solutions for older data, telecommunications providers can maintain optimal system performance while managing storage costs efficiently.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/telco-lens/telcoperf05-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Implement data lifecycle management strategies for IVR and call logs to optimize storage costs and performance",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/telco-lens/telcoperf05-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "TELCOPERF05_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "TELCOPERF05_BP01",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!TELCOPERF05_BP01)",
+                            "risk": "MEDIUM_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "HIGH_RISK"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "costOptimization",
+            "name": "Cost Optimization",
+            "questions": [
+                {
+                    "id": "TELCOCOST01",
+                    "title": "How do you want to measure the cost of your telco workload across various domains?",
+                    "description": "This question focuses on understanding and measuring the cost of your telco workload across various domains. This is an important aspect of cost optimization, as you need visibility into your different cost drivers to identify opportunities for savings.",
+                    "choices": [
+                        {
+                            "id": "TELCOCOST01_BP01",
+                            "title": "Implement attribution of cost to each telco domain hosted on the AWS (access, core, edge, OSS, and BSS)",
+                            "helpfulResource": {
+                                "displayText": "Telcos with workloads running on AWS can take advantage of AWS' detailed cost and usage reporting to attribute costs to each of their domains (like access, core, edge, OSS, and BSS). By tagging resources appropriately, costs can be allocated to each domain.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/telco-lens/telcocost01-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Implement attribution of cost to each telco domain hosted on the AWS (access, core, edge, OSS, and BSS)",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/telco-lens/telcocost01-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "TELCOCOST01_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "TELCOCOST01_BP01",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!TELCOCOST01_BP01)",
+                            "risk": "HIGH_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "MEDIUM_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "TELCOCOST02",
+                    "title": "How are you choosing the right compute solution for your telco Network Functions?",
+                    "description": "This question focuses on selecting the most cost-optimized compute solutions for your telco Network Functions.",
+                    "choices": [
+                        {
+                            "id": "TELCOCOST02_BP01",
+                            "title": "Implement dynamic CNF sizing and scaling strategies based on actual subscriber demands and usage patterns",
+                            "helpfulResource": {
+                                "displayText": "In traditional on-premises environments, CNF infrastructure is typically sized for peak capacity expected over the hardware lifetime. To optimize costs in cloud environments, organizations should implement dynamic sizing strategies that align infrastructure capacity with actual subscriber demands. This includes utilizing cloud-based auto scaling capabilities, implementing rightsizing based on usage patterns, and designing CNF architectures that support horizontal scaling. The approach should balance performance requirements with cost efficiency while maintaining the ability to handle growth in subscriber demand through elastic infrastructure scaling.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/telco-lens/telcocost02-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Implement dynamic CNF sizing and scaling strategies based on actual subscriber demands and usage patterns",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/telco-lens/telcocost02-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "TELCOCOST02_BP02",
+                            "title": "Choose the most efficient compute resource for your Network Function",
+                            "helpfulResource": {
+                                "displayText": "When implementing cloud-based network functions (CNFs), it is important to benchmark your applications on different compute types to determine the optimal balance of performance and cost-efficiency. CNFs have diverse compute requirements, so gravitating to the lowest cost option may result in poor performance. Older compute architectures and hardware can hamper efficiency and drive-up expenses over time.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/telco-lens/telcocost02-bp02.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Choose the most efficient compute resource for your Network Function",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/telco-lens/telcocost02-bp02.html"
+                            }
+                        },
+                        {
+                            "id": "TELCOCOST02_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "TELCOCOST02_BP01 && TELCOCOST02_BP02",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!TELCOCOST02_BP01) || (!TELCOCOST02_BP02)",
+                            "risk": "HIGH_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "MEDIUM_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "TELCOCOST03",
+                    "title": "How are you optimizing data transfer costs between and within your telco network infrastructure?",
+                    "description": "This question focuses on optimizing data transfer costs within and between the various components of a telco's network infrastructure. Data transfer costs can be a significant driver of overall telco expenditure, so it is important to carefully manage and optimize these costs. The best practices discussed address strategies like implementing strategies to intelligently route traffic and leveraging edge zones and microservices to minimize data transfers across the network.",
+                    "choices": [
+                        {
+                            "id": "TELCOCOST03_BP01",
+                            "title": "Use edge-zones and services to implement cloud workloads made up of containers and microservices",
+                            "helpfulResource": {
+                                "displayText": "Telecom companies can take advantage of the cloud's ability to replicate resources across Availability Zones (AZs) within the same Region to reduce data transfer costs. When launching infrastructure, telecoms should distribute workloads across multiple Availability Zones but use transit gateways to interconnect them. This allows for high availability without paying for data transfer between Availability Zones, since this is free.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/telco-lens/telcocost03-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Use edge-zones and services to implement cloud workloads made up of containers and microservices",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/telco-lens/telcocost03-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "TELCOCOST03_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "TELCOCOST03_BP01",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!TELCOCOST03_BP01)",
+                            "risk": "HIGH_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "MEDIUM_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "TELCOCOST04",
+                    "title": "How are you optimizing the data storage costs for your network infrastructure?",
+                    "description": "This question focuses on optimizing the data storage costs associated with a telco's network infrastructure. Data storage can be a significant cost driver for telcos, as they need to manage large volumes of data from various network elements, customer records, billing systems, and more.",
+                    "choices": [
+                        {
+                            "id": "TELCOCOST04_BP01",
+                            "title": "Choose the appropriate type of storage for network functions backups, metrics, KPIs and the event records to reduce costs",
+                            "helpfulResource": {
+                                "displayText": "Telecom companies generate and store massive amounts of data to support their business and customer operations. However, data is accessed or needed at various frequencies. By aligning storage choices with data access needs and lifecycles, Telecoms can significantly reduce their storage costs. For actively accessed data that needs high performance, flash storage or cache are good options despite their higher costs. For medium-term data that is accessed occasionally, lower-cost options like object storage, SAN or NAS storage are suitable. For long-term archive data with infrequent access, cold storage options like tape or cloud archival storage are the most cost-efficient.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/telco-lens/telcocost04-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Choose the appropriate type of storage for network functions backups, metrics, KPIs and the event records to reduce costs",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/telco-lens/telcocost04-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "TELCOCOST04_BP02",
+                            "title": "Use ETSI ENI based architectures to implement intelligent network slicing",
+                            "helpfulResource": {
+                                "displayText": "The European Telecommunications Standards Institute (ETSI) Experiential Networked Intelligence (ENI) is an architectural framework that defines standards for cognitive network management and implementation of 5G use cases based on environmental context and user requirements. It allows Telcos to take advantage of cloud-based technologies like network slicing, service mesh, and microservices to build more agile and automated networks.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/telco-lens/telcocost04-bp02.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Use ETSI ENI based architectures to implement intelligent network slicing",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/telco-lens/telcocost04-bp02.html"
+                            }
+                        },
+                        {
+                            "id": "TELCOCOST04_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "TELCOCOST04_BP01 && TELCOCOST04_BP02",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!TELCOCOST04_BP01)",
+                            "risk": "HIGH_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "MEDIUM_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "TELCOCOST05",
+                    "title": "How are you handling the interoperability of your radio access network?",
+                    "description": "This question focuses on addressing the interoperability of a telco's radio access network (RAN) in a cost-effective manner. Interoperability of the RAN is an important consideration for cost optimization, as it can impact the overall flexibility, scalability, and vendor dependence of the network infrastructure.",
+                    "choices": [
+                        {
+                            "id": "TELCOCOST05_BP01",
+                            "title": "Explore open interface-based technology like RAN or vRAN to reduce network-related costs",
+                            "helpfulResource": {
+                                "displayText": "To examine O-RAN in more detail and understand the best practices for O-RAN architectures on AWS, see Open Radio Access Network Architecture on AWS.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/telco-lens/telcocost05-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Explore open interface-based technology like RAN or vRAN to reduce network-related costs",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/telco-lens/telcocost05-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "TELCOCOST05_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "TELCOCOST05_BP01",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!TELCOCOST05_BP01)",
+                            "risk": "MEDIUM_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "HIGH_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "TELCOCOST06",
+                    "title": "How do you prioritize traffic across your hybrid networking connections?",
+                    "description": "This question focuses on how telcos can effectively prioritize traffic across their hybrid networking connections to optimize resource utilization and costs. In a hybrid networking environment, where traditional on-premises networking elements are combined with cloud-based or virtualized networking components, managing and prioritizing network traffic becomes increasingly complex.",
+                    "choices": [
+                        {
+                            "id": "TELCOCOST06_BP01",
+                            "title": "Implement load-balancing techniques to achieve better utilization of hybrid network resources",
+                            "helpfulResource": {
+                                "displayText": "Establish a comprehensive traffic classification system that identifies different types of network traffic (for example, real-time communications, bulk data transfers, best-effort traffic). Monitor the utilization of your hybrid network connections in real-time. Utilize load-balancing mechanisms to distribute network traffic across multiple hybrid network connections, both on-premises and in the cloud.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/telco-lens/telcocost06-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Implement load-balancing techniques to achieve better utilization of hybrid network resources",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/telco-lens/telcocost06-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "TELCOCOST06_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "TELCOCOST06_BP01",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!TELCOCOST06_BP01)",
+                            "risk": "HIGH_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "MEDIUM_RISK"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "sustainability",
+            "name": "Sustainability",
+            "questions": [
+                {
+                    "id": "TELCOSUS01",
+                    "title": "How do you optimize energy consumption for the telco Networks?",
+                    "description": "Optimizing energy consumption in telecommunications networks is critical for reducing operational costs, meeting sustainability targets, and maintaining competitive advantage. This involves implementing energy-efficient infrastructure, intelligent resource management, and continuous optimization of network operations.",
+                    "choices": [
+                        {
+                            "id": "TELCOSUS01_BP01",
+                            "title": "Implement energy-efficient infrastructure for telco networks",
+                            "helpfulResource": {
+                                "displayText": "When designing telco network infrastructure for sustainability, focus on optimizing compute resources, implementing intelligent scaling, and leveraging edge computing to reduce energy consumption. Start by analyzing your current network functions deployment patterns - including virtual network functions (VNFs), cloud-based network functions (CNFs), and support systems like business support systems (BSS) and operations support systems (OSS).",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/telco-lens/telcosus01-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Implement energy-efficient infrastructure for telco networks",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/telco-lens/telcosus01-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "TELCOSUS01_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "TELCOSUS01_BP01",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!TELCOSUS01_BP01)",
+                            "risk": "MEDIUM_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "HIGH_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "TELCOSUS02",
+                    "title": "How do you optimize data processing and storage for sustainable telco operations?",
+                    "description": "Managing the massive volumes of data generated by telecommunications networks requires efficient lifecycle management strategies to minimize storage costs and energy consumption while maintaining adherence with regulatory requirements and operational needs.",
+                    "choices": [
+                        {
+                            "id": "TELCOSUS02_BP01",
+                            "title": "Implement efficient data lifecycle management for telco networks",
+                            "helpfulResource": {
+                                "displayText": "Telco networks generate diverse data types with varying retention requirements. Call detail records (CDRs) requiring long-term retention for regulatory adherence, network performance metrics needed for real-time analysis, and IoT sensor data with high velocity but short relevance periods. Design your data architecture to automatically optimize storage based on access patterns while maintaining adherence with telecommunications regulations.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/telco-lens/telcosus02-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Implement efficient data lifecycle management for telco networks",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/telco-lens/telcosus02-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "TELCOSUS02_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "TELCOSUS02_BP01",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!TELCOSUS02_BP01)",
+                            "risk": "MEDIUM_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "HIGH_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "TELCOSUS03",
+                    "title": "How are you protecting investments in the telco network assets?",
+                    "description": "Maximizing the lifecycle value of telecommunications infrastructure requires implementing circular economy principles, predictive maintenance, and asset optimization strategies to reduce waste and extend equipment lifespan.",
+                    "choices": [
+                        {
+                            "id": "TELCOSUS03_BP01",
+                            "title": "Adopt circular economy principles for telco network assets",
+                            "helpfulResource": {
+                                "displayText": "Implementing circular economy principles in telco networks requires comprehensive visibility into physical and virtual assets throughout their lifecycle. This includes tracking network equipment from procurement through decommissioning, optimizing hardware utilization to extend lifespan, and establishing processes for equipment refurbishment and responsible recycling.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/telco-lens/telcosus03-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Adopt circular economy principles for telco network assets",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/telco-lens/telcosus03-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "TELCOSUS03_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "TELCOSUS03_BP01",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!TELCOSUS03_BP01)",
+                            "risk": "MEDIUM_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "HIGH_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "TELCOSUS04",
+                    "title": "Is your telco network deployment resilient to climate change risks?",
+                    "description": "Building climate resilience into telecommunications infrastructure is essential for maintaining service continuity as extreme weather events become more frequent and severe due to climate change.",
+                    "choices": [
+                        {
+                            "id": "TELCOSUS04_BP01",
+                            "title": "Enhance telco network resilience to climate change risks",
+                            "helpfulResource": {
+                                "displayText": "Climate resilience for telco networks requires architecting for extreme weather events, implementing geographic redundancy, and establishing automated failover mechanisms. Design your infrastructure to withstand increasing frequency of floods, heatwaves, storms, and other climate-related disruptions while maintaining service continuity for critical communications.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/telco-lens/telcosus04-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Enhance telco network resilience to climate change risks",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/telco-lens/telcosus04-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "TELCOSUS04_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "TELCOSUS04_BP01",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!TELCOSUS04_BP01)",
+                            "risk": "MEDIUM_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "HIGH_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "TELCOSUS05",
+                    "title": "How do you measure and track the carbon footprint of your telco network operations?",
+                    "description": "Establishing comprehensive carbon footprint monitoring is essential for telecommunications organizations to meet sustainability goals, comply with regulations, and demonstrate environmental responsibility to stakeholders.",
+                    "choices": [
+                        {
+                            "id": "TELCOSUS05_BP01",
+                            "title": "Establish comprehensive carbon footprint monitoring for telco networks",
+                            "helpfulResource": {
+                                "displayText": "Measuring carbon footprint across telco operations requires tracking emissions from multiple sources including data centers, network equipment, edge sites, and even supply chain activities.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/telco-lens/telcosus05-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Establish comprehensive carbon footprint monitoring for telco networks",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/telco-lens/telcosus05-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "TELCOSUS05_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "TELCOSUS05_BP01",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!TELCOSUS05_BP01)",
+                            "risk": "MEDIUM_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "HIGH_RISK"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
