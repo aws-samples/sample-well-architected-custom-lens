@@ -1,0 +1,1691 @@
+{
+    "schemaVersion": "2021-11-01",
+    "name": "Streaming media lens",
+    "description": "This whitepaper describes the AWS Streaming Media Lens for the AWS Well-Architected Framework, which helps customers apply best practices in the design, delivery, and maintenance of their cloud-based streaming media workloads. The document describes general design principles, as well as specific best practices and guidance for the six pillars of the Well-Architected Framework.",
+    "pillars": [
+        {
+            "id": "operationalExcellence",
+            "name": "Operational Excellence",
+            "questions": [
+                {
+                    "id": "SMOPS01",
+                    "title": "How does your organization support streaming media outcomes?",
+                    "description": "Streaming workflows cross multiple teams (encoding, delivery, client, and operations) and require clear ownership at each stage.",
+                    "choices": [
+                        {
+                            "id": "SMOPS01_BP01",
+                            "title": "Assess trade-offs between streaming architecture options and associated risks",
+                            "helpfulResource": {
+                                "displayText": "When designing streaming video infrastructure, carefully evaluate the trade-offs between different architectural approaches and their associated risks. This includes considering factors such as performance, scalability, availability, security, and cost to determine the optimal solution for different streaming scenarios.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/streaming-media-lens/smops01-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Assess trade-offs between streaming architecture options and associated risks",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/streaming-media-lens/smops01-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "SMOPS01_BP02",
+                            "title": "Create RACI matrices for streaming video operations",
+                            "helpfulResource": {
+                                "displayText": "Define clear roles and responsibilities for each stakeholder involved in streaming video operations. By implementing RACI (responsible, accountable, consulted, and informed) matrices, organizations can establish a clear framework for accountability and decision-making across the entire streaming workflow.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/streaming-media-lens/smops01-bp02.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Create RACI matrices for streaming video operations",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/streaming-media-lens/smops01-bp02.html"
+                            }
+                        },
+                        {
+                            "id": "SMOPS01_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "SMOPS01_BP01 && SMOPS01_BP02",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!SMOPS01_BP01) || (!SMOPS01_BP02)",
+                            "risk": "MEDIUM_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "HIGH_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "SMOPS02",
+                    "title": "How do you achieve full observability across your streaming video workflow?",
+                    "description": "Streaming workflows are distributed systems spanning ingest, processing, origin, CDN, and client. Detecting, diagnosing, and resolving issues requires visibility into metrics, events, and dependencies across all of these layers.",
+                    "choices": [
+                        {
+                            "id": "SMOPS02_BP01",
+                            "title": "Establish performance metrics by defining key performance indicators (KPIs) and service-level objectives (SLOs)",
+                            "helpfulResource": {
+                                "displayText": "Establishing a full set of operational performance metrics is critical in streaming video workloads. It helps organizations to measure, monitor, and validate the performance of streaming operations across different scenarios.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/streaming-media-lens/smops02-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Establish performance metrics by defining key performance indicators (KPIs) and service-level objectives (SLOs)",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/streaming-media-lens/smops02-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "SMOPS02_BP02",
+                            "title": "Implement comprehensive monitoring and collect granular metrics across all layers of your streaming stack",
+                            "helpfulResource": {
+                                "displayText": "Streaming video workloads require a complete approach to monitoring that spans all layers of the streaming stack i.e., infrastructure, encoding, packaging, delivery, and playback while collecting granular, scenario-specific metrics with near real-time latency. By combining full stack-wide monitoring with advanced analytics and anomaly detection, you can proactively identify and resolve issues before they impact viewer experience, even during high-demand periods.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/streaming-media-lens/smops02-bp02.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Implement comprehensive monitoring and collect granular metrics across all layers of your streaming stack",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/streaming-media-lens/smops02-bp02.html"
+                            }
+                        },
+                        {
+                            "id": "SMOPS02_BP03",
+                            "title": "Implement centralized logging to aggregate logs from all components of your streaming stack",
+                            "helpfulResource": {
+                                "displayText": "To provide full visibility and operational efficiency across your streaming video stack, implement a centralized logging solution. By aggregating logs from all components of your streaming stack, including third-party integrations and custom applications, you gain a complete view of your system's performance and behavior.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/streaming-media-lens/smops02-bp03.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Implement centralized logging to aggregate logs from all components of your streaming stack",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/streaming-media-lens/smops02-bp03.html"
+                            }
+                        },
+                        {
+                            "id": "SMOPS02_BP04",
+                            "title": "Instrument your streaming application code and infrastructure for observability",
+                            "helpfulResource": {
+                                "displayText": "Instrument your streaming application code and infrastructure to emit detailed, structured logs and metrics to achieve full visibility into streaming video workloads. This structured approach enables teams to detect, diagnose, and resolve issues quickly, optimizing performance and reliability of streaming video delivery.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/streaming-media-lens/smops02-bp04.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Instrument your streaming application code and infrastructure for observability",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/streaming-media-lens/smops02-bp04.html"
+                            }
+                        },
+                        {
+                            "id": "SMOPS02_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "SMOPS02_BP01 && SMOPS02_BP02 && SMOPS02_BP03 && SMOPS02_BP04",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "SMOPS02_BP02",
+                            "risk": "MEDIUM_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "HIGH_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "SMOPS03",
+                    "title": "How do you prepare for large-scale streaming media events?",
+                    "description": "Large-scale events involve sudden spikes in viewership that stress every component. Preparation before the event determines whether it delivers without degradation.",
+                    "choices": [
+                        {
+                            "id": "SMOPS03_BP01",
+                            "title": "Implement thorough capacity planning for high-viewership events",
+                            "helpfulResource": {
+                                "displayText": "Large-scale streaming events require thorough capacity planning across all components of the streaming workflow to maintain reliable delivery during peak viewership. This planning must account for potential viewership patterns, regional distribution, and engagement behaviors.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/streaming-media-lens/smops03-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Implement thorough capacity planning for high-viewership events",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/streaming-media-lens/smops03-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "SMOPS03_BP02",
+                            "title": "Conduct thorough pre-event testing for large-scale streaming events",
+                            "helpfulResource": {
+                                "displayText": "Before high-profile streaming events, conduct thorough testing to validate the entire workflow's capacity, reliability, and performance under expected load conditions. This testing helps identify potential issues before they impact viewers during the actual event.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/streaming-media-lens/smops03-bp02.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Conduct thorough pre-event testing for large-scale streaming events",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/streaming-media-lens/smops03-bp02.html"
+                            }
+                        },
+                        {
+                            "id": "SMOPS03_BP03",
+                            "title": "Establish war room and incident readiness procedures for high-profile events",
+                            "helpfulResource": {
+                                "displayText": "During large-scale streaming events, establish dedicated war room and incident readiness procedures that coordinate response and drive rapid resolution of any issues. This approach enables structured decision-making and clear communication during critical streaming periods.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/streaming-media-lens/smops03-bp03.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Establish war room and incident readiness procedures for high-profile events",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/streaming-media-lens/smops03-bp03.html"
+                            }
+                        },
+                        {
+                            "id": "SMOPS03_BP04",
+                            "title": "Use specialized media support solutions for business-critical streaming events",
+                            "helpfulResource": {
+                                "displayText": "For business-critical streaming workloads and high-profile live events, use AWS Unified Operations for Media Support Solution (MSS) to augment your operational capabilities with proactive monitoring, specialized media expertise, and accelerated incident response with defined service-level objectives (SLOs).",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/streaming-media-lens/smops03-bp04.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Use specialized media support solutions for business-critical streaming events",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/streaming-media-lens/smops03-bp04.html"
+                            }
+                        },
+                        {
+                            "id": "SMOPS03_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "SMOPS03_BP01 && SMOPS03_BP02 && SMOPS03_BP03 && SMOPS03_BP04",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!SMOPS03_BP01) || (!SMOPS03_BP02) || (!SMOPS03_BP03) || (!SMOPS03_BP04)",
+                            "risk": "HIGH_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "MEDIUM_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "SMOPS04",
+                    "title": "How do you document and automate responses to operational events in your streaming video workflow?",
+                    "description": "Streaming systems are susceptible to encoding failures, delivery issues, and quality degradation. Documented, repeatable response procedures reduce resolution time and limit viewer impact during incidents.",
+                    "choices": [
+                        {
+                            "id": "SMOPS04_BP01",
+                            "title": "Create runbooks for common streaming video operational events",
+                            "helpfulResource": {
+                                "displayText": "Develop incident response runbooks that provide a structured framework to manage common operational events and incidents in streaming video workflows. These playbooks outline step-by-step procedures tailored to specific types of incidents, which helps your teams act swiftly and consistently and reduces the likelihood of human error.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/streaming-media-lens/smops04-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Create runbooks for common streaming video operational events",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/streaming-media-lens/smops04-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "SMOPS04_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "SMOPS04_BP01",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!SMOPS04_BP01)",
+                            "risk": "HIGH_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "MEDIUM_RISK"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "security",
+            "name": "Security",
+            "questions": [
+                {
+                    "id": "SMSEC01",
+                    "title": "How do you authorize access to content and content ingest?",
+                    "description": "Authentication and authorization systems control who can access content and how. This covers viewer-facing identity (subscription tiers, geo-restrictions) and infrastructure-level access (origin restrictions, CDN authentication).",
+                    "choices": [
+                        {
+                            "id": "SMSEC01_BP01",
+                            "title": "Use an identity provider to authenticate viewers and access policies to implement least privilege access to protected content",
+                            "helpfulResource": {
+                                "displayText": "Protect content and infrastructure from access by outside personnel, as unauthorized access could lead to content theft. Even internal access should be controlled to reduce the risk of unauthorized access or accidental deletion or loss of data.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/streaming-media-lens/smsec01-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Use an identity provider to authenticate viewers and access policies to implement least privilege access to protected content",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/streaming-media-lens/smsec01-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "SMSEC01_BP02",
+                            "title": "Restrict content origin access to allow only authorized content distribution networks",
+                            "helpfulResource": {
+                                "displayText": "Even authenticated users can act maliciously with your workloads, so consider how to secure the data path of your video streams. Tokenization schemes such as signed-URLs, signed-cookies, or JWTs (JSON Web Tokens) should be used to grant only temporary access to content by approved frontend applications. Amazon CloudFront can protect access to content origin through signed URLs and signed cookies with a short duration to live, and Lambda@Edge can validate bearer tokens during viewer request.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/streaming-media-lens/smsec01-bp02.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Restrict content origin access to allow only authorized content distribution networks",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/streaming-media-lens/smsec01-bp02.html"
+                            }
+                        },
+                        {
+                            "id": "SMSEC01_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "SMSEC01_BP01 && SMSEC01_BP02",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!SMSEC01_BP01) || (!SMSEC01_BP02)",
+                            "risk": "HIGH_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "MEDIUM_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "SMSEC02",
+                    "title": "How do you monitor access to your media distribution workload?",
+                    "description": "Viewer access patterns provide a data source for identifying unauthorized access. A combination of client and infrastructure logging baselines expected behavior and alerts on deviations.",
+                    "choices": [
+                        {
+                            "id": "SMSEC02_BP01",
+                            "title": "Monitor for fraudulent access attempts",
+                            "helpfulResource": {
+                                "displayText": "Even when you have implemented access controls to the content you want to serve, continue to monitor for unauthorized access and perform regular checks to verify that access groups are up to date and that no unauthorized users have found their way in.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/streaming-media-lens/smsec02-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Monitor for fraudulent access attempts",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/streaming-media-lens/smsec02-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "SMSEC02_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "SMSEC02_BP01",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!SMSEC02_BP01)",
+                            "risk": "HIGH_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "MEDIUM_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "SMSEC03",
+                    "title": "How do you monitor unauthorized re-distribution of your content?",
+                    "description": "When content is distributed without consent, forensic controls help trace leaked material back to its source. This covers watermarking and session-level traceability.",
+                    "choices": [
+                        {
+                            "id": "SMSEC03_BP01",
+                            "title": "Implement content or sessions forensics",
+                            "helpfulResource": {
+                                "displayText": "If content is found outside of your normal operation workflows, you will want to can identify where or how the content was accessed to close a gap.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/streaming-media-lens/smsec03-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Implement content or sessions forensics",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/streaming-media-lens/smsec03-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "SMSEC03_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "SMSEC03_BP01",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!SMSEC03_BP01)",
+                            "risk": "MEDIUM_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "HIGH_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "SMSEC04",
+                    "title": "How do you protect content ingest endpoints?",
+                    "description": "Ingest endpoints accept content from providers and encoding devices. They need to be restricted to trusted sources and protected in transit to reduce the risk of injection, interception, or degradation.",
+                    "choices": [
+                        {
+                            "id": "SMSEC04_BP01",
+                            "title": "Use Access Control Lists to restrict content to trusted providers only",
+                            "helpfulResource": {
+                                "displayText": "Control access from the start so that you are the only one that can send content into your workflow from the beginning.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/streaming-media-lens/smsec04-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Use Access Control Lists to restrict content to trusted providers only",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/streaming-media-lens/smsec04-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "SMSEC04_BP02",
+                            "title": "Encrypt content ingest traffic using TLS",
+                            "helpfulResource": {
+                                "displayText": "AWS Elemental Media Services require HTTPS connections where possible. Use HTTPS over HTTP wherever possible and avoid outdated security ciphers. Using up to date versions of TLS encryption keeps traffic secure in transit either coming into your workflows or leaving your workflows.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/streaming-media-lens/smsec04-bp02.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Encrypt content ingest traffic using TLS",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/streaming-media-lens/smsec04-bp02.html"
+                            }
+                        },
+                        {
+                            "id": "SMSEC04_BP03",
+                            "title": "Use private connectivity when working with partners",
+                            "helpfulResource": {
+                                "displayText": "Using private connectivity from your location or other datacenters can help avoid transmission of data across unknown or unprotected networks, and allows content to be delivered directly to AWS.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/streaming-media-lens/smsec04-bp03.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Use private connectivity when working with partners",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/streaming-media-lens/smsec04-bp03.html"
+                            }
+                        },
+                        {
+                            "id": "SMSEC04_BP04",
+                            "title": "Encrypt content at rest when delivering via physical medium",
+                            "helpfulResource": {
+                                "displayText": "Deploy secure physical media delivery solutions for large-scale content transfer using hardware-encrypted storage devices and secure logistics processes.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/streaming-media-lens/smsec04-bp04.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Encrypt content at rest when delivering via physical medium",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/streaming-media-lens/smsec04-bp04.html"
+                            }
+                        },
+                        {
+                            "id": "SMSEC04_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "SMSEC04_BP01 && SMSEC04_BP02 && SMSEC04_BP03 && SMSEC04_BP04",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "SMSEC04_BP02 && SMSEC04_BP04",
+                            "risk": "MEDIUM_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "HIGH_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "SMSEC05",
+                    "title": "How do you protect content origin from unauthorized access and malicious attacks?",
+                    "description": "Content origins need protection from DDoS attacks at both network and application layers, unauthorized direct access bypassing the CDN, and application-level exploits.",
+                    "choices": [
+                        {
+                            "id": "SMSEC05_BP01",
+                            "title": "Use distributed denial of service (DDoS) protection service to maintain content availability",
+                            "helpfulResource": {
+                                "displayText": "It is important to respond to threats and other attacks by protecting your origin and using tools to block or mitigate malicious requests.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/streaming-media-lens/smsec05-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Use distributed denial of service (DDoS) protection service to maintain content availability",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/streaming-media-lens/smsec05-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "SMSEC05_BP02",
+                            "title": "Restrict content origin access to only allow known entities",
+                            "helpfulResource": {
+                                "displayText": "Even for live streaming delivery, controlling who is allowed to request content is important. Configure origin access controls so that content can only be accessed by authorized content delivery networks and trusted entities.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/streaming-media-lens/smsec05-bp02.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Restrict content origin access to only allow known entities",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/streaming-media-lens/smsec05-bp02.html"
+                            }
+                        },
+                        {
+                            "id": "SMSEC05_BP03",
+                            "title": "Use a web application firewall to monitor and control content access",
+                            "helpfulResource": {
+                                "displayText": "Implement web application firewall to protect content origins and content delivery network (CDN) distributions from common exploits like SQL Injection or Cross Site Scripting (XSS), filter malicious traffic, and create custom rules while maintaining full logging and monitoring.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/streaming-media-lens/smsec05-bp03.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Use a web application firewall to monitor and control content access",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/streaming-media-lens/smsec05-bp03.html"
+                            }
+                        },
+                        {
+                            "id": "SMSEC05_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "SMSEC05_BP01 && SMSEC05_BP02 && SMSEC05_BP03",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!SMSEC05_BP01) || (!SMSEC05_BP02) || (!SMSEC05_BP03)",
+                            "risk": "HIGH_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "MEDIUM_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "SMSEC06",
+                    "title": "How do you protect content at-rest and in-transit to avoid unauthorized distribution?",
+                    "description": "High-value content requires protection through Digital Rights Management (DRM) and encryption. The protection scheme must balance security requirements with device coverage and operational complexity.",
+                    "choices": [
+                        {
+                            "id": "SMSEC06_BP01",
+                            "title": "Collaborate with business and legal stakeholders to align on content protection requirements",
+                            "helpfulResource": {
+                                "displayText": "Content protection requirements must be established through collaboration between technical, business, and legal teams so that the implemented solution meets commercial obligations, regulatory requirements, and business objectives. This alignment is critical when serving copyrighted materials or high-value content that requires protection from unlawful access, replication, and redistribution.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/streaming-media-lens/smsec06-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Collaborate with business and legal stakeholders to align on content protection requirements",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/streaming-media-lens/smsec06-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "SMSEC06_BP02",
+                            "title": "Select a content protection scheme that meets business objectives",
+                            "helpfulResource": {
+                                "displayText": "Organizations must choose the appropriate content protection technology based on their specific business requirements, content value, target platforms, and commercial obligations. The selection should balance security requirements with user experience, cost considerations, and technical complexity.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/streaming-media-lens/smsec06-bp02.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Select a content protection scheme that meets business objectives",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/streaming-media-lens/smsec06-bp02.html"
+                            }
+                        },
+                        {
+                            "id": "SMSEC06_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "SMSEC06_BP01 && SMSEC06_BP02",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "SMSEC06_BP02",
+                            "risk": "MEDIUM_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "HIGH_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "SMSEC07",
+                    "title": "Have your incident responders reviewed processes on how to respond to incidents?",
+                    "description": "Streaming media incidents include both standard security events and media-specific scenarios such as unauthorized content redistribution. Response plans should cover both.",
+                    "choices": [
+                        {
+                            "id": "SMSEC07_BP01",
+                            "title": "Establish your plan for incident response",
+                            "helpfulResource": {
+                                "displayText": "To prepare for incidents, have a plan in place to educate and use your team so that incidents are quickly dealt with and don't cause undue degradation.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/streaming-media-lens/smsec07-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Establish your plan for incident response",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/streaming-media-lens/smsec07-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "SMSEC07_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "SMSEC07_BP01",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!SMSEC07_BP01)",
+                            "risk": "HIGH_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "MEDIUM_RISK"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "reliability",
+            "name": "Reliability",
+            "questions": [
+                {
+                    "id": "SMREL01",
+                    "title": "How does your streaming workflow provide reliable content ingestion from live and offline sources?",
+                    "description": "Ingestion is the entry point of the streaming workflow. Failures here cascade through the entire delivery chain. Ingestion reliability covers redundant contribution paths for live sources and validated, resumable transfers for file-based content.",
+                    "choices": [
+                        {
+                            "id": "SMREL01_BP01",
+                            "title": "Implement redundant live contribution paths with resilient protocols",
+                            "helpfulResource": {
+                                "displayText": "Design your live contribution architecture with multiple redundant paths using protocols that provide automatic error recovery and packet retransmission capabilities.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/streaming-media-lens/smrel01-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Implement redundant live contribution paths with resilient protocols",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/streaming-media-lens/smrel01-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "SMREL01_BP02",
+                            "title": "Implement resilient file-based content ingestion with validation and recovery",
+                            "helpfulResource": {
+                                "displayText": "Design your file-based content ingestion workflow with reliable transfer mechanisms, automatic validation, and geographic distribution so that content is reliably available for processing and delivery.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/streaming-media-lens/smrel01-bp02.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Implement resilient file-based content ingestion with validation and recovery",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/streaming-media-lens/smrel01-bp02.html"
+                            }
+                        },
+                        {
+                            "id": "SMREL01_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "SMREL01_BP01 && SMREL01_BP02",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "SMREL01_BP01",
+                            "risk": "MEDIUM_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "HIGH_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "SMREL02",
+                    "title": "How does your streaming workflow provide reliable content processing across encoding, transcoding, and packaging operations?",
+                    "description": "Processing transforms ingested content into distribution formats. Failures in encoding or packaging can stop content from reaching viewers or degrade quality. Reliable processing requires redundancy, idempotent workflows, and automatic error recovery.",
+                    "choices": [
+                        {
+                            "id": "SMREL02_BP01",
+                            "title": "Design processing workflows with redundancy and automatic error recovery",
+                            "helpfulResource": {
+                                "displayText": "Implement processing workflows that can withstand individual component failures through redundant processing pipelines, automatic retry mechanisms, and quality validation at each stage.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/streaming-media-lens/smrel02-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Design processing workflows with redundancy and automatic error recovery",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/streaming-media-lens/smrel02-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "SMREL02_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "SMREL02_BP01",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!SMREL02_BP01)",
+                            "risk": "HIGH_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "MEDIUM_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "SMREL03",
+                    "title": "How does your streaming workflow provide reliable content distribution from origin to viewers?",
+                    "description": "Content distribution is the final step before viewers. Failures here directly cause buffering, playback errors, or complete outages. Distribution reliability covers origin redundancy, CDN failover, and multi-tier caching.",
+                    "choices": [
+                        {
+                            "id": "SMREL03_BP01",
+                            "title": "Implement multi-tier distribution with origin redundancy and content delivery network (CDN) failover",
+                            "helpfulResource": {
+                                "displayText": "Design your distribution architecture with redundant origin services across multiple regions and CDN failover mechanisms so that content remains continuously available during component failures or traffic spikes.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/streaming-media-lens/smrel03-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Implement multi-tier distribution with origin redundancy and content delivery network (CDN) failover",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/streaming-media-lens/smrel03-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "SMREL03_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "SMREL03_BP01",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!SMREL03_BP01)",
+                            "risk": "HIGH_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "MEDIUM_RISK"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "performance",
+            "name": "Performance Efficiency",
+            "questions": [
+                {
+                    "id": "SMPERF01",
+                    "title": "How do you optimize media delivery through media origination and processing?",
+                    "description": "Origin technology selection directly affects delivery performance. The choice between pass-through origins and just-in-time packaging origins depends on workload characteristics. These include live compared to VOD, viewer count, latency targets, and format diversity.",
+                    "choices": [
+                        {
+                            "id": "SMPERF01_BP01",
+                            "title": "Select origin technology appropriate for your workload",
+                            "helpfulResource": {
+                                "displayText": "Select origin technology that matches your streaming media workload's characteristics and delivery requirements.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/streaming-media-lens/smperf01-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Select origin technology appropriate for your workload",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/streaming-media-lens/smperf01-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "SMPERF01_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "SMPERF01_BP01",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!SMPERF01_BP01)",
+                            "risk": "HIGH_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "MEDIUM_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "SMPERF02",
+                    "title": "How do you approach media source contribution?",
+                    "description": "Source quality and transport reliability constrain what the entire downstream pipeline can deliver. Contribution protocol choice and source acquisition quality have a direct effect on what viewers ultimately see.",
+                    "choices": [
+                        {
+                            "id": "SMPERF02_BP01",
+                            "title": "Start with the highest quality source reasonably obtainable",
+                            "helpfulResource": {
+                                "displayText": "Acquire the highest quality media source available so downstream transcoding has maximum headroom.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/streaming-media-lens/smperf02-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Start with the highest quality source reasonably obtainable",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/streaming-media-lens/smperf02-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "SMPERF02_BP02",
+                            "title": "Use specialized media transport and acceleration protocols",
+                            "helpfulResource": {
+                                "displayText": "Use specialized transport protocols for media contribution to reduce packet loss and latency over unreliable networks.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/streaming-media-lens/smperf02-bp02.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Use specialized media transport and acceleration protocols",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/streaming-media-lens/smperf02-bp02.html"
+                            }
+                        },
+                        {
+                            "id": "SMPERF02_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "SMPERF02_BP01 && SMPERF02_BP02",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!SMPERF02_BP01) || (!SMPERF02_BP02)",
+                            "risk": "MEDIUM_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "HIGH_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "SMPERF03",
+                    "title": "How do you use caching to improve content delivery performance?",
+                    "description": "CDN configuration and cache strategy determine whether viewers are served from nearby edge locations or generate repeated requests back to origin. Cache hit ratio is the primary performance and efficiency metric for delivery.",
+                    "choices": [
+                        {
+                            "id": "SMPERF03_BP01",
+                            "title": "Use a content delivery network and monitor your cache-hit-ratio",
+                            "helpfulResource": {
+                                "displayText": "Deploy a content delivery network (CDN) in front of your streaming origins and monitor cache-hit-ratio per content type to protect the origin and reduce viewer latency.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/streaming-media-lens/smperf03-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Use a content delivery network and monitor your cache-hit-ratio",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/streaming-media-lens/smperf03-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "SMPERF03_BP02",
+                            "title": "Optimize cache-control headers for your content",
+                            "helpfulResource": {
+                                "displayText": "Set cache-control headers at the origin so each content type (live manifests, live segments, video on demand (VOD)) is cached for the right duration.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/streaming-media-lens/smperf03-bp02.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Optimize cache-control headers for your content",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/streaming-media-lens/smperf03-bp02.html"
+                            }
+                        },
+                        {
+                            "id": "SMPERF03_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "SMPERF03_BP01 && SMPERF03_BP02",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "SMPERF03_BP01",
+                            "risk": "MEDIUM_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "HIGH_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "SMPERF04",
+                    "title": "How do you monitor viewer experience?",
+                    "description": "Infrastructure monitoring provides only part of the picture. Real user monitoring and client-side metrics are necessary to understand what viewers actually experience and to correlate client-side issues with infrastructure events.",
+                    "choices": [
+                        {
+                            "id": "SMPERF04_BP01",
+                            "title": "Collect and analyze real user logs and metrics",
+                            "helpfulResource": {
+                                "displayText": "Collect client-side telemetry alongside content delivery network (CDN) real-time logs to measure what viewers actually experience, not just what the infrastructure delivers.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/streaming-media-lens/smperf04-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Collect and analyze real user logs and metrics",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/streaming-media-lens/smperf04-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "SMPERF04_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "SMPERF04_BP01",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!SMPERF04_BP01)",
+                            "risk": "HIGH_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "MEDIUM_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "SMPERF05",
+                    "title": "What tradeoffs have you made in media processing to improve client experience and lower bandwidth costs?",
+                    "description": "Encoding settings and the ABR ladder determine the balance between quality, bandwidth, and device compatibility. These decisions affect both viewer experience and delivery cost at scale.",
+                    "choices": [
+                        {
+                            "id": "SMPERF05_BP01",
+                            "title": "Optimize the number of adaptive bit rate renditions for your workload",
+                            "helpfulResource": {
+                                "displayText": "Size your adaptive bit rate (ABR) ladder to your target devices, network conditions, and content type rather than copying a default template.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/streaming-media-lens/smperf05-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Optimize the number of adaptive bit rate renditions for your workload",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/streaming-media-lens/smperf05-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "SMPERF05_BP02",
+                            "title": "Select appropriate encoding settings for your content type and quality targets",
+                            "helpfulResource": {
+                                "displayText": "Choose encoding parameters matched to your content characteristics (sports, animation, and talking heads) and validate output quality with objective metrics.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/streaming-media-lens/smperf05-bp02.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Select appropriate encoding settings for your content type and quality targets",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/streaming-media-lens/smperf05-bp02.html"
+                            }
+                        },
+                        {
+                            "id": "SMPERF05_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "SMPERF05_BP01 && SMPERF05_BP02",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!SMPERF05_BP01) || (!SMPERF05_BP02)",
+                            "risk": "MEDIUM_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "HIGH_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "SMPERF06",
+                    "title": "What tradeoffs have you made to lower live glass-to-glass latency?",
+                    "description": "Live streaming latency affects viewer engagement, especially for interactive content and live events. Reducing latency requires coordinated optimization across encoding, packaging, delivery, and player layers, and involves trade-offs with quality and reliability.",
+                    "choices": [
+                        {
+                            "id": "SMPERF06_BP01",
+                            "title": "Optimize processing, origination, delivery, and client for low latency",
+                            "helpfulResource": {
+                                "displayText": "Implement low-latency optimizations across the entire streaming pipeline while carefully managing tradeoffs with quality and reliability.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/streaming-media-lens/smperf06-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Optimize processing, origination, delivery, and client for low latency",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/streaming-media-lens/smperf06-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "SMPERF06_BP02",
+                            "title": "Implement ultra-low latency streaming for real-time interactive experiences",
+                            "helpfulResource": {
+                                "displayText": "Implement Web Real-Time Communication (WebRTC) based streaming solutions to achieve sub-second latency for interactive streaming applications that require real-time viewer engagement.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/streaming-media-lens/smperf06-bp02.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Implement ultra-low latency streaming for real-time interactive experiences",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/streaming-media-lens/smperf06-bp02.html"
+                            }
+                        },
+                        {
+                            "id": "SMPERF06_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "SMPERF06_BP01 && SMPERF06_BP02",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!SMPERF06_BP01) || (!SMPERF06_BP02)",
+                            "risk": "MEDIUM_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "HIGH_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "SMPERF07",
+                    "title": "How do you optimize advertising integration for streaming media performance?",
+                    "description": "Ad insertion affects streaming performance, viewer experience, and monetization. SSAI and CSAI have different performance characteristics. Proper ad integration maintains playback continuity while maximizing fill rate.",
+                    "choices": [
+                        {
+                            "id": "SMPERF07_BP01",
+                            "title": "Implement Server-Side Ad Insertion (SSAI) for smooth viewer experience",
+                            "helpfulResource": {
+                                "displayText": "Use AWS Elemental MediaTailor to implement SSAI that provides smooth ad integration without client-side complexity while maintaining streaming performance and quality.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/streaming-media-lens/smperf07-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Implement Server-Side Ad Insertion (SSAI) for smooth viewer experience",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/streaming-media-lens/smperf07-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "SMPERF07_BP02",
+                            "title": "Implement ad prefetching to optimize ad decision server performance and improve fill rates",
+                            "helpfulResource": {
+                                "displayText": "Prefetch ad inventory ahead of predictable ad breaks to reduce real-time load on the ad decision server and improve fill rates.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/streaming-media-lens/smperf07-bp02.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Implement ad prefetching to optimize ad decision server performance and improve fill rates",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/streaming-media-lens/smperf07-bp02.html"
+                            }
+                        },
+                        {
+                            "id": "SMPERF07_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "SMPERF07_BP01 && SMPERF07_BP02",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!SMPERF07_BP01) || (!SMPERF07_BP02)",
+                            "risk": "MEDIUM_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "HIGH_RISK"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "costOptimization",
+            "name": "Cost Optimization",
+            "questions": [
+                {
+                    "id": "SMCOST01",
+                    "title": "How do you optimize storage and data transfer costs for your streaming media workload?",
+                    "description": "Storage and data transfer often represent the largest cost components. A strategy for lifecycle management and edge caching reduces these costs while maintaining access performance.",
+                    "choices": [
+                        {
+                            "id": "SMCOST01_BP01",
+                            "title": "Implement lifecycle management for media assets",
+                            "helpfulResource": {
+                                "displayText": "Media assets can reach hundreds of gigabytes per file. Without active lifecycle management, storage costs grow linearly with content volume regardless of whether assets are still accessed. Organizations that produce or acquire content continuously accumulate source, mezzanine, and distribution files that remain in high-cost storage tiers long after their access frequency drops to near zero.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/streaming-media-lens/smcost01-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Implement lifecycle management for media assets",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/streaming-media-lens/smcost01-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "SMCOST01_BP02",
+                            "title": "Optimize content delivery using edge caching and just-in-time packaging",
+                            "helpfulResource": {
+                                "displayText": "Content delivery is typically the largest cost component for organizations streaming to large audiences. A 60-minute video streamed to 1,000 concurrent viewers can generate over 2,700 GB of data transfer per hour. Reducing how often content is fetched from origin and how much content needs to be stored in multiple formats directly reduces this cost while improving viewer experience through lower latency.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/streaming-media-lens/smcost01-bp02.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Optimize content delivery using edge caching and just-in-time packaging",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/streaming-media-lens/smcost01-bp02.html"
+                            }
+                        },
+                        {
+                            "id": "SMCOST01_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "SMCOST01_BP01 && SMCOST01_BP02",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!SMCOST01_BP01) || (!SMCOST01_BP02)",
+                            "risk": "MEDIUM_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "HIGH_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "SMCOST02",
+                    "title": "How do you optimize content processing costs for your streaming media workload?",
+                    "description": "Processing costs scale with encoding volume, instance selection, and utilization efficiency. Baseline measurement, parallel processing, and capacity reservations are the main ways to reduce them.",
+                    "choices": [
+                        {
+                            "id": "SMCOST02_BP01",
+                            "title": "Establish baseline metrics for media processing tasks",
+                            "helpfulResource": {
+                                "displayText": "Consumer demand for more content at higher resolution and quality puts ongoing pressure on processing infrastructure. As transcoding, quality control, and packaging workloads grow, so do their costs. Without measured baselines, teams can't distinguish between expected cost growth and inefficiency, can't forecast accurately, and can't evaluate whether infrastructure changes improve or degrade cost performance.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/streaming-media-lens/smcost02-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Establish baseline metrics for media processing tasks",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/streaming-media-lens/smcost02-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "SMCOST02_BP02",
+                            "title": "Implement parallel processing for media tasks",
+                            "helpfulResource": {
+                                "displayText": "Media processing tasks are inherently parallelizable. Video content can be split on I-frame boundaries, processed as independent segments, and reassembled. Sequential processing on vertically-scaled instances limits you to expensive large instance types and means a single interruption wastes the entire job. Parallel processing across many smaller workers accesses cheaper compute, completes faster, and limits the scope of impact of any single failure.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/streaming-media-lens/smcost02-bp02.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Implement parallel processing for media tasks",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/streaming-media-lens/smcost02-bp02.html"
+                            }
+                        },
+                        {
+                            "id": "SMCOST02_BP03",
+                            "title": "Optimize AWS Elemental Media Services pricing models",
+                            "helpfulResource": {
+                                "displayText": "AWS Elemental Media Services offer multiple pricing models that deliver significant savings over on-demand rates when matched to appropriate workload patterns. Organizations that run all workloads at on-demand rates without evaluating reservations, tier selection, or infrastructure lifecycle management leave substantial savings unrealized. Selecting the right pricing model for each workload pattern requires understanding usage characteristics and commitment trade-offs.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/streaming-media-lens/smcost02-bp03.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Optimize AWS Elemental Media Services pricing models",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/streaming-media-lens/smcost02-bp03.html"
+                            }
+                        },
+                        {
+                            "id": "SMCOST02_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "SMCOST02_BP01 && SMCOST02_BP02 && SMCOST02_BP03",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!SMCOST02_BP01) || (!SMCOST02_BP02) || (!SMCOST02_BP03)",
+                            "risk": "MEDIUM_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "HIGH_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "SMCOST03",
+                    "title": "How do you optimize distribution costs while maintaining video quality?",
+                    "description": "Encoding decisions directly determine delivery cost. Lower bit rate at equivalent quality means fewer bytes to store and transfer. Content-aware encoding matches spend to complexity rather than applying uniform high bitrates.",
+                    "choices": [
+                        {
+                            "id": "SMCOST03_BP01",
+                            "title": "Implement thorough video quality assessment",
+                            "helpfulResource": {
+                                "displayText": "Every bit saved in encoding translates directly to reduced delivery cost. A 20 percent bit rate reduction across a content catalog means 20 percent lower CDN spend. The challenge is identifying where those bits can be removed without degrading what viewers actually perceive. Organizations that don't measure quality systematically either overspend on delivery (encoding at higher bitrates than necessary) or underdeliver on experience (encoding too aggressively without knowing it).",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/streaming-media-lens/smcost03-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Implement thorough video quality assessment",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/streaming-media-lens/smcost03-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "SMCOST03_BP02",
+                            "title": "Optimize encoder settings based on content type",
+                            "helpfulResource": {
+                                "displayText": "Traditional encoding allocates the same target bit rate regardless of content complexity. Low-complexity content receives more bits than it needs while complex content may not receive enough. Content-aware encoding analyzes source complexity and allocates bits accordingly, delivering equivalent perceptual quality at lower average bitrates. The bit rate reduction translates directly to proportional savings in CDN delivery cost for every viewer session.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/streaming-media-lens/smcost03-bp02.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Optimize encoder settings based on content type",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/streaming-media-lens/smcost03-bp02.html"
+                            }
+                        },
+                        {
+                            "id": "SMCOST03_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "SMCOST03_BP01 && SMCOST03_BP02",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "SMCOST03_BP01",
+                            "risk": "MEDIUM_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "HIGH_RISK"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "sustainability",
+            "name": "Sustainability",
+            "questions": [
+                {
+                    "id": "SMSUS01",
+                    "title": "How do you select regions to optimize your streaming media workloads for sustainability?",
+                    "description": "Region selection determines the baseline environmental cost of a streaming service. The energy mix of the Region and the distance content travels to viewers are fixed before any other optimization takes effect.",
+                    "choices": [
+                        {
+                            "id": "SMSUS01_BP01",
+                            "title": "Optimize regional distribution of streaming workloads to reduce resource waste and non-renewable energy use",
+                            "helpfulResource": {
+                                "displayText": "Place streaming workloads in the Regions that best balance proximity to viewers against the carbon intensity of the location. Region selection sets a floor on the environmental cost of a streaming service, because the energy mix of the Region and the distance content travels to viewers are decided before any other optimization takes effect.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/streaming-media-lens/smsus01-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Optimize regional distribution of streaming workloads to reduce resource waste and non-renewable energy use",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/streaming-media-lens/smsus01-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "SMSUS01_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "SMSUS01_BP01",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!SMSUS01_BP01)",
+                            "risk": "MEDIUM_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "HIGH_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "SMSUS02",
+                    "title": "How do you align streaming quality and infrastructure with viewer demand?",
+                    "description": "Streaming demand varies by orders of magnitude across the day and across events. Infrastructure sized for a theoretical peak sits idle most of its life.",
+                    "choices": [
+                        {
+                            "id": "SMSUS02_BP01",
+                            "title": "Implement adaptive infrastructure scaling based on viewer patterns",
+                            "helpfulResource": {
+                                "displayText": "Provision streaming infrastructure to follow actual viewer demand rather than a fixed peak assumption. Streaming demand is highly variable across the day, the week, and individual events, so capacity sized for the highest conceivable peak spends most of its life idle, consuming resources for an audience that isn't watching.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/streaming-media-lens/smsus02-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Implement adaptive infrastructure scaling based on viewer patterns",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/streaming-media-lens/smsus02-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "SMSUS02_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "SMSUS02_BP01",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!SMSUS02_BP01)",
+                            "risk": "MEDIUM_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "HIGH_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "SMSUS03",
+                    "title": "How do you optimize your streaming software and architecture for sustainability?",
+                    "description": "Every avoidable bit in an encode is multiplied across millions of viewing sessions in network transfer and client decode energy.",
+                    "choices": [
+                        {
+                            "id": "SMSUS03_BP01",
+                            "title": "Implement efficient encoding and delivery mechanisms",
+                            "helpfulResource": {
+                                "displayText": "Encode and deliver streaming media so that each viewer receives acceptable quality at the lowest practical bit rate. Encoding and delivery dominate the resource footprint of a streaming workload, because every avoidable bit is multiplied across millions of viewer sessions in transcode compute, network transfer, and client decode energy. Reducing bit rate to the minimum that delivers acceptable quality is the primary sustainability action in encoding and delivery.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/streaming-media-lens/smsus03-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Implement efficient encoding and delivery mechanisms",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/streaming-media-lens/smsus03-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "SMSUS03_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "SMSUS03_BP01",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!SMSUS03_BP01)",
+                            "risk": "MEDIUM_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "HIGH_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "SMSUS04",
+                    "title": "How do you optimize your live streaming architecture for sustainability?",
+                    "description": "Live workflow resource cost is governed by event duration and concurrent audience rather than catalog size. Channels that run idle between events or default to ultra-low latency for every stream consume resources without corresponding value.",
+                    "choices": [
+                        {
+                            "id": "SMSUS04_BP01",
+                            "title": "Design efficient, scalable live streaming workflows",
+                            "helpfulResource": {
+                                "displayText": "Run live streaming workflows so that processing resources are provisioned for the duration and audience of each event, not held continuously at peak capacity. Live workloads are uniquely wasteful when left running between events or over-provisioned for a latency target the use case doesn't need, because encode and packaging resources are consumed for the whole window whether viewers are watching.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/streaming-media-lens/smsus04-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Design efficient, scalable live streaming workflows",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/streaming-media-lens/smsus04-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "SMSUS04_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "SMSUS04_BP01",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!SMSUS04_BP01)",
+                            "risk": "MEDIUM_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "HIGH_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "SMSUS05",
+                    "title": "How do you manage data sustainably in your streaming media workloads?",
+                    "description": "Media catalogs grow continuously. Masters, mezzanines, renditions, and archives accumulate, and storage becomes a steadily rising resource cost unless tiering and lifecycle rules tie retention to actual use.",
+                    "choices": [
+                        {
+                            "id": "SMSUS05_BP01",
+                            "title": "Implement intelligent storage tiering and content lifecycle management",
+                            "helpfulResource": {
+                                "displayText": "Store streaming media so that each asset occupies the storage tier its access pattern justifies, and retire assets when their value ends. Media catalogs grow without bound, masters, mezzanines, deliverable renditions, and archives accumulate, so storage becomes a steadily rising resource cost unless tiering and lifecycle rules tie retention to actual use.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/streaming-media-lens/smsus05-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Implement intelligent storage tiering and content lifecycle management",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/streaming-media-lens/smsus05-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "SMSUS05_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "SMSUS05_BP01",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!SMSUS05_BP01)",
+                            "risk": "MEDIUM_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "HIGH_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "SMSUS06",
+                    "title": "How do you minimize data movement in your streaming architecture?",
+                    "description": "Every transfer carries energy and often triggers duplicate processing downstream. Streaming amplifies both distance and repetition because popular assets are requested millions of times.",
+                    "choices": [
+                        {
+                            "id": "SMSUS06_BP01",
+                            "title": "Optimize data flow and caching strategies",
+                            "helpfulResource": {
+                                "displayText": "Move streaming media as few times and as short a distance as possible. Every transfer of media data carries transfer energy and often triggers duplicate downstream processing, so a workload that copies content across Regions, re-fetches from origin on every request, or shuttles intermediate files between processing stages consumes resources out of proportion to the value delivered.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/streaming-media-lens/smsus06-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Optimize data flow and caching strategies",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/streaming-media-lens/smsus06-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "SMSUS06_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "SMSUS06_BP01",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!SMSUS06_BP01)",
+                            "risk": "MEDIUM_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "HIGH_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "SMSUS07",
+                    "title": "How do you select and use hardware for sustainable streaming operations?",
+                    "description": "The processor family and accelerator you select directly determine how much energy a given amount of work consumes.",
+                    "choices": [
+                        {
+                            "id": "SMSUS07_BP01",
+                            "title": "use energy-efficient computing resources",
+                            "helpfulResource": {
+                                "displayText": "Run each streaming workload on the most energy-efficient hardware that can do the job. Media processing is compute-intensive, so the processor family, accelerator, and instance type you select directly determine how much energy a given amount of transcoding, inference, or delivery work consumes.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/streaming-media-lens/smsus07-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "use energy-efficient computing resources",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/streaming-media-lens/smsus07-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "SMSUS07_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "SMSUS07_BP01",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!SMSUS07_BP01)",
+                            "risk": "MEDIUM_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "HIGH_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "SMSUS08",
+                    "title": "How do you use managed services to improve sustainability?",
+                    "description": "A self-managed component provisioned for one team's peak sits idle most of the time. Managed services aggregate demand across customers and scale to match, reaching higher average utilization.",
+                    "choices": [
+                        {
+                            "id": "SMSUS08_BP01",
+                            "title": "use AWS managed services for efficient resource utilization",
+                            "helpfulResource": {
+                                "displayText": "Use managed services in place of self-operated equivalents wherever a workload fits one. Managed services share infrastructure across many customers and scale with demand, so they reach a far higher average utilization than a self-managed component that each team provisions for its own peak and leaves idle the rest of the time.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/streaming-media-lens/smsus08-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "use AWS managed services for efficient resource utilization",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/streaming-media-lens/smsus08-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "SMSUS08_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "SMSUS08_BP01",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!SMSUS08_BP01)",
+                            "risk": "MEDIUM_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "HIGH_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "SMSUS09",
+                    "title": "How do you incorporate sustainability into your development and deployment processes?",
+                    "description": "The engineering process behind a streaming service carries its own resource footprint, dominated by idle non-production environments.",
+                    "choices": [
+                        {
+                            "id": "SMSUS09_BP01",
+                            "title": "Adopt sustainable development and deployment practices",
+                            "helpfulResource": {
+                                "displayText": "Run the development and deployment process so that it consumes resources only when work is actually happening. Build fleets, test environments, and non-production stacks are often left running indefinitely, so the engineering process behind a streaming service can carry a large, invisible resource footprint that has nothing to do with serving viewers.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/streaming-media-lens/smsus09-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Adopt sustainable development and deployment practices",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/streaming-media-lens/smsus09-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "SMSUS09_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "SMSUS09_BP01",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!SMSUS09_BP01)",
+                            "risk": "MEDIUM_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "HIGH_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "SMSUS10",
+                    "title": "How do you drive ongoing improvement in sustainability for your streaming workloads?",
+                    "description": "Without measurement and ownership, sustainability improvements are one-time efforts that decay.",
+                    "choices": [
+                        {
+                            "id": "SMSUS10_BP01",
+                            "title": "Establish sustainability KPIs and ongoing optimization processes",
+                            "helpfulResource": {
+                                "displayText": "Measure the sustainability of your streaming workload with metrics you can actually obtain, assign ownership for acting on them, and review them on a regular cadence. Without measurement and accountability, sustainability improvements are one-time efforts that decay as the catalog, audience, and architecture change.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/streaming-media-lens/smsus10-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Establish sustainability KPIs and ongoing optimization processes",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/streaming-media-lens/smsus10-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "SMSUS10_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "SMSUS10_BP01",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "(!SMSUS10_BP01)",
+                            "risk": "MEDIUM_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "HIGH_RISK"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
