@@ -1,6 +1,6 @@
 {
     "schemaVersion": "2021-11-01",
-    "name": "Streaming media lens",
+    "name": "Streaming Media Lens",
     "description": "This whitepaper describes the AWS Streaming Media Lens for the AWS Well-Architected Framework, which helps customers apply best practices in the design, delivery, and maintenance of their cloud-based streaming media workloads. The document describes general design principles, as well as specific best practices and guidance for the six pillars of the Well-Architected Framework.",
     "pillars": [
         {
