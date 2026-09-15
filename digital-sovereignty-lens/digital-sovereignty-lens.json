@@ -1,0 +1,999 @@
+{
+    "schemaVersion": "2021-11-01",
+    "name": "Digital Sovereignty Lens",
+    "description": "A comprehensive framework for implementing digital sovereignty principles across cloud architectures and operations.",
+    "pillars": [
+        {
+            "id": "operationalExcellence",
+            "name": "Operational Excellence",
+            "questions": [
+                {
+                    "id": "DSOPS01",
+                    "title": "How is your organization set up to govern sovereignty controls and sustain operations across jurisdictions?",
+                    "description": "This capability covers the organizational preconditions for sovereign operations: governance structure to own the baseline, delegation to scale expertise to each jurisdiction, training so teams can act within their authority, and continuity planning so sovereignty governance survives disruption.",
+                    "choices": [
+                        {
+                            "id": "DSOPS01_BP01",
+                            "title": "Organize compliance for multi-jurisdictional operations",
+                            "helpfulResource": {
+                                "displayText": "When you have workloads deployed across jurisdictions, your compliance function also needs to scale up to meet a wide range of regulatory requirements consistently across geographic locations. Without a layered approach that separates common controls from jurisdiction-specific ones, teams end up duplicating effort, missing local mandates, or discovering regulatory divergences too late to address them cost-effectively.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/digital-sovereignty-lens/dsops01-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Organize compliance for multi-jurisdictional operations",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/digital-sovereignty-lens/dsops01-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "DSOPS01_BP02",
+                            "title": "Enable distributed compliance execution",
+                            "helpfulResource": {
+                                "displayText": "Effective compliance at scale requires distributing responsibilities across teams while maintaining centralized oversight and standards. Traditional centralized compliance models create bottlenecks that slow business velocity and limit an organization's ability to respond quickly to regulatory changes across jurisdictions.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/digital-sovereignty-lens/dsops01-bp02.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Enable distributed compliance execution",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/digital-sovereignty-lens/dsops01-bp02.html"
+                            }
+                        },
+                        {
+                            "id": "DSOPS01_BP03",
+                            "title": "Implement compliance training and awareness",
+                            "helpfulResource": {
+                                "displayText": "When teams operate across jurisdictions with delegated compliance responsibilities, they need targeted knowledge to make sound decisions within their scope. Generic security training doesn't prepare teams for the jurisdiction-specific decisions they face daily.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/digital-sovereignty-lens/dsops01-bp03.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Implement compliance training and awareness",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/digital-sovereignty-lens/dsops01-bp03.html"
+                            }
+                        },
+                        {
+                            "id": "DSOPS01_BP04",
+                            "title": "Organize for operational continuity under disruption",
+                            "helpfulResource": {
+                                "displayText": "Sovereign workloads require consideration of a broader set of resilience factors beyond technical failures. Regulatory changes, shifts in international trade policies, natural disasters, and vendor dependency issues can affect access to infrastructure, services, or skills. Standard operational structures assume that support teams, tooling, and infrastructure remain available at all times. When those assumptions no longer hold, organizations need a continuity playbook that enables continued operations.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/digital-sovereignty-lens/dsops01-bp04.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Organize for operational continuity under disruption",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/digital-sovereignty-lens/dsops01-bp04.html"
+                            }
+                        },
+                        {
+                            "id": "DSOPS01_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "DSOPS01_BP01 && DSOPS01_BP02 && DSOPS01_BP03 && DSOPS01_BP04",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "DSOPS01_BP01 && DSOPS01_BP03",
+                            "risk": "MEDIUM_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "HIGH_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "DSOPS02",
+                    "title": "How do you baseline and automate sovereignty compliance?",
+                    "description": "This capability covers building a compliance catalog that maps requirements to technical controls, and codifying those controls as policy as code with automated validation embedded in deployment pipelines.",
+                    "choices": [
+                        {
+                            "id": "DSOPS02_BP01",
+                            "title": "Baseline your compliance requirements",
+                            "helpfulResource": {
+                                "displayText": "Compliance requirements accumulate from multiple sources: cybersecurity directives, data privacy legislation, industry regulations, and internal policies. These requirements can overlap or diverge, whether you operate in one jurisdiction or many. A compliance baseline maps each requirement to specific technical controls so that teams can implement, test, and audit them consistently.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/digital-sovereignty-lens/dsops02-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Baseline your compliance requirements",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/digital-sovereignty-lens/dsops02-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "DSOPS02_BP02",
+                            "title": "Establish an automated path to compliance",
+                            "helpfulResource": {
+                                "displayText": "Automation reduces the risk of human error, speeds up the compliance process, and enables continuous monitoring across jurisdictions. When compliance requirements are codified and integrated into your development pipelines, every change is validated before deployment rather than discovered during audits.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/digital-sovereignty-lens/dsops02-bp02.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Establish an automated path to compliance",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/digital-sovereignty-lens/dsops02-bp02.html"
+                            }
+                        },
+                        {
+                            "id": "DSOPS02_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "DSOPS02_BP01 && DSOPS02_BP02",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "DSOPS02_BP01",
+                            "risk": "MEDIUM_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "HIGH_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "DSOPS03",
+                    "title": "How do you design your workload for continuous auditability?",
+                    "description": "This capability covers identifying audit requirements across jurisdictions, automating evidence collection from existing controls, and generating compliance reports scoped by jurisdiction and regulatory framework.",
+                    "choices": [
+                        {
+                            "id": "DSOPS03_BP01",
+                            "title": "Plan and prepare for audits",
+                            "helpfulResource": {
+                                "displayText": "Organizations face audits from multiple regulatory authorities with different evidence requirements, timelines, and scoping criteria, whether within a single jurisdiction or across several. Proactive audit planning and consistent tooling reduce disruption and provide confidence that evidence is complete, accessible, and stored within approved jurisdictions.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/digital-sovereignty-lens/dsops03-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Plan and prepare for audits",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/digital-sovereignty-lens/dsops03-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "DSOPS03_BP02",
+                            "title": "Automate evidence collection and reporting",
+                            "helpfulResource": {
+                                "displayText": "Manual evidence collection is time-consuming, error-prone, and doesn't scale across jurisdictions. Automating evidence collection and reporting improves accuracy, reduces audit preparation effort, and provides continuous visibility into compliance status.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/digital-sovereignty-lens/dsops03-bp02.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Automate evidence collection and reporting",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/digital-sovereignty-lens/dsops03-bp02.html"
+                            }
+                        },
+                        {
+                            "id": "DSOPS03_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "DSOPS03_BP01 && DSOPS03_BP02",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "MEDIUM_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "DSOPS04",
+                    "title": "How do you monitor your current compliance status?",
+                    "description": "This capability covers the aggregation, scoring, alerting, and visualization of compliance status across jurisdictions to maintain continuous visibility into sovereignty posture.",
+                    "choices": [
+                        {
+                            "id": "DSOPS04_BP01",
+                            "title": "Maintain continuous visibility of your compliance status",
+                            "helpfulResource": {
+                                "displayText": "Point-in-time audits and periodic assessments don't reflect the real state of compliance. A workload that meets regulatory requirements today may fall out of compliance the next day. Continuous visibility into compliance status across jurisdictions helps teams detect drift early, prioritize remediation by regulatory impact, and demonstrate ongoing adherence to auditors.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/digital-sovereignty-lens/dsops04-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Maintain continuous visibility of your compliance status",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/digital-sovereignty-lens/dsops04-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "DSOPS04_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "DSOPS04_BP01",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "MEDIUM_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "DSOPS05",
+                    "title": "How do you remediate non-compliance?",
+                    "description": "This capability covers the investigation, root cause analysis, and remediation of compliance findings. It emphasizes letting regional teams act independently and automating remediation where possible.",
+                    "choices": [
+                        {
+                            "id": "DSOPS05_BP01",
+                            "title": "Enable independent root cause analysis and remediation",
+                            "helpfulResource": {
+                                "displayText": "When compliance findings are routed to a central team for investigation, remediation slows down and the central team becomes a bottleneck. When regional and account teams can independently investigate and resolve compliance findings within their scope, they reduce mean time to remediation and free specialized security expertise for complex issues.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/digital-sovereignty-lens/dsops05-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Enable independent root cause analysis and remediation",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/digital-sovereignty-lens/dsops05-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "DSOPS05_BP02",
+                            "title": "Automate compliance remediation",
+                            "helpfulResource": {
+                                "displayText": "When compliance findings are remediated manually, response times vary, fixes are inconsistent, and audit trails are incomplete. Automated remediation provides consistent, rapid response to known compliance issues while maintaining oversight and audit trails that support regulatory reporting across jurisdictions.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/digital-sovereignty-lens/dsops05-bp02.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Automate compliance remediation",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/digital-sovereignty-lens/dsops05-bp02.html"
+                            }
+                        },
+                        {
+                            "id": "DSOPS05_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "DSOPS05_BP01 && DSOPS05_BP02",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "MEDIUM_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "DSOPS06",
+                    "title": "How are you set up to address regulatory changes?",
+                    "description": "This capability covers the detection, assessment, and implementation of regulatory changes that affect sovereignty compliance across operating jurisdictions.",
+                    "choices": [
+                        {
+                            "id": "DSOPS06_BP01",
+                            "title": "Track regulatory changes across jurisdictions",
+                            "helpfulResource": {
+                                "displayText": "Regulations change at different times across jurisdictions, and a change in one can diverge from requirements in another. Without a structured approach to tracking these changes, organizations risk falling out of compliance or discovering divergences too late to address them cost-effectively.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/digital-sovereignty-lens/dsops06-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Track regulatory changes across jurisdictions",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/digital-sovereignty-lens/dsops06-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "DSOPS06_BP02",
+                            "title": "Manage regulatory changes",
+                            "helpfulResource": {
+                                "displayText": "Regulatory changes directly impact cloud operations, security controls, and compliance status. A regulatory change in one jurisdiction might require updates to the common baseline that affect other jurisdictions. A structured change management process helps you assess impact, implement updates, and verify compliance across jurisdictions.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/digital-sovereignty-lens/dsops06-bp02.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Manage regulatory changes",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/digital-sovereignty-lens/dsops06-bp02.html"
+                            }
+                        },
+                        {
+                            "id": "DSOPS06_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "DSOPS06_BP01 && DSOPS06_BP02",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "MEDIUM_RISK"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "security",
+            "name": "Security",
+            "questions": [
+                {
+                    "id": "DSSEC01",
+                    "title": "How do you build secure foundations aligned with sovereignty requirements?",
+                    "description": "This capability covers multi-account landing zone architecture, digital sovereignty controls, data perimeters, and layered security patterns that enforce sovereignty requirements across the network, identity, data, and application layers.",
+                    "choices": [
+                        {
+                            "id": "DSSEC01_BP01",
+                            "title": "Establish secure foundations aligned with regulatory requirements",
+                            "helpfulResource": {
+                                "displayText": "Sovereign workloads carry regulatory obligations that are best met when security and sovereignty controls are part of the foundation rather than added later. A foundation with automated guardrails for data residency, jurisdictional access, and continuous compliance monitoring means teams can deploy new workloads without rebuilding these controls each time.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/digital-sovereignty-lens/dssec01-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Establish secure foundations aligned with regulatory requirements",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/digital-sovereignty-lens/dssec01-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "DSSEC01_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "DSSEC01_BP01",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "HIGH_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "DSSEC02",
+                    "title": "How do you control access to data within sovereign boundaries?",
+                    "description": "This capability covers data perimeters that combine IAM conditions, resource-based policies, service control policies, VPC endpoint policies, and network controls to enforce jurisdictional boundaries and block unauthorized access before it occurs.",
+                    "choices": [
+                        {
+                            "id": "DSSEC02_BP01",
+                            "title": "Protect data through layered access controls within sovereign boundaries",
+                            "helpfulResource": {
+                                "displayText": "Access control is one of the lens's five sovereignty design concerns: who can reach your data, from where, and under what authority. A single control layer leaves gaps, because network controls alone can't enforce identity rules and identity controls alone can't account for network paths. Layering network-centric and identity-centric controls, in proportion to data sensitivity and jurisdiction, keeps data within its sovereign boundary and blocks unauthorized access before it happens.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/digital-sovereignty-lens/dssec02-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Protect data through layered access controls within sovereign boundaries",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/digital-sovereignty-lens/dssec02-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "DSSEC02_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "DSSEC02_BP01",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "HIGH_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "DSSEC03",
+                    "title": "How do you prove your sovereignty controls are effective?",
+                    "description": "This capability covers the use of proactive and detective controls to validate that access policies, network paths, and resource configurations meet sovereignty baselines before and after deployment.",
+                    "choices": [
+                        {
+                            "id": "DSSEC03_BP01",
+                            "title": "Validate policy effectiveness through automated analysis",
+                            "helpfulResource": {
+                                "displayText": "Manual policy validation is error-prone and doesn't scale well with the complexity of modern cloud environments. Automated reasoning tools analyze access policies to identify potential security gaps, over-permissive access, and unintended permissions before deployment.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/digital-sovereignty-lens/dssec03-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Validate policy effectiveness through automated analysis",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/digital-sovereignty-lens/dssec03-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "DSSEC03_BP02",
+                            "title": "Verify network security posture through automated analysis",
+                            "helpfulResource": {
+                                "displayText": "Network misconfigurations can open a path across a jurisdictional boundary that no one intended. Automated network analysis tools examine your configuration to identify which paths are possible, without sending live traffic, so you can find such paths before they are used. For sovereign workloads, this helps you verify that network paths meet your data residency and privacy requirements.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/digital-sovereignty-lens/dssec03-bp02.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Verify network security posture through automated analysis",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/digital-sovereignty-lens/dssec03-bp02.html"
+                            }
+                        },
+                        {
+                            "id": "DSSEC03_BP03",
+                            "title": "Validate resource configurations for sovereignty compliance",
+                            "helpfulResource": {
+                                "displayText": "Sovereignty configuration validation verifies that resources are provisioned and maintained in line with jurisdictional constraints: Region placement, key residency, replication scope, and classification tagging. Validate resource configurations against sovereignty baselines before and after deployment using rules-based evaluation.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/digital-sovereignty-lens/dssec03-bp03.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Validate resource configurations for sovereignty compliance",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/digital-sovereignty-lens/dssec03-bp03.html"
+                            }
+                        },
+                        {
+                            "id": "DSSEC03_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "DSSEC03_BP01 && DSSEC03_BP02 && DSSEC03_BP03",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "MEDIUM_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "DSSEC04",
+                    "title": "How do you detect and investigate security events in sovereign workloads?",
+                    "description": "This capability covers threat detection, sovereignty-specific monitoring, and operator action logging that together enable timely investigation of security events in sovereign workloads.",
+                    "choices": [
+                        {
+                            "id": "DSSEC04_BP01",
+                            "title": "Enhance threat detection through targeted intelligence",
+                            "helpfulResource": {
+                                "displayText": "By using region- and domain-specific threat intelligence, organizations can enhance their detection capabilities. With this targeted approach, security teams can contextualize threats within their specific regulatory and infrastructure environment.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/digital-sovereignty-lens/dssec04-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Enhance threat detection through targeted intelligence",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/digital-sovereignty-lens/dssec04-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "DSSEC04_BP02",
+                            "title": "Detect sovereignty-specific threats through telemetry and analysis",
+                            "helpfulResource": {
+                                "displayText": "Effective threat detection capability needs broad telemetry from multiple sources, the ability to correlate and contextualize data points, and centralized visibility of security events.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/digital-sovereignty-lens/dssec04-bp02.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Detect sovereignty-specific threats through telemetry and analysis",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/digital-sovereignty-lens/dssec04-bp02.html"
+                            }
+                        },
+                        {
+                            "id": "DSSEC04_BP03",
+                            "title": "Establish comprehensive logging and monitoring of operator actions",
+                            "helpfulResource": {
+                                "displayText": "Enable detailed logging to track operator actions, detect unauthorized access, and retain evidence required for audits. Detailed audit trails provide visibility into change management activities and operator-led actions. This is particularly important for workloads with sovereignty requirements, where you may need to locate operational support teams within specific jurisdictions, strictly control operator actions, and produce documentary evidence of technical and operational controls.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/digital-sovereignty-lens/dssec04-bp03.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Establish comprehensive logging and monitoring of operator actions",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/digital-sovereignty-lens/dssec04-bp03.html"
+                            }
+                        },
+                        {
+                            "id": "DSSEC04_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "DSSEC04_BP01 && DSSEC04_BP02 && DSSEC04_BP03",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "DSSEC04_BP03",
+                            "risk": "MEDIUM_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "HIGH_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "DSSEC05",
+                    "title": "How do you secure infrastructure access while enabling regional operations?",
+                    "description": "This capability covers operator access controls, jurisdictional access constraints, and the empowerment of regional teams to operate within their own jurisdictions without dependency on centralized access paths.",
+                    "choices": [
+                        {
+                            "id": "DSSEC05_BP01",
+                            "title": "Control operator access to infrastructure from approved locations",
+                            "helpfulResource": {
+                                "displayText": "For sovereign workloads, what matters isn't just who operates the infrastructure, but also where they connect from and how long their access lasts. Persistent privileges and manual operations each widen the window in which an operator can act beyond their authority. Controlling the location, duration, and necessity of operator access keeps infrastructure administration within sovereign boundaries and leaves an audit trail for each session.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/digital-sovereignty-lens/dssec05-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Control operator access to infrastructure from approved locations",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/digital-sovereignty-lens/dssec05-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "DSSEC05_BP02",
+                            "title": "Empower regional teams",
+                            "helpfulResource": {
+                                "displayText": "Regulatory requirements change on local timelines, and a central team can't track every jurisdiction's changes fast enough to keep regional workloads compliant. Regional teams that understand their local regulations can respond faster, but only if they have authority to act within boundaries that protect the organization's security baseline. The balance to strike is delegating enough autonomy to move quickly while keeping the controls that must stay consistent, such as security baselines and data residency, non-negotiable.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/digital-sovereignty-lens/dssec05-bp02.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Empower regional teams",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/digital-sovereignty-lens/dssec05-bp02.html"
+                            }
+                        },
+                        {
+                            "id": "DSSEC05_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "DSSEC05_BP01 && DSSEC05_BP02",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "DSSEC05_BP01",
+                            "risk": "MEDIUM_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "HIGH_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "DSSEC06",
+                    "title": "How do you apply data sovereignty requirements?",
+                    "description": "This capability covers data discovery, sovereignty-aware classification, and the consistent application of sovereignty metadata through enforceable tagging.",
+                    "choices": [
+                        {
+                            "id": "DSSEC06_BP01",
+                            "title": "Classify data with sovereignty attributes",
+                            "helpfulResource": {
+                                "displayText": "Data sovereignty attributes are typically derived from storage, processing, retention, handling, geo-location, transmission, and access control requirements. Attach these attributes as metadata to your datasets. When combined with data classification tags, these attributes can be used to enforce policy as code (PaC), build verifiable identity policies, and implement fine-grained access controls. Metadata is typically expressed as labels, tags, or model parameters and is attached to your resources.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/digital-sovereignty-lens/dssec06-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Classify data with sovereignty attributes",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/digital-sovereignty-lens/dssec06-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "DSSEC06_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "DSSEC06_BP01",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "HIGH_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "DSSEC07",
+                    "title": "How do you apply verifiable controls over sensitive data?",
+                    "description": "This capability covers enforcing data residency through governance controls, applying privacy-enhancing techniques to protect personal data, and tracking data lineage to show where data has been and who has accessed it.",
+                    "choices": [
+                        {
+                            "id": "DSSEC07_BP01",
+                            "title": "Enhance your digital sovereignty governance posture",
+                            "helpfulResource": {
+                                "displayText": "In highly regulated industries, you might need to implement technical controls to enhance your digital sovereignty governance posture. This best practice assumes a secure landing zone with baseline security guardrails is already in place, and focuses on the sovereignty-specific governance controls layered on top of that foundation.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/digital-sovereignty-lens/dssec07-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Enhance your digital sovereignty governance posture",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/digital-sovereignty-lens/dssec07-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "DSSEC07_BP02",
+                            "title": "Provide technical options to enhance privacy",
+                            "helpfulResource": {
+                                "displayText": "Digital sovereignty requirements demand that organizations secure data and provide verifiable evidence of privacy protection measures. Technical privacy enhancement options enable organizations to process sensitive data while minimizing exposure risks. These options support business objectives and regulatory mandates through cryptographic techniques, data minimization, and privacy-preserving technologies.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/digital-sovereignty-lens/dssec07-bp02.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Provide technical options to enhance privacy",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/digital-sovereignty-lens/dssec07-bp02.html"
+                            }
+                        },
+                        {
+                            "id": "DSSEC07_BP03",
+                            "title": "Track data lineage",
+                            "helpfulResource": {
+                                "displayText": "Organizations in highly regulated industries implement data lineage tracking to demonstrate that data localization, data residency, and data privacy requirements are met. Data lineage provides visibility of the complete journey of data from source to consumption. This capability becomes essential for demonstrating audit readiness and maintaining trust in data-driven decision making.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/digital-sovereignty-lens/dssec07-bp03.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Track data lineage",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/digital-sovereignty-lens/dssec07-bp03.html"
+                            }
+                        },
+                        {
+                            "id": "DSSEC07_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "DSSEC07_BP01 && DSSEC07_BP02 && DSSEC07_BP03",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "DSSEC07_BP01",
+                            "risk": "MEDIUM_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "HIGH_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "DSSEC08",
+                    "title": "How do you fulfill specialized data protection requirements?",
+                    "description": "This capability covers protecting data during compute with hardware-based isolation, and managing encryption keys under jurisdictional controls over key material, access, and auditability.",
+                    "choices": [
+                        {
+                            "id": "DSSEC08_BP01",
+                            "title": "Protect sensitive data during compute",
+                            "helpfulResource": {
+                                "displayText": "If you store and process sensitive datasets, you might need to apply specialized data protection capabilities. This is in addition to at-rest and in-transit encryption.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/digital-sovereignty-lens/dssec08-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Protect sensitive data during compute",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/digital-sovereignty-lens/dssec08-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "DSSEC08_BP02",
+                            "title": "Control jurisdiction, access, and auditability of data-at-rest encryption keys",
+                            "helpfulResource": {
+                                "displayText": "Carefully manage keys that protect data at rest throughout their lifecycle. This includes storage, rotation, and controlling access to key material required to secure data at rest. Monitor and log key usage. Where regulatory requirements mandate specific technical or operational controls, adhere to those requirements.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/digital-sovereignty-lens/dssec08-bp02.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Control jurisdiction, access, and auditability of data-at-rest encryption keys",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/digital-sovereignty-lens/dssec08-bp02.html"
+                            }
+                        },
+                        {
+                            "id": "DSSEC08_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "DSSEC08_BP01 && DSSEC08_BP02",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "MEDIUM_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "DSSEC09",
+                    "title": "How do you respond to security incidents while meeting sovereignty requirements?",
+                    "description": "This capability covers integrating regulatory compliance requirements into incident response planning, execution, and reporting for sovereign workloads.",
+                    "choices": [
+                        {
+                            "id": "DSSEC09_BP01",
+                            "title": "Integrate compliance requirements into incident response",
+                            "helpfulResource": {
+                                "displayText": "Organizations embed regulatory and compliance requirements into incident response planning and execution to support timely incident reporting, evidence preservation, and regulatory authority notification. This best practice provides guidance on how organizations meet compliance obligations while containing and remediating incidents. By aligning incident response capabilities with specific regulatory requirements, organizations demonstrate adherence during incident investigations and audits.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/digital-sovereignty-lens/dssec09-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Integrate compliance requirements into incident response",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/digital-sovereignty-lens/dssec09-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "DSSEC09_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "DSSEC09_BP01",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "MEDIUM_RISK"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "reliability",
+            "name": "Reliability",
+            "questions": [
+                {
+                    "id": "DSREL01",
+                    "title": "How do you plan for business continuity within sovereign boundaries?",
+                    "description": "This capability covers the identification and prioritization of sovereignty-specific risks, and the selection and operationalization of recovery sites that maintain sovereign compliance during failover.",
+                    "choices": [
+                        {
+                            "id": "DSREL01_BP01",
+                            "title": "Establish a sovereignty-aware risk management framework",
+                            "helpfulResource": {
+                                "displayText": "Establish a risk management framework that identifies, prioritizes, and mitigates business continuity risks specific to sovereign workloads. Beyond standard technical and operational risks, sovereign workloads face risks from large-scale disruptions caused by natural disasters, regional instabilities, and shifts in international trade policies that require dedicated assessment and mitigation.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/digital-sovereignty-lens/dsrel01-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Establish a sovereignty-aware risk management framework",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/digital-sovereignty-lens/dsrel01-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "DSREL01_BP02",
+                            "title": "Select and operationalize sovereignty-compliant recovery sites",
+                            "helpfulResource": {
+                                "displayText": "Select and configure recovery sites that maintain data residency and regulatory compliance throughout the recovery process. Recovery procedures must not move data outside approved jurisdictions, even temporarily. Automate recovery using infrastructure as code, test regularly, and train teams to operate under time pressure while maintaining compliance.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/digital-sovereignty-lens/dsrel01-bp02.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Select and operationalize sovereignty-compliant recovery sites",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/digital-sovereignty-lens/dsrel01-bp02.html"
+                            }
+                        },
+                        {
+                            "id": "DSREL01_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "DSREL01_BP01 && DSREL01_BP02",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "HIGH_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "DSREL02",
+                    "title": "How do you manage third-party sovereignty risks?",
+                    "description": "This capability covers continuous third-party risk management that assesses vendor data residency, operator location, cross-border data flows, and contractual safeguards throughout the vendor lifecycle.",
+                    "choices": [
+                        {
+                            "id": "DSREL02_BP01",
+                            "title": "Implement continuous third-party risk management (TPRM) processes",
+                            "helpfulResource": {
+                                "displayText": "In highly regulated industries, a structured third-party risk management (TPRM) process is essential to mitigate risks associated with third-party vendors and service providers. Vendors can introduce sovereignty risks through data processed in non-approved jurisdictions, operators accessing systems from foreign locations, or sub-processors that don't adhere to data residency requirements.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/digital-sovereignty-lens/dsrel02-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Implement continuous third-party risk management (TPRM) processes",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/digital-sovereignty-lens/dsrel02-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "DSREL02_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "DSREL02_BP01",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "MEDIUM_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "DSREL03",
+                    "title": "How do you design workloads for interoperability and portability across jurisdictions?",
+                    "description": "This capability covers workload design patterns that enable deployment, migration, and recovery across jurisdictions with minimal rework when conditions change.",
+                    "choices": [
+                        {
+                            "id": "DSREL03_BP01",
+                            "title": "Design workloads for greater interoperability and portability",
+                            "helpfulResource": {
+                                "displayText": "Design workloads so they can be deployed, migrated, or recovered within or across jurisdictions when conditions require. Abstract Region-specific, service-specific dependencies. Use standards-based storage formats, data formats, table formats, and protocols. Plan ahead for data export and migration scenarios.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/digital-sovereignty-lens/dsrel03-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Design workloads for greater interoperability and portability",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/digital-sovereignty-lens/dsrel03-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "DSREL03_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "DSREL03_BP01",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "MEDIUM_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "DSREL04",
+                    "title": "How do you prepare for disruptions beyond technical failures?",
+                    "description": "This capability covers the trigger conditions, decision criteria, and operational steps that maintain business continuity when a disruption originates from regulatory, geopolitical, or supply-chain changes rather than technical failures.",
+                    "choices": [
+                        {
+                            "id": "DSREL04_BP01",
+                            "title": "Plan for disruptions beyond technical failures",
+                            "helpfulResource": {
+                                "displayText": "Organizations operating across multiple jurisdictions should consider a broader set of resilience factors beyond technical failures. Changes in international trade policies, regulatory requirements, licensing terms, regional service availability, or natural disasters can affect access to infrastructure, services, or specialist skills. In some cases, these events might affect multiple jurisdictions simultaneously, limiting the availability of nearby recovery sites. Standard disaster recovery planning might not fully address these scenarios, as the disruption isn't a system failure, but a change in the conditions under which the system is permitted or able to operate.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/digital-sovereignty-lens/dsrel04-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Plan for disruptions beyond technical failures",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/digital-sovereignty-lens/dsrel04-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "DSREL04_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "DSREL04_BP01",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "MEDIUM_RISK"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "performance",
+            "name": "Performance Efficiency",
+            "questions": [
+                {
+                    "id": "DSPERF01",
+                    "title": "How do you select the right sovereign solution for each workload?",
+                    "description": "This capability covers the evaluation and selection of sovereign deployment options across the continuum of AWS Regions, European Sovereign Cloud, Dedicated Local Zones, and Outposts, using data-driven criteria rather than blanket policies.",
+                    "choices": [
+                        {
+                            "id": "DSPERF01_BP01",
+                            "title": "Evaluate sovereign solutions using a data-driven approach",
+                            "helpfulResource": {
+                                "displayText": "Sovereign workloads require architecture decisions grounded in evidence rather than assumptions. This best practice establishes a three-stage evaluation approach (baseline your sovereignty requirements, define what you expect from your service providers, and document what you need to build on top) that can be tailored to your organization's regulatory environment, risk appetite, and operational maturity.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/digital-sovereignty-lens/dsperf01-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Evaluate sovereign solutions using a data-driven approach",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/digital-sovereignty-lens/dsperf01-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "DSPERF01_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "DSPERF01_BP01",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "HIGH_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "DSPERF02",
+                    "title": "How do you validate software dependencies for sovereignty compliance?",
+                    "description": "This capability covers the validation of third-party software components (open source libraries, commercial SDKs, and proprietary middleware) against sovereignty-specific criteria including export control, licensing, maintainer jurisdiction, and supply chain continuity.",
+                    "choices": [
+                        {
+                            "id": "DSPERF02_BP01",
+                            "title": "Validate third-party software components for sovereignty compliance",
+                            "helpfulResource": {
+                                "displayText": "Third-party software components (open source libraries, commercial SDKs, and proprietary middleware) can introduce sovereignty risks that standard security scanning doesn't detect. Licensing restrictions, supply chain provenance, runtime behavior, and jurisdiction-specific certification requirements each affect whether a component is suitable for use in a regulated environment.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/digital-sovereignty-lens/dsperf02-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Validate third-party software components for sovereignty compliance",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/digital-sovereignty-lens/dsperf02-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "DSPERF02_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "DSPERF02_BP01",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "MEDIUM_RISK"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
