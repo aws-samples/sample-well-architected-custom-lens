@@ -1,0 +1,749 @@
+{
+    "schemaVersion": "2021-11-01",
+    "name": "Well-Architected Cloud Foundations",
+    "description": "The organization-level capabilities to govern your cloud environment and enforce standards across all workloads.",
+    "pillars": [
+        {
+            "id": "cloudFoundations",
+            "name": "Cloud Foundations",
+            "questions": [
+                {
+                    "id": "FND01",
+                    "title": "How do you structure and govern multiple accounts across teams and environments?",
+                    "description": "A well-structured multi-account environment is the starting point for a secure, well-governed cloud. Accounts are the strongest isolation boundary AWS provides, so how you structure them shapes your security posture, your ability to apply policy at scale, and how clearly costs and ownership map to the people responsible. This capability covers the best practices for setting up and managing that structure.",
+                    "choices": [
+                        {
+                            "id": "FND01_BP01",
+                            "title": "Establish management account and organizational structure",
+                            "helpfulResource": {
+                                "displayText": "With a multi-account environment, you can meet security, governance, and operational requirements and establish clear boundaries for workload isolation, access control, and cost management. Your organizational structure must accommodate both centralized and decentralized operational models, particularly for enterprises with multiple business units.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/framework/fnd01-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Establish management account and organizational structure",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/framework/fnd01-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "FND01_BP02",
+                            "title": "Establish ownership for billing, security, and operations",
+                            "helpfulResource": {
+                                "displayText": "Every resource in your workload needs a named owner so that changes, troubleshooting, and cost decisions have a clear point of contact. Assign owners for workloads, accounts, infrastructure, shared services, and applications. Record that ownership in a central register or as metadata on the resource.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/framework/fnd01-bp02.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Establish ownership for billing, security, and operations",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/framework/fnd01-bp02.html"
+                            }
+                        },
+                        {
+                            "id": "FND01_BP03",
+                            "title": "Establish boundaries and scopes for your environments",
+                            "helpfulResource": {
+                                "displayText": "Before teams start building in the cloud, define how they can consume cloud resources. Set policies, controls, and governance that balance enablement with compliance. Without clear boundaries, teams make independent decisions that lead to security exposures, compliance violations, cost overruns, and operational inconsistencies.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/framework/fnd01-bp03.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Establish boundaries and scopes for your environments",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/framework/fnd01-bp03.html"
+                            }
+                        },
+                        {
+                            "id": "FND01_BP04",
+                            "title": "Establish a strategy for experimental and temporary environments",
+                            "helpfulResource": {
+                                "displayText": "Teams need safe places to experiment with new ideas without putting production at risk. They also need rigorous controls as changes move closer to customer-facing systems. Environments with progressive controls let teams test early, and only validated changes reach critical workloads.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/framework/fnd01-bp04.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Establish a strategy for experimental and temporary environments",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/framework/fnd01-bp04.html"
+                            }
+                        },
+                        {
+                            "id": "FND01_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "FND01_BP01 && FND01_BP02 && FND01_BP03 && FND01_BP04",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "FND01_BP01 && FND01_BP02 && FND01_BP03",
+                            "risk": "MEDIUM_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "HIGH_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "FND02",
+                    "title": "How do you manage identities, enforce least privilege, and protect access to accounts and resources?",
+                    "description": "Identity and access management sets who can do what across your cloud environment. Strong identity controls protect accounts and resources while letting the business move at the speed it needs. This capability covers the best practices for protecting privileged accounts, centralizing identity, enforcing least privilege, establishing data perimeters to guard your organization's boundaries, and keeping permissions tuned over time.",
+                    "choices": [
+                        {
+                            "id": "FND02_BP01",
+                            "title": "Protect account root users, and establish alternate contacts",
+                            "helpfulResource": {
+                                "displayText": "The root user is the most privileged identity in any cloud account. It has full administrative access to all resources and cannot be restricted by standard security policies. Strong controls around root user access reduce the risk of credential exposure and unauthorized account access. Protect root user credentials, keep contacts accurate, add detective controls, and use root only by exception.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/framework/fnd02-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Protect account root users, and establish alternate contacts",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/framework/fnd02-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "FND02_BP02",
+                            "title": "Use strong sign-in mechanisms",
+                            "helpfulResource": {
+                                "displayText": "Sign-in credentials are a critical security boundary in any cloud environment. When authentication is weak (missing multi-factor verification, using guessable passwords, or failing to detect suspicious activity), organizations face higher risk of unauthorized access. Strong sign-in mechanisms reduce this risk by requiring multiple forms of verification and enforcing credential quality.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/framework/fnd02-bp02.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Use strong sign-in mechanisms",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/framework/fnd02-bp02.html"
+                            }
+                        },
+                        {
+                            "id": "FND02_BP03",
+                            "title": "Employ a centralized identity provider",
+                            "helpfulResource": {
+                                "displayText": "For workforce identities (employees and contractors), rely on an identity provider you can use to manage identities in a centralized place. This lets you manage access across multiple applications and systems from a single location, because you are creating, assigning, managing, revoking, and auditing access in one place.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/framework/fnd02-bp03.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Employ a centralized identity provider",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/framework/fnd02-bp03.html"
+                            }
+                        },
+                        {
+                            "id": "FND02_BP04",
+                            "title": "Establish controls to manage access based on lifecycle",
+                            "helpfulResource": {
+                                "displayText": "Monitor and adjust the permissions you grant to principals (users, roles, and groups) as their relationship with your organization changes. Update group memberships as people change roles, and remove access when someone leaves the organization.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/framework/fnd02-bp04.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Establish controls to manage access based on lifecycle",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/framework/fnd02-bp04.html"
+                            }
+                        },
+                        {
+                            "id": "FND02_BP05",
+                            "title": "Grant least privilege access",
+                            "helpfulResource": {
+                                "displayText": "Grant principals only the access they need to perform specific actions on specific resources under defined conditions. Use group and attribute memberships to set permissions at scale instead of managing individual user permissions. For example, you can give a group of developers access only to resources for their project. When a developer leaves the project, their access is removed automatically without changing the underlying policies.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/framework/fnd02-bp05.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Grant least privilege access",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/framework/fnd02-bp05.html"
+                            }
+                        },
+                        {
+                            "id": "FND02_BP06",
+                            "title": "Define permission guardrails for your organization",
+                            "helpfulResource": {
+                                "displayText": "Use permission guardrails to reduce the scope of permissions that can be granted to principals. During authorization, the permission evaluation chain applies your guardrails to determine a principal's effective permissions. Define guardrails using a layer-based approach. Apply some broadly across your organization, and others to specific accounts or temporary sessions.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/framework/fnd02-bp06.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Define permission guardrails for your organization",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/framework/fnd02-bp06.html"
+                            }
+                        },
+                        {
+                            "id": "FND02_BP07",
+                            "title": "Implement data perimeter controls to help prevent unintended access",
+                            "helpfulResource": {
+                                "displayText": "Data perimeter controls verify that only your trusted identities access trusted resources from expected networks. They are always-on, organization-wide permission guardrails that complement fine-grained access controls. By enforcing a set of security standards across identities, resources, and networks, data perimeter controls help prevent unintended data movement outside your organization's trust boundaries.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/framework/fnd02-bp07.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Implement data perimeter controls to help prevent unintended access",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/framework/fnd02-bp07.html"
+                            }
+                        },
+                        {
+                            "id": "FND02_BP08",
+                            "title": "Audit and rotate credentials periodically",
+                            "helpfulResource": {
+                                "displayText": "Audit and rotate credentials on a regular schedule to limit how long they can be used to access your resources. Use temporary credentials when possible, and rotate risky long-term credentials regularly.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/framework/fnd02-bp08.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Audit and rotate credentials periodically",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/framework/fnd02-bp08.html"
+                            }
+                        },
+                        {
+                            "id": "FND02_BP09",
+                            "title": "Establish a process to continually review and refine permissions",
+                            "helpfulResource": {
+                                "displayText": "Continuously review and refine permissions to keep pace with your organization's changing needs. This process verifies that identities have requisite access only when they need it, reducing the risk of unauthorized access. A systematic approach to permission reviews strengthens security and improves operational efficiency across your cloud footprint.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/framework/fnd02-bp09.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Establish a process to continually review and refine permissions",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/framework/fnd02-bp09.html"
+                            }
+                        },
+                        {
+                            "id": "FND02_BP10",
+                            "title": "Establish workload and machine identity federation",
+                            "helpfulResource": {
+                                "displayText": "Workloads and machines need to access AWS resources at least as often as people do, but they require a unique form of identity federation. Long-lived access keys stored in CI/CD systems, containers, or on-premises servers are a persistent source of credential exposure. Federating workload identities so they receive short-lived credentials from a trusted identity source removes the need to issue, store, and rotate those keys.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/framework/fnd02-bp10.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Establish workload and machine identity federation",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/framework/fnd02-bp10.html"
+                            }
+                        },
+                        {
+                            "id": "FND02_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "FND02_BP01 && FND02_BP02 && FND02_BP03 && FND02_BP04 && FND02_BP05 && FND02_BP06 && FND02_BP07 && FND02_BP08 && FND02_BP09 && FND02_BP10",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "FND02_BP01 && FND02_BP02 && FND02_BP03 && FND02_BP05 && FND02_BP08 && FND02_BP09 && FND02_BP10",
+                            "risk": "MEDIUM_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "HIGH_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "FND03",
+                    "title": "How do you establish consistent, centralized observability into your cloud resources across all accounts and Regions?",
+                    "description": "Observability gives teams a shared, reliable view of how the cloud environment is behaving. As workloads spread across more accounts and Regions, visibility fragments unless it is standardized and centralized. This capability covers the best practices for defining organization-wide observability standards and for aggregating telemetry into a common place where teams can use it.",
+                    "choices": [
+                        {
+                            "id": "FND03_BP01",
+                            "title": "Define observability standards and policies",
+                            "helpfulResource": {
+                                "displayText": "Clear observability standards and policies keep operational visibility and control across your cloud environment. This best practice focuses on defining and enforcing consistent observability requirements across both foundation components and workloads so telemetry is complete and meaningful. Teams keep flexibility in choosing monitoring tools and instrumentation libraries, and organizational standards keep telemetry consistent and available for operations.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/framework/fnd03-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Define observability standards and policies",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/framework/fnd03-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "FND03_BP02",
+                            "title": "Establish central, cross-account observability capabilities",
+                            "helpfulResource": {
+                                "displayText": "Central, cross-account observability brings telemetry from every account in your environment into a shared location. Foundation, workload, and security teams can read it without signing into each account. This best practice covers the architecture, automation, and access model needed to architect a single, consistent view of operations across a multi-account environment.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/framework/fnd03-bp02.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Establish central, cross-account observability capabilities",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/framework/fnd03-bp02.html"
+                            }
+                        },
+                        {
+                            "id": "FND03_BP03",
+                            "title": "Establish centralized event monitoring and response",
+                            "helpfulResource": {
+                                "displayText": "AWS Health is the authoritative source of information about service events, scheduled changes, and account-specific notifications that affect your AWS resources. In a multi-account environment, these events arrive per account by default, so no single team has organization-wide visibility. This best practice covers aggregating AWS Health events across your organization into a central view, routing them through automation, and responding to them consistently.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/framework/fnd03-bp03.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Establish centralized event monitoring and response",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/framework/fnd03-bp03.html"
+                            }
+                        },
+                        {
+                            "id": "FND03_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "FND03_BP01 && FND03_BP02 && FND03_BP03",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "FND03_BP01",
+                            "risk": "MEDIUM_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "HIGH_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "FND04",
+                    "title": "How do you maintain visibility, control, and governance over resources, configurations, and assets across accounts and Regions?",
+                    "description": "Clear visibility and control over cloud resources is essential for running an efficient and compliant environment at scale. This capability covers the best practices for standardized attribution, organization-wide inventory and dependency views, central repositories of shared patterns, patch management, service quota management, and the resilience foundations - centralized backup, cross-Region replication and failover, and resilience testing - that protect the resources workloads depend on. Together these give teams the metadata, discoverability, reusable building blocks, and recovery capabilities they need to move fast without creating drift or losing data during the events that matter most.",
+                    "choices": [
+                        {
+                            "id": "FND04_BP01",
+                            "title": "Implement standardized attribution policies",
+                            "helpfulResource": {
+                                "displayText": "A standard tagging and attribution strategy is the foundation for cost allocation, governance, security, and operational visibility in the cloud. Define your tagging schema centrally, apply it consistently across accounts and Regions, and automate enforcement where possible. Align the schema with your business goals, cost tracking needs, and governance rules.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/framework/fnd04-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Implement standardized attribution policies",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/framework/fnd04-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "FND04_BP02",
+                            "title": "Establish an organization view of cloud inventory and dependencies",
+                            "helpfulResource": {
+                                "displayText": "A clear view of your cloud resources is essential for running a secure and cost-efficient cloud environment. A full operational inventory captures all cloud assets, including infrastructure, applications, licenses, and their dependencies, along with details such as location, ownership, and configuration. The inventory stays accurate when automated processes continuously discover and track resources.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/framework/fnd04-bp02.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Establish an organization view of cloud inventory and dependencies",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/framework/fnd04-bp02.html"
+                            }
+                        },
+                        {
+                            "id": "FND04_BP03",
+                            "title": "Establish standard repositories of shared resources and patterns",
+                            "helpfulResource": {
+                                "displayText": "In environments with many collaborating teams, central repositories of shared resources, patterns, and hardened assets let central and security teams deliver reusable and secure components to engineering teams across the organization. This approach improves consistency, strengthens security, builds resilience, speeds up delivery, and spreads best practices across the cloud environment.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/framework/fnd04-bp03.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Establish standard repositories of shared resources and patterns",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/framework/fnd04-bp03.html"
+                            }
+                        },
+                        {
+                            "id": "FND04_BP04",
+                            "title": "Implement mechanisms for patch management",
+                            "helpfulResource": {
+                                "displayText": "Effective patch management helps keep systems across your cloud environment secure and running well. As a foundation practice, you need mechanisms that operate patch management across accounts and hybrid infrastructure at scale. Automation applies updates consistently and on time, and cuts manual work.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/framework/fnd04-bp04.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Implement mechanisms for patch management",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/framework/fnd04-bp04.html"
+                            }
+                        },
+                        {
+                            "id": "FND04_BP05",
+                            "title": "Establish service quota management",
+                            "helpfulResource": {
+                                "displayText": "Service quotas (formerly service limits) control how many of each AWS resource type an account can provision. Unmanaged quotas cause failures when workloads hit a limit during a scaling event, a failover, or a large deployment. A central quota management capability gives workload teams visibility into their current consumption and a predictable path to request increases before they run out.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/framework/fnd04-bp05.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Establish service quota management",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/framework/fnd04-bp05.html"
+                            }
+                        },
+                        {
+                            "id": "FND04_BP06",
+                            "title": "Establish centralized backup standards and mechanisms",
+                            "helpfulResource": {
+                                "displayText": "Backups are a foundation capability every workload depends on, but without central standards each team builds its own approach. The result is inconsistent coverage, mixed retention periods, untested restore procedures, and vaults that might not survive the incident they were meant to recover from. A central backup foundation gives workload teams reliable backup and restore primitives so they do not have to design backup from scratch.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/framework/fnd04-bp06.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Establish centralized backup standards and mechanisms",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/framework/fnd04-bp06.html"
+                            }
+                        },
+                        {
+                            "id": "FND04_BP07",
+                            "title": "Establish cross-Region replication and failover capabilities",
+                            "helpfulResource": {
+                                "displayText": "Cross-Region replication and failover are technical capabilities that workloads with high availability or disaster recovery requirements depend on. Without central patterns, workload teams design their own replication approaches and failover mechanisms. During the first real event, they discover that a critical item (a key, a route, a quota, or a piece of state) is missing from the secondary Region. A central foundation for replication and failover gives workload teams tested primitives so they can meet their resilience requirements without reinventing the mechanics.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/framework/fnd04-bp07.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Establish cross-Region replication and failover capabilities",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/framework/fnd04-bp07.html"
+                            }
+                        },
+                        {
+                            "id": "FND04_BP08",
+                            "title": "Establish resilience testing tooling",
+                            "helpfulResource": {
+                                "displayText": "Resilience testing (fault injection, chaos engineering, game days) validates that workloads handle the failures they are designed to handle. Without central tooling, workload teams either build their own testing infrastructure or, more often, skip testing entirely. A central resilience testing foundation gives workload teams ready-to-use experiment templates, safe execution environments, and the observability they need to learn from each experiment.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/framework/fnd04-bp08.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Establish resilience testing tooling",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/framework/fnd04-bp08.html"
+                            }
+                        },
+                        {
+                            "id": "FND04_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "FND04_BP01 && FND04_BP02 && FND04_BP03 && FND04_BP04 && FND04_BP05 && FND04_BP06 && FND04_BP07 && FND04_BP08",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "FND04_BP01 && FND04_BP04 && FND04_BP06",
+                            "risk": "MEDIUM_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "HIGH_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "FND05",
+                    "title": "How do you detect, respond to, and remediate security threats and compliance violations?",
+                    "description": "A strong security posture combines preventive, proactive, detective, and reactive controls so issues are blocked where they can be, caught before they are deployed, detected in running resources, and remediated when they appear. Security and compliance at the foundation level sets up emergency access, standardized log and telemetry destinations, auditable inventory, threat detection, vulnerability management, dedicated security tooling, forensic readiness, shift-left compliance checks, and organization-wide encryption and key management. This capability covers the best practices that protect your organization's resources and let security teams prevent, detect, and respond to events effectively.",
+                    "choices": [
+                        {
+                            "id": "FND05_BP01",
+                            "title": "Shift compliance checks left with proactive controls",
+                            "helpfulResource": {
+                                "displayText": "Proactive controls evaluate infrastructure and configuration against your organization's standards before resources are provisioned, so non-compliant resources are blocked at deploy time. Shifting these checks into pipelines, templates, and provisioning flows shortens the feedback loop for builders, shrinks the backlog that detective tooling has to work through, and reduces the volume of remediation work that lands on downstream teams.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/framework/fnd05-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Shift compliance checks left with proactive controls",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/framework/fnd05-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "FND05_BP02",
+                            "title": "Establish emergency access mechanisms",
+                            "helpfulResource": {
+                                "displayText": "Establish processes that provide emergency access to your workloads when your centralized identity provider is unavailable or misconfigured. When federation fails, authorized administrators need an alternate path to cloud resources to resolve critical issues. Design emergency access processes for specific failure modes so administrators have the right tools without creating shortcuts around normal controls.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/framework/fnd05-bp02.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Establish emergency access mechanisms",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/framework/fnd05-bp02.html"
+                            }
+                        },
+                        {
+                            "id": "FND05_BP03",
+                            "title": "Configure audit logging of cloud operations",
+                            "helpfulResource": {
+                                "displayText": "Enable audit logging across your cloud environment and verify it produces a complete, accurate record of actions taken. Use these logs to investigate incidents, alert on specific operations or behavioral anomalies, and reconstruct the timeline and scope of an incident.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/framework/fnd05-bp03.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Configure audit logging of cloud operations",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/framework/fnd05-bp03.html"
+                            }
+                        },
+                        {
+                            "id": "FND05_BP04",
+                            "title": "Configure standardized locations for logs, traces, and metrics",
+                            "helpfulResource": {
+                                "displayText": "Security teams use logs and findings to analyze events that might indicate unauthorized activity or unintentional changes. Operations teams use logs, distributed traces, and metrics to understand system behavior and detect and mitigate issues early. Capture logs, traces, and metrics in standardized locations to correlate data points across all three signal types and simplify tool integrations.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/framework/fnd05-bp04.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Configure standardized locations for logs, traces, and metrics",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/framework/fnd05-bp04.html"
+                            }
+                        },
+                        {
+                            "id": "FND05_BP05",
+                            "title": "Maintain an auditable cloud inventory record",
+                            "helpfulResource": {
+                                "displayText": "An auditable inventory record captures what resources exist, how they are configured, and how they have changed over time. It emphasizes completeness, immutability of history, and alignment with evidence. A well-maintained, audit-ready inventory improves security investigations and forensic reconstruction.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/framework/fnd05-bp05.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Maintain an auditable cloud inventory record",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/framework/fnd05-bp05.html"
+                            }
+                        },
+                        {
+                            "id": "FND05_BP06",
+                            "title": "Remediate non-compliant resources",
+                            "helpfulResource": {
+                                "displayText": "Verify that all resources in your cloud environment comply with your organization's policies and standards to maintain a secure and efficient infrastructure. When you identify non-compliant resources, remediate them.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/framework/fnd05-bp06.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Remediate non-compliant resources",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/framework/fnd05-bp06.html"
+                            }
+                        },
+                        {
+                            "id": "FND05_BP07",
+                            "title": "Implement threat detection mechanisms",
+                            "helpfulResource": {
+                                "displayText": "As security risks continue to evolve, establish detection mechanisms that identify security issues, misconfigurations, and unexpected activity in your environment so you can respond quickly.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/framework/fnd05-bp07.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Implement threat detection mechanisms",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/framework/fnd05-bp07.html"
+                            }
+                        },
+                        {
+                            "id": "FND05_BP08",
+                            "title": "Employ vulnerability and patch management controls",
+                            "helpfulResource": {
+                                "displayText": "Establish centralized vulnerability and patch management so your organization can identify, assess, and remediate security weaknesses consistently across workloads. A shared foundation reduces duplicated effort and creates clear accountability.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/framework/fnd05-bp08.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Employ vulnerability and patch management controls",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/framework/fnd05-bp08.html"
+                            }
+                        },
+                        {
+                            "id": "FND05_BP09",
+                            "title": "Establish security tooling for investigating incidents",
+                            "helpfulResource": {
+                                "displayText": "In a multi-account cloud environment, dedicate an account to operating security services, monitoring accounts, and automating security alerting and response. Security teams then have unified visibility and can investigate incidents consistently across the organization.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/framework/fnd05-bp09.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Establish security tooling for investigating incidents",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/framework/fnd05-bp09.html"
+                            }
+                        },
+                        {
+                            "id": "FND05_BP10",
+                            "title": "Prepare forensic capabilities",
+                            "helpfulResource": {
+                                "displayText": "Ahead of a security incident, prepare forensics accounts, tooling, and documented procedures so responders can collect and analyze evidence quickly and preserve chain of custody.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/framework/fnd05-bp10.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Prepare forensic capabilities",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/framework/fnd05-bp10.html"
+                            }
+                        },
+                        {
+                            "id": "FND05_BP11",
+                            "title": "Establish encryption and key management standards",
+                            "helpfulResource": {
+                                "displayText": "Encryption and key management are foundation services that every workload consumes. Without a central standard, each team decides where keys are stored, who can use them, how they rotate, and how they are shared across accounts. The result is fragmented key ownership, inconsistent rotation, and surprise lockouts when one account deletes a key that another account's workloads depend on. A central encryption foundation gives workload teams reliable primitives, so they do not design key management themselves.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/framework/fnd05-bp11.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Establish encryption and key management standards",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/framework/fnd05-bp11.html"
+                            }
+                        },
+                        {
+                            "id": "FND05_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "FND05_BP01 && FND05_BP02 && FND05_BP03 && FND05_BP04 && FND05_BP05 && FND05_BP06 && FND05_BP07 && FND05_BP08 && FND05_BP09 && FND05_BP10 && FND05_BP11",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "FND05_BP03 && FND05_BP05 && FND05_BP08 && FND05_BP11",
+                            "risk": "MEDIUM_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "HIGH_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "FND06",
+                    "title": "How do you track, control, and optimize cloud spend across teams and workloads?",
+                    "description": "Managing cloud spend combines detailed cost visibility, standardized attribution, effective tooling, good commercial agreements, outcome-based metrics, and smart use of commitment discounts. This capability covers the best practices that let organizations understand, attribute, and optimize cloud spending as it grows.",
+                    "choices": [
+                        {
+                            "id": "FND06_BP01",
+                            "title": "Configure detailed cost information sources",
+                            "helpfulResource": {
+                                "displayText": "Implement centralized cost management and reporting to provide detailed visibility into cloud spending across all accounts and resources in your organization.These reports support granular analysis of costs, automated reporting, and data-driven decision making for cloud financial management.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/framework/fnd06-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Configure detailed cost information sources",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/framework/fnd06-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "FND06_BP02",
+                            "title": "Standardize cost attribution categories",
+                            "helpfulResource": {
+                                "displayText": "Establish organization-wide standards for cost attribution categories to allocate cloud costs to business units, departments, and projects. This standardization builds on the organization's resource tagging strategy. Consistent cost attribution supports financial governance and drives cost-aware behavior across the organization.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/framework/fnd06-bp02.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Standardize cost attribution categories",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/framework/fnd06-bp02.html"
+                            }
+                        },
+                        {
+                            "id": "FND06_BP03",
+                            "title": "Configure billing and cost management tools",
+                            "helpfulResource": {
+                                "displayText": "Configure cost management tools that provide organization-wide visibility, control, and optimization capabilities. With this foundation, central teams govern cloud spending, and business units have appropriate access to cost data and optimization tools.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/framework/fnd06-bp03.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Configure billing and cost management tools",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/framework/fnd06-bp03.html"
+                            }
+                        },
+                        {
+                            "id": "FND06_BP04",
+                            "title": "Optimize software licensing and third-party agreements",
+                            "helpfulResource": {
+                                "displayText": "Establish organization-wide governance and processes for managing software licenses and third-party agreements. This includes centralizing license management, standardizing procurement processes, optimizing licensing costs, and using consolidated procurement channels for better commercial terms and billing.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/framework/fnd06-bp04.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Optimize software licensing and third-party agreements",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/framework/fnd06-bp04.html"
+                            }
+                        },
+                        {
+                            "id": "FND06_BP05",
+                            "title": "Establish organizational metrics to track optimization efforts",
+                            "helpfulResource": {
+                                "displayText": "Implement organization-wide metrics, goals, and tracking mechanisms to measure and optimize cloud spending across your accounts. This includes establishing standardized key performance indicators (KPIs), implementing full monitoring and reporting frameworks, and creating feedback loops for continuous optimization.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/framework/fnd06-bp05.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Establish organizational metrics to track optimization efforts",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/framework/fnd06-bp05.html"
+                            }
+                        },
+                        {
+                            "id": "FND06_BP06",
+                            "title": "Build strategies for commitment discounts and volume-based pricing",
+                            "helpfulResource": {
+                                "displayText": "Establish an organization-wide strategy for using cloud pricing models and commitment-based discounts across all accounts. Centralize management of commitment-based offerings to maximize cost savings while maintaining operational flexibility. Surface commitment and reservation recommendations at the organization level so purchasing decisions reflect consolidated usage.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/framework/fnd06-bp06.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Build strategies for commitment discounts and volume-based pricing",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/framework/fnd06-bp06.html"
+                            }
+                        },
+                        {
+                            "id": "FND06_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "FND06_BP01 && FND06_BP02 && FND06_BP03 && FND06_BP04 && FND06_BP05 && FND06_BP06",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "FND06_BP01 && FND06_BP02 && FND06_BP03",
+                            "risk": "MEDIUM_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "HIGH_RISK"
+                        }
+                    ]
+                },
+                {
+                    "id": "FND07",
+                    "title": "How do you design, secure, and centrally manage network connectivity across the enterprise?",
+                    "description": "A strong networking foundation balances centralized governance with operational efficiency. Decisions about network topology, protection controls, and shared services such as DNS shape how workloads connect, how traffic is inspected, and how teams move through normal and exceptional scenarios. This capability covers the best practices for designing, securing, and centrally managing network connectivity across the enterprise.",
+                    "choices": [
+                        {
+                            "id": "FND07_BP01",
+                            "title": "Define your network and connectivity strategy and centralized resources",
+                            "helpfulResource": {
+                                "displayText": "An enterprise network and connectivity strategy defines network topology, connectivity patterns, and centralized network services. Standard approaches for internet access, external access, network segmentation, and service access create secure communication between workloads, consistent connectivity to on-premises resources, and predictable access to shared services. With these standards in place, workload teams can move quickly and stay within enterprise security and operational boundaries.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/framework/fnd07-bp01.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Define your network and connectivity strategy and centralized resources",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/framework/fnd07-bp01.html"
+                            }
+                        },
+                        {
+                            "id": "FND07_BP02",
+                            "title": "Implement centralized network protection controls",
+                            "helpfulResource": {
+                                "displayText": "Centralized network protection controls apply consistent traffic filtering, inspection, threat prevention, and security monitoring across an organization's network. Standard controls at strategic inspection points detect and prevent threats, meet compliance requirements, and protect workloads from network-based attacks without each team rebuilding the same controls.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/framework/fnd07-bp02.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Implement centralized network protection controls",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/framework/fnd07-bp02.html"
+                            }
+                        },
+                        {
+                            "id": "FND07_BP03",
+                            "title": "Establish centralized DNS management",
+                            "helpfulResource": {
+                                "displayText": "Centralized DNS management provides reliable name resolution across your organization through a single, governed infrastructure. Because DNS sits beneath almost every distributed system, inconsistent ownership, fragmented hosted zones, and informal changes cause disruptions and security gaps with outsized impact scope. Consolidating DNS under consistent controls, automated processes, and clear ownership keeps name resolution reliable, observable, and secure while supporting operational efficiency.",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/framework/fnd07-bp03.html"
+                            },
+                            "improvementPlan": {
+                                "displayText": "Establish centralized DNS management",
+                                "url": "https://docs.aws.amazon.com/wellarchitected/latest/framework/fnd07-bp03.html"
+                            }
+                        },
+                        {
+                            "id": "FND07_no",
+                            "title": "None of these",
+                            "helpfulResource": {
+                                "displayText": "Choose this if your workload does not follow these best practices."
+                            }
+                        }
+                    ],
+                    "riskRules": [
+                        {
+                            "condition": "FND07_BP01 && FND07_BP02 && FND07_BP03",
+                            "risk": "NO_RISK"
+                        },
+                        {
+                            "condition": "FND07_BP02",
+                            "risk": "MEDIUM_RISK"
+                        },
+                        {
+                            "condition": "default",
+                            "risk": "HIGH_RISK"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
